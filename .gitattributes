@@ -1,2 +1,16 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Auto-generated files: rebuilt by the cloud job every run, so never prompt to
+# "resolve conflicts" on them — just auto-keep a version (next run rebuilds it).
+# One-time activation (run once in Terminal in this folder):
+#   git config merge.ours.driver true
+website/live.html        merge=ours
+website/index.html       merge=ours
+website/live_data.json   merge=ours
+website/WC2026_predictions.xlsx merge=ours
+website/WC2026_report.docx      merge=ours
+data/odds_history.json   merge=ours
+data/goal_events.json    merge=ours
+data/lineups.json        merge=ours
+data/results.csv         merge=ours

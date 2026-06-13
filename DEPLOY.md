@@ -89,6 +89,24 @@ API-Football setup:
    key, those sections simply stay hidden (never faked). Free tier is ~100 requests/day,
    which the script stays within by caching finished matches.
 
+## Make pushing painless (one-time, optional)
+
+The cloud job commits regenerated files every run, so if you also push from your
+laptop you can hit a "resolve conflicts" prompt on those generated files. To make git
+auto-resolve them forever (no more prompts), run this **once** in Terminal inside the
+project folder:
+
+```
+git config merge.ours.driver true
+```
+
+(The committed `.gitattributes` already marks the generated files; this command just
+turns on the auto-keep behaviour on your machine.) After this, pushing never stops to
+ask about `live.html`, `live_data.json`, etc.
+
+Even simpler rule of thumb: the site is fully automatic, so you rarely need to push at
+all — only when code changes. When you do, click **Fetch → Pull → Push**.
+
 ## What each piece is
 
 - `src/refresh.sh` — the one command the cloud job runs: pull results → fetch goal

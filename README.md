@@ -64,10 +64,18 @@ snapshot. Remaining-match probabilities use the frozen pre-tournament model; to 
 refresh the model's strengths on new results, re-run `make_live_data.py` (e.g. on a
 daily schedule).
 
-The live page has a **Tournament Stats** section: Golden Boot leaderboard, our own
-cumulative player power rankings, and model-driven storylines (biggest upset, most
-dramatic match by win-prob swing, highest-scoring, model accuracy) — all computed
-in-browser from real goal data + the model.
+The live page also includes:
+- **Tournament Stats** — Golden Boot, our cumulative player power rankings, storylines
+  (biggest upset, most dramatic match, highest-scoring), and a **model scorecard**
+  (live log-loss / Brier vs coin-flip baseline).
+- **Title race** — a chart of each contender's championship probability over time,
+  snapshotted daily by `src/snapshot.js` (reuses the engine in Node) into
+  `data/odds_history.json`.
+- **Team pages** — click any team in the title-odds table for live odds, recent form,
+  and **all-time head-to-head** mined from the 1872–2026 results DB
+  (`h2h`/`form`/`teaminfo` precomputed in `make_live_data.py`).
+- **Score-forecast heatmap** on each match — the model's pre-match scoreline
+  distribution with the actual result ringed.
 
 Each live/finished match opens a **Match Centre**: our own player-rating model
 (rates goal contributors from real events, crowns a Player of the Match), a goal

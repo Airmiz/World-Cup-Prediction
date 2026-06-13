@@ -148,6 +148,28 @@ table.big tbody tr:hover{background:var(--tint)}
 .tile .d{font-size:12px;color:var(--mut);margin-top:3px}
 .ratemini{width:54px;height:6px;border-radius:3px;background:var(--track);overflow:hidden;display:inline-block;vertical-align:middle}
 .ratemini i{display:block;height:100%;background:var(--tri)}
+/* team modal */
+#oddstable tbody tr{cursor:pointer}
+.formchips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.fchip{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff}
+.fchip.W{background:var(--green)}.fchip.D{background:#aeaeb2}.fchip.L{background:var(--red)}
+.frow{display:flex;align-items:center;gap:9px;font-size:13px;padding:5px 0;border-top:1px solid var(--hair)}
+.frow:first-child{border-top:none}
+.frow .res{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff;flex:none}
+.frow .sc{font-variant-numeric:tabular-nums;font-weight:700}
+.h2hrow{display:flex;align-items:center;gap:9px;font-size:13.5px;padding:6px 0;border-top:1px solid var(--hair)}
+.h2hrow:first-child{border-top:none}
+.h2hrow .opp{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h2hrow .wdl{font-variant-numeric:tabular-nums;color:var(--mut)}
+.tmstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:10px;margin:8px 0 4px}
+.tmstats .b{background:var(--bg);border-radius:10px;padding:9px 11px;text-align:center}
+.tmstats .b .v{font-size:18px;font-weight:800}.tmstats .b .k{font-size:10.5px;color:var(--mut);margin-top:2px}
+/* score heatmap */
+.heat{display:grid;gap:3px;margin-top:8px;max-width:360px}
+.heatcell{aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--txt);font-variant-numeric:tabular-nums}
+.heatcell.act{outline:2.5px solid #f5c84b;font-weight:800}
+.heatlbl{font-size:10px;color:var(--mut);display:flex;align-items:center;justify-content:center}
+.heatcap{font-size:11px;color:var(--mut);margin-top:6px;text-align:center}
 .spin{display:inline-block;width:14px;height:14px;border:2px solid var(--track);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .mcard.clk{cursor:pointer;transition:transform .2s,box-shadow .2s}
@@ -242,7 +264,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 </head>
 <body>
 <nav><div class="in"><b><span class="lg">26</span> World Cup 26</b>
-<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#bracket">Bracket</a></div></nav>
+<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#tracker">Title race</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#bracket">Bracket</a></div></nav>
 <div class="wrap">
 
 <header class="hero">
@@ -260,6 +282,11 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 <section id="stats">
  <div class="shead"><h2>Tournament stats</h2><p>Live leaderboards and model-driven storylines, built from real match data — the Golden Boot race, our own player power rankings, and how the tournament is defying (or matching) the forecast.</p></div>
  <div id="statsbox"></div>
+</section>
+
+<section id="tracker">
+ <div class="shead"><h2>Title race</h2><p>How each contender's championship probability has moved since kickoff — recomputed by the model after every result.</p></div>
+ <div class="card" id="trackerbox" style="padding:18px"></div>
 </section>
 
 <section id="groups">
@@ -288,6 +315,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 </div>
 
 <div class="ov" id="wpov"><div class="modal" id="wpmodal"></div></div>
+<div class="ov" id="tmov"><div class="modal" id="tmmodal"></div></div>
 
 <script>
 const D = __DATA__;
@@ -362,8 +390,32 @@ function recompute(){
  setTimeout(()=>{                       // let the spinner paint
   const out=WCLive.runLive(D,{N:NSIMS,results:STATE.results,ko:STATE.ko});
   LAST=out;
-  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderGroups(out); renderOdds(out); renderBracket(out);
+  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderTracker(); renderGroups(out); renderOdds(out); renderBracket(out);
  },20);
+}
+
+/* Title race — championship probability over time */
+function renderTracker(){
+ const box=document.getElementById("trackerbox");
+ const H=D.odds_history||[];
+ if(!H.length){ box.innerHTML=`<div class="locked">The title-race chart builds as the tournament progresses.</div>`; return; }
+ const latest=H[H.length-1].champ;
+ const teams=Object.entries(latest).sort((a,b)=>b[1]-a[1]).slice(0,6).map(x=>x[0]);
+ const maxP=Math.max(0.05,...teams.map(t=>Math.max(...H.map(h=>h.champ[t]||0))));
+ const PADL=46,PADR=150,PADT=16,PADB=30,W=1000,Hh=360;
+ const x=i=>PADL+(H.length<=1?0.5:(i/(H.length-1)))*(W-PADL-PADR);
+ const y=p=>PADT+(1-p/(maxP*1.12))*(Hh-PADT-PADB);
+ const pal=["#1e6fd9","#d92d2d","#00854d","#bf5af2","#ff9f0a","#34c759"];
+ const grid=[0,.25,.5,.75,1].map(fr=>{const p=fr*maxP*1.12;
+   return `<line class="gridln" x1="${PADL}" y1="${y(p)}" x2="${W-PADR}" y2="${y(p)}"/><text class="axt" x="${PADL-6}" y="${y(p)+4}" text-anchor="end">${(p*100).toFixed(0)}%</text>`;}).join("");
+ const xt=H.map((h,i)=>`<text class="axt" x="${x(i)}" y="${Hh-9}" text-anchor="middle">${h.date.slice(5)}</text>`).join("");
+ const lines=teams.map((t,ti)=>{const c=pal[ti%pal.length];
+   const pts=H.map((h,i)=>x(i)+","+y(h.champ[t]||0)).join(" ");
+   const dots=H.map((h,i)=>`<circle cx="${x(i)}" cy="${y(h.champ[t]||0)}" r="3" fill="${c}"/>`).join("");
+   const last=H[H.length-1].champ[t]||0;
+   return `<polyline fill="none" stroke="${c}" stroke-width="2.5" points="${pts}"/>${dots}<text x="${W-PADR+10}" y="${y(last)+4}" class="axt" fill="${c}" font-weight="700">${F(t)} ${t} ${(last*100).toFixed(1)}%</text>`;
+ }).join("");
+ box.innerHTML=`<svg viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto">${grid}${xt}${lines}</svg>`;
 }
 
 /* tournament stats — leaderboards + model storylines, from real data */
@@ -386,12 +438,14 @@ function renderStats(){
  const boot=Object.values(scorers).sort((a,b)=>b.goals-a.goals||a.pens-b.pens).slice(0,8);
  const power=Object.values(ratingAcc).map(a=>({...a,avg:a.sum/a.n})).sort((a,b)=>b.avg-a.avg).slice(0,8);
 
- let upset=null, drama=null, hi=null, correct=0;
+ let upset=null, drama=null, hi=null, correct=0, ll=0, brier=0;
  keys.forEach(k=>{ const ev=D.goal_events[k], f=fxKey[k], score=scoreFromGE(ev);
    const pre=WCInPlay.probs(f.eh,f.ea,0,0,0);
    const favSide=pre[0]>=pre[2]?0:2, favProb=Math.max(pre[0],pre[2]);
    const actIdx=score[0]>score[1]?0:score[0]<score[1]?2:1;
    if(actIdx===pre.indexOf(Math.max(...pre))) correct++;
+   ll += -Math.log(Math.max(pre[actIdx],1e-9));
+   brier += [0,1,2].reduce((s,j)=>s+(pre[j]-(j===actIdx?1:0))**2,0);
    if(actIdx!==favSide){ if(!upset||favProb>upset.mag) upset={f,score,mag:favProb,
      favName:favSide===0?f.home:f.away, winName:actIdx===1?"Draw":(actIdx===0?f.home:f.away)}; }
    const tl=WCInPlay.timeline(f.eh,f.ea,ev); let mx=0,mn=1; tl.forEach(p=>{mx=Math.max(mx,p.p[0]);mn=Math.min(mn,p.p[0]);});
@@ -405,6 +459,8 @@ function renderStats(){
    ["Most dramatic", drama?`${pc(drama.sw,0)} swing`:"—", drama?lbl(drama.f)+` ${drama.score[0]}–${drama.score[1]}`:""],
    ["Highest scoring", hi?`${hi.tot} goals`:"—", hi?lbl(hi.f)+` ${hi.score[0]}–${hi.score[1]}`:""],
    ["Model accuracy", `${correct}/${keys.length}`, `results called correctly so far`],
+   ["Model log-loss", (ll/keys.length).toFixed(3), `vs 1.099 coin-flip — lower is better`],
+   ["Model Brier", (brier/keys.length).toFixed(3), `vs 0.667 coin-flip — lower is better`],
    ["Goals / match", (totalGoals/keys.length).toFixed(2), `${totalGoals} goals in ${keys.length} matches`],
    ["Matches played", `${keys.length}/72`, `group stage`],
  ].map(t=>`<div class="tile"><div class="k">${t[0]}</div><div class="v">${t[1]}</div><div class="d">${t[2]}</div></div>`).join("");
@@ -521,7 +577,7 @@ function renderOdds(out){
    d:out.champion[o.t]-D.baseline[o.t].p_champion}))
   .sort((a,b)=>b.champ-a.champ);
  const tb=document.querySelector("#oddstable tbody");
- tb.innerHTML=rows.map((r,i)=>`<tr>
+ tb.innerHTML=rows.map((r,i)=>`<tr data-team="${r.team}">
   <td>${i+1}</td>
   <td><div class="teamcell">${F(r.team)} ${r.team}</div></td>
   <td><span class="champbar"><i style="width:${Math.min(100,100*r.champ/0.20)}%"></i></span><b>${pc(r.champ,1)}</b></td>
@@ -595,6 +651,36 @@ loadLive().then(scheduleAuto);
 const WP={fid:null,events:[],minute:90,anim:null,mode:"actual"};
 const ov=document.getElementById("wpov"), modalEl=document.getElementById("wpmodal");
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+/* team detail modal — odds, recent form, all-time head-to-head */
+const tmov=document.getElementById("tmov"), tmmodal=document.getElementById("tmmodal");
+function closeTeam(){ tmov.classList.remove("show"); document.body.style.overflow=""; }
+tmov.addEventListener("click",e=>{ if(e.target===tmov) closeTeam(); });
+function openTeam(team){
+ const ti=D.teaminfo[team]; if(!ti) return;
+ const o=LAST||{}; const g=ti.group;
+ const rivals=(D.groups[g]||[]).filter(t=>t!==team);
+ const formHTML=(D.form[team]||[]).map(m=>`<div class="frow"><span class="res ${m.res}">${m.res}</span><span style="flex:1">vs ${F(m.opp)} ${m.opp}</span><span class="sc">${m.gf}–${m.ga}</span></div>`).join("")||`<div class="locked">No recent matches.</div>`;
+ const h2hHTML=rivals.map(opp=>{ const rec=(D.h2h[team]||{})[opp];
+   if(!rec) return `<div class="h2hrow"><span class="opp">${F(opp)} ${opp}</span><span class="wdl">never met</span></div>`;
+   const [w,d,l,gf,ga]=rec; return `<div class="h2hrow"><span class="opp">${F(opp)} ${opp}</span><span class="wdl">${w}W ${d}D ${l}L · ${gf}–${ga}</span></div>`;
+ }).join("");
+ const odds = o.champion ? `<div class="tmstats">
+   <div class="b"><div class="v">${pc(o.champion[team],1)}</div><div class="k">Champion</div></div>
+   <div class="b"><div class="v">${pc(o.final[team],1)}</div><div class="k">Final</div></div>
+   <div class="b"><div class="v">${pc(o.qf[team])}</div><div class="k">Quarters</div></div>
+   <div class="b"><div class="v">${pc(o.r32[team])}</div><div class="k">Advance</div></div>
+   <div class="b"><div class="v">${ti.elo}</div><div class="k">Elo</div></div></div>` : "";
+ tmmodal.innerHTML=`
+  <button class="close" id="tmclose">✕</button>
+  <div class="mh"><span class="tn">${F(team)} ${team}</span></div>
+  <div class="meta">Group ${g} · model attack ${ti.attack} · defence ${ti.defence}</div>
+  ${odds}
+  <div class="mcsec" style="margin-top:14px"><h4>Recent form <span class="tag">last ${(D.form[team]||[]).length}</span></h4>${formHTML}</div>
+  <div class="mcsec" style="margin-top:14px"><h4>Head-to-head vs group rivals <span class="tag">all-time · 1872–2026</span></h4>${h2hHTML}</div>`;
+ tmov.classList.add("show"); document.body.style.overflow="hidden";
+ document.getElementById("tmclose").onclick=closeTeam;
+}
 
 function matchStatus(fid){
  const f=fixById[fid]; const res=STATE.results[fid];
@@ -717,6 +803,22 @@ function matchCentre(f){
  const teamName=t=>t==="home"?f.home:f.away;
  const lu=D.lineups[f.home+"|"+f.away];
 
+ // pre-match score-distribution heatmap (rows = home goals, cols = away goals)
+ const G=D.grid, NN=6, pm=f.pmf||[];
+ let heatHTML="";
+ if(pm.length){
+  let mp=0; for(let i=0;i<NN;i++)for(let j=0;j<NN;j++) mp=Math.max(mp,pm[i*G+j]||0);
+  let g=`<div class="heat" style="grid-template-columns:16px repeat(${NN},1fr)"><div></div>`+
+    Array.from({length:NN},(_,j)=>`<div class="heatlbl">${j}</div>`).join("");
+  for(let i=0;i<NN;i++){ g+=`<div class="heatlbl">${i}</div>`;
+   for(let j=0;j<NN;j++){ const p=pm[i*G+j]||0, a=mp?p/mp:0;
+     const act=(score[0]===i&&score[1]===j);
+     g+=`<div class="heatcell ${act?"act":""}" style="background:rgba(30,111,217,${(0.06+0.92*a).toFixed(2)})">${p>=0.04?Math.round(p*100):""}</div>`; }
+  }
+  g+=`</div><div class="heatcap">Rows = ${F(f.home)} ${f.home} goals · columns = ${F(f.away)} ${f.away} goals · gold ring = actual result</div>`;
+  heatHTML=`<div class="mcsec"><h4>Model score forecast <span class="tag">pre-match probabilities</span></h4>${g}</div>`;
+ }
+
  // ---- goal log (always, from openfootball goal events) ----
  const golHTML = ev.length ? `<div class="golog">`+ev.slice().sort((a,b)=>a.min-b.min).map(e=>{
    const pt = e.og ? (e.team==="home"?"away":"home") : e.team;
@@ -788,6 +890,7 @@ function matchCentre(f){
  return `<div class="mc">
    <div class="mcsec"><h4>Our player ratings <span class="tag">${ratTag}</span></h4>${ratHTML}</div>
    <div class="mcsec"><h4>Goals</h4>${golHTML}</div>
+   ${heatHTML}
    ${extraHTML}
    <div class="mcsec"><h4>Result vs model</h4>${mvmHTML}</div>
   </div>`;
@@ -843,6 +946,8 @@ function animatePlay(){ stopAnim(); if(WP.minute>=90)WP.minute=0; const b=docume
  animTimer=setInterval(()=>{ WP.minute+=1; if(WP.minute>=90){WP.minute=90;drawModal();stopAnim();return;} drawModal(); },55); }
 
 document.getElementById("feedbox").addEventListener("click",e=>{const c=e.target.closest(".mcard.clk");if(c)openMatch(+c.dataset.fid);});
+document.getElementById("oddstable").addEventListener("click",e=>{const tr=e.target.closest("tr[data-team]");if(tr)openTeam(tr.dataset.team);});
+addEventListener("keydown",e=>{if(e.key==="Escape")closeTeam();});
 
 /* nav highlight */
 const secs=[...document.querySelectorAll("section")],links=[...document.querySelectorAll('nav a[href^="#"]')];

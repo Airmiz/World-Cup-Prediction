@@ -86,12 +86,44 @@ from make_site import FLAGS
 import os
 goal_events = json.load(open("data/goal_events.json")) if os.path.exists("data/goal_events.json") else {}
 
+# ---- team detail: info, all-time head-to-head, recent form (from 1872-2026 DB) ----
+teamset = set(teams)
+hist = df.dropna(subset=["home_score"]).copy()
+hist["home_score"] = hist["home_score"].astype(int)
+hist["away_score"] = hist["away_score"].astype(int)
+h2h = {t: {} for t in teams}
+both = hist[hist["home_team"].isin(teamset) & hist["away_team"].isin(teamset)]
+for r in both.itertuples():
+    for x, y, xs, ys in ((r.home_team, r.away_team, r.home_score, r.away_score),
+                         (r.away_team, r.home_team, r.away_score, r.home_score)):
+        rec = h2h[x].setdefault(y, [0, 0, 0, 0, 0])   # w, d, l, gf, ga
+        rec[0 if xs > ys else (1 if xs == ys else 2)] += 1
+        rec[3] += xs; rec[4] += ys
+form = {}
+hist_sorted = hist.sort_values("date")
+for t in teams:
+    sub = hist_sorted[(hist_sorted["home_team"] == t) | (hist_sorted["away_team"] == t)].tail(6)
+    fl = []
+    for r in sub.itertuples():
+        if r.home_team == t:
+            opp, gf, ga = r.away_team, r.home_score, r.away_score
+        else:
+            opp, gf, ga = r.home_team, r.away_score, r.home_score
+        fl.append({"opp": opp, "gf": gf, "ga": ga,
+                   "res": "W" if gf > ga else ("D" if gf == ga else "L")})
+    form[t] = fl
+teaminfo = {t: {"group": tp.loc[t, "group"], "elo": round(float(tp.loc[t, "elo"])),
+                "attack": round(float(tp.loc[t, "dc_attack"]), 2),
+                "defence": round(float(tp.loc[t, "dc_defence"]), 2)} for t in teams}
+
 import os as _os
 lineups = json.load(open("data/lineups.json")) if _os.path.exists("data/lineups.json") else {}
+odds_history = json.load(open("data/odds_history.json")) if _os.path.exists("data/odds_history.json") else []
 
 data = {
     "generated_utc": pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%dT%H:%M:%SZ"),
-    "flags": FLAGS, "goal_events": goal_events, "lineups": lineups,
+    "flags": FLAGS, "goal_events": goal_events, "lineups": lineups, "odds_history": odds_history,
+    "h2h": h2h, "form": form, "teaminfo": teaminfo,
     "groups": groups, "group_order": GROUPS, "teams": teams,
     "third_slots": slots,
     "fixtures": fixtures, "grid": G,

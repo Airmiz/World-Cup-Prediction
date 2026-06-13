@@ -30,6 +30,9 @@ python3 src/fetch_squad.py || echo "[refresh] squad fetch skipped"
 # 3. refit model to today's data + regenerate engine data and pages
 export WC_CUTOFF="$TODAY"
 python3 src/make_live_data.py
+# 3b. Forecast Tracker: snapshot today's championship odds, then re-embed history
+node src/snapshot.js || echo "[refresh] snapshot skipped"
+python3 src/make_live_data.py
 python3 src/make_live.py
 python3 src/make_site.py
 echo "[refresh] done — pages regenerated"
