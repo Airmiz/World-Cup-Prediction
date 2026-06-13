@@ -223,13 +223,25 @@ table.big tbody tr:hover{background:var(--tint)}
 .gol .bdg{font-size:9.5px;font-weight:700;border-radius:6px;padding:1px 6px}
 .bdg.og{color:var(--red);background:rgba(255,59,48,.12)}
 .bdg.pen{color:var(--amber);background:rgba(255,159,10,.14)}
-.rlist{display:flex;flex-direction:column;gap:8px}
-.rrow{display:flex;align-items:center;gap:10px;font-size:13.5px}
-.rrow .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rrow .tags{font-size:11px;color:var(--mut)}
-.rrow .rbar{width:84px;height:7px;border-radius:4px;background:var(--track);overflow:hidden;flex:none}
-.rrow .rbar i{display:block;height:100%}
-.rrow .rv{font-weight:800;font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
+.rlist{display:flex;flex-direction:column;gap:2px}
+.rteam{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--mut);margin:14px 0 6px;padding-bottom:5px;border-bottom:1px solid var(--hair)}
+.rteam:first-child{margin-top:0}
+.rteam .rtflag{font-size:15px}
+.rrow{display:flex;align-items:center;gap:9px;font-size:13.5px;padding:6px 8px;border-radius:9px;transition:background .12s}
+.rrow:hover{background:var(--track)}
+.rrow .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.rrow .tags{display:flex;align-items:center;gap:4px;flex:none}
+.tg{display:inline-flex;align-items:center;justify-content:center;height:16px;font-size:10px;font-weight:800;line-height:1;border-radius:5px;padding:0 5px;font-variant-numeric:tabular-nums}
+.tg.g{background:rgba(52,199,89,.16);color:#1f9d4d}
+.tg.a{background:var(--blue-soft);color:var(--blue)}
+.tg.og{background:rgba(255,59,48,.14);color:var(--red)}
+.tg.sub{background:var(--track);color:var(--mut);font-size:8.5px;letter-spacing:.4px}
+.tg.cd{width:11px;height:14px;border-radius:2.5px;padding:0;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.tg.cd.y{background:#f5c518}
+.tg.cd.r{background:#e0322b}
+.rrow .rbar{width:72px;height:6px;border-radius:4px;background:var(--track);overflow:hidden;flex:none}
+.rrow .rbar i{display:block;height:100%;border-radius:4px}
+.rrow .rv{font-weight:800;font-variant-numeric:tabular-nums;min-width:30px;text-align:right;font-size:14px}
 .r-hi i{background:var(--green)}.r-hi .rv{color:var(--green)}
 .r-mid i{background:var(--blue)}.r-mid .rv{color:var(--blue)}
 .r-lo i{background:#aeaeb2}.r-lo .rv{color:var(--mut)}
@@ -256,7 +268,12 @@ table.big tbody tr:hover{background:var(--tint)}
 .locked{color:var(--mut);font-size:12px;text-align:center;padding:6px 0}
 .locked b{color:var(--txt)}
 .rteam{font-size:11px;font-weight:700;color:var(--mut);margin:8px 0 4px;display:flex;align-items:center;gap:6px}
-.rrow .pos{font-size:9.5px;font-weight:700;color:var(--mut);background:var(--track);border-radius:5px;padding:1px 5px;min-width:24px;text-align:center}
+.rrow .pos{font-size:9px;font-weight:800;letter-spacing:.3px;color:var(--mut);background:var(--track);border-radius:5px;padding:2px 0;width:34px;text-align:center;flex:none}
+.rrow .pos-G{background:rgba(255,159,10,.16);color:#c77700}
+.rrow .pos-D{background:rgba(48,140,217,.14);color:#2b6fbf}
+.rrow .pos-M{background:rgba(52,199,89,.15);color:#1f9d4d}
+.rrow .pos-F{background:rgba(255,59,48,.13);color:#d33}
+.potm.sm{padding:1px 6px;font-size:10px;margin-left:6px;vertical-align:middle}
 .cards,.subsl{display:flex;flex-direction:column;gap:6px;font-size:13.5px}
 .cardr,.subr{display:flex;align-items:center;gap:9px}
 .cardr .mn,.subr .mn{font-variant-numeric:tabular-nums;font-weight:700;min-width:34px}
@@ -272,29 +289,37 @@ table.big tbody tr:hover{background:var(--tint)}
 .luhdr{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut);margin-bottom:2px}
 .luhdr b{color:var(--txt);font-size:13px}
 .formtag{font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums}
-.tstat{display:flex;flex-direction:column;gap:9px;margin-top:6px}
-.tsrow{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"hv lbl av" "bar bar bar";gap:2px 8px;align-items:center}
-.tsrow .tslbl{grid-area:lbl;text-align:center;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.3px}
-.tsrow .tsv{font-weight:700;font-variant-numeric:tabular-nums;font-size:13px}
+.tstat{display:flex;flex-direction:column;gap:13px;margin-top:10px}
+.tsrow{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"hv lbl av" "bar bar bar";gap:4px 10px;align-items:center}
+.tsrow .tslbl{grid-area:lbl;text-align:center;font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.tsrow .tsv{font-weight:600;font-variant-numeric:tabular-nums;font-size:14px;color:var(--mut)}
 .tsrow .tsv.h{grid-area:hv;text-align:left}
 .tsrow .tsv.a{grid-area:av;text-align:right}
-.tsbar{grid-area:bar;display:flex;height:6px;border-radius:4px;overflow:hidden;background:var(--hair)}
-.tsbar i{display:block;height:100%}
+.tsrow .tsv.lead{color:var(--txt);font-weight:800}
+.tsbar{grid-area:bar;display:flex;gap:3px;height:8px}
+.tsbar i{display:block;height:100%;border-radius:4px;min-width:3px;transition:width .4s ease}
 .tsbar i.h{background:var(--blue)}
-.tsbar i.a{background:#ff9f0a}
-.pstat{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
-.pstat th,.pstat td{padding:4px 5px;text-align:center;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--hair)}
-.pstat th{color:var(--mut);font-weight:700;font-size:10px}
-.pstat .pn{text-align:left;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis}
-.pstat th.pn{color:var(--txt);font-size:12px}
+.tsbar i.a{background:var(--amber)}
+.tsbar i.lo{opacity:.3}
+.pstat{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px}
+.pstat th,.pstat td{padding:6px 4px;text-align:center;font-variant-numeric:tabular-nums}
+.pstat th{color:var(--mut);font-weight:800;font-size:9.5px;letter-spacing:.3px;border-bottom:1.5px solid var(--hair)}
+.pstat td{border-bottom:1px solid var(--hair)}
+.pstat tbody tr:last-child td{border-bottom:none}
+.pstat tbody tr:hover td{background:var(--track)}
+.pstat .pn{text-align:left;white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis;font-weight:500;color:var(--txt)}
+.pstat th.pn{color:var(--txt);font-size:11.5px;font-weight:800;letter-spacing:.2px}
 .pstat .z{color:var(--hair)}
-.tpiov{display:flex;justify-content:space-between;align-items:center;margin:4px 0 10px;font-size:13px;color:var(--mut)}
-.tpiov b{font-size:18px;color:var(--txt);font-variant-numeric:tabular-nums}
-.tpiov .tpi.h b{color:var(--blue)} .tpiov .tpi.a b{color:#ff9f0a}
-.sleaders{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.slchip{display:flex;flex-direction:column;gap:2px;background:var(--track);border-radius:10px;padding:7px 11px;min-width:120px}
-.slchip .slk{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.3px}
-.slchip .slv{font-size:12.5px} .slchip .slv b{font-variant-numeric:tabular-nums}
+.pstat td.hi{color:var(--blue);font-weight:800}
+.tpiov{display:flex;justify-content:space-between;align-items:center;margin:6px 0 14px;gap:10px}
+.tpiov .tpi{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut)}
+.tpiov .tpi b{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--txt);line-height:1}
+.tpiov .tpi.h b{color:var(--blue)} .tpiov .tpi.a b{color:var(--amber)}
+.sleaders{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:8px;margin-top:10px}
+.slchip{display:flex;flex-direction:column;gap:3px;background:var(--bg);border:1px solid var(--hair);border-radius:12px;padding:9px 12px}
+.slchip .slk{font-size:9.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px;font-weight:700;display:flex;align-items:center;gap:5px}
+.slchip .slv{font-size:13px;font-weight:500;display:flex;align-items:baseline;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slchip .slv b{font-size:18px;font-variant-numeric:tabular-nums;color:var(--blue);font-weight:800}
 .slchip .slt{color:var(--mut);font-size:11px}
 footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);color:var(--mut);font-size:12px;text-align:center;line-height:1.8}
 @media(max-width:640px){.hero h1{font-size:32px}}
@@ -943,12 +968,21 @@ function matchCentre(f){
       .concat((s.breakdown||[]).map(b=>`<span class="bdchip ${b.v>=0?'pos':'neg'}">${b.k} ${b.v>=0?'+':''}${b.v.toFixed(2)}</span>`));
     return `<div class="rdet">${chips.join("")}<span class="bdchip tot">= ${s.rating.toFixed(1)}</span></div>`;
   };
+  const ratTags=s=>{const o=[];
+    if(s.goals)o.push(`<span class="tg g" title="Goals">⚽${s.goals>1?'×'+s.goals:''}</span>`);
+    if(s.assists)o.push(`<span class="tg a" title="Assists">A${s.assists>1?'×'+s.assists:''}</span>`);
+    if(s.yel)o.push(`<span class="tg cd y" title="Yellow card"></span>`);
+    if(s.red)o.push(`<span class="tg cd r" title="Red card"></span>`);
+    if(s.og)o.push(`<span class="tg og" title="Own goal">OG</span>`);
+    if(!s.started&&s.on)o.push(`<span class="tg sub" title="Substitute">SUB</span>`);
+    return o.join("");};
+  const POS={G:"GK",D:"DEF",M:"MID",F:"FWD"};
   const block=t=>{const rs=rows.filter(s=>s.team===t); if(!rs.length)return"";
-    return `<div class="rteam">${F(teamName(t))} ${teamName(t)}</div>`+rs.map(s=>{
+    return `<div class="rteam"><span class="rtflag">${F(teamName(t))}</span> ${teamName(t)}</div>`+rs.map(s=>{
      const cls=s.rating>=8?"r-hi":s.rating>=7?"r-mid":"r-lo";
-     const tags=[s.goals?`${s.goals}⚽`:"",s.assists?`${s.assists}🅰`:"",s.yel?"🟨":"",s.red?"🟥":"",s.og?"OG":"",!s.started&&s.on?"sub":""].filter(Boolean).join(" ");
-     const star=(s===potm)?`<span class="potm">★ POTM</span>`:"";
-     return `<div class="rrow ${cls}" onclick="togRate(this)"><span class="pos">${(s.pos||"–")}</span><span class="nm">${s.name} ${star}</span><span class="tags">${tags}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span><span class="rcar">›</span></div>${bdHTML(s)}`;
+     const pc2=(s.pos||"").toUpperCase();
+     const star=(s===potm)?`<span class="potm sm" title="Player of the Match">★</span>`:"";
+     return `<div class="rrow ${cls}" onclick="togRate(this)"><span class="pos pos-${pc2||'X'}">${POS[pc2]||"–"}</span><span class="nm">${s.name}${star}</span><span class="tags">${ratTags(s)}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span><span class="rcar">›</span></div>${bdHTML(s)}`;
     }).join("");};
   const potmHTML = potm ? `<div class="potmbar"><span class="potm">★ Player of the Match</span><b>${potm.name}</b> <span class="pm">${F(teamName(potm.team))} ${teamName(potm.team)} · ${potm.rating.toFixed(1)}</span><span class="why">— ${potmLine(potm)}</span></div>` : "";
   ratHTML=potmHTML+`<div class="rlist">${block("home")}${block("away")}</div>`;
@@ -991,8 +1025,9 @@ function matchCentre(f){
      const hn=num(hv), an=num(av), tot=hn+an;
      const hp=tot>0?100*hn/tot:50;
      const hd=isPct?hv+"%":hv, ad=isPct?av+"%":av;
-     return `<div class="tsrow"><span class="tsv h">${hd}</span><span class="tslbl">${tsd.labels[k]}</span><span class="tsv a">${ad}</span>
-       <span class="tsbar"><i class="h" style="width:${hp.toFixed(1)}%"></i><i class="a" style="width:${(100-hp).toFixed(1)}%"></i></span></div>`;
+     const hL=hn>an, aL=an>hn;
+     return `<div class="tsrow"><span class="tsv h ${hL?'lead':''}">${hd}</span><span class="tslbl">${tsd.labels[k]}</span><span class="tsv a ${aL?'lead':''}">${ad}</span>
+       <span class="tsbar"><i class="h ${hL?'':'lo'}" style="width:${hp.toFixed(1)}%"></i><i class="a ${aL?'':'lo'}" style="width:${(100-hp).toFixed(1)}%"></i></span></div>`;
    }).join("");
    if(rows) teamStatsHTML=`<div class="mcsec"><h4>Team stats <span class="tag">${F(f.home)} ${f.home} v ${F(f.away)} ${f.away}</span></h4><div class="tstat">${rows}</div></div>`;
   }
@@ -1005,8 +1040,11 @@ function matchCentre(f){
     if(!players.length)return"";
     const cols=PCOLS.filter(([k])=>players.some(p=>p.st[k]!=null));
     if(!cols.length)return"";
-    const head=`<tr><th class="pn">${F(teamName(t))} ${teamName(t)}</th>`+cols.map(([k,lab])=>`<th title="${lab}">${k}</th>`).join("")+`</tr>`;
-    const body=players.map(p=>`<tr><td class="pn">${p.name}</td>`+cols.map(([k])=>{const v=p.st[k]; return `<td>${(v==null||v===0)?'<span class=z>·</span>':v}</td>`;}).join("")+`</tr>`).join("");
+    const colMax={}; cols.forEach(([k])=>{colMax[k]=Math.max(0,...players.map(p=>+p.st[k]||0));});
+    const head=`<thead><tr><th class="pn">${F(teamName(t))} ${teamName(t)}</th>`+cols.map(([k,lab])=>`<th title="${lab}">${k}</th>`).join("")+`</tr></thead>`;
+    const body=`<tbody>`+players.map(p=>`<tr><td class="pn">${p.name}</td>`+cols.map(([k])=>{const v=p.st[k]; const n=+v||0;
+        const hi=(n>0&&n===colMax[k])?" class=\"hi\"":"";
+        return `<td${hi}>${(v==null||v===0)?'<span class=z>·</span>':v}</td>`;}).join("")+`</tr>`).join("")+`</tbody>`;
     return `<table class="pstat">${head}${body}</table>`;
   };
   const pst=pstatBlock("home")+pstatBlock("away");
@@ -1030,9 +1068,9 @@ function matchCentre(f){
    const dims=[["Attack",H.attack,A.attack],["Control",H.control,A.control],["Discipline",H.discipline,A.discipline]];
    const overall=t=>{const o=t==="h"?H:A; return Math.max(0,Math.min(10, 5 + 0.55*(o.attack) + 0.4*(o.control-3.4) + 0.5*o.discipline ));};
    const oH=overall("h"), oA=overall("a");
-   const bars=dims.map(([lab,h,a])=>{const hp=share(h,a);
-     return `<div class="tsrow"><span class="tsv h">${h.toFixed(1)}</span><span class="tslbl">${lab}</span><span class="tsv a">${a.toFixed(1)}</span>
-       <span class="tsbar"><i class="h" style="width:${hp.toFixed(1)}%"></i><i class="a" style="width:${(100-hp).toFixed(1)}%"></i></span></div>`;}).join("");
+   const bars=dims.map(([lab,h,a])=>{const hp=share(h,a);const hL=h>a,aL=a>h;
+     return `<div class="tsrow"><span class="tsv h ${hL?'lead':''}">${h.toFixed(1)}</span><span class="tslbl">${lab}</span><span class="tsv a ${aL?'lead':''}">${a.toFixed(1)}</span>
+       <span class="tsbar"><i class="h ${hL?'':'lo'}" style="width:${hp.toFixed(1)}%"></i><i class="a ${aL?'':'lo'}" style="width:${(100-hp).toFixed(1)}%"></i></span></div>`;}).join("");
    teamPerfHTML=`<div class="mcsec"><h4>Team performance index <span class="tag">our composite · 0–10</span></h4>
      <div class="tpiov"><span class="tpi h">${F(f.home)} ${f.home} <b>${oH.toFixed(1)}</b></span><span class="tpi a"><b>${oA.toFixed(1)}</b> ${f.away} ${F(f.away)}</span></div>
      <div class="tstat">${bars}</div>
@@ -1043,7 +1081,7 @@ function matchCentre(f){
   const allP=["home","away"].flatMap(t=>[].concat(lu[t]&&lu[t].xi||[],lu[t]&&lu[t].subs||[]).filter(p=>p.st).map(p=>({...p,team:t})));
   if(allP.length){
    const lead=(key,lab,icon)=>{let best=null;allP.forEach(p=>{const v=+p.st[key]||0; if(v>0&&(!best||v>best.v))best={name:p.name,team:p.team,v};});
-     return best?`<div class="slchip"><span class="slk">${icon} ${lab}</span><span class="slv">${best.name} <b>${best.v}</b> <span class="slt">${F(teamName(best.team))}</span></span></div>`:"";};
+     return best?`<div class="slchip"><span class="slk">${icon} ${lab}</span><span class="slv"><b>${best.v}</b> ${best.name}</span><span class="slt">${F(teamName(best.team))} ${teamName(best.team)}</span></div>`:"";};
    const chips=[lead("G","Goals","⚽"),lead("SH","Shots","🎯"),lead("SOT","On target","✓"),lead("SV","Saves","🧤"),lead("FS","Fouls won","🛡"),lead("FC","Fouls","⚠")].filter(Boolean).join("");
    if(chips) statLeadersHTML=`<div class="mcsec"><h4>Match stat leaders</h4><div class="sleaders">${chips}</div></div>`;
   }
