@@ -522,8 +522,18 @@ function recompute(){
  setTimeout(()=>{                       // let the spinner paint
   const out=WCLive.runLive(D,{N:NSIMS,results:STATE.results,ko:STATE.ko});
   LAST=out;
-  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderTracker(); renderGroups(out); renderOdds(out); renderBracket(out);
+  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderTracker(); renderGroups(out); renderOdds(out); renderBracket(out); refreshOpenModal();
  },20);
+}
+/* keep an open in-play popup tracking a live match as new goals arrive */
+function refreshOpenModal(){
+ if(!ov.classList.contains("show") || WP.fid==null) return;
+ if(matchStatus(WP.fid)!=="live" || animTimer || !WP.followLive) return;   // only follow live; never fight Replay or a manual scrub
+ const f=fixById[WP.fid]; const known=D.goal_events[f.home+"|"+f.away];
+ WP.events = known ? known.map(e=>({...e})) : [];
+ const lv=STATE.live&&STATE.live[WP.fid];
+ if(lv && lv.minute!=null) WP.minute=Math.max(0,Math.min(90,lv.minute));
+ drawModal();
 }
 
 /* Title race — championship probability over time */
@@ -634,7 +644,7 @@ function renderStatus(){
  sb.innerHTML=
   `<span class="pill">${srcDot}${srcTxt}</span>`+
   `<span class="pill"><b>${STATE.played}</b>/72 group matches played</span>`+
-  `<span class="pill">updated <b>${upd}</b> · ${tzAbbr}</span>`+
+  `<span class="pill">updated <b>${upd}</b> · ${tzAbbr}${(AUTO&&STATE.liveCount>0)?' · auto every 25s':''}</span>`+
   busy+
   `<button class="btn ghost" id="refreshBtn">↻ Refresh now</button>`+
   `<button class="btn" id="autoBtn"></button>`;
@@ -788,13 +798,14 @@ function renderBracket(out){
 /* ---- auto refresh ---- */
 let AUTO=true, autoTimer=null;
 function scheduleAuto(){ clearTimeout(autoTimer); if(!AUTO)return;
- autoTimer=setTimeout(()=>{loadLive().then(scheduleAuto);},90000); }
+ const ms = (STATE.liveCount>0) ? 25000 : 90000;   // poll ESPN faster while a match is in play
+ autoTimer=setTimeout(()=>{loadLive().then(scheduleAuto);},ms); }
 
 document.getElementById("ftN").textContent=NSIMS.toLocaleString();
 loadLive().then(scheduleAuto);
 
 /* ===== Win-probability explorer ===== */
-const WP={fid:null,events:[],minute:90,anim:null,mode:"actual"};
+const WP={fid:null,events:[],minute:90,anim:null,mode:"actual",followLive:false};
 const ov=document.getElementById("wpov"), modalEl=document.getElementById("wpmodal");
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
 
@@ -842,6 +853,7 @@ function openMatch(fid){
  const res=STATE.results[fid];
  const known=D.goal_events[f.home+"|"+f.away];
  WP.status=matchStatus(fid);
+ WP.followLive=(WP.status==="live");   // a freshly-opened live match auto-tracks new goals
  if(WP.status==="ft"){
    WP.events = known ? known.map(e=>({...e})) : (res ? spreadGoals(res[0],res[1]) : []);
    WP.minute = 90;
@@ -1233,14 +1245,14 @@ function drawModal(){
   ${matchCentre(f)}`;
  document.getElementById("wpclose").onclick=closeModal;
  const mr=document.getElementById("wpmin");
- mr.oninput=()=>{WP.minute=+mr.value;stopAnim();drawModal();};
+ mr.oninput=()=>{WP.minute=+mr.value;WP.followLive=false;stopAnim();drawModal();};
  document.getElementById("wpplay").onclick=animateToggle;
- document.getElementById("wprewind").onclick=()=>{WP.minute=0;stopAnim();drawModal();};
+ document.getElementById("wprewind").onclick=()=>{WP.minute=0;WP.followLive=false;stopAnim();drawModal();};
 }
 let animTimer=null;
 function stopAnim(){if(animTimer){clearInterval(animTimer);animTimer=null;const b=document.getElementById("wpplay");if(b)b.textContent="▶ Play";}}
 function animateToggle(){ if(animTimer){stopAnim();return;} animatePlay(); }
-function animatePlay(){ stopAnim(); if(WP.minute>=90)WP.minute=0; const b=document.getElementById("wpplay");if(b)b.textContent="⏸ Pause";
+function animatePlay(){ stopAnim(); WP.followLive=false; if(WP.minute>=90)WP.minute=0; const b=document.getElementById("wpplay");if(b)b.textContent="⏸ Pause";
  animTimer=setInterval(()=>{ WP.minute+=1; if(WP.minute>=90){WP.minute=90;drawModal();stopAnim();return;} drawModal(); },55); }
 
 document.getElementById("feedbox").addEventListener("click",e=>{const c=e.target.closest(".mcard.clk");if(c)openMatch(+c.dataset.fid);});
