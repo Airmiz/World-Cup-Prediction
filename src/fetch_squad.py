@@ -96,10 +96,24 @@ def main():
     existing = json.load(open(path)) if os.path.exists(path) else {}
 
     try:
-        fx = api_get("/fixtures", {"league": LEAGUE, "season": SEASON}).get("response", [])
+        payload = api_get("/fixtures", {"league": LEAGUE, "season": SEASON})
+        fx = payload.get("response", [])
     except Exception as e:
         print(f"[fetch_squad] fixtures fetch failed: {e}")
         return 0
+
+    # --- diagnostics: what did API-Football actually return? ---
+    errs = payload.get("errors")
+    print(f"[fetch_squad] /fixtures league={LEAGUE} season={SEASON}: results={payload.get('results')} errors={errs}")
+    if fx:
+        from collections import Counter
+        st = Counter(x.get("fixture", {}).get("status", {}).get("short", "?") for x in fx)
+        print(f"[fetch_squad] fixture statuses: {dict(st)}")
+        sample = [f'{x["teams"]["home"]["name"]} v {x["teams"]["away"]["name"]} [{x.get("fixture",{}).get("status",{}).get("short")}]' for x in fx[:4]]
+        print(f"[fetch_squad] sample fixtures: {sample}")
+    else:
+        print("[fetch_squad] no fixtures returned — this provider has no WC2026 data on your plan yet, "
+              "or league/season id differs. (Lineups stay hidden until data exists.)")
 
     added = 0
     for fxi in fx:
