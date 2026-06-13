@@ -156,10 +156,11 @@ def parse_summary(summ, our_home, our_away):
         who = [(p.get("athlete") or {}).get("displayName") for p in (ev.get("participants") or [])
                if (p.get("athlete") or {}).get("displayName")]
         mn = minute(ev)
+        is_goal = ev.get("scoringPlay") is True or ("goal" in ttype and "no goal" not in ttype)
         if "own goal" in ttype:
             events.append({"min": mn, "team": side, "type": "goal", "detail": "Own Goal",
                            "player": who[0] if who else None})
-        elif "goal" in ttype and "no goal" not in ttype:
+        elif is_goal:  # "penalty---scored" has no "goal" in its type string, so trust ESPN's scoringPlay flag
             events.append({"min": mn, "team": side, "type": "goal",
                            "detail": "Penalty" if "penalt" in ttype else "Normal Goal",
                            "player": who[0] if who else None,

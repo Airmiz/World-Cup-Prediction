@@ -451,7 +451,7 @@ function espnDateRange(){   // YYYYMMDD-YYYYMMDD spanning the tournament so far 
  return fmt(Math.min(...ds))+"-"+fmt(Math.min(Date.now()+6*3600e3, Math.max(...ds)));
 }
 function parseESPN(d){
- const finals={}, live={}, goals={};
+ const finals={}, live={}, goals={}, post=[];
  (d.events||[]).forEach(e=>{
   const comp=e.competitions&&e.competitions[0]; if(!comp) return;
   const cs=comp.competitors||[];
@@ -468,20 +468,80 @@ function parseESPN(d){
    const o={min:isNaN(mn)?0:mn, team:side}; if(x.ownGoal)o.og=true; if(x.penaltyKick)o.pen=true; ev.push(o);
   });
   ev.sort((a,b)=>a.min-b.min);
-  if(state==="post"){ finals[fid]=[hs,as]; if(ev.length)goals[key]=ev; }
+  if(state==="post"){ finals[fid]=[hs,as]; if(ev.length)goals[key]=ev; post.push({key,eid:e.id}); }
   else if(state==="in"){ live[fid]={hs,as,minute:espnMinute(e),eid:e.id,key}; goals[key]=ev; }
  });
- return {finals,live,goals};
+ return {finals,live,goals,post};
 }
-async function espnAttachNames(lv,goals){   // best-effort scorer names from the summary endpoint
+// ESPN per-player stat name -> our short column (mirrors fetch_espn.PLAYER_STATS)
+const ESPN_PSTAT={totalGoals:"G",goalAssists:"A",totalShots:"SH",shotsOnTarget:"SOT",foulsCommitted:"FC",foulsSuffered:"FS",offsides:"OFF",yellowCards:"YC",redCards:"RC",saves:"SV",goalsConceded:"GC"};
+// ESPN team stat name -> [label, isPercent], in display order (mirrors fetch_espn.TEAM_STATS)
+const ESPN_TSTAT=[["possessionPct","Possession",true],["totalShots","Shots",false],["shotsOnTarget","Shots on Target",false],["wonCorners","Corners",false],["totalPasses","Passes",false],["foulsCommitted","Fouls",false],["offsides","Offsides",false],["yellowCards","Yellow Cards",false],["redCards","Red Cards",false],["totalTackles","Tackles",false],["interceptions","Interceptions",false],["saves","Saves",false]];
+function espnPosBucket(name){ const n=String(name||"").toLowerCase();
+ if(n.includes("keeper")||n.includes("goal"))return"G";
+ if(n.includes("defend")||n.includes("back")||n.includes("sweeper"))return"D";
+ if(n.includes("midfield"))return"M";
+ if(["forward","striker","wing","attack"].some(w=>n.includes(w)))return"F";
+ return"M"; }
+function espnPlayerStats(p){ const raw={}; (p.stats||[]).forEach(s=>{ if(s&&s.name!=null)raw[s.name]=s.displayValue; });
+ const out={}; for(const en in ESPN_PSTAT){ const v=raw[en]; if(v==null||v==="")continue; const n=parseFloat(v); out[ESPN_PSTAT[en]]=isNaN(n)?v:Math.round(n); }
+ return Object.keys(out).length?out:null; }
+function espnEvMin(ev){ const c=(ev.clock&&ev.clock.displayValue)||ev.time||""; const m=String(c).match(/(\d+)/); return m?parseInt(m[1],10):0; }
+// Build the data/lineups.json record (formation/XI/subs/per-player stats/cards/subs/teamstats) from an ESPN
+// summary. Teams are oriented to OUR canonical home/away BY NAME, so it's robust to ESPN's home/away choice.
+function buildLineupFromSummary(s, home, away){
+ const rosters=s.rosters||[]; if(!rosters.length) return null;
+ const sideOf=tn=>{const c=espnCanon(tn); return c===home?"home":c===away?"away":null;};
+ const blocks={};
+ rosters.forEach(r=>{ const side=sideOf((r.team&&r.team.displayName)||""); if(!side) return;
+  const xi=[], subs=[];
+  (r.roster||[]).forEach(p=>{ const ath=p.athlete&&p.athlete.displayName; if(!ath) return;
+   const pos=p.position||{}; const e={name:ath,num:p.jersey,pos:espnPosBucket(pos.displayName||pos.name||pos.abbreviation)};
+   const st=espnPlayerStats(p); if(st)e.st=st;
+   (p.starter?xi:subs).push(e); });
+  blocks[side]={formation:r.formation||"",xi:xi.slice(0,11),subs}; });
+ if(!("home" in blocks)&&!("away" in blocks)) return null;
+ const events=[];   // goals / cards / subs from keyEvents
+ (s.keyEvents||s.commentary||[]).forEach(ev=>{ const t=ev.type||{}; const tt=String(t.type||t.text||"").toLowerCase();
+  const side=sideOf((ev.team&&ev.team.displayName)||""); if(!side) return;
+  const who=(ev.participants||[]).map(p=>p.athlete&&p.athlete.displayName).filter(Boolean); const mn=espnEvMin(ev);
+  const isGoal = ev.scoringPlay===true || (tt.includes("goal")&&!tt.includes("no goal"));   // "penalty---scored" has no "goal" in its type, so trust scoringPlay
+  if(tt.includes("own goal")) events.push({min:mn,team:side,type:"goal",detail:"Own Goal",player:who[0]||null});
+  else if(isGoal) events.push(Object.assign({min:mn,team:side,type:"goal",detail:tt.includes("penalt")?"Penalty":"Normal Goal",player:who[0]||null}, who.length>1?{assist:who[1]}:{}));
+  else if(tt.includes("yellow")) events.push({min:mn,team:side,type:"card",card:"yellow",player:who[0]||null});
+  else if(tt.includes("red")) events.push({min:mn,team:side,type:"card",card:"red",player:who[0]||null});
+  else if(tt.includes("substitut")) events.push({min:mn,team:side,type:"subst",assist:who[0]||null,player:who.length>1?who[1]:null});
+ });
+ // reconcile cards against per-player boxscore YC/RC (drop overturned VAR cards; never invent one)
+ const tally={};
+ rosters.forEach(r=>(r.roster||[]).forEach(p=>{ const nm=p.athlete&&p.athlete.displayName; if(!nm)return;
+  const raw={}; (p.stats||[]).forEach(s2=>{if(s2&&s2.name!=null)raw[s2.name]=s2.displayValue;});
+  if(Object.keys(raw).length){ const gi=k=>{const n=parseFloat(raw[k]);return isNaN(n)?0:Math.round(n);}; tally[espnNorm(nm)]={yellow:gi("yellowCards"),red:gi("redCards")}; } }));
+ const evs=events.filter(e=>{ if(e.type!=="card")return true; const ta=tally[espnNorm(e.player||"")]; if(!ta)return true; return (ta[e.card]||0)>0; });
+ // team match stats from the boxscore
+ const ts={home:{},away:{},labels:{},pct:{}};
+ ((s.boxscore&&s.boxscore.teams)||[]).forEach(t=>{ const side=sideOf((t.team&&t.team.displayName)||""); if(!side)return;
+  const have={}; (t.statistics||[]).forEach(st=>{if(st&&st.name)have[st.name]=st;});
+  ESPN_TSTAT.forEach(function(row){ const name=row[0]; const st=have[name];
+   if(!st||st.displayValue==null||st.displayValue==="")return; ts[side][name]=st.displayValue; ts.labels[name]=row[1]; ts.pct[name]=row[2]; }); });
+ const rec={status:"LIVE",source:"espn",home:blocks.home||{formation:"",xi:[],subs:[]},away:blocks.away||{formation:"",xi:[],subs:[]},events:evs};
+ if(Object.keys(ts.home).length||Object.keys(ts.away).length) rec.teamstats=ts;
+ return rec;
+}
+// Fetch one summary and use it to (a) attach scorer names to the goal timeline and (b) build the live Match Centre record.
+async function espnSummaryHydrate(key, eid, goals, lineups){
  try{
-  const r=await fetch(ESPN_SUM+"?event="+lv.eid,{cache:"no-store"}); if(!r.ok)return;
-  const s=await r.json(); const byMin={};
-  (s.keyEvents||[]).forEach(x=>{ if(!x.scoringPlay)return;
-   const mn=parseInt(String((x.clock&&x.clock.displayValue)||"").replace(/[^0-9]/g,""),10);
-   const nm=x.participants&&x.participants[0]&&x.participants[0].athlete&&x.participants[0].athlete.displayName;
-   if(!isNaN(mn)&&nm&&byMin[mn]==null)byMin[mn]=nm; });
-  (goals[lv.key]||[]).forEach(g=>{ if(byMin[g.min])g.name=byMin[g.min]; });
+  const r=await fetch(ESPN_SUM+"?event="+eid,{cache:"no-store"}); if(!r.ok)return;
+  const s=await r.json();
+  if(goals && goals[key]){ const byMin={};
+   (s.keyEvents||[]).forEach(x=>{ if(!x.scoringPlay)return;
+    const mn=parseInt(String((x.clock&&x.clock.displayValue)||"").replace(/[^0-9]/g,""),10);
+    const nm=x.participants&&x.participants[0]&&x.participants[0].athlete&&x.participants[0].athlete.displayName;
+    if(!isNaN(mn)&&nm&&byMin[mn]==null)byMin[mn]=nm; });
+   goals[key].forEach(g=>{ if(byMin[g.min])g.name=byMin[g.min]; });
+  }
+  const i=key.indexOf("|"); const rec=buildLineupFromSummary(s, key.slice(0,i), key.slice(i+1));
+  if(rec) lineups[key]=rec;
  }catch(_){}
 }
 async function loadESPN(){
@@ -489,7 +549,13 @@ async function loadESPN(){
  const res=await fetch(ESPN_SB+(range?"?dates="+range:""),{cache:"no-store"});
  if(!res.ok) throw new Error("ESPN HTTP "+res.status);
  const parsed=parseESPN(await res.json());
- await Promise.all(Object.values(parsed.live).map(lv=>espnAttachNames(lv,parsed.goals)));
+ parsed.lineups={};
+ const jobs=[];
+ // live matches: refresh scorer names + the full Match Centre (lineups/stats/cards/subs) every cycle
+ Object.values(parsed.live).forEach(lv=>jobs.push(espnSummaryHydrate(lv.key, lv.eid, parsed.goals, parsed.lineups)));
+ // just-finished matches not yet in the embedded lineups: hydrate once (then they stay cached)
+ (parsed.post||[]).forEach(pm=>{ if(!(D.lineups&&D.lineups[pm.key])) jobs.push(espnSummaryHydrate(pm.key, pm.eid, parsed.goals, parsed.lineups)); });
+ await Promise.all(jobs);
  return parsed;
 }
 
@@ -501,10 +567,14 @@ async function loadLive(){
  if(espn||mart){
   const results=Object.assign({}, mart||{}, espn?espn.finals:{});   // ESPN finals win ties
   const live=espn?espn.live:{};
-  if(espn){ for(const k in espn.goals){
+  if(espn){
+   for(const k in espn.goals){
     const isLive=Object.keys(live).some(fid=>live[fid].key===k);
     if(isLive || !D.goal_events[k] || !D.goal_events[k].length) D.goal_events[k]=espn.goals[k]; // fresh for live; fill gaps; keep richer embedded finals
-  } }
+   }
+   if(!D.lineups) D.lineups={};
+   for(const k in espn.lineups){ D.lineups[k]=espn.lineups[k]; }   // live = fresh each cycle; just-finished = fill once
+  }
   STATE={results,ko:{},live,source:espn?"espn":"live",fetchedUTC:new Date(),
    played:Object.keys(results).length, liveCount:Object.keys(live).length, err:espn?null:String((err&&err.message)||err||"")};
  }else{
