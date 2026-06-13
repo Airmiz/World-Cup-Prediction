@@ -67,5 +67,18 @@
       "team": "home",
       "name": "Giovanni Reyna"
     }
+  ],
+  "Qatar|Switzerland": [
+    {
+      "min": 17,
+      "team": "away",
+      "name": "Breel Embolo",
+      "pen": true
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Boualem Khoukhi"
+    }
   ]
 }
