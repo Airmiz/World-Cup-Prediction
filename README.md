@@ -77,9 +77,21 @@ The live page also includes:
 - **Score-forecast heatmap** on each match — the model's pre-match scoreline
   distribution with the actual result ringed.
 
-Each live/finished match opens a **Match Centre**: our own player-rating model
-(rates goal contributors from real events, crowns a Player of the Match), a goal
-log (scorers/minutes/own-goals), and a "result vs model" panel. Add a free API-Football key (GitHub secret `API_FOOTBALL_KEY`, see DEPLOY.md) and
+Each live/finished match opens a **Match Centre**: our own **player-rating model v2**,
+a goal log (scorers/minutes/own-goals), team & player match stats, a team performance
+index, match stat leaders, and a "result vs model" panel.
+
+**Player rating model v2** (`fullSquadRatings` in `src/make_live.py`) is a position-aware,
+multi-factor model anchored at **6.5** (an average outing) and bounded 3.0–10.0. Goals,
+assists, cards, own goals and missed penalties come from match events; shot volume, shots
+on target, fouls committed/won, offsides, saves and goals conceded come from real
+per-player ESPN stats. Contributions are weighted (e.g. +1.25 open-play goal, +0.85
+penalty, +0.75 assist, +0.18/save capped at +1.2, clean-sheet bonuses for GK/DEF, foul &
+card penalties) and goalkeepers/defenders are scored on a defensive basis. Every rating
+keeps a **breakdown** of its weighted parts — tap a player to see exactly what drove the
+number. The **Player of the Match** is the highest-rated player across both sides (not
+just a goalscorer), with an auto-generated one-line justification. Ratings aggregate across
+all matches into a tournament **Top performers** leaderboard and a **team rating table**. Add a free API-Football key (GitHub secret `API_FOOTBALL_KEY`, see DEPLOY.md) and
 `src/fetch_espn.py` pulls **formations, full lineups, cards and substitutions from ESPN's
 JSON API** (free, no key, preferred — richest + near-live; undocumented endpoint used at
 the owner's discretion). `src/fetch_wiki.py` is a free Wikipedia (CC BY-SA) fallback that pulls **formations, lineups, cards and substitutions**

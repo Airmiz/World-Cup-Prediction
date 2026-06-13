@@ -234,6 +234,20 @@ table.big tbody tr:hover{background:var(--tint)}
 .r-mid i{background:var(--blue)}.r-mid .rv{color:var(--blue)}
 .r-lo i{background:#aeaeb2}.r-lo .rv{color:var(--mut)}
 .potm{display:inline-flex;align-items:center;gap:6px;background:var(--tri);color:#fff;border-radius:999px;padding:3px 11px;font-size:11px;font-weight:700}
+.potmbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:linear-gradient(90deg,rgba(255,159,10,.14),rgba(255,159,10,.03));border:1px solid rgba(255,159,10,.3);border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:13px}
+.potmbar b{font-size:14px}
+.potmbar .pm{color:var(--mut);font-size:12px}
+.potmbar .why{color:var(--mut);font-style:italic;font-size:12px}
+.rrow{cursor:pointer}
+.rrow .rcar{color:var(--mut);font-weight:700;transition:transform .15s;flex:none}
+.rrow.ropen .rcar{transform:rotate(90deg)}
+.rdet{display:none;flex-wrap:wrap;gap:5px;padding:4px 0 10px 30px;margin-top:-2px}
+.rdet.open{display:flex}
+.bdchip{font-size:10.5px;border-radius:6px;padding:2px 7px;font-variant-numeric:tabular-nums;background:var(--track);color:var(--mut)}
+.bdchip.pos{background:rgba(52,199,89,.14);color:#1f9d4d}
+.bdchip.neg{background:rgba(255,69,58,.14);color:#d33}
+.bdchip.base{background:var(--blue-soft);color:var(--blue);font-weight:600}
+.bdchip.tot{background:var(--txt);color:var(--surface);font-weight:700}
 .mvm{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .mvm .box{background:var(--bg);border-radius:10px;padding:10px 12px}
 .mvm .box .k{font-size:11px;color:var(--mut)}
@@ -258,6 +272,30 @@ table.big tbody tr:hover{background:var(--tint)}
 .luhdr{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut);margin-bottom:2px}
 .luhdr b{color:var(--txt);font-size:13px}
 .formtag{font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums}
+.tstat{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.tsrow{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"hv lbl av" "bar bar bar";gap:2px 8px;align-items:center}
+.tsrow .tslbl{grid-area:lbl;text-align:center;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.3px}
+.tsrow .tsv{font-weight:700;font-variant-numeric:tabular-nums;font-size:13px}
+.tsrow .tsv.h{grid-area:hv;text-align:left}
+.tsrow .tsv.a{grid-area:av;text-align:right}
+.tsbar{grid-area:bar;display:flex;height:6px;border-radius:4px;overflow:hidden;background:var(--hair)}
+.tsbar i{display:block;height:100%}
+.tsbar i.h{background:var(--blue)}
+.tsbar i.a{background:#ff9f0a}
+.pstat{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+.pstat th,.pstat td{padding:4px 5px;text-align:center;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--hair)}
+.pstat th{color:var(--mut);font-weight:700;font-size:10px}
+.pstat .pn{text-align:left;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis}
+.pstat th.pn{color:var(--txt);font-size:12px}
+.pstat .z{color:var(--hair)}
+.tpiov{display:flex;justify-content:space-between;align-items:center;margin:4px 0 10px;font-size:13px;color:var(--mut)}
+.tpiov b{font-size:18px;color:var(--txt);font-variant-numeric:tabular-nums}
+.tpiov .tpi.h b{color:var(--blue)} .tpiov .tpi.a b{color:#ff9f0a}
+.sleaders{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.slchip{display:flex;flex-direction:column;gap:2px;background:var(--track);border-radius:10px;padding:7px 11px;min-width:120px}
+.slchip .slk{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.3px}
+.slchip .slv{font-size:12.5px} .slchip .slv b{font-variant-numeric:tabular-nums}
+.slchip .slt{color:var(--mut);font-size:11px}
 footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);color:var(--mut);font-size:12px;text-align:center;line-height:1.8}
 @media(max-width:640px){.hero h1{font-size:32px}}
 </style>
@@ -420,23 +458,32 @@ function renderTracker(){
 
 /* tournament stats — leaderboards + model storylines, from real data */
 function scoreFromGE(ev){let h=0,a=0;ev.forEach(e=>{e.team==="home"?h++:a++;});return [h,a];}
+function matchScore(f,ev){ if(f&&STATE.results&&STATE.results[f.fid])return STATE.results[f.fid];
+ let h=0,a=0; ev.forEach(e=>{const pt=e.og?(e.team==="home"?"away":"home"):e.team; pt==="home"?h++:a++;}); return [h,a]; }
 function renderStats(){
  const box=document.getElementById("statsbox");
  const fxKey={}; D.fixtures.forEach(f=>fxKey[f.home+"|"+f.away]=f);
  const keys=Object.keys(D.goal_events).filter(k=>fxKey[k]);
  if(!keys.length){ box.innerHTML=`<div class="stcard"><div class="locked">Leaderboards and storylines appear once matches are played.</div></div>`; return; }
- const scorers={}, ratingAcc={};
+ const scorers={}, ratingAcc={}, teamAcc={};
  let totalGoals=0;
  keys.forEach(k=>{
-   const ev=D.goal_events[k], f=fxKey[k], score=scoreFromGE(ev);
+   const ev=D.goal_events[k], f=fxKey[k], score=matchScore(f,ev);
    totalGoals+=score[0]+score[1];
    ev.forEach(e=>{ if(e.og)return; const t=e.team==="home"?f.home:f.away; const id=e.name+"|"+t;
      const s=scorers[id]||(scorers[id]={name:e.name,team:t,goals:0,pens:0}); s.goals++; if(e.pen)s.pens++; });
-   playerRatings(ev,score).forEach(r=>{ const t=r.team==="home"?f.home:f.away; const id=r.name+"|"+t;
-     const a=ratingAcc[id]||(ratingAcc[id]={name:r.name,team:t,sum:0,n:0}); a.sum+=r.rating; a.n++; });
+   // full-model ratings when a lineup exists for this match; else goal-contributor fallback
+   const lu=D.lineups[k];
+   const rated = (lu && (lu.home||lu.away)) ? fullSquadRatings(lu,score) : playerRatings(ev,score);
+   rated.forEach(r=>{ const t=r.team==="home"?f.home:f.away; const id=r.name+"|"+t;
+     const a=ratingAcc[id]||(ratingAcc[id]={name:r.name,team:t,pos:r.pos||"",sum:0,n:0,best:0,goals:0,assists:0});
+     a.sum+=r.rating; a.n++; a.best=Math.max(a.best,r.rating); a.goals+=r.goals||0; a.assists+=r.assists||0;
+     const ta=teamAcc[t]||(teamAcc[t]={team:t,sum:0,n:0}); ta.sum+=r.rating; ta.n++;
+   });
  });
  const boot=Object.values(scorers).sort((a,b)=>b.goals-a.goals||a.pens-b.pens).slice(0,8);
- const power=Object.values(ratingAcc).map(a=>({...a,avg:a.sum/a.n})).sort((a,b)=>b.avg-a.avg).slice(0,8);
+ const power=Object.values(ratingAcc).map(a=>({...a,avg:a.sum/a.n})).sort((a,b)=>b.avg-a.avg||b.best-a.best).slice(0,12);
+ const teamRank=Object.values(teamAcc).map(a=>({...a,avg:a.sum/a.n})).sort((a,b)=>b.avg-a.avg);
 
  let upset=null, drama=null, hi=null, correct=0, ll=0, brier=0;
  keys.forEach(k=>{ const ev=D.goal_events[k], f=fxKey[k], score=scoreFromGE(ev);
@@ -466,12 +513,15 @@ function renderStats(){
  ].map(t=>`<div class="tile"><div class="k">${t[0]}</div><div class="v">${t[1]}</div><div class="d">${t[2]}</div></div>`).join("");
 
  const bootHTML=boot.map((s,i)=>`<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(s.team)}</span><span class="nm">${s.name}</span><span class="sub">${s.pens?s.pens+' pen':''}</span><span class="big">${s.goals}</span></div>`).join("");
- const powerHTML=power.map((s,i)=>`<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(s.team)}</span><span class="nm">${s.name}</span><span class="ratemini"><i style="width:${s.avg*10}%"></i></span><span class="big">${s.avg.toFixed(1)}</span></div>`).join("");
+ const powerHTML=power.map((s,i)=>{const ga=[s.goals?`${s.goals}⚽`:"",s.assists?`${s.assists}🅰`:""].filter(Boolean).join(" ");
+   return `<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(s.team)}</span><span class="nm">${s.name} <span class="sub">${s.pos||""} ${ga}</span></span><span class="sub" title="matches">${s.n}m</span><span class="ratemini"><i style="width:${s.avg*10}%"></i></span><span class="big">${s.avg.toFixed(1)}</span></div>`;}).join("");
+ const teamRankHTML=teamRank.map((s,i)=>`<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(s.team)}</span><span class="nm">${s.team}</span><span class="ratemini"><i style="width:${s.avg*10}%"></i></span><span class="big">${s.avg.toFixed(1)}</span></div>`).join("");
 
  box.innerHTML=`
   <div class="stwrap">
    <div class="stcard"><h3>🥇 Golden Boot</h3>${bootHTML}</div>
-   <div class="stcard"><h3>⭐ Player power rankings <span style="font-size:9.5px;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px">our model</span></h3>${powerHTML}</div>
+   <div class="stcard"><h3>⭐ Top performers <span style="font-size:9.5px;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px">avg rating · model v2</span></h3>${powerHTML}</div>
+   <div class="stcard"><h3>🛡 Team rating table <span style="font-size:9.5px;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px">squad avg</span></h3>${teamRankHTML}</div>
   </div>
   <div class="stcard" style="margin-top:16px"><h3>📈 Storylines</h3><div class="tiles">${tiles}</div></div>`;
 }
@@ -770,14 +820,35 @@ function playerRatings(events, score){
 const RNORM=s=>(s||"").normalize("NFKD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
 function findStat(stat,name){const n=RNORM(name);return Object.values(stat).find(s=>RNORM(s.name)===n)||Object.values(stat).find(s=>RNORM(s.name).includes(n)&&n);}
 
-/* Full-squad ratings from a lineup + events (our model). */
+/* ===========================================================================
+ * PLAYER RATING MODEL v2 — position-aware, multi-factor.
+ *   Anchored at 6.5 (a league-average performance), bounded 3.0–10.0.
+ *   Goals/assists/cards come from match events; volume & defensive work
+ *   (shots, shots on target, fouls, offsides, saves, goals conceded) come
+ *   from real per-player ESPN stats. Every rating keeps a `breakdown` of the
+ *   weighted contributions so it can be inspected on tap. Weights below were
+ *   hand-tuned to land "average" outings near 6.5 and standout games near 8–9,
+ *   matching the feel of WhoScored/SofaScore-style models.
+ * ========================================================================== */
+const RW={ goal:1.25, pen:0.85, brace:0.40, hat:1.00, assist:0.75,
+  shot:0.05, shotCap:0.40, sot:0.11, sotCap:0.55,
+  og:-1.60, miss:-0.70, foulC:-0.06, foulCcap:-0.40, foulS:0.03, foulScap:0.25,
+  offside:-0.05, offCap:-0.25, yel:-0.30, red:-1.20,
+  save:0.18, saveCap:1.20, gkConcede:-0.22, cleanGK:0.70, cleanDef:0.45, defConcede:-0.18,
+  winStart:0.25, drawStart:0.05 };
+const clampR=x=>Math.max(3,Math.min(10,Math.round(x*10)/10));
+function togRate(el){const d=el.nextElementSibling; if(d&&d.classList.contains("rdet")){d.classList.toggle("open"); el.classList.toggle("ropen");}}
+const cap=(v,lo,hi)=>Math.max(lo===null?-1e9:lo,Math.min(hi===null?1e9:hi,v));
+
+/* Full-squad ratings from a lineup + events + per-player stats (our model v2). */
 function fullSquadRatings(lu, score){
  const conceded={home:score[1],away:score[0]};
+ const won={home:score[0]>score[1],away:score[1]>score[0]}, drew=score[0]===score[1];
  const stat={};
- const ensure=(t,name,pos,started)=>{const k=t+"|"+name; return stat[k]||(stat[k]={team:t,name,pos:(pos||""),goals:0,pens:0,assists:0,og:0,yel:0,red:0,missed:0,on:false,off:false,started});};
+ const ensure=(t,name,pos,num,started)=>{const k=t+"|"+name; return stat[k]||(stat[k]={team:t,name,pos:(pos||"").toUpperCase(),num:num,goals:0,pens:0,assists:0,og:0,yel:0,red:0,missed:0,on:false,off:false,started,st:null});};
  ["home","away"].forEach(t=>{const b=lu[t]; if(!b)return;
-   (b.xi||[]).forEach(p=>ensure(t,p.name,p.pos,true));
-   (b.subs||[]).forEach(p=>ensure(t,p.name,p.pos,false));});
+   (b.xi||[]).forEach(p=>{const s=ensure(t,p.name,p.pos,p.num,true); if(p.st)s.st=p.st;});
+   (b.subs||[]).forEach(p=>{const s=ensure(t,p.name,p.pos,p.num,false); if(p.st)s.st=p.st;});});
  (lu.events||[]).forEach(e=>{
    if(e.type==="goal"){const d=(e.detail||"").toLowerCase();
      const s=findStat(stat,e.player);
@@ -788,12 +859,47 @@ function fullSquadRatings(lu, score){
    else if(e.type==="subst"){const onP=e.assist&&findStat(stat,e.assist); const offP=findStat(stat,e.player); if(onP)onP.on=true; if(offP)offP.off=true;}
  });
  return Object.values(stat).filter(s=>s.started||s.on).map(s=>{
-   let r=(s.started?6.6:6.4)+1.2*(s.goals-s.pens)+0.8*s.pens+0.7*s.assists-1.5*s.og-0.3*s.yel-1.1*s.red-0.4*s.missed;
-   const p=(s.pos||"").toUpperCase();
-   if(p==="G"||p==="D"){ if(conceded[s.team]===0)r+=0.4; else if(conceded[s.team]>=3)r-=0.3; }
-   if(s.goals>=2)r+=0.4;
-   return {...s, rating:Math.max(4,Math.min(10,Math.round(r*10)/10))};
+   const bd=[]; const base=s.started?6.5:6.4;
+   const add=(k,v)=>{ if(v) bd.push({k,v:Math.round(v*100)/100}); };
+   const og=s.goals-s.pens;
+   add("Goals",RW.goal*og); add("Penalty goals",RW.pen*s.pens);
+   if(s.goals>=3)add("Hat-trick",RW.hat); else if(s.goals===2)add("Brace",RW.brace);
+   add("Assists",RW.assist*s.assists);
+   add("Own goal",RW.og*s.og); add("Missed penalty",RW.miss*s.missed);
+   add("Yellow card",RW.yel*s.yel); add("Red card",RW.red*s.red);
+   const st=s.st||{}, has=!!s.st;
+   const SH=+st.SH||0, SOT=+st.SOT||0, nonGoalSOT=Math.max(0,SOT-s.goals);
+   if(has){
+     add("Shot volume",cap(RW.shot*SH,0,RW.shotCap));
+     add("Shots on target",cap(RW.sot*nonGoalSOT,0,RW.sotCap));
+     add("Fouls committed",cap(RW.foulC*(+st.FC||0),RW.foulCcap,0));
+     add("Fouls won",cap(RW.foulS*(+st.FS||0),0,RW.foulScap));
+     if(s.pos==="F"||s.pos==="M") add("Offsides",cap(RW.offside*(+st.OFF||0),RW.offCap,0));
+   }
+   if(s.pos==="G"){
+     add("Saves",cap(RW.save*(+st.SV||0),0,RW.saveCap));
+     const gc = has && st.GC!=null ? (+st.GC||0) : (s.started?conceded[s.team]:0);
+     add("Goals conceded",RW.gkConcede*gc);
+     if(s.started&&conceded[s.team]===0) add("Clean sheet",RW.cleanGK);
+   } else if(s.pos==="D"){
+     if(s.started&&conceded[s.team]===0) add("Clean sheet",RW.cleanDef);
+     else if(conceded[s.team]>=2) add("Heavy concession",RW.defConcede*(conceded[s.team]-1));
+   }
+   if(s.started){ if(won[s.team])add("Team won",RW.winStart); else if(drew)add("Team drew",RW.drawStart); }
+   const rating=clampR(base + bd.reduce((a,x)=>a+x.v,0));
+   return {team:s.team,name:s.name,pos:s.pos,num:s.num,started:s.started,on:s.on,
+     goals:s.goals,assists:s.assists,pens:s.pens,og:s.og,yel:s.yel,red:s.red,
+     rating, base, breakdown:bd};
  }).sort((a,b)=>b.rating-a.rating);
+}
+
+/* One-line Player-of-the-Match justification from the top positive drivers. */
+function potmLine(r){
+ const pos=(r.breakdown||[]).filter(b=>b.v>0).sort((a,b)=>b.v-a.v).slice(0,3).map(b=>b.k.toLowerCase());
+ if(!pos.length) return "steady, error-free outing";
+ const map={"goals":"goalscoring","penalty goals":"penalty","shots on target":"goal threat","shot volume":"attacking volume",
+   "assists":"creativity","saves":"shot-stopping","clean sheet":"a clean sheet","team won":"a winning display","fouls won":"drawing fouls"};
+ return pos.map(k=>map[k]||k).join(", ");
 }
 
 function matchCentre(f){
@@ -829,17 +935,23 @@ function matchCentre(f){
  // ---- ratings: full squad if lineup present, else goal contributors ----
  let ratHTML, ratTag;
  if(lu && (lu.home||lu.away)){
-  ratTag="our model · full squad";
+  ratTag="our model v2 · full squad · tap a player";
   const rows=fullSquadRatings(lu, score);
-  const top=rows[0];
+  const potm=rows.find(s=>s.rating>=7)||null;
+  const bdHTML=s=>{
+    const chips=[`<span class="bdchip base">Base ${s.base.toFixed(1)}</span>`]
+      .concat((s.breakdown||[]).map(b=>`<span class="bdchip ${b.v>=0?'pos':'neg'}">${b.k} ${b.v>=0?'+':''}${b.v.toFixed(2)}</span>`));
+    return `<div class="rdet">${chips.join("")}<span class="bdchip tot">= ${s.rating.toFixed(1)}</span></div>`;
+  };
   const block=t=>{const rs=rows.filter(s=>s.team===t); if(!rs.length)return"";
     return `<div class="rteam">${F(teamName(t))} ${teamName(t)}</div>`+rs.map(s=>{
      const cls=s.rating>=8?"r-hi":s.rating>=7?"r-mid":"r-lo";
      const tags=[s.goals?`${s.goals}⚽`:"",s.assists?`${s.assists}🅰`:"",s.yel?"🟨":"",s.red?"🟥":"",s.og?"OG":"",!s.started&&s.on?"sub":""].filter(Boolean).join(" ");
-     const star=(top&&s===top&&s.rating>=7)?`<span class="potm">★ POTM</span>`:"";
-     return `<div class="rrow ${cls}"><span class="pos">${(s.pos||"–")}</span><span class="nm">${s.name} ${star}</span><span class="tags">${tags}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span></div>`;
+     const star=(s===potm)?`<span class="potm">★ POTM</span>`:"";
+     return `<div class="rrow ${cls}" onclick="togRate(this)"><span class="pos">${(s.pos||"–")}</span><span class="nm">${s.name} ${star}</span><span class="tags">${tags}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span><span class="rcar">›</span></div>${bdHTML(s)}`;
     }).join("");};
-  ratHTML=`<div class="rlist">${block("home")}${block("away")}</div>`;
+  const potmHTML = potm ? `<div class="potmbar"><span class="potm">★ Player of the Match</span><b>${potm.name}</b> <span class="pm">${F(teamName(potm.team))} ${teamName(potm.team)} · ${potm.rating.toFixed(1)}</span><span class="why">— ${potmLine(potm)}</span></div>` : "";
+  ratHTML=potmHTML+`<div class="rlist">${block("home")}${block("away")}</div>`;
  } else {
   ratTag="our model · goal contributors";
   const rows=playerRatings(ev, score);
@@ -852,7 +964,7 @@ function matchCentre(f){
  }
 
  // ---- formations / cards / subs (only with lineup data) ----
- let extraHTML="";
+ let extraHTML="", teamPerfHTML="", statLeadersHTML="";
  if(lu && (lu.home||lu.away)){
   const posOrder={G:0,D:1,M:2,F:3};
   const pitch=t=>{const b=lu[t]; if(!b||!b.xi||!b.xi.length)return"";
@@ -866,10 +978,81 @@ function matchCentre(f){
   const subs=(lu.events||[]).filter(e=>e.type==="subst").sort((a,b)=>a.min-b.min);
   const cardsHTML=cards.length?`<div class="cards">`+cards.map(e=>`<div class="cardr"><span class="mn">${e.min}'</span><span class="cardchip ${e.card==="red"?"r":"y"}"></span><span class="nm">${F(teamName(e.team))} ${e.player||""}</span></div>`).join("")+`</div>`:`<div class="locked">No cards.</div>`;
   const subsHTML=subs.length?`<div class="subsl">`+subs.map(e=>`<div class="subr"><span class="mn">${e.min}'</span><span class="in">▲ ${e.assist||"?"}</span><span class="ar">←</span><span class="out">▼ ${e.player||"?"}</span><span class="nm" style="color:var(--mut);font-size:11px">${F(teamName(e.team))}</span></div>`).join("")+`</div>`:`<div class="locked">No substitutions.</div>`;
-  const srcLabel = {espn:"Lineups, cards &amp; subs via ESPN", wikipedia:"Lineups, cards &amp; subs via Wikipedia (CC BY-SA)", "api-football":"Lineups via API-Football", "football-data":"Lineups via football-data.org"}[lu.source] || "";
+  const srcLabel = {espn:"Lineups, stats, cards &amp; subs via ESPN", wikipedia:"Lineups, cards &amp; subs via Wikipedia (CC BY-SA)", "api-football":"Lineups via API-Football", "football-data":"Lineups via football-data.org"}[lu.source] || "";
   const attr = srcLabel ? `<div class="heatcap">${srcLabel}</div>` : "";
+
+  // ---- team match stats: side-by-side comparison bars (hide if absent) ----
+  let teamStatsHTML="";
+  const tsd=lu.teamstats;
+  if(tsd && tsd.labels){
+   const num=v=>{const x=parseFloat(String(v).replace(/[^0-9.\-]/g,"")); return isNaN(x)?0:x;};
+   const rows=Object.keys(tsd.labels).filter(k=>(tsd.home&&k in tsd.home)&&(tsd.away&&k in tsd.away)).map(k=>{
+     const hv=tsd.home[k], av=tsd.away[k], isPct=!!(tsd.pct&&tsd.pct[k]);
+     const hn=num(hv), an=num(av), tot=hn+an;
+     const hp=tot>0?100*hn/tot:50;
+     const hd=isPct?hv+"%":hv, ad=isPct?av+"%":av;
+     return `<div class="tsrow"><span class="tsv h">${hd}</span><span class="tslbl">${tsd.labels[k]}</span><span class="tsv a">${ad}</span>
+       <span class="tsbar"><i class="h" style="width:${hp.toFixed(1)}%"></i><i class="a" style="width:${(100-hp).toFixed(1)}%"></i></span></div>`;
+   }).join("");
+   if(rows) teamStatsHTML=`<div class="mcsec"><h4>Team stats <span class="tag">${F(f.home)} ${f.home} v ${F(f.away)} ${f.away}</span></h4><div class="tstat">${rows}</div></div>`;
+  }
+
+  // ---- player match stats: per-team table of players with stats (hide if absent) ----
+  let playerStatsHTML="";
+  const PCOLS=[["G","Goals"],["A","Assists"],["SH","Shots"],["SOT","On Target"],["FC","Fouls"],["OFF","Offside"],["YC","Yel"],["RC","Red"],["SV","Saves"]];
+  const pstatBlock=t=>{const b=lu[t]; if(!b)return"";
+    const players=[].concat(b.xi||[],b.subs||[]).filter(p=>p.st);
+    if(!players.length)return"";
+    const cols=PCOLS.filter(([k])=>players.some(p=>p.st[k]!=null));
+    if(!cols.length)return"";
+    const head=`<tr><th class="pn">${F(teamName(t))} ${teamName(t)}</th>`+cols.map(([k,lab])=>`<th title="${lab}">${k}</th>`).join("")+`</tr>`;
+    const body=players.map(p=>`<tr><td class="pn">${p.name}</td>`+cols.map(([k])=>{const v=p.st[k]; return `<td>${(v==null||v===0)?'<span class=z>·</span>':v}</td>`;}).join("")+`</tr>`).join("");
+    return `<table class="pstat">${head}${body}</table>`;
+  };
+  const pst=pstatBlock("home")+pstatBlock("away");
+  if(pst) playerStatsHTML=`<div class="mcsec"><h4>Player stats <span class="tag">per match</span></h4>${pst}</div>`;
+
+  // ---- team performance index: composite attack / control / discipline (0–10) ----
+  if(tsd && (tsd.home||tsd.away)){
+   const N=v=>{const x=parseFloat(String(v).replace(/[^0-9.\-]/g,""));return isNaN(x)?0:x;};
+   const gh=score[0], ga=score[1];
+   const idx=(d,gf,ga2)=>{
+     const poss=N(d.possessionPct), sh=N(d.totalShots), sot=N(d.shotsOnTarget),
+       pass=N(d.totalPasses), foul=N(d.foulsCommitted), yc=N(d.yellowCards), rc=N(d.redCards);
+     const attack = 2.0*gf + 0.9*sot + 0.18*sh;                 // finishing + threat
+     const control = 0.045*poss + 0.0035*pass;                  // possession + circulation
+     const discipline = -0.12*foul - 0.6*yc - 1.6*rc;           // fewer fouls/cards = better
+     return {attack, control, discipline};
+   };
+   const H=idx(tsd.home||{},gh,ga), A=idx(tsd.away||{},ga,gh);
+   // scale each dimension to a 0–100 share between the two sides for the bars
+   const share=(h,a)=>{const lo=Math.min(h,a,0);const H2=h-lo,A2=a-lo,t=H2+A2;return t>0?100*H2/t:50;};
+   const dims=[["Attack",H.attack,A.attack],["Control",H.control,A.control],["Discipline",H.discipline,A.discipline]];
+   const overall=t=>{const o=t==="h"?H:A; return Math.max(0,Math.min(10, 5 + 0.55*(o.attack) + 0.4*(o.control-3.4) + 0.5*o.discipline ));};
+   const oH=overall("h"), oA=overall("a");
+   const bars=dims.map(([lab,h,a])=>{const hp=share(h,a);
+     return `<div class="tsrow"><span class="tsv h">${h.toFixed(1)}</span><span class="tslbl">${lab}</span><span class="tsv a">${a.toFixed(1)}</span>
+       <span class="tsbar"><i class="h" style="width:${hp.toFixed(1)}%"></i><i class="a" style="width:${(100-hp).toFixed(1)}%"></i></span></div>`;}).join("");
+   teamPerfHTML=`<div class="mcsec"><h4>Team performance index <span class="tag">our composite · 0–10</span></h4>
+     <div class="tpiov"><span class="tpi h">${F(f.home)} ${f.home} <b>${oH.toFixed(1)}</b></span><span class="tpi a"><b>${oA.toFixed(1)}</b> ${f.away} ${F(f.away)}</span></div>
+     <div class="tstat">${bars}</div>
+     <div class="heatcap">Attack = goals + shots on target + shot volume · Control = possession + passing · Discipline = fouls &amp; cards (higher is cleaner)</div></div>`;
+  }
+
+  // ---- stat leaders: standout per category across both XIs ----
+  const allP=["home","away"].flatMap(t=>[].concat(lu[t]&&lu[t].xi||[],lu[t]&&lu[t].subs||[]).filter(p=>p.st).map(p=>({...p,team:t})));
+  if(allP.length){
+   const lead=(key,lab,icon)=>{let best=null;allP.forEach(p=>{const v=+p.st[key]||0; if(v>0&&(!best||v>best.v))best={name:p.name,team:p.team,v};});
+     return best?`<div class="slchip"><span class="slk">${icon} ${lab}</span><span class="slv">${best.name} <b>${best.v}</b> <span class="slt">${F(teamName(best.team))}</span></span></div>`:"";};
+   const chips=[lead("G","Goals","⚽"),lead("SH","Shots","🎯"),lead("SOT","On target","✓"),lead("SV","Saves","🧤"),lead("FS","Fouls won","🛡"),lead("FC","Fouls","⚠")].filter(Boolean).join("");
+   if(chips) statLeadersHTML=`<div class="mcsec"><h4>Match stat leaders</h4><div class="sleaders">${chips}</div></div>`;
+  }
+
   extraHTML=`
    <div class="mcsec"><h4>Formations <span class="tag">${(lu.home&&lu.home.formation)||""} v ${(lu.away&&lu.away.formation)||""}</span></h4>${pitch("home")}${pitch("away")}${attr}</div>
+   ${teamStatsHTML}
+   ${teamPerfHTML}
+   ${playerStatsHTML}
    <div class="mcsec"><h4>Cards</h4>${cardsHTML}</div>
    <div class="mcsec"><h4>Substitutions</h4>${subsHTML}</div>`;
  } else {
@@ -890,6 +1073,7 @@ function matchCentre(f){
   </div>`;
 
  return `<div class="mc">
+   ${statLeadersHTML}
    <div class="mcsec"><h4>Our player ratings <span class="tag">${ratTag}</span></h4>${ratHTML}</div>
    <div class="mcsec"><h4>Goals</h4>${golHTML}</div>
    ${heatHTML}

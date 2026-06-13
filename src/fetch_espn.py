@@ -57,6 +57,42 @@ def canon(name, fixture_names):
     return None
 
 
+# per-player match stats we surface (ESPN name -> short column label)
+PLAYER_STATS = [
+    ("totalGoals", "G"), ("goalAssists", "A"), ("totalShots", "SH"),
+    ("shotsOnTarget", "SOT"), ("foulsCommitted", "FC"), ("foulsSuffered", "FS"),
+    ("offsides", "OFF"), ("yellowCards", "YC"), ("redCards", "RC"),
+    ("saves", "SV"), ("goalsConceded", "GC"),
+]
+
+# team match stats we surface, in display order (ESPN name -> nice label, is-percentage)
+TEAM_STATS = [
+    ("possessionPct", "Possession", True), ("totalShots", "Shots", False),
+    ("shotsOnTarget", "Shots on Target", False), ("wonCorners", "Corners", False),
+    ("totalPasses", "Passes", False), ("foulsCommitted", "Fouls", False),
+    ("offsides", "Offsides", False), ("yellowCards", "Yellow Cards", False),
+    ("redCards", "Red Cards", False), ("totalTackles", "Tackles", False),
+    ("interceptions", "Interceptions", False), ("saves", "Saves", False),
+]
+
+
+def player_stats(p):
+    """Curated per-player match stats dict (only if ESPN provided any)."""
+    raw = {s.get("name"): s.get("displayValue") for s in (p.get("stats") or [])}
+    if not raw:
+        return None
+    out = {}
+    for name, col in PLAYER_STATS:
+        v = raw.get(name)
+        if v in (None, ""):
+            continue
+        try:
+            out[col] = int(float(v))
+        except (TypeError, ValueError):
+            out[col] = v
+    return out or None
+
+
 def pos_bucket(name):
     n = (name or "").lower()
     if "keeper" in n or "goal" in n:
@@ -101,6 +137,9 @@ def parse_summary(summ, our_home, our_away):
             posn = (p.get("position") or {})
             entry = {"name": ath, "num": p.get("jersey"),
                      "pos": pos_bucket(posn.get("displayName") or posn.get("name") or posn.get("abbreviation"))}
+            ps = player_stats(p)
+            if ps:
+                entry["st"] = ps
             (xi if p.get("starter") else subs).append(entry)
         blocks[ha] = {"formation": r.get("formation") or "", "xi": xi[:11], "subs": subs}
     if "home" not in blocks and "away" not in blocks:
@@ -137,10 +176,28 @@ def parse_summary(summ, our_home, our_away):
                            "assist": who[0] if who else None,
                            "player": who[1] if len(who) > 1 else None})
 
+    # team match stats from the boxscore (possession, shots, passes, …)
+    teamstats = {"home": {}, "away": {}, "labels": {}, "pct": {}}
+    for t in ((summ.get("boxscore") or {}).get("teams") or []):
+        side = side_team.get((t.get("team") or {}).get("displayName", ""))
+        if side is None:
+            continue
+        have = {s.get("name"): s for s in (t.get("statistics") or []) if s.get("name")}
+        for name, label, is_pct in TEAM_STATS:
+            s = have.get(name)
+            if not s or s.get("displayValue") in (None, ""):
+                continue
+            teamstats[side][name] = s.get("displayValue")
+            teamstats["labels"][name] = label
+            teamstats["pct"][name] = is_pct
+    has_team_stats = bool(teamstats["home"] or teamstats["away"])
+
     rec = {"status": "FINISHED", "source": "espn",
            "home": blocks.get("home", {"formation": "", "xi": [], "subs": []}),
            "away": blocks.get("away", {"formation": "", "xi": [], "subs": []}),
            "events": events}
+    if has_team_stats:
+        rec["teamstats"] = teamstats
     return rec
 
 
@@ -202,6 +259,9 @@ def main():
             continue
         if swap:
             rec["home"], rec["away"] = rec["away"], rec["home"]
+            if rec.get("teamstats"):
+                ts = rec["teamstats"]
+                ts["home"], ts["away"] = ts["away"], ts["home"]
             for e in rec["events"]:
                 e["team"] = "home" if e["team"] == "away" else "away"
         existing[key] = rec
@@ -220,11 +280,22 @@ SAMPLE = {
    {"homeAway": "home", "team": {"displayName": "United States"}, "formation": "4-3-3",
     "roster": [
       {"starter": True, "jersey": "1", "athlete": {"displayName": "Matt Turner"}, "position": {"displayName": "Goalkeeper"}},
-      {"starter": True, "jersey": "9", "athlete": {"displayName": "Folarin Balogun"}, "position": {"displayName": "Center Forward"}},
+      {"starter": True, "jersey": "9", "athlete": {"displayName": "Folarin Balogun"}, "position": {"displayName": "Center Forward"},
+       "stats": [{"name": "totalGoals", "displayValue": "2"}, {"name": "totalShots", "displayValue": "5"},
+                 {"name": "shotsOnTarget", "displayValue": "3"}, {"name": "goalAssists", "displayValue": "0"}]},
       {"starter": True, "jersey": "3", "athlete": {"displayName": "Chris Richards"}, "position": {"displayName": "Center Left Defender"}},
       {"starter": False, "jersey": "19", "athlete": {"displayName": "Haji Wright"}, "position": {"displayName": "Forward"}}]},
    {"homeAway": "away", "team": {"displayName": "Paraguay"}, "formation": "4-4-2",
     "roster": [{"starter": True, "jersey": "1", "athlete": {"displayName": "Roberto Fernandez"}, "position": {"displayName": "Goalkeeper"}}]}],
+ "boxscore": {"teams": [
+   {"team": {"displayName": "United States"}, "statistics": [
+     {"name": "possessionPct", "label": "Possession", "displayValue": "65.3"},
+     {"name": "totalShots", "label": "SHOTS", "displayValue": "16"},
+     {"name": "wonCorners", "label": "Corner Kicks", "displayValue": "3"}]},
+   {"team": {"displayName": "Paraguay"}, "statistics": [
+     {"name": "possessionPct", "label": "Possession", "displayValue": "34.7"},
+     {"name": "totalShots", "label": "SHOTS", "displayValue": "8"},
+     {"name": "wonCorners", "label": "Corner Kicks", "displayValue": "5"}]}]},
  "keyEvents": [
    {"clock": {"displayValue": "31'"}, "type": {"type": "goal", "text": "Goal"}, "team": {"displayName": "United States"},
     "participants": [{"athlete": {"displayName": "Folarin Balogun"}}, {"athlete": {"displayName": "Christian Pulisic"}}]},
@@ -246,7 +317,16 @@ def selftest():
     assert goals and goals[0]["player"] == "Folarin Balogun" and goals[0].get("assist") == "Christian Pulisic"
     assert cards and cards[0]["player"] == "Andres Cubas" and cards[0]["card"] == "yellow"
     assert subs and subs[0]["assist"] == "Haji Wright" and subs[0]["player"] == "Tim Weah"
-    print("[fetch_espn] selftest PASSED — formation, XI, subs, cards, goal+assist parsed correctly")
+    # player match stats attached to the scorer
+    bal = next(p for p in rec["home"]["xi"] if p["name"] == "Folarin Balogun")
+    assert bal["st"]["G"] == 2 and bal["st"]["SH"] == 5 and bal["st"]["SOT"] == 3, bal.get("st")
+    assert "st" not in rec["home"]["xi"][2], "players without stats must omit st"
+    # team match stats comparison
+    ts = rec["teamstats"]
+    assert ts["home"]["possessionPct"] == "65.3" and ts["away"]["possessionPct"] == "34.7"
+    assert ts["home"]["totalShots"] == "16" and ts["labels"]["totalShots"] == "Shots"
+    assert ts["pct"]["possessionPct"] is True and ts["pct"]["totalShots"] is False
+    print("[fetch_espn] selftest PASSED — formation, XI, subs, cards, goal+assist, team & player stats parsed correctly")
 
 
 if __name__ == "__main__":
