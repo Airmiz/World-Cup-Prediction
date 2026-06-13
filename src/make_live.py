@@ -401,9 +401,9 @@ const fixByPair={}; D.fixtures.forEach(f=>fixByPair[f.home+"|"+f.away]=f.id);
 const fixById={}; D.fixtures.forEach(f=>fixById[f.id]=f);
 const groupOf={}; for(const g of D.group_order) for(const t of D.groups[g]) groupOf[t]=g;
 
-let STATE={results:{},ko:{},source:"snapshot",fetchedUTC:null,played:0};
+let STATE={results:{},ko:{},live:{},source:"snapshot",fetchedUTC:null,played:0};
 
-/* ---- parse the live CSV feed ---- */
+/* ---- martj42 CSV feed (fallback source; finals only) ---- */
 function parseCSV(text){
  const lines=text.split(/\r?\n/).filter(x=>x); const head=lines[0].split(",");
  const ix=n=>head.indexOf(n);
@@ -418,30 +418,99 @@ function parseCSV(text){
  return out;
 }
 function ingest(rows){
- const results={},ko={};
+ const results={};
  rows.forEach(r=>{
   if(r.hs===""||r.hs==null||isNaN(+r.hs)) return;
   const id=fixByPair[r.home+"|"+r.away];
   if(id!=null){ results[id]=[+r.hs,+r.as]; }
-  // knockout games (date>=06-28) handled once groups complete (mapped later)
  });
- return {results,ko};
+ return results;
+}
+async function loadMartj42(){
+ const res=await fetch(FEED,{cache:"no-store"});
+ if(!res.ok) throw new Error("martj42 HTTP "+res.status);
+ return ingest(parseCSV(await res.text()));   // {fid:[h,a]} finals
+}
+
+/* ---- ESPN live source: fresh scores + goal minutes, CORS-open (site.api.espn.com) ----
+   Authoritative, real-time. Finals feed the Monte Carlo; live matches drive the in-play
+   chart at the true scoreline; goal details (minute/side/pen/og) match our goal_events
+   convention (team = side the goal counts for). Best-effort; falls back to martj42/snapshot. */
+const ESPN_SB="https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard";
+const ESPN_SUM="https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary";
+const ESPN_ALIAS={"bosnia herzegovina":"Bosnia and Herzegovina","congo dr":"DR Congo","czechia":"Czech Republic","turkiye":"Turkey","usa":"United States","korea republic":"South Korea","ir iran":"Iran","cote divoire":"Ivory Coast","cabo verde":"Cape Verde"};
+function espnNorm(s){ s=(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); for(const ch of ".-&/'") s=s.split(ch).join(" "); return s.replace(/\s+/g," ").trim(); }
+const CANON_BY_NORM=(()=>{const m={};D.fixtures.forEach(f=>{m[espnNorm(f.home)]=f.home;m[espnNorm(f.away)]=f.away;});return m;})();
+function espnCanon(name){ const n=espnNorm(name); if(CANON_BY_NORM[n])return CANON_BY_NORM[n]; if(ESPN_ALIAS[n])return ESPN_ALIAS[n];
+ for(const k in CANON_BY_NORM){ if(n.length>=4&&(k.includes(n)||n.includes(k)))return CANON_BY_NORM[k]; } return null; }
+function espnMinute(e){ const dc=(e.status&&(e.status.displayClock||(e.status.type&&e.status.type.shortDetail)))||"";
+ const m=String(dc).match(/(\d+)/); return m?Math.max(0,Math.min(90,parseInt(m[1],10))):null; }
+function espnDateRange(){   // YYYYMMDD-YYYYMMDD spanning the tournament so far (+ today's late games)
+ const ds=D.fixtures.filter(f=>f.utc).map(f=>new Date(f.utc).getTime()); if(!ds.length) return null;
+ const fmt=ms=>new Date(ms).toISOString().slice(0,10).replace(/-/g,"");
+ return fmt(Math.min(...ds))+"-"+fmt(Math.min(Date.now()+6*3600e3, Math.max(...ds)));
+}
+function parseESPN(d){
+ const finals={}, live={}, goals={};
+ (d.events||[]).forEach(e=>{
+  const comp=e.competitions&&e.competitions[0]; if(!comp) return;
+  const cs=comp.competitors||[];
+  const hc=cs.find(c=>c.homeAway==="home"), ac=cs.find(c=>c.homeAway==="away"); if(!hc||!ac) return;
+  const home=espnCanon(hc.team&&hc.team.displayName), away=espnCanon(ac.team&&ac.team.displayName); if(!home||!away) return;
+  const fid=fixByPair[home+"|"+away]; if(fid==null) return;   // unknown/reversed pairing → leave to martj42
+  const state=(e.status&&e.status.type&&e.status.type.state)||"pre";   // pre | in | post
+  const hs=+hc.score, as=+ac.score, key=home+"|"+away;
+  const idSide={}; cs.forEach(c=>{ if(c.team) idSide[c.team.id]=c.homeAway; });
+  const ev=[];
+  (comp.details||[]).forEach(x=>{ if(!x.scoringPlay) return;
+   const side=idSide[x.team&&x.team.id]; if(!side) return;
+   const mn=parseInt(String((x.clock&&x.clock.displayValue)||"").replace(/[^0-9]/g,""),10);
+   const o={min:isNaN(mn)?0:mn, team:side}; if(x.ownGoal)o.og=true; if(x.penaltyKick)o.pen=true; ev.push(o);
+  });
+  ev.sort((a,b)=>a.min-b.min);
+  if(state==="post"){ finals[fid]=[hs,as]; if(ev.length)goals[key]=ev; }
+  else if(state==="in"){ live[fid]={hs,as,minute:espnMinute(e),eid:e.id,key}; goals[key]=ev; }
+ });
+ return {finals,live,goals};
+}
+async function espnAttachNames(lv,goals){   // best-effort scorer names from the summary endpoint
+ try{
+  const r=await fetch(ESPN_SUM+"?event="+lv.eid,{cache:"no-store"}); if(!r.ok)return;
+  const s=await r.json(); const byMin={};
+  (s.keyEvents||[]).forEach(x=>{ if(!x.scoringPlay)return;
+   const mn=parseInt(String((x.clock&&x.clock.displayValue)||"").replace(/[^0-9]/g,""),10);
+   const nm=x.participants&&x.participants[0]&&x.participants[0].athlete&&x.participants[0].athlete.displayName;
+   if(!isNaN(mn)&&nm&&byMin[mn]==null)byMin[mn]=nm; });
+  (goals[lv.key]||[]).forEach(g=>{ if(byMin[g.min])g.name=byMin[g.min]; });
+ }catch(_){}
+}
+async function loadESPN(){
+ const range=espnDateRange();
+ const res=await fetch(ESPN_SB+(range?"?dates="+range:""),{cache:"no-store"});
+ if(!res.ok) throw new Error("ESPN HTTP "+res.status);
+ const parsed=parseESPN(await res.json());
+ await Promise.all(Object.values(parsed.live).map(lv=>espnAttachNames(lv,parsed.goals)));
+ return parsed;
 }
 
 async function loadLive(){
  setStatus("loading");
- try{
-  const res=await fetch(FEED,{cache:"no-store"});
-  if(!res.ok) throw new Error("HTTP "+res.status);
-  const txt=await res.text();
-  const rows=parseCSV(txt);
-  const {results,ko}=ingest(rows);
-  STATE={results,ko,source:"live",fetchedUTC:new Date(),played:Object.keys(results).length};
- }catch(e){
-  // fallback to embedded snapshot
-  const results={};
+ let espn=null, mart=null, err=null;
+ try{ espn=await loadESPN(); }catch(e){ err=e; }
+ try{ mart=await loadMartj42(); }catch(e){ if(!espn) err=e; }
+ if(espn||mart){
+  const results=Object.assign({}, mart||{}, espn?espn.finals:{});   // ESPN finals win ties
+  const live=espn?espn.live:{};
+  if(espn){ for(const k in espn.goals){
+    const isLive=Object.keys(live).some(fid=>live[fid].key===k);
+    if(isLive || !D.goal_events[k] || !D.goal_events[k].length) D.goal_events[k]=espn.goals[k]; // fresh for live; fill gaps; keep richer embedded finals
+  } }
+  STATE={results,ko:{},live,source:espn?"espn":"live",fetchedUTC:new Date(),
+   played:Object.keys(results).length, liveCount:Object.keys(live).length, err:espn?null:String((err&&err.message)||err||"")};
+ }else{
+  const results={};   // last resort: embedded pre-built snapshot
   D.snapshot.forEach(s=>{const id=fixByPair[s.home+"|"+s.away]; if(id!=null)results[id]=[s.hs,s["as"]];});
-  STATE={results,ko:{},source:"snapshot",fetchedUTC:new Date(),played:Object.keys(results).length,err:String(e.message||e)};
+  STATE={results,ko:{},live:{},source:"snapshot",fetchedUTC:new Date(),played:Object.keys(results).length,err:String((err&&err.message)||err)};
  }
  recompute();
 }
@@ -556,8 +625,9 @@ let statusMode="idle";
 function setStatus(m){statusMode=m;renderStatus();}
 function renderStatus(){
  const sb=document.getElementById("statusbar");
- const srcDot=STATE.source==="live"?'<span class="dot ok"></span>':'<span class="dot warn"></span>';
- const srcTxt=STATE.source==="live"?'<b>Live feed</b> connected':'<b>Offline snapshot</b> (feed blocked)';
+ const connected=STATE.source==="espn"||STATE.source==="live";
+ const srcDot=connected?'<span class="dot ok"></span>':'<span class="dot warn"></span>';
+ const srcTxt=STATE.source==="espn"?('<b>ESPN live</b> connected'+(STATE.liveCount?' · '+STATE.liveCount+' live now':'')):STATE.source==="live"?'<b>Live feed</b> connected':'<b>Offline snapshot</b> (feed blocked)';
  const upd=STATE.fetchedUTC?fmtTime.format(STATE.fetchedUTC):"—";
  const busy=statusMode==="sim"?'<span class="pill"><span class="spin"></span> simulating '+NSIMS.toLocaleString()+' tournaments…</span>'
            :statusMode==="loading"?'<span class="pill"><span class="spin"></span> fetching results…</span>':'';
@@ -593,14 +663,14 @@ function deltaHTML(d){ if(Math.abs(d)<0.0005) return '<span style="color:var(--m
 
 /* ---- feed ---- */
 function upcoming(){ const now=Date.now();
- return D.fixtures.filter(f=>f.utc && !STATE.results[f.id] && new Date(f.utc).getTime()>now-2*3600e3)
+ return D.fixtures.filter(f=>f.utc && !STATE.results[f.id] && !(STATE.live&&STATE.live[f.id]) && new Date(f.utc).getTime()>now-2*3600e3)
   .sort((a,b)=>new Date(a.utc)-new Date(b.utc)); }
 function renderFeed(){
  const now=Date.now();
  const items=D.fixtures.map(f=>{
-  const r=STATE.results[f.id]; const t=f.utc?new Date(f.utc).getTime():null;
-  let status= r?"ft":(t&&now>=t&&now<t+2.5*3600e3?"live":"upcoming");
-  return {f,r,t,status,key:f.utc?fmtDayKey.format(new Date(f.utc)):f.id};
+  const r=STATE.results[f.id]; const lv=STATE.live&&STATE.live[f.id]; const t=f.utc?new Date(f.utc).getTime():null;
+  let status= r?"ft":((lv||(t&&now>=t&&now<t+2.5*3600e3))?"live":"upcoming");
+  return {f,r,lv,t,status,key:f.utc?fmtDayKey.format(new Date(f.utc)):f.id};
  }).sort((a,b)=>(a.t||0)-(b.t||0));
  const byDay={};
  items.forEach(it=>{(byDay[it.key]=byDay[it.key]||[]).push(it);});
@@ -609,12 +679,13 @@ function renderFeed(){
  Object.keys(byDay).sort().forEach(k=>{
   const its=byDay[k]; const d=its[0].f.utc?new Date(its[0].f.utc):null;
   const label=d?fmtDayLong.format(d)+(k===today?" · TODAY":""):"";
-  const cards=its.map(({f,r,status})=>{
+  const cards=its.map(({f,r,lv,status})=>{
    const time=f.utc?fmtTime.format(new Date(f.utc)):"";
-   const stTxt=status==="ft"?"FULL TIME":status==="live"?"● LIVE":time;
-   const rowsHTML=[[f.home,r?r[0]:null],[f.away,r?r[1]:null]].map(([t,sc],i)=>{
-     const other=r?r[1-i]:null; const cls=r?(sc>other?"win":sc<other?"lose":""):"";
-     return `<div class="mrow ${cls}"><span>${F(t)}</span><span class="nm">${t}</span><span class="sc">${sc==null?"":sc}</span></div>`;
+   const sc=r||(lv?[lv.hs,lv.as]:null);
+   const stTxt=status==="ft"?"FULL TIME":status==="live"?(lv&&lv.minute!=null?("● "+lv.minute+"'"):"● LIVE"):time;
+   const rowsHTML=[[f.home,sc?sc[0]:null],[f.away,sc?sc[1]:null]].map(([t,s],i)=>{
+     const other=sc?sc[1-i]:null; const cls=sc?(s>other?"win":s<other?"lose":""):"";
+     return `<div class="mrow ${cls}"><span>${F(t)}</span><span class="nm">${t}</span><span class="sc">${s==null?"":s}</span></div>`;
    }).join("");
    const interactive = status!=="upcoming";
    const chip = interactive ? `<div style="text-align:right;margin-top:5px"><span class="wpchip">📈 WIN PROBABILITY</span></div>` : "";
@@ -760,6 +831,7 @@ function openTeam(team){
 function matchStatus(fid){
  const f=fixById[fid]; const res=STATE.results[fid];
  if(res) return "ft";
+ if(STATE.live&&STATE.live[fid]) return "live";   // ESPN says in-progress
  const t=f.utc?new Date(f.utc).getTime():null;
  if(t && Date.now()>=t) return "live";
  return "upcoming";
@@ -774,9 +846,10 @@ function openMatch(fid){
    WP.events = known ? known.map(e=>({...e})) : (res ? spreadGoals(res[0],res[1]) : []);
    WP.minute = 90;
  } else if(WP.status==="live"){
-   WP.events = known ? known.map(e=>({...e})) : [];   // real goals if available, else 0-0 baseline
-   const t=new Date(f.utc).getTime();
-   WP.minute = Math.max(0, Math.min(90, Math.round((Date.now()-t)/60000)));
+   WP.events = known ? known.map(e=>({...e})) : [];   // real ESPN goals if available, else 0-0 baseline
+   const lv=STATE.live&&STATE.live[fid];
+   if(lv && lv.minute!=null){ WP.minute = Math.max(0, Math.min(90, lv.minute)); }   // ESPN match clock
+   else { const t=new Date(f.utc).getTime(); WP.minute = Math.max(0, Math.min(90, Math.round((Date.now()-t)/60000))); }
  } else {
    WP.events=[]; WP.minute=0;                          // upcoming: no fabricated story
  }
