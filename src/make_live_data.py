@@ -90,7 +90,7 @@ import os as _os
 lineups = json.load(open("data/lineups.json")) if _os.path.exists("data/lineups.json") else {}
 
 data = {
-    "generated_utc": pd.Timestamp.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+    "generated_utc": pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%dT%H:%M:%SZ"),
     "flags": FLAGS, "goal_events": goal_events, "lineups": lineups,
     "groups": groups, "group_order": GROUPS, "teams": teams,
     "third_slots": slots,

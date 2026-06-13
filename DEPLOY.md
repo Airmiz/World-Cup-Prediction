@@ -57,8 +57,29 @@ the cloud, Netlify republishes, and your computer is never involved.
 ## Optional: unlock formations, cards, subs & full-squad ratings
 
 The Match Centre shows our player ratings, goal log and result-vs-model from free data.
-To also fill in **formations, lineups, cards, substitutions and full-squad ratings**, add
-a free **API-Football** key (no card required):
+To also fill in **formations, lineups, cards, substitutions and full-squad ratings**,
+connect a squad-data provider. The integration is already built — it activates the moment
+a key is set; until then those sections stay hidden (never faked).
+
+### Recommended: football-data.org (FREE — includes the World Cup)
+
+football-data.org's **free tier includes the FIFA World Cup** (10 calls/min, no card):
+
+1. Register at **football-data.org/client/register** → copy your API token.
+2. GitHub repo → **Settings → Secrets and variables → Actions → New repository secret**.
+   Name it exactly `FOOTBALL_DATA_KEY`, paste the token, save.
+3. Next cloud run, `src/fetch_fdorg.py` pulls WC formations/lineups/cards/subs into
+   `data/lineups.json` and the Match Centre fills them in. (Note: the free tier provides
+   match + event data; depth of lineup detail can vary by match — whatever it returns is
+   shown, nothing is guessed.)
+
+### Optional alternate: API-Football
+
+API-Football's free tier only covers 2022–2024, so 2026 needs its **paid** plan. If you
+have one, add a secret `API_FOOTBALL_KEY` (steps below). Either provider feeds the same
+Match Centre; football-data.org is preferred because it's free for the World Cup.
+
+API-Football setup:
 
 1. Sign up at **dashboard.api-football.com** (or api-sports.io) → copy your API key.
 2. In your GitHub repo: **Settings → Secrets and variables → Actions → New repository

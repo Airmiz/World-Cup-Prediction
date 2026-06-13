@@ -26,7 +26,8 @@ jobs:
 
       - name: Pull results + goal minutes + lineups, refit model, regenerate site
         env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}   # optional: unlocks lineups/cards/subs
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}  # FREE football-data.org token — unlocks WC lineups/cards/subs
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}    # optional alternate provider
         run: bash src/refresh.sh
 
       - name: Commit & push updates (triggers Netlify deploy)

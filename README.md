@@ -64,6 +64,11 @@ snapshot. Remaining-match probabilities use the frozen pre-tournament model; to 
 refresh the model's strengths on new results, re-run `make_live_data.py` (e.g. on a
 daily schedule).
 
+The live page has a **Tournament Stats** section: Golden Boot leaderboard, our own
+cumulative player power rankings, and model-driven storylines (biggest upset, most
+dramatic match by win-prob swing, highest-scoring, model accuracy) — all computed
+in-browser from real goal data + the model.
+
 Each live/finished match opens a **Match Centre**: our own player-rating model
 (rates goal contributors from real events, crowns a Player of the Match), a goal
 log (scorers/minutes/own-goals), and a "result vs model" panel. Add a free API-Football key (GitHub secret `API_FOOTBALL_KEY`, see DEPLOY.md) and
