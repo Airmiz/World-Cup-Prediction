@@ -1054,27 +1054,28 @@ function matchCentre(f){
   if(tsd && (tsd.home||tsd.away)){
    const N=v=>{const x=parseFloat(String(v).replace(/[^0-9.\-]/g,""));return isNaN(x)?0:x;};
    const gh=score[0], ga=score[1];
-   const idx=(d,gf,ga2)=>{
+   const c10=x=>Math.max(0,Math.min(10,x));                     // clamp to 0–10
+   const idx=(d,gf)=>{
      const poss=N(d.possessionPct), sh=N(d.totalShots), sot=N(d.shotsOnTarget),
        pass=N(d.totalPasses), foul=N(d.foulsCommitted), yc=N(d.yellowCards), rc=N(d.redCards);
-     const attack = 2.0*gf + 0.9*sot + 0.18*sh;                 // finishing + threat
-     const control = 0.045*poss + 0.0035*pass;                  // possession + circulation
-     const discipline = -0.12*foul - 0.6*yc - 1.6*rc;           // fewer fouls/cards = better
+     const attack     = c10(gf*2.2 + sot*0.55 + sh*0.12);       // finishing + threat
+     const control    = c10(poss*0.09 + Math.min(pass,700)*0.004); // possession + circulation
+     const discipline = c10(10 - foul*0.25 - yc*1.0 - rc*3.0);  // start clean, deduct
      return {attack, control, discipline};
    };
-   const H=idx(tsd.home||{},gh,ga), A=idx(tsd.away||{},ga,gh);
-   // scale each dimension to a 0–100 share between the two sides for the bars
-   const share=(h,a)=>{const lo=Math.min(h,a,0);const H2=h-lo,A2=a-lo,t=H2+A2;return t>0?100*H2/t:50;};
+   const H=idx(tsd.home||{},gh), A=idx(tsd.away||{},ga);
+   // every dimension is now a positive 0–10 score → simple head-to-head share for the bars
+   const share=(h,a)=>{const t=h+a;return t>0?100*h/t:50;};
    const dims=[["Attack",H.attack,A.attack],["Control",H.control,A.control],["Discipline",H.discipline,A.discipline]];
-   const overall=t=>{const o=t==="h"?H:A; return Math.max(0,Math.min(10, 5 + 0.55*(o.attack) + 0.4*(o.control-3.4) + 0.5*o.discipline ));};
-   const oH=overall("h"), oA=overall("a");
+   const overall=o=>c10(0.45*o.attack + 0.30*o.control + 0.25*o.discipline);
+   const oH=overall(H), oA=overall(A);
    const bars=dims.map(([lab,h,a])=>{const hp=share(h,a);const hL=h>a,aL=a>h;
      return `<div class="tsrow"><span class="tsv h ${hL?'lead':''}">${h.toFixed(1)}</span><span class="tslbl">${lab}</span><span class="tsv a ${aL?'lead':''}">${a.toFixed(1)}</span>
        <span class="tsbar"><i class="h ${hL?'':'lo'}" style="width:${hp.toFixed(1)}%"></i><i class="a ${aL?'':'lo'}" style="width:${(100-hp).toFixed(1)}%"></i></span></div>`;}).join("");
    teamPerfHTML=`<div class="mcsec"><h4>Team performance index <span class="tag">our composite · 0–10</span></h4>
      <div class="tpiov"><span class="tpi h">${F(f.home)} ${f.home} <b>${oH.toFixed(1)}</b></span><span class="tpi a"><b>${oA.toFixed(1)}</b> ${f.away} ${F(f.away)}</span></div>
      <div class="tstat">${bars}</div>
-     <div class="heatcap">Attack = goals + shots on target + shot volume · Control = possession + passing · Discipline = fouls &amp; cards (higher is cleaner)</div></div>`;
+     <div class="heatcap">Each scored 0–10 · Attack = goals, shots on target, volume · Control = possession + passing · Discipline = fewer fouls &amp; cards</div></div>`;
   }
 
   // ---- stat leaders: standout per category across both XIs ----

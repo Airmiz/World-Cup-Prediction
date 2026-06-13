@@ -176,6 +176,34 @@ def parse_summary(summ, our_home, our_away):
                            "assist": who[0] if who else None,
                            "player": who[1] if len(who) > 1 else None})
 
+    # Reconcile card events against the authoritative per-player boxscore counts.
+    # ESPN's keyEvents include VAR reviews (e.g. "VAR - (Red) Card Upgrade") that may be
+    # overturned; the player's own yellowCards/redCards tally is the source of truth, so a
+    # card event for a player whose tally doesn't back it up is dropped (never invented).
+    cardtally = {}
+    for r in rosters:
+        for p in r.get("roster") or []:
+            nm = (p.get("athlete") or {}).get("displayName")
+            if not nm:
+                continue
+            raw = {s.get("name"): s.get("displayValue") for s in (p.get("stats") or [])}
+            if raw:
+                def _i(k):
+                    try:
+                        return int(float(raw.get(k)))
+                    except (TypeError, ValueError):
+                        return 0
+                cardtally[norm(nm)] = {"yellow": _i("yellowCards"), "red": _i("redCards")}
+
+    def _card_confirmed(e):
+        if e.get("type") != "card":
+            return True
+        tally = cardtally.get(norm(e.get("player") or ""))
+        if not tally:                       # no per-player stats → keep (can't verify)
+            return True
+        return tally.get(e.get("card"), 0) > 0
+    events = [e for e in events if _card_confirmed(e)]
+
     # team match stats from the boxscore (possession, shots, passes, …)
     teamstats = {"home": {}, "away": {}, "labels": {}, "pct": {}}
     for t in ((summ.get("boxscore") or {}).get("teams") or []):
@@ -283,7 +311,8 @@ SAMPLE = {
       {"starter": True, "jersey": "9", "athlete": {"displayName": "Folarin Balogun"}, "position": {"displayName": "Center Forward"},
        "stats": [{"name": "totalGoals", "displayValue": "2"}, {"name": "totalShots", "displayValue": "5"},
                  {"name": "shotsOnTarget", "displayValue": "3"}, {"name": "goalAssists", "displayValue": "0"}]},
-      {"starter": True, "jersey": "3", "athlete": {"displayName": "Chris Richards"}, "position": {"displayName": "Center Left Defender"}},
+      {"starter": True, "jersey": "3", "athlete": {"displayName": "Chris Richards"}, "position": {"displayName": "Center Left Defender"},
+       "stats": [{"name": "redCards", "displayValue": "0"}, {"name": "yellowCards", "displayValue": "0"}]},
       {"starter": False, "jersey": "19", "athlete": {"displayName": "Haji Wright"}, "position": {"displayName": "Forward"}}]},
    {"homeAway": "away", "team": {"displayName": "Paraguay"}, "formation": "4-4-2",
     "roster": [{"starter": True, "jersey": "1", "athlete": {"displayName": "Roberto Fernandez"}, "position": {"displayName": "Goalkeeper"}}]}],
@@ -302,7 +331,9 @@ SAMPLE = {
    {"clock": {"displayValue": "52'"}, "type": {"type": "yellow-card", "text": "Yellow Card"}, "team": {"displayName": "Paraguay"},
     "participants": [{"athlete": {"displayName": "Andres Cubas"}}]},
    {"clock": {"displayValue": "70'"}, "type": {"type": "substitution", "text": "Substitution"}, "team": {"displayName": "United States"},
-    "participants": [{"athlete": {"displayName": "Haji Wright"}}, {"athlete": {"displayName": "Tim Weah"}}]}]}
+    "participants": [{"athlete": {"displayName": "Haji Wright"}}, {"athlete": {"displayName": "Tim Weah"}}]},
+   {"clock": {"displayValue": "52'"}, "type": {"type": "var---red-card-upgrade", "text": "VAR - (Red) Card Upgrade"}, "team": {"displayName": "United States"},
+    "participants": [{"athlete": {"displayName": "Chris Richards"}}]}]}
 
 
 def selftest():
@@ -311,6 +342,8 @@ def selftest():
     assert [p["name"] for p in rec["home"]["xi"]] == ["Matt Turner", "Folarin Balogun", "Chris Richards"]
     assert rec["home"]["xi"][0]["pos"] == "G" and rec["home"]["xi"][2]["pos"] == "D"
     assert rec["home"]["subs"][0]["name"] == "Haji Wright"
+    assert not any(e["type"] == "card" and e.get("player") == "Chris Richards" for e in rec["events"]), \
+        "phantom VAR card not reconciled away"
     cards = [e for e in rec["events"] if e["type"] == "card"]
     subs = [e for e in rec["events"] if e["type"] == "subst"]
     goals = [e for e in rec["events"] if e["type"] == "goal"]
@@ -320,7 +353,7 @@ def selftest():
     # player match stats attached to the scorer
     bal = next(p for p in rec["home"]["xi"] if p["name"] == "Folarin Balogun")
     assert bal["st"]["G"] == 2 and bal["st"]["SH"] == 5 and bal["st"]["SOT"] == 3, bal.get("st")
-    assert "st" not in rec["home"]["xi"][2], "players without stats must omit st"
+    assert "st" not in rec["home"]["xi"][0], "players without stats must omit st"
     # team match stats comparison
     ts = rec["teamstats"]
     assert ts["home"]["possessionPct"] == "65.3" and ts["away"]["possessionPct"] == "34.7"
