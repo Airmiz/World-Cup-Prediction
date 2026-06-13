@@ -1,0 +1,253 @@
+"""Fetch lineups, formations, cards and substitutions from ESPN's soccer JSON API.
+
+ESPN exposes a structured (undocumented) JSON API at site.api.espn.com that returns,
+once a match is live/finished: each team's formation + full roster (with starter flag,
+jersey, position) and a keyEvents list (goals/cards/subs). This maps it into
+data/lineups.json (the shape the Match Centre renders).
+
+NOTE: this is ESPN's *undocumented* endpoint; their Terms restrict automated use, so it's
+used here at the project owner's discretion for a non-commercial fan project, with an
+on-page "data via ESPN" credit. It's best-effort and may change; it never overwrites a
+paid-provider entry, and skips anything it can't parse.
+
+Standard library only.  Usage: python3 src/fetch_espn.py [--selftest]
+"""
+import csv
+import json
+import os
+import re
+import sys
+import time
+import unicodedata
+import urllib.request
+
+UA = "WC2026-tracker/1.0 (non-commercial fan project)"
+LEAGUE = "fifa.world"
+SB = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{LEAGUE}/scoreboard"
+SUM = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{LEAGUE}/summary"
+
+ALIASES = {
+    "usa": "United States", "united states": "United States",
+    "korea republic": "South Korea", "south korea": "South Korea",
+    "ir iran": "Iran", "iran": "Iran", "turkiye": "Turkey", "turkey": "Turkey",
+    "czechia": "Czech Republic", "czech republic": "Czech Republic",
+    "bosnia and herzegovina": "Bosnia and Herzegovina", "bosnia herzegovina": "Bosnia and Herzegovina",
+    "ivory coast": "Ivory Coast", "cote divoire": "Ivory Coast",
+    "cape verde": "Cape Verde", "dr congo": "DR Congo", "congo dr": "DR Congo",
+}
+
+
+def norm(s):
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    for ch in ".-&/'":
+        s = s.replace(ch, " ")
+    return " ".join(s.split())
+
+
+def canon(name, fixture_names):
+    n = norm(name)
+    if n in ALIASES:
+        return ALIASES[n]
+    for fn in fixture_names:
+        if norm(fn) == n:
+            return fn
+    for fn in fixture_names:
+        if n and (norm(fn) in n or n in norm(fn)):
+            return fn
+    return None
+
+
+def pos_bucket(name):
+    n = (name or "").lower()
+    if "keeper" in n or "goal" in n:
+        return "G"
+    if "defend" in n or "back" in n or "sweeper" in n:
+        return "D"
+    if "midfield" in n:
+        return "M"
+    if any(w in n for w in ("forward", "striker", "wing", "attack")):
+        return "F"
+    return "M"
+
+
+def get(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.loads(r.read().decode())
+
+
+def minute(ev):
+    c = (ev.get("clock") or {}).get("displayValue") or ev.get("time") or ""
+    m = re.search(r"(\d+)", str(c))
+    return int(m.group(1)) if m else 0
+
+
+def parse_summary(summ, our_home, our_away):
+    """Map an ESPN summary payload to our lineups.json record (or None)."""
+    rosters = summ.get("rosters") or []
+    if not rosters:
+        return None
+    side_team = {}     # ESPN team displayName -> 'home'/'away' (ESPN's own)
+    blocks = {}
+    for r in rosters:
+        ha = r.get("homeAway")
+        tname = (r.get("team") or {}).get("displayName", "")
+        side_team[tname] = ha
+        xi, subs = [], []
+        for p in r.get("roster") or []:
+            ath = (p.get("athlete") or {}).get("displayName")
+            if not ath:
+                continue
+            posn = (p.get("position") or {})
+            entry = {"name": ath, "num": p.get("jersey"),
+                     "pos": pos_bucket(posn.get("displayName") or posn.get("name") or posn.get("abbreviation"))}
+            (xi if p.get("starter") else subs).append(entry)
+        blocks[ha] = {"formation": r.get("formation") or "", "xi": xi[:11], "subs": subs}
+    if "home" not in blocks and "away" not in blocks:
+        return None
+
+    events = []
+    for ev in (summ.get("keyEvents") or summ.get("commentary") or []):
+        t = ev.get("type") or {}
+        ttype = (t.get("type") or t.get("text") or "").lower()   # e.g. yellow-card, substitution, penalty-goal, own-goal
+        tname = (ev.get("team") or {}).get("displayName", "")
+        side = side_team.get(tname)
+        if side is None:
+            continue
+        who = [(p.get("athlete") or {}).get("displayName") for p in (ev.get("participants") or [])
+               if (p.get("athlete") or {}).get("displayName")]
+        mn = minute(ev)
+        if "own goal" in ttype:
+            events.append({"min": mn, "team": side, "type": "goal", "detail": "Own Goal",
+                           "player": who[0] if who else None})
+        elif "goal" in ttype and "no goal" not in ttype:
+            events.append({"min": mn, "team": side, "type": "goal",
+                           "detail": "Penalty" if "penalt" in ttype else "Normal Goal",
+                           "player": who[0] if who else None,
+                           **({"assist": who[1]} if len(who) > 1 else {})})
+        elif "yellow" in ttype:
+            events.append({"min": mn, "team": side, "type": "card", "card": "yellow",
+                           "player": who[0] if who else None})
+        elif "red" in ttype:
+            events.append({"min": mn, "team": side, "type": "card", "card": "red",
+                           "player": who[0] if who else None})
+        elif "substitut" in ttype:
+            # ESPN lists [in, out] for subs
+            events.append({"min": mn, "team": side, "type": "subst",
+                           "assist": who[0] if who else None,
+                           "player": who[1] if len(who) > 1 else None})
+
+    rec = {"status": "FINISHED", "source": "espn",
+           "home": blocks.get("home", {"formation": "", "xi": [], "subs": []}),
+           "away": blocks.get("away", {"formation": "", "xi": [], "subs": []}),
+           "events": events}
+    return rec
+
+
+def main():
+    if "--selftest" in sys.argv:
+        selftest(); return 0
+
+    fixtures, played_dates = [], set()
+    played = []
+    with open("data/results.csv") as f:
+        for row in csv.DictReader(f):
+            if row["tournament"] == "FIFA World Cup" and row["date"] >= "2026-06-01":
+                fixtures.append((row["home_team"], row["away_team"]))
+                if row.get("home_score") not in ("", None, "NA"):
+                    played.append((row["home_team"], row["away_team"]))
+                    played_dates.add(row["date"].replace("-", ""))
+    names = sorted({t for p in fixtures for t in p})
+    pair_set = {(h, a) for h, a in fixtures}
+
+    path = "data/lineups.json"
+    existing = json.load(open(path)) if os.path.exists(path) else {}
+    need = [(h, a) for h, a in played
+            if existing.get(f"{h}|{a}", {}).get("source") not in ("espn", "api-football", "football-data")]
+    if not need:
+        print("[fetch_espn] nothing to fetch — played matches already have lineups")
+        return 0
+
+    # map our fixtures -> ESPN gameIds via the scoreboard for each played date
+    gameids = {}
+    for d in sorted(played_dates):
+        try:
+            sb = get(f"{SB}?dates={d}")
+        except Exception as e:
+            print(f"[fetch_espn] scoreboard {d} failed: {e}"); continue
+        for ev in sb.get("events", []):
+            comp = (ev.get("competitions") or [{}])[0]
+            cs = comp.get("competitors", [])
+            h = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "home"), None)
+            a = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "away"), None)
+            ch, ca = canon(h, names), canon(a, names)
+            if ch and ca:
+                if (ch, ca) in pair_set:
+                    gameids[f"{ch}|{ca}"] = (ev.get("id"), False)
+                elif (ca, ch) in pair_set:
+                    gameids[f"{ca}|{ch}"] = (ev.get("id"), True)
+        time.sleep(1)
+
+    updated = 0
+    for h, a in need:
+        key = f"{h}|{a}"
+        if key not in gameids:
+            continue
+        gid, swap = gameids[key]
+        try:
+            rec = parse_summary(get(f"{SUM}?event={gid}"), h, a)
+        except Exception as e:
+            print(f"[fetch_espn] {key} summary failed: {e}"); continue
+        if not rec or (not rec["home"]["xi"] and not rec["away"]["xi"] and not rec["events"]):
+            continue
+        if swap:
+            rec["home"], rec["away"] = rec["away"], rec["home"]
+            for e in rec["events"]:
+                e["team"] = "home" if e["team"] == "away" else "away"
+        existing[key] = rec
+        updated += 1
+        time.sleep(1)
+
+    json.dump(existing, open(path, "w"), indent=1)
+    note = "" if updated else " (no populated lineups yet — ESPN fills in once matches kick off)"
+    print(f"[fetch_espn] updated {updated} match(es){note}; {len(existing)} total")
+    return 0
+
+
+# ---------------------------------------------------------------- selftest
+SAMPLE = {
+ "rosters": [
+   {"homeAway": "home", "team": {"displayName": "United States"}, "formation": "4-3-3",
+    "roster": [
+      {"starter": True, "jersey": "1", "athlete": {"displayName": "Matt Turner"}, "position": {"displayName": "Goalkeeper"}},
+      {"starter": True, "jersey": "9", "athlete": {"displayName": "Folarin Balogun"}, "position": {"displayName": "Center Forward"}},
+      {"starter": True, "jersey": "3", "athlete": {"displayName": "Chris Richards"}, "position": {"displayName": "Center Left Defender"}},
+      {"starter": False, "jersey": "19", "athlete": {"displayName": "Haji Wright"}, "position": {"displayName": "Forward"}}]},
+   {"homeAway": "away", "team": {"displayName": "Paraguay"}, "formation": "4-4-2",
+    "roster": [{"starter": True, "jersey": "1", "athlete": {"displayName": "Roberto Fernandez"}, "position": {"displayName": "Goalkeeper"}}]}],
+ "keyEvents": [
+   {"clock": {"displayValue": "31'"}, "type": {"type": "goal", "text": "Goal"}, "team": {"displayName": "United States"},
+    "participants": [{"athlete": {"displayName": "Folarin Balogun"}}, {"athlete": {"displayName": "Christian Pulisic"}}]},
+   {"clock": {"displayValue": "52'"}, "type": {"type": "yellow-card", "text": "Yellow Card"}, "team": {"displayName": "Paraguay"},
+    "participants": [{"athlete": {"displayName": "Andres Cubas"}}]},
+   {"clock": {"displayValue": "70'"}, "type": {"type": "substitution", "text": "Substitution"}, "team": {"displayName": "United States"},
+    "participants": [{"athlete": {"displayName": "Haji Wright"}}, {"athlete": {"displayName": "Tim Weah"}}]}]}
+
+
+def selftest():
+    rec = parse_summary(SAMPLE, "United States", "Paraguay")
+    assert rec["home"]["formation"] == "4-3-3", rec["home"]["formation"]
+    assert [p["name"] for p in rec["home"]["xi"]] == ["Matt Turner", "Folarin Balogun", "Chris Richards"]
+    assert rec["home"]["xi"][0]["pos"] == "G" and rec["home"]["xi"][2]["pos"] == "D"
+    assert rec["home"]["subs"][0]["name"] == "Haji Wright"
+    cards = [e for e in rec["events"] if e["type"] == "card"]
+    subs = [e for e in rec["events"] if e["type"] == "subst"]
+    goals = [e for e in rec["events"] if e["type"] == "goal"]
+    assert goals and goals[0]["player"] == "Folarin Balogun" and goals[0].get("assist") == "Christian Pulisic"
+    assert cards and cards[0]["player"] == "Andres Cubas" and cards[0]["card"] == "yellow"
+    assert subs and subs[0]["assist"] == "Haji Wright" and subs[0]["player"] == "Tim Weah"
+    print("[fetch_espn] selftest PASSED — formation, XI, subs, cards, goal+assist parsed correctly")
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -54,7 +54,20 @@ the cloud, Netlify republishes, and your computer is never involved.
   netlify.com/drop for instant hosting — you just won't get the automatic cloud
   refresh (scores still self-update in the browser; goal timelines/model won't).
 
-## Optional: unlock formations, cards, subs & full-squad ratings
+## Lineups, cards, subs & formations — free, automatic
+
+Three free fetchers run every cloud cycle (no key needed), in priority order:
+1. **`src/fetch_espn.py`** — ESPN's JSON API (richest: explicit formations, full XI with
+   positions, cards, subs, near-live). Preferred source.
+2. **`src/fetch_wiki.py`** — Wikipedia (CC BY-SA) as a fallback where ESPN lacks a match.
+3. **`src/fetch_fdorg.py` / `src/fetch_squad.py`** — paid providers (only if you add a key).
+
+Whichever has data fills the Match Centre (formation pitch, cards, subs, full-squad
+ratings) with an on-page source credit. Note: ESPN's is an undocumented endpoint used at
+the project owner's discretion for this non-commercial fan project; it's best-effort and
+skipped (never guessed) when a match isn't populated yet.
+
+## Optional: make lineups instant/guaranteed (paid)
 
 The Match Centre shows our player ratings, goal log and result-vs-model from free data.
 To also fill in **formations, lineups, cards, substitutions and full-squad ratings**,

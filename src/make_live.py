@@ -866,8 +866,10 @@ function matchCentre(f){
   const subs=(lu.events||[]).filter(e=>e.type==="subst").sort((a,b)=>a.min-b.min);
   const cardsHTML=cards.length?`<div class="cards">`+cards.map(e=>`<div class="cardr"><span class="mn">${e.min}'</span><span class="cardchip ${e.card==="red"?"r":"y"}"></span><span class="nm">${F(teamName(e.team))} ${e.player||""}</span></div>`).join("")+`</div>`:`<div class="locked">No cards.</div>`;
   const subsHTML=subs.length?`<div class="subsl">`+subs.map(e=>`<div class="subr"><span class="mn">${e.min}'</span><span class="in">▲ ${e.assist||"?"}</span><span class="ar">←</span><span class="out">▼ ${e.player||"?"}</span><span class="nm" style="color:var(--mut);font-size:11px">${F(teamName(e.team))}</span></div>`).join("")+`</div>`:`<div class="locked">No substitutions.</div>`;
+  const srcLabel = {espn:"Lineups, cards &amp; subs via ESPN", wikipedia:"Lineups, cards &amp; subs via Wikipedia (CC BY-SA)", "api-football":"Lineups via API-Football", "football-data":"Lineups via football-data.org"}[lu.source] || "";
+  const attr = srcLabel ? `<div class="heatcap">${srcLabel}</div>` : "";
   extraHTML=`
-   <div class="mcsec"><h4>Formations <span class="tag">${(lu.home&&lu.home.formation)||""} v ${(lu.away&&lu.away.formation)||""}</span></h4>${pitch("home")}${pitch("away")}</div>
+   <div class="mcsec"><h4>Formations <span class="tag">${(lu.home&&lu.home.formation)||""} v ${(lu.away&&lu.away.formation)||""}</span></h4>${pitch("home")}${pitch("away")}${attr}</div>
    <div class="mcsec"><h4>Cards</h4>${cardsHTML}</div>
    <div class="mcsec"><h4>Substitutions</h4>${subsHTML}</div>`;
  } else {

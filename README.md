@@ -80,7 +80,11 @@ The live page also includes:
 Each live/finished match opens a **Match Centre**: our own player-rating model
 (rates goal contributors from real events, crowns a Player of the Match), a goal
 log (scorers/minutes/own-goals), and a "result vs model" panel. Add a free API-Football key (GitHub secret `API_FOOTBALL_KEY`, see DEPLOY.md) and
-`src/fetch_squad.py` fills in **formations, lineups, cards, substitutions and
+`src/fetch_espn.py` pulls **formations, full lineups, cards and substitutions from ESPN's
+JSON API** (free, no key, preferred — richest + near-live; undocumented endpoint used at
+the owner's discretion). `src/fetch_wiki.py` is a free Wikipedia (CC BY-SA) fallback that pulls **formations, lineups, cards and substitutions**
+(free, CC BY-SA, best-effort — appears once editors populate a match). For instant/guaranteed
+data instead, `src/fetch_squad.py` fills in **formations, lineups, cards, substitutions and
 full-squad ratings** automatically; without it those sections stay hidden (never
 fabricated). Upcoming matches show only pre-match odds — no invented scoreline.
 

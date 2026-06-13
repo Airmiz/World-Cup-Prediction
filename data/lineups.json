@@ -1,1 +1,1609 @@
-{}
+{
+ "Mexico|South Africa": {
+  "status": "FINISHED",
+  "source": "espn",
+  "home": {
+   "formation": "4-1-4-1",
+   "xi": [
+    {
+     "name": "Ra\u00fal Rangel",
+     "num": "1",
+     "pos": "G"
+    },
+    {
+     "name": "Johan V\u00e1squez",
+     "num": "5",
+     "pos": "D"
+    },
+    {
+     "name": "C\u00e9sar Montes",
+     "num": "3",
+     "pos": "D"
+    },
+    {
+     "name": "\u00c9rik Lira",
+     "num": "6",
+     "pos": "M"
+    },
+    {
+     "name": "Jes\u00fas Gallardo",
+     "num": "23",
+     "pos": "D"
+    },
+    {
+     "name": "Israel Reyes",
+     "num": "15",
+     "pos": "D"
+    },
+    {
+     "name": "\u00c1lvaro Fidalgo",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Brian Guti\u00e9rrez",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "Juli\u00e1n Qui\u00f1ones",
+     "num": "16",
+     "pos": "M"
+    },
+    {
+     "name": "Roberto Alvarado",
+     "num": "25",
+     "pos": "M"
+    },
+    {
+     "name": "Ra\u00fal Jim\u00e9nez",
+     "num": "9",
+     "pos": "F"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Luis Romo",
+     "num": "7",
+     "pos": "M"
+    },
+    {
+     "name": "C\u00e9sar Huerta",
+     "num": "21",
+     "pos": "M"
+    },
+    {
+     "name": "Guillermo Ochoa",
+     "num": "13",
+     "pos": "M"
+    },
+    {
+     "name": "Carlos Acevedo",
+     "num": "12",
+     "pos": "M"
+    },
+    {
+     "name": "Luis Ch\u00e1vez",
+     "num": "24",
+     "pos": "M"
+    },
+    {
+     "name": "Mateo Ch\u00e1vez",
+     "num": "20",
+     "pos": "M"
+    },
+    {
+     "name": "Santiago Gimenez",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Obed Vargas",
+     "num": "18",
+     "pos": "M"
+    },
+    {
+     "name": "Alexis Vega",
+     "num": "10",
+     "pos": "M"
+    },
+    {
+     "name": "Guillermo Mart\u00ednez",
+     "num": "22",
+     "pos": "M"
+    },
+    {
+     "name": "Armando Gonz\u00e1lez",
+     "num": "14",
+     "pos": "M"
+    },
+    {
+     "name": "Gilberto Mora",
+     "num": "19",
+     "pos": "M"
+    },
+    {
+     "name": "Edson \u00c1lvarez",
+     "num": "4",
+     "pos": "M"
+    },
+    {
+     "name": "Jorge S\u00e1nchez",
+     "num": "2",
+     "pos": "M"
+    },
+    {
+     "name": "Orbel\u00edn Pineda",
+     "num": "17",
+     "pos": "M"
+    }
+   ]
+  },
+  "away": {
+   "formation": "5-3-2",
+   "xi": [
+    {
+     "name": "Ronwen Williams",
+     "num": "1",
+     "pos": "G"
+    },
+    {
+     "name": "Ime Okon",
+     "num": "21",
+     "pos": "D"
+    },
+    {
+     "name": "Mbekezeli Mbokazi",
+     "num": "14",
+     "pos": "D"
+    },
+    {
+     "name": "Nkosinathi Sibisi",
+     "num": "19",
+     "pos": "D"
+    },
+    {
+     "name": "Aubrey Modiba",
+     "num": "6",
+     "pos": "D"
+    },
+    {
+     "name": "Khuliso Mudau",
+     "num": "20",
+     "pos": "D"
+    },
+    {
+     "name": "Sphephelo Sithole",
+     "num": "13",
+     "pos": "M"
+    },
+    {
+     "name": "Jayden Adams",
+     "num": "23",
+     "pos": "M"
+    },
+    {
+     "name": "Teboho Mokoena",
+     "num": "4",
+     "pos": "M"
+    },
+    {
+     "name": "Lyle Foster",
+     "num": "9",
+     "pos": "F"
+    },
+    {
+     "name": "Iqraam Rayners",
+     "num": "15",
+     "pos": "F"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Oswin Appollis",
+     "num": "7",
+     "pos": "M"
+    },
+    {
+     "name": "Sipho Chaine",
+     "num": "16",
+     "pos": "M"
+    },
+    {
+     "name": "Themba Zwane",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Kamogelo Sebelebele",
+     "num": "25",
+     "pos": "M"
+    },
+    {
+     "name": "Khulumani Ndamane",
+     "num": "3",
+     "pos": "M"
+    },
+    {
+     "name": "Thabang Matuludi",
+     "num": "2",
+     "pos": "M"
+    },
+    {
+     "name": "Samukele Kabini",
+     "num": "18",
+     "pos": "M"
+    },
+    {
+     "name": "Relebohile Mofokeng",
+     "num": "10",
+     "pos": "M"
+    },
+    {
+     "name": "Thalente Mbatha",
+     "num": "5",
+     "pos": "M"
+    },
+    {
+     "name": "Ricardo Goss",
+     "num": "22",
+     "pos": "M"
+    },
+    {
+     "name": "Bradley Cross",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "Thapelo Maseko",
+     "num": "12",
+     "pos": "M"
+    },
+    {
+     "name": "Tshepang Moremi",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Evidence Makgopa",
+     "num": "17",
+     "pos": "M"
+    },
+    {
+     "name": "Olwethu Makhanya",
+     "num": "24",
+     "pos": "M"
+    }
+   ]
+  },
+  "events": [
+   {
+    "min": 9,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Juli\u00e1n Qui\u00f1ones",
+    "assist": "\u00c9rik Lira"
+   },
+   {
+    "min": 17,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Teboho Mokoena"
+   },
+   {
+    "min": 23,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Brian Guti\u00e9rrez"
+   },
+   {
+    "min": 49,
+    "team": "away",
+    "type": "card",
+    "card": "red",
+    "player": "Sphephelo Sithole"
+   },
+   {
+    "min": 56,
+    "team": "away",
+    "type": "subst",
+    "assist": "Thalente Mbatha",
+    "player": "Lyle Foster"
+   },
+   {
+    "min": 61,
+    "team": "away",
+    "type": "subst",
+    "assist": "Themba Zwane",
+    "player": "Jayden Adams"
+   },
+   {
+    "min": 66,
+    "team": "home",
+    "type": "subst",
+    "assist": "Luis Ch\u00e1vez",
+    "player": "Brian Guti\u00e9rrez"
+   },
+   {
+    "min": 66,
+    "team": "home",
+    "type": "subst",
+    "assist": "Gilberto Mora",
+    "player": "\u00c1lvaro Fidalgo"
+   },
+   {
+    "min": 67,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Ra\u00fal Jim\u00e9nez",
+    "assist": "Roberto Alvarado"
+   },
+   {
+    "min": 74,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Nkosinathi Sibisi"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "subst",
+    "assist": "Edson \u00c1lvarez",
+    "player": "\u00c9rik Lira"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "subst",
+    "assist": "Armando Gonz\u00e1lez",
+    "player": "Ra\u00fal Jim\u00e9nez"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "subst",
+    "assist": "Evidence Makgopa",
+    "player": "Iqraam Rayners"
+   },
+   {
+    "min": 77,
+    "team": "away",
+    "type": "subst",
+    "assist": "Oswin Appollis",
+    "player": "Aubrey Modiba"
+   },
+   {
+    "min": 79,
+    "team": "home",
+    "type": "subst",
+    "assist": "Alexis Vega",
+    "player": "Juli\u00e1n Qui\u00f1ones"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "card",
+    "card": "red",
+    "player": "Themba Zwane"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "card",
+    "card": "red",
+    "player": "C\u00e9sar Montes"
+   }
+  ]
+ },
+ "South Korea|Czech Republic": {
+  "status": "FINISHED",
+  "source": "espn",
+  "home": {
+   "formation": "3-4-2-1",
+   "xi": [
+    {
+     "name": "Kim Seung-Gyu",
+     "num": "1",
+     "pos": "G"
+    },
+    {
+     "name": "Kim Min-Jae",
+     "num": "4",
+     "pos": "D"
+    },
+    {
+     "name": "Lee Gi-Hyuk",
+     "num": "3",
+     "pos": "D"
+    },
+    {
+     "name": "Lee Han-Beom",
+     "num": "2",
+     "pos": "D"
+    },
+    {
+     "name": "Paik Seung-Ho",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Hwang In-Beom",
+     "num": "6",
+     "pos": "M"
+    },
+    {
+     "name": "Lee Tae-Seok",
+     "num": "13",
+     "pos": "M"
+    },
+    {
+     "name": "Seol Young-Woo",
+     "num": "22",
+     "pos": "M"
+    },
+    {
+     "name": "Son Heung-Min",
+     "num": "7",
+     "pos": "F"
+    },
+    {
+     "name": "Lee Jae-Sung",
+     "num": "10",
+     "pos": "F"
+    },
+    {
+     "name": "Lee Kang-In",
+     "num": "19",
+     "pos": "F"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Bae Jun-Ho",
+     "num": "17",
+     "pos": "M"
+    },
+    {
+     "name": "Kim Jin-Gyu",
+     "num": "24",
+     "pos": "M"
+    },
+    {
+     "name": "Kim Tae-Hyeon",
+     "num": "5",
+     "pos": "M"
+    },
+    {
+     "name": "Lee Dong-Gyeong",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "Jens Castrop",
+     "num": "23",
+     "pos": "M"
+    },
+    {
+     "name": "Song Bum-Keun",
+     "num": "12",
+     "pos": "M"
+    },
+    {
+     "name": "Hwang Hee-Chan",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Cho Gue-Sung",
+     "num": "9",
+     "pos": "M"
+    },
+    {
+     "name": "Eom Ji-Sung",
+     "num": "25",
+     "pos": "M"
+    },
+    {
+     "name": "Jo Hyeon-Woo",
+     "num": "21",
+     "pos": "M"
+    },
+    {
+     "name": "Yang Hyun-Jun",
+     "num": "20",
+     "pos": "M"
+    },
+    {
+     "name": "Kim Moon-Hwan",
+     "num": "15",
+     "pos": "M"
+    },
+    {
+     "name": "Cho Wi-Je",
+     "num": "14",
+     "pos": "M"
+    },
+    {
+     "name": "Park Jin-Seop",
+     "num": "16",
+     "pos": "M"
+    },
+    {
+     "name": "Oh Hyeon-Gyu",
+     "num": "18",
+     "pos": "M"
+    }
+   ]
+  },
+  "away": {
+   "formation": "3-4-2-1",
+   "xi": [
+    {
+     "name": "Matej Kov\u00e1r",
+     "num": "1",
+     "pos": "G"
+    },
+    {
+     "name": "Robin Hran\u00e1c",
+     "num": "4",
+     "pos": "D"
+    },
+    {
+     "name": "Ladislav Krejc\u00ed",
+     "num": "7",
+     "pos": "D"
+    },
+    {
+     "name": "Step\u00e1n Chaloupek",
+     "num": "6",
+     "pos": "D"
+    },
+    {
+     "name": "Alexandr Sojka",
+     "num": "24",
+     "pos": "M"
+    },
+    {
+     "name": "Tom\u00e1s Soucek",
+     "num": "22",
+     "pos": "M"
+    },
+    {
+     "name": "Jaroslav Zelen\u00fd",
+     "num": "20",
+     "pos": "M"
+    },
+    {
+     "name": "Vladim\u00edr Coufal",
+     "num": "5",
+     "pos": "M"
+    },
+    {
+     "name": "Patrik Schick",
+     "num": "10",
+     "pos": "F"
+    },
+    {
+     "name": "Pavel Sulc",
+     "num": "15",
+     "pos": "F"
+    },
+    {
+     "name": "Luk\u00e1s Provod",
+     "num": "17",
+     "pos": "F"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Jindrich Stanek",
+     "num": "16",
+     "pos": "M"
+    },
+    {
+     "name": "Adam Hlozek",
+     "num": "9",
+     "pos": "M"
+    },
+    {
+     "name": "Tom\u00e1s Chor\u00fd",
+     "num": "19",
+     "pos": "M"
+    },
+    {
+     "name": "David Doudera",
+     "num": "21",
+     "pos": "M"
+    },
+    {
+     "name": "Luk\u00e1s Cerv",
+     "num": "12",
+     "pos": "M"
+    },
+    {
+     "name": "Tom\u00e1s Holes",
+     "num": "3",
+     "pos": "M"
+    },
+    {
+     "name": "Vladim\u00edr Darida",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Luk\u00e1s Horn\u00edcek",
+     "num": "23",
+     "pos": "M"
+    },
+    {
+     "name": "Jan Kuchta",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Mojm\u00edr Chytil",
+     "num": "13",
+     "pos": "M"
+    },
+    {
+     "name": "Michal Sad\u00edlek",
+     "num": "18",
+     "pos": "M"
+    },
+    {
+     "name": "Hugo Sochurek",
+     "num": "25",
+     "pos": "M"
+    },
+    {
+     "name": "David Jur\u00e1sek",
+     "num": "14",
+     "pos": "M"
+    },
+    {
+     "name": "Denis Visinsk\u00fd",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "David Zima",
+     "num": "2",
+     "pos": "M"
+    }
+   ]
+  },
+  "events": [
+   {
+    "min": 59,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Ladislav Krejc\u00ed",
+    "assist": "Vladim\u00edr Coufal"
+   },
+   {
+    "min": 62,
+    "team": "home",
+    "type": "subst",
+    "assist": "Hwang Hee-Chan",
+    "player": "Lee Jae-Sung"
+   },
+   {
+    "min": 64,
+    "team": "away",
+    "type": "subst",
+    "assist": "Adam Hlozek",
+    "player": "Pavel Sulc"
+   },
+   {
+    "min": 64,
+    "team": "away",
+    "type": "subst",
+    "assist": "Tom\u00e1s Chor\u00fd",
+    "player": "Patrik Schick"
+   },
+   {
+    "min": 64,
+    "team": "away",
+    "type": "subst",
+    "assist": "Michal Sad\u00edlek",
+    "player": "Luk\u00e1s Provod"
+   },
+   {
+    "min": 67,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Hwang In-Beom",
+    "assist": "Lee Kang-In"
+   },
+   {
+    "min": 69,
+    "team": "home",
+    "type": "subst",
+    "assist": "Eom Ji-Sung",
+    "player": "Lee Tae-Seok"
+   },
+   {
+    "min": 69,
+    "team": "home",
+    "type": "subst",
+    "assist": "Oh Hyeon-Gyu",
+    "player": "Son Heung-Min"
+   },
+   {
+    "min": 80,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Oh Hyeon-Gyu",
+    "assist": "Hwang In-Beom"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "subst",
+    "assist": "Kim Jin-Gyu",
+    "player": "Hwang In-Beom"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "subst",
+    "assist": "Park Jin-Seop",
+    "player": "Paik Seung-Ho"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mojm\u00edr Chytil",
+    "player": "Alexandr Sojka"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Lee Gi-Hyuk"
+   }
+  ]
+ },
+ "Canada|Bosnia and Herzegovina": {
+  "status": "FINISHED",
+  "source": "espn",
+  "home": {
+   "formation": "4-4-2",
+   "xi": [
+    {
+     "name": "Maxime Cr\u00e9peau",
+     "num": "16",
+     "pos": "G"
+    },
+    {
+     "name": "Derek Cornelius",
+     "num": "13",
+     "pos": "D"
+    },
+    {
+     "name": "Luc de Fougerolles",
+     "num": "4",
+     "pos": "D"
+    },
+    {
+     "name": "Richie Laryea",
+     "num": "22",
+     "pos": "D"
+    },
+    {
+     "name": "Alistair Johnston",
+     "num": "2",
+     "pos": "D"
+    },
+    {
+     "name": "Stephen Eust\u00e1quio",
+     "num": "7",
+     "pos": "M"
+    },
+    {
+     "name": "Isma\u00ebl Kon\u00e9",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Liam Millar",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Tajon Buchanan",
+     "num": "17",
+     "pos": "M"
+    },
+    {
+     "name": "Tani Oluwaseyi",
+     "num": "12",
+     "pos": "F"
+    },
+    {
+     "name": "Jonathan David",
+     "num": "10",
+     "pos": "F"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Alfie Jones",
+     "num": "3",
+     "pos": "M"
+    },
+    {
+     "name": "Niko Sigur",
+     "num": "23",
+     "pos": "M"
+    },
+    {
+     "name": "Jacob Shaffelburg",
+     "num": "14",
+     "pos": "M"
+    },
+    {
+     "name": "Joel Waterman",
+     "num": "5",
+     "pos": "M"
+    },
+    {
+     "name": "Jonathan Osorio",
+     "num": "21",
+     "pos": "M"
+    },
+    {
+     "name": "Jayden Nelson",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "Cyle Larin",
+     "num": "9",
+     "pos": "M"
+    },
+    {
+     "name": "Ali Ahmed",
+     "num": "20",
+     "pos": "M"
+    },
+    {
+     "name": "Promise David",
+     "num": "24",
+     "pos": "M"
+    },
+    {
+     "name": "Owen Goodman",
+     "num": "18",
+     "pos": "M"
+    },
+    {
+     "name": "Alphonso Davies",
+     "num": "19",
+     "pos": "M"
+    },
+    {
+     "name": "Dayne St. Clair",
+     "num": "1",
+     "pos": "M"
+    },
+    {
+     "name": "Mo\u00efse Bombito",
+     "num": "15",
+     "pos": "M"
+    },
+    {
+     "name": "Nathan Saliba",
+     "num": "25",
+     "pos": "M"
+    },
+    {
+     "name": "Mathieu Choini\u00e8re",
+     "num": "6",
+     "pos": "M"
+    }
+   ]
+  },
+  "away": {
+   "formation": "4-4-2",
+   "xi": [
+    {
+     "name": "Nikola Vasilj",
+     "num": "1",
+     "pos": "G"
+    },
+    {
+     "name": "Tarik Muharemovic",
+     "num": "4",
+     "pos": "D"
+    },
+    {
+     "name": "Nikola Katic",
+     "num": "18",
+     "pos": "D"
+    },
+    {
+     "name": "Sead Kolasinac",
+     "num": "5",
+     "pos": "D"
+    },
+    {
+     "name": "Amar Dedic",
+     "num": "7",
+     "pos": "D"
+    },
+    {
+     "name": "Ivan Basic",
+     "num": "13",
+     "pos": "M"
+    },
+    {
+     "name": "Benjamin Tahirovic",
+     "num": "6",
+     "pos": "M"
+    },
+    {
+     "name": "Amar Memic",
+     "num": "15",
+     "pos": "M"
+    },
+    {
+     "name": "Esmir Bajraktarevic",
+     "num": "20",
+     "pos": "M"
+    },
+    {
+     "name": "Jovo Lukic",
+     "num": "25",
+     "pos": "F"
+    },
+    {
+     "name": "Ermedin Demirovic",
+     "num": "10",
+     "pos": "F"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Edin Dzeko",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Martin Zlomislic",
+     "num": "22",
+     "pos": "M"
+    },
+    {
+     "name": "Mladen Jurkas",
+     "num": "12",
+     "pos": "M"
+    },
+    {
+     "name": "Samed Bazdar",
+     "num": "9",
+     "pos": "M"
+    },
+    {
+     "name": "Amir Hadziahmetovic",
+     "num": "16",
+     "pos": "M"
+    },
+    {
+     "name": "Ermin Mahmic",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "Armin Gigovic",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Stjepan Radeljic",
+     "num": "21",
+     "pos": "M"
+    },
+    {
+     "name": "Dzenis Burnic",
+     "num": "17",
+     "pos": "M"
+    },
+    {
+     "name": "Kerim Alajbegovic",
+     "num": "19",
+     "pos": "M"
+    },
+    {
+     "name": "Arjan Malic",
+     "num": "24",
+     "pos": "M"
+    },
+    {
+     "name": "Dennis Hadzikadunic",
+     "num": "3",
+     "pos": "M"
+    },
+    {
+     "name": "Haris Tabakovic",
+     "num": "23",
+     "pos": "M"
+    },
+    {
+     "name": "Ivan Sunjic",
+     "num": "14",
+     "pos": "M"
+    },
+    {
+     "name": "Nihad Mujakic",
+     "num": "2",
+     "pos": "M"
+    }
+   ]
+  },
+  "events": [
+   {
+    "min": 11,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Alistair Johnston"
+   },
+   {
+    "min": 21,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Jovo Lukic",
+    "assist": "Sead Kolasinac"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Ermedin Demirovic"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Jovo Lukic"
+   },
+   {
+    "min": 53,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Luc de Fougerolles"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jacob Shaffelburg",
+    "player": "Liam Millar"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Promise David",
+    "player": "Jonathan David"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ali Ahmed",
+    "player": "Tajon Buchanan"
+   },
+   {
+    "min": 62,
+    "team": "away",
+    "type": "subst",
+    "assist": "Samed Bazdar",
+    "player": "Jovo Lukic"
+   },
+   {
+    "min": 62,
+    "team": "away",
+    "type": "subst",
+    "assist": "Armin Gigovic",
+    "player": "Ivan Basic"
+   },
+   {
+    "min": 74,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ivan Sunjic",
+    "player": "Esmir Bajraktarevic"
+   },
+   {
+    "min": 74,
+    "team": "away",
+    "type": "subst",
+    "assist": "Kerim Alajbegovic",
+    "player": "Amar Memic"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "subst",
+    "assist": "Cyle Larin",
+    "player": "Tani Oluwaseyi"
+   },
+   {
+    "min": 78,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Cyle Larin",
+    "assist": "Promise David"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Dzenis Burnic",
+    "player": "Sead Kolasinac"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jonathan Osorio",
+    "player": "Stephen Eust\u00e1quio"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Nikola Katic"
+   }
+  ]
+ },
+ "United States|Paraguay": {
+  "status": "FINISHED",
+  "source": "espn",
+  "home": {
+   "formation": "4-2-3-1",
+   "xi": [
+    {
+     "name": "Matt Freese",
+     "num": "24",
+     "pos": "G"
+    },
+    {
+     "name": "Tim Ream",
+     "num": "13",
+     "pos": "D"
+    },
+    {
+     "name": "Chris Richards",
+     "num": "3",
+     "pos": "D"
+    },
+    {
+     "name": "Antonee Robinson",
+     "num": "5",
+     "pos": "D"
+    },
+    {
+     "name": "Alex Freeman",
+     "num": "16",
+     "pos": "D"
+    },
+    {
+     "name": "Weston McKennie",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Malik Tillman",
+     "num": "17",
+     "pos": "M"
+    },
+    {
+     "name": "Tyler Adams",
+     "num": "4",
+     "pos": "M"
+    },
+    {
+     "name": "Folarin Balogun",
+     "num": "20",
+     "pos": "F"
+    },
+    {
+     "name": "Christian Pulisic",
+     "num": "10",
+     "pos": "M"
+    },
+    {
+     "name": "Sergi\u00f1o Dest",
+     "num": "2",
+     "pos": "M"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Alejandro Zendejas",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "Sebastian Berhalter",
+     "num": "14",
+     "pos": "M"
+    },
+    {
+     "name": "Ricardo Pepi",
+     "num": "9",
+     "pos": "M"
+    },
+    {
+     "name": "Cristian Roldan",
+     "num": "15",
+     "pos": "M"
+    },
+    {
+     "name": "Mark McKenzie",
+     "num": "22",
+     "pos": "M"
+    },
+    {
+     "name": "Joe Scally",
+     "num": "23",
+     "pos": "M"
+    },
+    {
+     "name": "Max Arfsten",
+     "num": "18",
+     "pos": "M"
+    },
+    {
+     "name": "Matt Turner",
+     "num": "1",
+     "pos": "M"
+    },
+    {
+     "name": "Haji Wright",
+     "num": "19",
+     "pos": "M"
+    },
+    {
+     "name": "Chris Brady",
+     "num": "25",
+     "pos": "M"
+    },
+    {
+     "name": "Brenden Aaronson",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Giovanni Reyna",
+     "num": "7",
+     "pos": "M"
+    },
+    {
+     "name": "Timothy Weah",
+     "num": "21",
+     "pos": "M"
+    },
+    {
+     "name": "Miles Robinson",
+     "num": "12",
+     "pos": "M"
+    },
+    {
+     "name": "Auston Trusty",
+     "num": "6",
+     "pos": "M"
+    }
+   ]
+  },
+  "away": {
+   "formation": "4-4-2",
+   "xi": [
+    {
+     "name": "Orlando Gil",
+     "num": "12",
+     "pos": "G"
+    },
+    {
+     "name": "Omar Alderete",
+     "num": "3",
+     "pos": "D"
+    },
+    {
+     "name": "Gustavo G\u00f3mez",
+     "num": "15",
+     "pos": "D"
+    },
+    {
+     "name": "J\u00fanior Alonso",
+     "num": "6",
+     "pos": "D"
+    },
+    {
+     "name": "Juan Jose C\u00e1ceres",
+     "num": "4",
+     "pos": "D"
+    },
+    {
+     "name": "Dami\u00e1n Bobadilla",
+     "num": "16",
+     "pos": "M"
+    },
+    {
+     "name": "Andr\u00e9s Cubas",
+     "num": "14",
+     "pos": "M"
+    },
+    {
+     "name": "Miguel Almir\u00f3n",
+     "num": "10",
+     "pos": "M"
+    },
+    {
+     "name": "Diego G\u00f3mez",
+     "num": "8",
+     "pos": "M"
+    },
+    {
+     "name": "Julio Enciso",
+     "num": "19",
+     "pos": "F"
+    },
+    {
+     "name": "Antonio Sanabria",
+     "num": "9",
+     "pos": "F"
+    }
+   ],
+   "subs": [
+    {
+     "name": "Alex Arce",
+     "num": "18",
+     "pos": "M"
+    },
+    {
+     "name": "Jos\u00e9 Canale",
+     "num": "13",
+     "pos": "M"
+    },
+    {
+     "name": "Gabriel \u00c1valos",
+     "num": "21",
+     "pos": "M"
+    },
+    {
+     "name": "Alexandro Maidana",
+     "num": "26",
+     "pos": "M"
+    },
+    {
+     "name": "Gustavo Caballero",
+     "num": "24",
+     "pos": "M"
+    },
+    {
+     "name": "Alejandro Romero Gamarra",
+     "num": "17",
+     "pos": "M"
+    },
+    {
+     "name": "Braian Ojeda",
+     "num": "20",
+     "pos": "M"
+    },
+    {
+     "name": "Gast\u00f3n Olveira",
+     "num": "22",
+     "pos": "M"
+    },
+    {
+     "name": "Gatito Fern\u00e1ndez",
+     "num": "1",
+     "pos": "M"
+    },
+    {
+     "name": "Isidro Pitta",
+     "num": "25",
+     "pos": "M"
+    },
+    {
+     "name": "Fabi\u00e1n Balbuena",
+     "num": "5",
+     "pos": "M"
+    },
+    {
+     "name": "Mat\u00edas Galarza",
+     "num": "23",
+     "pos": "M"
+    },
+    {
+     "name": "Ram\u00f3n Sosa",
+     "num": "7",
+     "pos": "M"
+    },
+    {
+     "name": "Maur\u00edcio",
+     "num": "11",
+     "pos": "M"
+    },
+    {
+     "name": "Gustavo Vel\u00e1zquez",
+     "num": "2",
+     "pos": "M"
+    }
+   ]
+  },
+  "events": [
+   {
+    "min": 7,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Dami\u00e1n Bobadilla"
+   },
+   {
+    "min": 10,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Juan Jose C\u00e1ceres"
+   },
+   {
+    "min": 31,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Folarin Balogun",
+    "assist": "Christian Pulisic"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Folarin Balogun",
+    "assist": "Malik Tillman"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Maur\u00edcio",
+    "player": "Dami\u00e1n Bobadilla"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Sebastian Berhalter",
+    "player": "Christian Pulisic"
+   },
+   {
+    "min": 52,
+    "team": "home",
+    "type": "card",
+    "card": "red",
+    "player": "Tim Ream"
+   },
+   {
+    "min": 53,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Miguel Almir\u00f3n"
+   },
+   {
+    "min": 59,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Tyler Adams"
+   },
+   {
+    "min": 62,
+    "team": "away",
+    "type": "subst",
+    "assist": "Alex Arce",
+    "player": "Antonio Sanabria"
+   },
+   {
+    "min": 72,
+    "team": "home",
+    "type": "subst",
+    "assist": "Timothy Weah",
+    "player": "Sergi\u00f1o Dest"
+   },
+   {
+    "min": 72,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ricardo Pepi",
+    "player": "Folarin Balogun"
+   },
+   {
+    "min": 73,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Maur\u00edcio",
+    "assist": "Julio Enciso"
+   },
+   {
+    "min": 79,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Diego G\u00f3mez"
+   },
+   {
+    "min": 79,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ram\u00f3n Sosa",
+    "player": "Miguel Almir\u00f3n"
+   },
+   {
+    "min": 79,
+    "team": "away",
+    "type": "subst",
+    "assist": "Gustavo Vel\u00e1zquez",
+    "player": "Juan Jose C\u00e1ceres"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "subst",
+    "assist": "Alejandro Romero Gamarra",
+    "player": "Diego G\u00f3mez"
+   },
+   {
+    "min": 82,
+    "team": "home",
+    "type": "subst",
+    "assist": "Giovanni Reyna",
+    "player": "Malik Tillman"
+   },
+   {
+    "min": 88,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Alex Arce"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "J\u00fanior Alonso"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Giovanni Reyna",
+    "assist": "Alex Freeman"
+   }
+  ]
+ }
+}
