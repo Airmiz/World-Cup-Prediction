@@ -357,7 +357,9 @@ function renderFeed(){
      const other=r?r[1-i]:null; const cls=r?(sc>other?"win":sc<other?"lose":""):"";
      return `<div class="mrow ${cls}"><span>${F(t)}</span><span class="nm">${t}</span><span class="sc">${sc==null?"":sc}</span></div>`;
    }).join("");
-   return `<div class="mcard clk ${status}" data-fid="${f.id}"><div class="top"><span>Group ${f.group} · ${f.city}</span><span class="st ${status}">${stTxt}</span></div>${rowsHTML}<div style="text-align:right;margin-top:5px"><span class="wpchip">📈 WIN PROBABILITY</span></div></div>`;
+   const interactive = status!=="upcoming";
+   const chip = interactive ? `<div style="text-align:right;margin-top:5px"><span class="wpchip">📈 WIN PROBABILITY</span></div>` : "";
+   return `<div class="mcard ${interactive?"clk":""} ${status}" ${interactive?`data-fid="${f.id}"`:""}><div class="top"><span>Group ${f.group} · ${f.city}</span><span class="st ${status}">${stTxt}</span></div>${rowsHTML}${chip}</div>`;
   }).join("");
   box.insertAdjacentHTML("beforeend",`<div class="daygroup"><div class="dayh">${label}</div><div class="mgrid">${cards}</div></div>`);
  });
@@ -466,18 +468,31 @@ const WP={fid:null,events:[],minute:90,anim:null,mode:"actual"};
 const ov=document.getElementById("wpov"), modalEl=document.getElementById("wpmodal");
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
 
+function matchStatus(fid){
+ const f=fixById[fid]; const res=STATE.results[fid];
+ if(res) return "ft";
+ const t=f.utc?new Date(f.utc).getTime():null;
+ if(t && Date.now()>=t) return "live";
+ return "upcoming";
+}
 function openMatch(fid){
  const f=fixById[fid]; if(!f) return;
  WP.fid=fid; stopAnim();
  const res=STATE.results[fid];
  const known=D.goal_events[f.home+"|"+f.away];
- if(res && known){ WP.events=known.map(e=>({...e})); WP.mode="actual"; WP.minute=90; }
- else if(res){ // played but goal minutes unknown: place final-score goals at spread minutes
-   WP.events=spreadGoals(res[0],res[1]); WP.mode="actual"; WP.minute=90; }
- else { WP.events=WCInPlay.simulateStory(f.eh,f.ea,mulberry(fid*2654435761>>>0)); WP.mode="sim"; WP.minute=0; }
+ WP.status=matchStatus(fid);
+ if(WP.status==="ft"){
+   WP.events = known ? known.map(e=>({...e})) : (res ? spreadGoals(res[0],res[1]) : []);
+   WP.minute = 90;
+ } else if(WP.status==="live"){
+   WP.events = known ? known.map(e=>({...e})) : [];   // real goals if available, else 0-0 baseline
+   const t=new Date(f.utc).getTime();
+   WP.minute = Math.max(0, Math.min(90, Math.round((Date.now()-t)/60000)));
+ } else {
+   WP.events=[]; WP.minute=0;                          // upcoming: no fabricated story
+ }
  ov.classList.add("show"); document.body.style.overflow="hidden";
  drawModal();
- if(!res) animatePlay();        // auto-play the simulated story for upcoming games
 }
 function spreadGoals(h,a){const ev=[];const tot=h+a;let i=0;
  for(let k=0;k<h;k++)ev.push({min:Math.round((++i)*90/(tot+1)),team:"home"});
@@ -510,47 +525,56 @@ function buildChart(f){
   ${endLbl(0,'var(--g2)','H')}${endLbl(1,'#9aa3b2','D')}${endLbl(2,'var(--g3)','A')}
  </svg>`;
 }
+function readouts(f,p){
+ return `<div class="wpreadout">
+   <div class="wpr h"><div class="v">${pc(p[0],1)}</div><div class="k">${f.home} win</div></div>
+   <div class="wpr d"><div class="v">${pc(p[1],1)}</div><div class="k">Draw</div></div>
+   <div class="wpr a"><div class="v">${pc(p[2],1)}</div><div class="k">${f.away} win</div></div>
+  </div>`;
+}
 function drawModal(){
- const f=fixById[WP.fid]; const T=WCInPlay.timeline(f.eh,f.ea,WP.events);
+ const f=fixById[WP.fid];
+ const kt=f.utc?new Date(f.utc):null;
+
+ // --- not yet kicked off: pre-match odds only, no fabricated timeline ---
+ if(WP.status==="upcoming"){
+  const pre=WCInPlay.probs(f.eh,f.ea,0,0,0);
+  modalEl.innerHTML=`
+   <button class="close" id="wpclose">✕</button>
+   <div class="mh"><span class="tn">${F(f.home)} ${f.home}</span><span class="sc" style="font-size:22px;color:var(--mut)">vs</span><span class="tn">${f.away} ${F(f.away)}</span></div>
+   <div class="meta">Group ${f.group} · ${f.city}${kt?" · "+fmtDay.format(kt)+", "+fmtTime.format(kt):""} · model xG ${f.eh.toFixed(2)}–${f.ea.toFixed(2)}</div>
+   ${readouts(f,pre)}
+   <div class="hint" style="margin-top:18px">Pre-match model odds shown above. The live win-probability timeline appears once the match kicks off${kt?` at ${fmtTime.format(kt)} your time`:""}.</div>`;
+  document.getElementById("wpclose").onclick=closeModal;
+  return;
+ }
+
+ // --- live or finished: real in-play win-probability chart ---
+ const T=WCInPlay.timeline(f.eh,f.ea,WP.events);
  const [gh,ga]=WCInPlay.scoreAt(WP.events,WP.minute);
  const cur=T[WP.minute].p;
- const res=STATE.results[WP.fid];
- const statusTxt = WP.mode==="sim" ? "Simulated match story — press ▶ or scrub the minute" :
-   (res?`Full time · actual goal timeline`:"");
- const kt=f.utc?new Date(f.utc):null;
+ const statusTxt = WP.status==="live" ? `● LIVE — ${WP.minute}′` : "Full time · actual goal timeline";
+ const liveNote = (WP.status==="live" && WP.events.length===0)
+   ? `<div class="hint" style="margin-top:8px">No goals reported yet — showing the live win probability at the current scoreline. The full goal-by-goal timeline fills in as the match progresses.</div>` : "";
  modalEl.innerHTML=`
   <button class="close" id="wpclose">✕</button>
   <div class="mh"><span class="tn">${F(f.home)} ${f.home}</span><span class="sc">${gh} – ${ga}</span><span class="tn">${f.away} ${F(f.away)}</span></div>
-  <div class="meta">Group ${f.group} · ${f.city}${kt?" · "+fmtDay.format(kt):""} · model xG ${f.eh.toFixed(2)}–${f.ea.toFixed(2)} · <b style="color:var(--blue)">${statusTxt}</b></div>
-  <div class="wpreadout">
-   <div class="wpr h"><div class="v">${pc(cur[0],1)}</div><div class="k">${f.home} win</div></div>
-   <div class="wpr d"><div class="v">${pc(cur[1],1)}</div><div class="k">Draw</div></div>
-   <div class="wpr a"><div class="v">${pc(cur[2],1)}</div><div class="k">${f.away} win</div></div>
-  </div>
+  <div class="meta">Group ${f.group} · ${f.city}${kt?" · "+fmtDay.format(kt):""} · model xG ${f.eh.toFixed(2)}–${f.ea.toFixed(2)} · <b style="color:${WP.status==="live"?"var(--live)":"var(--blue)"}">${statusTxt}</b></div>
+  ${readouts(f,cur)}
   <div class="chartbox">${buildChart(f)}</div>
   <div class="minrow"><span class="mm">${WP.minute}'</span>
    <input type="range" id="wpmin" min="0" max="90" value="${WP.minute}"></div>
   <div class="ctrls">
-   <div class="seg"><button class="solid" id="wpplay">▶ Play</button><button id="wprewind">↺</button></div>
-   <div class="seg"><button class="gh" id="wpgh">＋ ${f.home} goal @${WP.minute}'</button><button class="ga" id="wpga">＋ ${f.away} goal @${WP.minute}'</button></div>
-   <div class="seg">${res?`<button id="wpactual">Actual story</button>`:`<button id="wpsim">🎲 Simulate again</button>`}<button id="wpclear">Clear goals</button></div>
+   <div class="seg"><button class="solid" id="wpplay">▶ Replay</button><button id="wprewind">↺</button></div>
   </div>
-  ${WP.events.length?`<div class="evchips">`+WP.events.map((e,i)=>`<span class="evchip ${e.team}" data-i="${i}">${e.min}' ${e.team==='home'?F(f.home)+' '+f.home:F(f.away)+' '+f.away} ✕</span>`).join("")+`</div>`:""}
-  <div class="hint">Remaining-time goals modelled as Poisson(xG × time left) — exact in-play win probability. Click a goal chip to remove it; add goals or scrub the minute to explore.</div>`;
- // wire
+  ${liveNote}
+  <div class="hint">Remaining-time goals modelled as Poisson(xG × time left) — exact in-play win probability from the real scoreline. Drag to scrub the minute, or press Replay.</div>`;
  document.getElementById("wpclose").onclick=closeModal;
  const mr=document.getElementById("wpmin");
  mr.oninput=()=>{WP.minute=+mr.value;stopAnim();drawModal();};
  document.getElementById("wpplay").onclick=animateToggle;
  document.getElementById("wprewind").onclick=()=>{WP.minute=0;stopAnim();drawModal();};
- document.getElementById("wpgh").onclick=()=>{addGoal("home");};
- document.getElementById("wpga").onclick=()=>{addGoal("away");};
- document.getElementById("wpclear").onclick=()=>{WP.events=[];stopAnim();drawModal();};
- const sb=document.getElementById("wpsim"); if(sb) sb.onclick=()=>{WP.events=WCInPlay.simulateStory(f.eh,f.ea,Math.random);WP.minute=0;stopAnim();drawModal();animatePlay();};
- const ab=document.getElementById("wpactual"); if(ab) ab.onclick=()=>{const k=D.goal_events[f.home+"|"+f.away]||spreadGoals(res[0],res[1]);WP.events=k.map(e=>({...e}));WP.minute=90;stopAnim();drawModal();};
- [...modalEl.querySelectorAll(".evchip")].forEach(c=>c.onclick=()=>{WP.events.splice(+c.dataset.i,1);drawModal();});
 }
-function addGoal(team){WP.events.push({min:WP.minute,team});WP.events.sort((a,b)=>a.min-b.min);drawModal();}
 let animTimer=null;
 function stopAnim(){if(animTimer){clearInterval(animTimer);animTimer=null;const b=document.getElementById("wpplay");if(b)b.textContent="▶ Play";}}
 function animateToggle(){ if(animTimer){stopAnim();return;} animatePlay(); }

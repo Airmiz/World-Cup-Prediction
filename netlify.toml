@@ -1,0 +1,4 @@
+# Tells Netlify which folder to publish. The site lives in website/.
+[build]
+  publish = "website"
+  command = ""
