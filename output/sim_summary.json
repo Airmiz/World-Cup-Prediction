@@ -1,0 +1,92 @@
+{
+  "n_sims": 200000,
+  "seed": 20260611,
+  "cutoff": "2026-06-11",
+  "blend_w": 0.5,
+  "dc_home_adv": 0.25946365262708365,
+  "dc_rho": -0.05574539871980576,
+  "top_finals": [
+    {
+      "final": "Spain vs Argentina",
+      "p": 0.051295
+    },
+    {
+      "final": "Spain vs England",
+      "p": 0.019815
+    },
+    {
+      "final": "France vs Argentina",
+      "p": 0.01881
+    },
+    {
+      "final": "Brazil vs Spain",
+      "p": 0.014685
+    },
+    {
+      "final": "Spain vs Colombia",
+      "p": 0.014295
+    },
+    {
+      "final": "Brazil vs Argentina",
+      "p": 0.013325
+    },
+    {
+      "final": "Japan vs Argentina",
+      "p": 0.013095
+    },
+    {
+      "final": "Spain vs France",
+      "p": 0.01306
+    },
+    {
+      "final": "Argentina vs England",
+      "p": 0.01255
+    },
+    {
+      "final": "Spain vs Portugal",
+      "p": 0.012115
+    }
+  ],
+  "champion_top10": [
+    {
+      "team": "Argentina",
+      "p_champion": 0.171155
+    },
+    {
+      "team": "Spain",
+      "p_champion": 0.15701
+    },
+    {
+      "team": "England",
+      "p_champion": 0.063555
+    },
+    {
+      "team": "France",
+      "p_champion": 0.06339
+    },
+    {
+      "team": "Brazil",
+      "p_champion": 0.05633
+    },
+    {
+      "team": "Colombia",
+      "p_champion": 0.047965
+    },
+    {
+      "team": "Morocco",
+      "p_champion": 0.042455
+    },
+    {
+      "team": "Japan",
+      "p_champion": 0.040975
+    },
+    {
+      "team": "Portugal",
+      "p_champion": 0.04089
+    },
+    {
+      "team": "Ecuador",
+      "p_champion": 0.032105
+    }
+  ]
+}

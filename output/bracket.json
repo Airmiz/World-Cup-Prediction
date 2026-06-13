@@ -1,0 +1,433 @@
+{
+ "standings": {
+  "A": {
+   "1": "Mexico",
+   "2": "South Korea",
+   "3": "Czech Republic",
+   "4": "South Africa",
+   "probs": {
+    "1": 0.636405,
+    "2": 0.364675,
+    "3": 0.346295
+   }
+  },
+  "B": {
+   "1": "Canada",
+   "2": "Switzerland",
+   "3": "Bosnia and Herzegovina",
+   "4": "Qatar",
+   "probs": {
+    "1": 0.51856,
+    "2": 0.418985,
+    "3": 0.45158
+   }
+  },
+  "C": {
+   "1": "Brazil",
+   "2": "Morocco",
+   "3": "Scotland",
+   "4": "Haiti",
+   "probs": {
+    "1": 0.48447,
+    "2": 0.36593,
+    "3": 0.387675
+   }
+  },
+  "D": {
+   "1": "Turkey",
+   "2": "Australia",
+   "3": "Paraguay",
+   "4": "United States",
+   "probs": {
+    "1": 0.270185,
+    "2": 0.254845,
+    "3": 0.262545
+   }
+  },
+  "E": {
+   "1": "Germany",
+   "2": "Ecuador",
+   "3": "Ivory Coast",
+   "4": "Cura\u00e7ao",
+   "probs": {
+    "1": 0.427675,
+    "2": 0.34455,
+    "3": 0.402835
+   }
+  },
+  "F": {
+   "1": "Japan",
+   "2": "Netherlands",
+   "3": "Tunisia",
+   "4": "Sweden",
+   "probs": {
+    "1": 0.456665,
+    "2": 0.34889,
+    "3": 0.344435
+   }
+  },
+  "G": {
+   "1": "Belgium",
+   "2": "Iran",
+   "3": "Egypt",
+   "4": "New Zealand",
+   "probs": {
+    "1": 0.42708,
+    "2": 0.298365,
+    "3": 0.306365
+   }
+  },
+  "H": {
+   "1": "Spain",
+   "2": "Uruguay",
+   "3": "Saudi Arabia",
+   "4": "Cape Verde",
+   "probs": {
+    "1": 0.75073,
+    "2": 0.51526,
+    "3": 0.409795
+   }
+  },
+  "I": {
+   "1": "France",
+   "2": "Norway",
+   "3": "Senegal",
+   "4": "Iraq",
+   "probs": {
+    "1": 0.475935,
+    "2": 0.314785,
+    "3": 0.31661
+   }
+  },
+  "J": {
+   "1": "Argentina",
+   "2": "Algeria",
+   "3": "Austria",
+   "4": "Jordan",
+   "probs": {
+    "1": 0.68873,
+    "2": 0.35139,
+    "3": 0.34327
+   }
+  },
+  "K": {
+   "1": "Colombia",
+   "2": "Portugal",
+   "3": "Uzbekistan",
+   "4": "DR Congo",
+   "probs": {
+    "1": 0.43724,
+    "2": 0.32951,
+    "3": 0.329085
+   }
+  },
+  "L": {
+   "1": "England",
+   "2": "Croatia",
+   "3": "Panama",
+   "4": "Ghana",
+   "probs": {
+    "1": 0.598945,
+    "2": 0.39104,
+    "3": 0.38996
+   }
+  }
+ },
+ "qualified_third_groups": [
+  "A",
+  "C",
+  "D",
+  "E",
+  "G",
+  "I",
+  "J",
+  "L"
+ ],
+ "third_slotting": {
+  "1A": "Ivory Coast",
+  "1B": "Egypt",
+  "1D": "Austria",
+  "1E": "Scotland",
+  "1G": "Czech Republic",
+  "1I": "Paraguay",
+  "1K": "Panama",
+  "1L": "Senegal"
+ },
+ "rounds": {
+  "r32": [
+   {
+    "m": 73,
+    "t1": "South Korea",
+    "t2": "Switzerland",
+    "p1": 0.4186,
+    "winner": "Switzerland",
+    "venue": "United States",
+    "label": "2A v 2B"
+   },
+   {
+    "m": 74,
+    "t1": "Germany",
+    "t2": "Scotland",
+    "p1": 0.6906,
+    "winner": "Germany",
+    "venue": "United States",
+    "label": "1E v 3rd"
+   },
+   {
+    "m": 75,
+    "t1": "Japan",
+    "t2": "Morocco",
+    "p1": 0.4951,
+    "winner": "Morocco",
+    "venue": "Mexico",
+    "label": "1F v 2C"
+   },
+   {
+    "m": 76,
+    "t1": "Brazil",
+    "t2": "Netherlands",
+    "p1": 0.5711,
+    "winner": "Brazil",
+    "venue": "United States",
+    "label": "1C v 2F"
+   },
+   {
+    "m": 77,
+    "t1": "France",
+    "t2": "Paraguay",
+    "p1": 0.6866,
+    "winner": "France",
+    "venue": "United States",
+    "label": "1I v 3rd"
+   },
+   {
+    "m": 78,
+    "t1": "Ecuador",
+    "t2": "Norway",
+    "p1": 0.5381,
+    "winner": "Ecuador",
+    "venue": "United States",
+    "label": "2E v 2I"
+   },
+   {
+    "m": 79,
+    "t1": "Mexico",
+    "t2": "Ivory Coast",
+    "p1": 0.7105,
+    "winner": "Mexico",
+    "venue": "Mexico",
+    "label": "1A v 3rd"
+   },
+   {
+    "m": 80,
+    "t1": "England",
+    "t2": "Senegal",
+    "p1": 0.6429,
+    "winner": "England",
+    "venue": "United States",
+    "label": "1L v 3rd"
+   },
+   {
+    "m": 81,
+    "t1": "Turkey",
+    "t2": "Austria",
+    "p1": 0.5297,
+    "winner": "Turkey",
+    "venue": "United States",
+    "label": "1D v 3rd"
+   },
+   {
+    "m": 82,
+    "t1": "Belgium",
+    "t2": "Czech Republic",
+    "p1": 0.7043,
+    "winner": "Belgium",
+    "venue": "United States",
+    "label": "1G v 3rd"
+   },
+   {
+    "m": 83,
+    "t1": "Portugal",
+    "t2": "Croatia",
+    "p1": 0.6144,
+    "winner": "Portugal",
+    "venue": "Canada",
+    "label": "2K v 2L"
+   },
+   {
+    "m": 84,
+    "t1": "Spain",
+    "t2": "Algeria",
+    "p1": 0.7452,
+    "winner": "Spain",
+    "venue": "United States",
+    "label": "1H v 2J"
+   },
+   {
+    "m": 85,
+    "t1": "Canada",
+    "t2": "Egypt",
+    "p1": 0.6633,
+    "winner": "Canada",
+    "venue": "Canada",
+    "label": "1B v 3rd"
+   },
+   {
+    "m": 86,
+    "t1": "Argentina",
+    "t2": "Uruguay",
+    "p1": 0.7263,
+    "winner": "Argentina",
+    "venue": "United States",
+    "label": "1J v 2H"
+   },
+   {
+    "m": 87,
+    "t1": "Colombia",
+    "t2": "Panama",
+    "p1": 0.7674,
+    "winner": "Colombia",
+    "venue": "United States",
+    "label": "1K v 3rd"
+   },
+   {
+    "m": 88,
+    "t1": "Australia",
+    "t2": "Iran",
+    "p1": 0.5036,
+    "winner": "Australia",
+    "venue": "United States",
+    "label": "2D v 2G"
+   }
+  ],
+  "r16": [
+   {
+    "m": 89,
+    "t1": "Germany",
+    "t2": "France",
+    "p1": 0.42,
+    "winner": "France",
+    "venue": "United States"
+   },
+   {
+    "m": 90,
+    "t1": "Switzerland",
+    "t2": "Morocco",
+    "p1": 0.412,
+    "winner": "Morocco",
+    "venue": "United States"
+   },
+   {
+    "m": 91,
+    "t1": "Brazil",
+    "t2": "Ecuador",
+    "p1": 0.5531,
+    "winner": "Brazil",
+    "venue": "United States"
+   },
+   {
+    "m": 92,
+    "t1": "Mexico",
+    "t2": "England",
+    "p1": 0.4821,
+    "winner": "England",
+    "venue": "Mexico"
+   },
+   {
+    "m": 93,
+    "t1": "Portugal",
+    "t2": "Spain",
+    "p1": 0.3546,
+    "winner": "Spain",
+    "venue": "United States"
+   },
+   {
+    "m": 94,
+    "t1": "Turkey",
+    "t2": "Belgium",
+    "p1": 0.4554,
+    "winner": "Belgium",
+    "venue": "United States"
+   },
+   {
+    "m": 95,
+    "t1": "Argentina",
+    "t2": "Australia",
+    "p1": 0.7649,
+    "winner": "Argentina",
+    "venue": "United States"
+   },
+   {
+    "m": 96,
+    "t1": "Canada",
+    "t2": "Colombia",
+    "p1": 0.4397,
+    "winner": "Colombia",
+    "venue": "Canada"
+   }
+  ],
+  "qf": [
+   {
+    "m": 97,
+    "t1": "France",
+    "t2": "Morocco",
+    "p1": 0.5364,
+    "winner": "France",
+    "venue": "United States"
+   },
+   {
+    "m": 98,
+    "t1": "Spain",
+    "t2": "Belgium",
+    "p1": 0.724,
+    "winner": "Spain",
+    "venue": "United States"
+   },
+   {
+    "m": 99,
+    "t1": "Brazil",
+    "t2": "England",
+    "p1": 0.4825,
+    "winner": "England",
+    "venue": "United States"
+   },
+   {
+    "m": 100,
+    "t1": "Argentina",
+    "t2": "Colombia",
+    "p1": 0.6527,
+    "winner": "Argentina",
+    "venue": "United States"
+   }
+  ],
+  "sf": [
+   {
+    "m": 101,
+    "t1": "France",
+    "t2": "Spain",
+    "p1": 0.3968,
+    "winner": "Spain",
+    "venue": "United States"
+   },
+   {
+    "m": 102,
+    "t1": "England",
+    "t2": "Argentina",
+    "p1": 0.3921,
+    "winner": "Argentina",
+    "venue": "United States"
+   }
+  ],
+  "final": [
+   {
+    "m": 104,
+    "t1": "Spain",
+    "t2": "Argentina",
+    "p1": 0.4799,
+    "winner": "Argentina",
+    "venue": "United States"
+   }
+  ]
+ },
+ "champion": "Argentina"
+}

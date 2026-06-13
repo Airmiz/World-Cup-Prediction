@@ -1,0 +1,205 @@
+{
+ "best": {
+  "xi": 0.7,
+  "friendly_w": 0.7,
+  "blend_w": 0.5
+ },
+ "metrics": {
+  "2014": {
+   "blend": {
+    "n": 48,
+    "log_loss": 0.9254568588796989,
+    "brier": 0.5469317548056055
+   },
+   "elo_only": {
+    "n": 48,
+    "log_loss": 0.9246237819925242,
+    "brier": 0.5467745321505629
+   },
+   "dc_only": {
+    "n": 48,
+    "log_loss": 0.9375827137158562,
+    "brier": 0.5548391139290024
+   },
+   "uniform": {
+    "log_loss": 1.0986122886681098,
+    "brier": 0.6666666666666666,
+    "n": 48
+   }
+  },
+  "2018": {
+   "blend": {
+    "n": 48,
+    "log_loss": 0.9510964415016497,
+    "brier": 0.5619006996575721
+   },
+   "elo_only": {
+    "n": 48,
+    "log_loss": 0.9637545390552343,
+    "brier": 0.5681666526574932
+   },
+   "dc_only": {
+    "n": 48,
+    "log_loss": 0.9515813373023562,
+    "brier": 0.5645621352905372
+   },
+   "uniform": {
+    "log_loss": 1.0986122886681098,
+    "brier": 0.6666666666666666,
+    "n": 48
+   }
+  },
+  "2022": {
+   "blend": {
+    "n": 48,
+    "log_loss": 1.0775827107471407,
+    "brier": 0.6354699967901162
+   },
+   "elo_only": {
+    "n": 48,
+    "log_loss": 1.1016600307172635,
+    "brier": 0.6429167191326016
+   },
+   "dc_only": {
+    "n": 48,
+    "log_loss": 1.0791460414987724,
+    "brier": 0.641024671688798
+   },
+   "uniform": {
+    "log_loss": 1.0986122886681098,
+    "brier": 0.6666666666666666,
+    "n": 48
+   }
+  }
+ },
+ "top10": [
+  {
+   "team": "Argentina",
+   "p_champion": 0.171155
+  },
+  {
+   "team": "Spain",
+   "p_champion": 0.15701
+  },
+  {
+   "team": "England",
+   "p_champion": 0.063555
+  },
+  {
+   "team": "France",
+   "p_champion": 0.06339
+  },
+  {
+   "team": "Brazil",
+   "p_champion": 0.05633
+  },
+  {
+   "team": "Colombia",
+   "p_champion": 0.047965
+  },
+  {
+   "team": "Morocco",
+   "p_champion": 0.042455
+  },
+  {
+   "team": "Japan",
+   "p_champion": 0.040975
+  },
+  {
+   "team": "Portugal",
+   "p_champion": 0.04089
+  },
+  {
+   "team": "Ecuador",
+   "p_champion": 0.032105
+  }
+ ],
+ "finals": [
+  {
+   "final": "Spain vs Argentina",
+   "p": 0.051295
+  },
+  {
+   "final": "Spain vs England",
+   "p": 0.019815
+  },
+  {
+   "final": "France vs Argentina",
+   "p": 0.01881
+  },
+  {
+   "final": "Brazil vs Spain",
+   "p": 0.014685
+  },
+  {
+   "final": "Spain vs Colombia",
+   "p": 0.014295
+  }
+ ],
+ "hosts": [
+  {
+   "team": "Mexico",
+   "elo": 1980.352871372883,
+   "p_win_group": 0.636405,
+   "p_reach_r16": 0.631355,
+   "p_reach_qf": 0.347015,
+   "p_champion": 0.028465
+  },
+  {
+   "team": "Canada",
+   "elo": 1898.895662442943,
+   "p_win_group": 0.51856,
+   "p_reach_r16": 0.556775,
+   "p_reach_qf": 0.26301,
+   "p_champion": 0.012975
+  },
+  {
+   "team": "United States",
+   "elo": 1827.084006198508,
+   "p_win_group": 0.263025,
+   "p_reach_r16": 0.37789,
+   "p_reach_qf": 0.16354,
+   "p_champion": 0.00887
+  }
+ ],
+ "opener": {
+  "date": "2026-06-11",
+  "group": "A",
+  "home_team": "South Korea",
+  "away_team": "Czech Republic",
+  "city": "Zapopan",
+  "country": "Mexico",
+  "p_home_win": 0.4592147612634202,
+  "p_draw": 0.2715840634077214,
+  "p_away_win": 0.2692011753288583,
+  "exp_goals_home": 1.4995902009481417,
+  "exp_goals_away": 1.0917777775169053,
+  "most_likely_scores": "1-1 (12.9%); 1-0 (10.6%); 2-1 (9.2%)"
+ },
+ "home_adv": 0.25946365262708365,
+ "rho": -0.05574539871980576,
+ "n_sims": 200000,
+ "elo_top5": [
+  {
+   "team": "Spain",
+   "elo": 2219.019578963679
+  },
+  {
+   "team": "Argentina",
+   "elo": 2190.0391995191403
+  },
+  {
+   "team": "France",
+   "elo": 2125.076045189829
+  },
+  {
+   "team": "England",
+   "elo": 2090.788958545588
+  },
+  {
+   "team": "Brazil",
+   "elo": 2069.034114403856
+  }
+ ],
+ "groups_tight": null
+}

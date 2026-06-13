@@ -1,0 +1,6 @@
+{
+  "Mexico|South Africa": [{"min": 9, "team": "home"}, {"min": 67, "team": "home"}],
+  "South Korea|Czech Republic": [{"min": 59, "team": "away"}, {"min": 67, "team": "home"}, {"min": 80, "team": "home"}],
+  "Canada|Bosnia and Herzegovina": [{"min": 21, "team": "away"}, {"min": 78, "team": "home"}],
+  "United States|Paraguay": [{"min": 7, "team": "home"}, {"min": 31, "team": "home"}, {"min": 45, "team": "home"}, {"min": 73, "team": "away"}, {"min": 90, "team": "home"}]
+}

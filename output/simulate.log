@@ -1,0 +1,2 @@
+[{"team": "Argentina", "p_champion": 0.171155}, {"team": "Spain", "p_champion": 0.15701}, {"team": "England", "p_champion": 0.063555}, {"team": "France", "p_champion": 0.06339}, {"team": "Brazil", "p_champion": 0.05633}, {"team": "Colombia", "p_champion": 0.047965}, {"team": "Morocco", "p_champion": 0.042455}, {"team": "Japan", "p_champion": 0.040975}, {"team": "Portugal", "p_champion": 0.04089}, {"team": "Ecuador", "p_champion": 0.032105}]
+saved output/team_probabilities.csv, match_predictions.csv, sim_summary.json

@@ -1,0 +1,23 @@
+fitted xi=0.35 fw=0.4 year=2014 (home_adv=0.314, rho=-0.039)
+fitted xi=0.35 fw=0.4 year=2018 (home_adv=0.311, rho=-0.049)
+fitted xi=0.35 fw=0.4 year=2022 (home_adv=0.278, rho=-0.011)
+fitted xi=0.35 fw=0.7 year=2014 (home_adv=0.310, rho=-0.049)
+fitted xi=0.35 fw=0.7 year=2018 (home_adv=0.307, rho=-0.054)
+fitted xi=0.35 fw=0.7 year=2022 (home_adv=0.280, rho=-0.014)
+fitted xi=0.7 fw=0.4 year=2014 (home_adv=0.318, rho=-0.033)
+fitted xi=0.7 fw=0.4 year=2018 (home_adv=0.323, rho=-0.063)
+fitted xi=0.7 fw=0.4 year=2022 (home_adv=0.280, rho=0.010)
+fitted xi=0.7 fw=0.7 year=2014 (home_adv=0.310, rho=-0.046)
+fitted xi=0.7 fw=0.7 year=2018 (home_adv=0.316, rho=-0.065)
+fitted xi=0.7 fw=0.7 year=2022 (home_adv=0.284, rho=0.009)
+fitted xi=1.1 fw=0.4 year=2014 (home_adv=0.322, rho=-0.034)
+fitted xi=1.1 fw=0.4 year=2018 (home_adv=0.336, rho=-0.078)
+fitted xi=1.1 fw=0.4 year=2022 (home_adv=0.285, rho=0.027)
+fitted xi=1.1 fw=0.7 year=2014 (home_adv=0.310, rho=-0.048)
+fitted xi=1.1 fw=0.7 year=2018 (home_adv=0.327, rho=-0.076)
+fitted xi=1.1 fw=0.7 year=2022 (home_adv=0.289, rho=0.027)
+BEST on 2014+2018: {'xi': 0.7, 'fw': 0.7, 'w': 0.5, 'n': 96.0, 'log_loss': 0.9382766501906744, 'brier': 0.5544162272315888}
+2014 {"blend": {"n": 48, "log_loss": 0.9254568588796989, "brier": 0.5469317548056055}, "elo_only": {"n": 48, "log_loss": 0.9246237819925242, "brier": 0.5467745321505629}, "dc_only": {"n": 48, "log_loss": 0.9375827137158562, "brier": 0.5548391139290024}, "uniform": {"log_loss": 1.0986122886681098, "brier": 0.6666666666666666, "n": 48}}
+2018 {"blend": {"n": 48, "log_loss": 0.9510964415016497, "brier": 0.5619006996575721}, "elo_only": {"n": 48, "log_loss": 0.9637545390552343, "brier": 0.5681666526574932}, "dc_only": {"n": 48, "log_loss": 0.9515813373023562, "brier": 0.5645621352905372}, "uniform": {"log_loss": 1.0986122886681098, "brier": 0.6666666666666666, "n": 48}}
+2022 {"blend": {"n": 48, "log_loss": 1.0775827107471407, "brier": 0.6354699967901162}, "elo_only": {"n": 48, "log_loss": 1.1016600307172635, "brier": 0.6429167191326016}, "dc_only": {"n": 48, "log_loss": 1.0791460414987724, "brier": 0.641024671688798}, "uniform": {"log_loss": 1.0986122886681098, "brier": 0.6666666666666666, "n": 48}}
+saved output/backtest.json

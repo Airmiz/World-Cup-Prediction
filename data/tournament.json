@@ -1,0 +1,59 @@
+{
+  "name": "FIFA World Cup 2026",
+  "start_date": "2026-06-11",
+  "hosts": {"United States": "United States", "Mexico": "Mexico", "Canada": "Canada"},
+  "groups": {
+    "A": ["Mexico", "South Africa", "South Korea", "Czech Republic"],
+    "B": ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
+    "C": ["Brazil", "Morocco", "Haiti", "Scotland"],
+    "D": ["United States", "Paraguay", "Australia", "Turkey"],
+    "E": ["Germany", "Curaçao", "Ivory Coast", "Ecuador"],
+    "F": ["Netherlands", "Japan", "Sweden", "Tunisia"],
+    "G": ["Belgium", "Egypt", "Iran", "New Zealand"],
+    "H": ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
+    "I": ["France", "Senegal", "Iraq", "Norway"],
+    "J": ["Argentina", "Algeria", "Austria", "Jordan"],
+    "K": ["Portugal", "DR Congo", "Uzbekistan", "Colombia"],
+    "L": ["England", "Croatia", "Ghana", "Panama"]
+  },
+  "round_of_32": {
+    "73": {"home": "2A", "away": "2B", "venue_country": "United States"},
+    "74": {"home": "1E", "away": "3rd", "third_slot": "1E", "venue_country": "United States"},
+    "75": {"home": "1F", "away": "2C", "venue_country": "Mexico"},
+    "76": {"home": "1C", "away": "2F", "venue_country": "United States"},
+    "77": {"home": "1I", "away": "3rd", "third_slot": "1I", "venue_country": "United States"},
+    "78": {"home": "2E", "away": "2I", "venue_country": "United States"},
+    "79": {"home": "1A", "away": "3rd", "third_slot": "1A", "venue_country": "Mexico"},
+    "80": {"home": "1L", "away": "3rd", "third_slot": "1L", "venue_country": "United States"},
+    "81": {"home": "1D", "away": "3rd", "third_slot": "1D", "venue_country": "United States"},
+    "82": {"home": "1G", "away": "3rd", "third_slot": "1G", "venue_country": "United States"},
+    "83": {"home": "2K", "away": "2L", "venue_country": "Canada"},
+    "84": {"home": "1H", "away": "2J", "venue_country": "United States"},
+    "85": {"home": "1B", "away": "3rd", "third_slot": "1B", "venue_country": "Canada"},
+    "86": {"home": "1J", "away": "2H", "venue_country": "United States"},
+    "87": {"home": "1K", "away": "3rd", "third_slot": "1K", "venue_country": "United States"},
+    "88": {"home": "2D", "away": "2G", "venue_country": "United States"}
+  },
+  "round_of_16": {
+    "89": ["74", "77", "United States"],
+    "90": ["73", "75", "United States"],
+    "91": ["76", "78", "United States"],
+    "92": ["79", "80", "Mexico"],
+    "93": ["83", "84", "United States"],
+    "94": ["81", "82", "United States"],
+    "95": ["86", "88", "United States"],
+    "96": ["85", "87", "Canada"]
+  },
+  "quarterfinals": {
+    "97": ["89", "90", "United States"],
+    "98": ["93", "94", "United States"],
+    "99": ["91", "92", "United States"],
+    "100": ["95", "96", "United States"]
+  },
+  "semifinals": {
+    "101": ["97", "98", "United States"],
+    "102": ["99", "100", "United States"]
+  },
+  "final": {"104": ["101", "102", "United States"]},
+  "third_place_slots_order": ["1A", "1B", "1D", "1E", "1G", "1I", "1K", "1L"]
+}
