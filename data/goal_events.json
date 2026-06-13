@@ -1,6 +1,71 @@
 {
-  "Mexico|South Africa": [{"min": 9, "team": "home"}, {"min": 67, "team": "home"}],
-  "South Korea|Czech Republic": [{"min": 59, "team": "away"}, {"min": 67, "team": "home"}, {"min": 80, "team": "home"}],
-  "Canada|Bosnia and Herzegovina": [{"min": 21, "team": "away"}, {"min": 78, "team": "home"}],
-  "United States|Paraguay": [{"min": 7, "team": "home"}, {"min": 31, "team": "home"}, {"min": 45, "team": "home"}, {"min": 73, "team": "away"}, {"min": 90, "team": "home"}]
+  "Mexico|South Africa": [
+    {
+      "min": 9,
+      "team": "home",
+      "name": "Juli\u00e1n Qui\u00f1ones"
+    },
+    {
+      "min": 67,
+      "team": "home",
+      "name": "Ra\u00fal Jim\u00e9nez"
+    }
+  ],
+  "South Korea|Czech Republic": [
+    {
+      "min": 59,
+      "team": "away",
+      "name": "Ladislav Krejc\u00ed"
+    },
+    {
+      "min": 67,
+      "team": "home",
+      "name": "Hwang In-Beom"
+    },
+    {
+      "min": 80,
+      "team": "home",
+      "name": "Oh Hyeon-Gyu"
+    }
+  ],
+  "Canada|Bosnia and Herzegovina": [
+    {
+      "min": 21,
+      "team": "away",
+      "name": "Jovo Luki\u0107"
+    },
+    {
+      "min": 78,
+      "team": "home",
+      "name": "Cyle Larin"
+    }
+  ],
+  "United States|Paraguay": [
+    {
+      "min": 7,
+      "team": "home",
+      "name": "Damian Bobadilla",
+      "og": true
+    },
+    {
+      "min": 31,
+      "team": "home",
+      "name": "Folarin Balogun"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Folarin Balogun"
+    },
+    {
+      "min": 73,
+      "team": "away",
+      "name": "Mauricio"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Giovanni Reyna"
+    }
+  ]
 }

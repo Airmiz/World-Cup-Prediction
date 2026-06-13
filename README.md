@@ -64,7 +64,14 @@ snapshot. Remaining-match probabilities use the frozen pre-tournament model; to 
 refresh the model's strengths on new results, re-run `make_live_data.py` (e.g. on a
 daily schedule).
 
-Each match on the live feed opens an **in-play win-probability chart** (`src/inplay.js`):
+Each live/finished match opens a **Match Centre**: our own player-rating model
+(rates goal contributors from real events, crowns a Player of the Match), a goal
+log (scorers/minutes/own-goals), and a "result vs model" panel. Add a free API-Football key (GitHub secret `API_FOOTBALL_KEY`, see DEPLOY.md) and
+`src/fetch_squad.py` fills in **formations, lineups, cards, substitutions and
+full-squad ratings** automatically; without it those sections stay hidden (never
+fabricated). Upcoming matches show only pre-match odds — no invented scoreline.
+
+Each live/finished match also has an **in-play win-probability chart** (`src/inplay.js`):
 the three outcome probabilities across the 90 minutes, computed analytically (remaining
 goals ~ Poisson(xG × time left)). Played matches replay their real goal timeline;
 upcoming matches auto-simulate a plausible story. Scrub the minute, add/remove goals,

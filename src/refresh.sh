@@ -22,6 +22,9 @@ echo "[refresh] WC2026 matches played: $PLAYED"
 # 2. fetch real goal minutes for newly played matches (openfootball; no key needed)
 python3 src/fetch_goals.py || echo "[refresh] goal fetch skipped"
 
+# 2b. fetch lineups/formations/cards/subs (API-Football; only if API_FOOTBALL_KEY is set)
+python3 src/fetch_squad.py || echo "[refresh] squad fetch skipped"
+
 # 3. refit model to today's data + regenerate engine data and pages
 export WC_CUTOFF="$TODAY"
 python3 src/make_live_data.py

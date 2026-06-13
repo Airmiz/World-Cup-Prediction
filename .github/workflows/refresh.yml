@@ -24,14 +24,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Pull results + goal minutes, refit model, regenerate site
+      - name: Pull results + goal minutes + lineups, refit model, regenerate site
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}   # optional: unlocks lineups/cards/subs
         run: bash src/refresh.sh
 
       - name: Commit & push updates (triggers Netlify deploy)
         run: |
           git config user.name  "wc2026-bot"
           git config user.email "wc2026-bot@users.noreply.github.com"
-          git add data/results.csv data/goal_events.json website/
+          git add data/results.csv data/goal_events.json data/lineups.json website/
           if git diff --staged --quiet; then
             echo "No changes this run."
           else

@@ -167,6 +167,54 @@ table.big tbody tr:hover{background:var(--tint)}
 .evchip.h{color:var(--g2)}.evchip.a{color:var(--g3)}
 .evchip:hover{text-decoration:line-through;opacity:.7}
 .modal .hint{text-align:center;color:var(--mut);font-size:12px;margin-top:10px}
+/* match centre */
+.mc{margin-top:18px;display:grid;gap:14px}
+.mcsec{background:var(--surface);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px}
+.mcsec h4{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.mcsec h4 .tag{font-size:9.5px;font-weight:600;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px;text-transform:none;letter-spacing:0}
+.golog{display:flex;flex-direction:column;gap:7px}
+.gol{display:flex;align-items:center;gap:9px;font-size:13.5px}
+.gol .mn{font-variant-numeric:tabular-nums;font-weight:700;color:var(--txt);min-width:34px}
+.gol .ic{font-size:14px}
+.gol .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gol .bdg{font-size:9.5px;font-weight:700;border-radius:6px;padding:1px 6px}
+.bdg.og{color:var(--red);background:rgba(255,59,48,.12)}
+.bdg.pen{color:var(--amber);background:rgba(255,159,10,.14)}
+.rlist{display:flex;flex-direction:column;gap:8px}
+.rrow{display:flex;align-items:center;gap:10px;font-size:13.5px}
+.rrow .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rrow .tags{font-size:11px;color:var(--mut)}
+.rrow .rbar{width:84px;height:7px;border-radius:4px;background:var(--track);overflow:hidden;flex:none}
+.rrow .rbar i{display:block;height:100%}
+.rrow .rv{font-weight:800;font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
+.r-hi i{background:var(--green)}.r-hi .rv{color:var(--green)}
+.r-mid i{background:var(--blue)}.r-mid .rv{color:var(--blue)}
+.r-lo i{background:#aeaeb2}.r-lo .rv{color:var(--mut)}
+.potm{display:inline-flex;align-items:center;gap:6px;background:var(--tri);color:#fff;border-radius:999px;padding:3px 11px;font-size:11px;font-weight:700}
+.mvm{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mvm .box{background:var(--bg);border-radius:10px;padding:10px 12px}
+.mvm .box .k{font-size:11px;color:var(--mut)}
+.mvm .box .v{font-size:15px;font-weight:700;margin-top:2px}
+.mvm .ok{color:var(--green)}.mvm .no{color:var(--red)}
+.locked{color:var(--mut);font-size:12px;text-align:center;padding:6px 0}
+.locked b{color:var(--txt)}
+.rteam{font-size:11px;font-weight:700;color:var(--mut);margin:8px 0 4px;display:flex;align-items:center;gap:6px}
+.rrow .pos{font-size:9.5px;font-weight:700;color:var(--mut);background:var(--track);border-radius:5px;padding:1px 5px;min-width:24px;text-align:center}
+.cards,.subsl{display:flex;flex-direction:column;gap:6px;font-size:13.5px}
+.cardr,.subr{display:flex;align-items:center;gap:9px}
+.cardr .mn,.subr .mn{font-variant-numeric:tabular-nums;font-weight:700;min-width:34px}
+.cardchip{width:11px;height:15px;border-radius:2px;display:inline-block}
+.cardchip.y{background:#ffcc00}.cardchip.r{background:var(--red)}
+.subr .in{color:var(--green);font-weight:600}.subr .out{color:var(--red)}
+.subr .ar{color:var(--mut)}
+.pitch{display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,rgba(52,199,89,.10),rgba(52,199,89,.03));border-radius:12px;padding:14px 10px;margin-top:8px}
+.pline{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.pchip{font-size:11px;background:var(--surface);box-shadow:var(--shadow);border-radius:8px;padding:4px 9px;display:flex;align-items:center;gap:5px;max-width:130px}
+.pchip .n{font-weight:700;color:var(--mut);font-size:10px}
+.pchip .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.luhdr{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut);margin-bottom:2px}
+.luhdr b{color:var(--txt);font-size:13px}
+.formtag{font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums}
 footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);color:var(--mut);font-size:12px;text-align:center;line-height:1.8}
 @media(max-width:640px){.hero h1{font-size:32px}}
 </style>
@@ -532,6 +580,138 @@ function readouts(f,p){
    <div class="wpr a"><div class="v">${pc(p[2],1)}</div><div class="k">${f.away} win</div></div>
   </div>`;
 }
+
+/* Our own player-rating model — scored entirely from real match events.
+ * Base 6.8, +1.6 per open-play goal, +1.1 per penalty goal, -1.7 per own goal,
+ * brace/hat-trick bonuses, small bump for contributing to a win. 4.0–10.0. */
+function playerRatings(events, score){
+ const by={};
+ events.forEach(e=>{
+  const playerTeam = e.og ? (e.team==="home"?"away":"home") : e.team;  // OG scorer is on conceding side
+  const nm=e.name||"—", k=nm+"|"+playerTeam;
+  const s=by[k]||(by[k]={name:nm,team:playerTeam,goals:0,pens:0,og:0});
+  if(e.og) s.og++; else { s.goals++; if(e.pen) s.pens++; }
+ });
+ const hW=score[0]>score[1], aW=score[1]>score[0];
+ return Object.values(by).map(s=>{
+  let r=6.8 + 1.6*(s.goals-s.pens) + 1.1*s.pens - 1.7*s.og;
+  if(s.goals>=3) r+=0.9; else if(s.goals===2) r+=0.5;
+  if(((s.team==="home"&&hW)||(s.team==="away"&&aW)) && s.goals>0) r+=0.3;
+  return {...s, rating:Math.max(4,Math.min(10,Math.round(r*10)/10))};
+ }).sort((a,b)=>b.rating-a.rating || b.goals-a.goals);
+}
+
+const RNORM=s=>(s||"").normalize("NFKD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+function findStat(stat,name){const n=RNORM(name);return Object.values(stat).find(s=>RNORM(s.name)===n)||Object.values(stat).find(s=>RNORM(s.name).includes(n)&&n);}
+
+/* Full-squad ratings from a lineup + events (our model). */
+function fullSquadRatings(lu, score){
+ const conceded={home:score[1],away:score[0]};
+ const stat={};
+ const ensure=(t,name,pos,started)=>{const k=t+"|"+name; return stat[k]||(stat[k]={team:t,name,pos:(pos||""),goals:0,pens:0,assists:0,og:0,yel:0,red:0,missed:0,on:false,off:false,started});};
+ ["home","away"].forEach(t=>{const b=lu[t]; if(!b)return;
+   (b.xi||[]).forEach(p=>ensure(t,p.name,p.pos,true));
+   (b.subs||[]).forEach(p=>ensure(t,p.name,p.pos,false));});
+ (lu.events||[]).forEach(e=>{
+   if(e.type==="goal"){const d=(e.detail||"").toLowerCase();
+     const s=findStat(stat,e.player);
+     if(d.includes("own")){ if(s)s.og++; }
+     else if(d.includes("miss")){ if(s)s.missed++; }
+     else { if(s){s.goals++; if(d.includes("pen"))s.pens++;} const a=e.assist&&findStat(stat,e.assist); if(a)a.assists++; }
+   } else if(e.type==="card"){const s=findStat(stat,e.player); if(s){e.card==="red"?s.red++:s.yel++;}}
+   else if(e.type==="subst"){const onP=e.assist&&findStat(stat,e.assist); const offP=findStat(stat,e.player); if(onP)onP.on=true; if(offP)offP.off=true;}
+ });
+ return Object.values(stat).filter(s=>s.started||s.on).map(s=>{
+   let r=(s.started?6.6:6.4)+1.2*(s.goals-s.pens)+0.8*s.pens+0.7*s.assists-1.5*s.og-0.3*s.yel-1.1*s.red-0.4*s.missed;
+   const p=(s.pos||"").toUpperCase();
+   if(p==="G"||p==="D"){ if(conceded[s.team]===0)r+=0.4; else if(conceded[s.team]>=3)r-=0.3; }
+   if(s.goals>=2)r+=0.4;
+   return {...s, rating:Math.max(4,Math.min(10,Math.round(r*10)/10))};
+ }).sort((a,b)=>b.rating-a.rating);
+}
+
+function matchCentre(f){
+ const ev=WP.events;
+ const res=STATE.results[WP.fid];
+ const score = (WP.status==="ft" && res) ? res : WCInPlay.scoreAt(ev, WP.status==="live"?WP.minute:90);
+ const teamName=t=>t==="home"?f.home:f.away;
+ const lu=D.lineups[f.home+"|"+f.away];
+
+ // ---- goal log (always, from openfootball goal events) ----
+ const golHTML = ev.length ? `<div class="golog">`+ev.slice().sort((a,b)=>a.min-b.min).map(e=>{
+   const pt = e.og ? (e.team==="home"?"away":"home") : e.team;
+   const bdg = e.og?`<span class="bdg og">OG</span>`:(e.pen?`<span class="bdg pen">PEN</span>`:"");
+   return `<div class="gol"><span class="mn">${e.min}'</span><span class="ic">⚽</span><span class="nm">${F(teamName(pt))} ${e.name||"—"}</span>${bdg}</div>`;
+  }).join("")+`</div>` : `<div class="locked">No goals ${WP.status==="live"?"yet":"in this match"}.</div>`;
+
+ // ---- ratings: full squad if lineup present, else goal contributors ----
+ let ratHTML, ratTag;
+ if(lu && (lu.home||lu.away)){
+  ratTag="our model · full squad";
+  const rows=fullSquadRatings(lu, score);
+  const top=rows[0];
+  const block=t=>{const rs=rows.filter(s=>s.team===t); if(!rs.length)return"";
+    return `<div class="rteam">${F(teamName(t))} ${teamName(t)}</div>`+rs.map(s=>{
+     const cls=s.rating>=8?"r-hi":s.rating>=7?"r-mid":"r-lo";
+     const tags=[s.goals?`${s.goals}⚽`:"",s.assists?`${s.assists}🅰`:"",s.yel?"🟨":"",s.red?"🟥":"",s.og?"OG":"",!s.started&&s.on?"sub":""].filter(Boolean).join(" ");
+     const star=(top&&s===top&&s.rating>=7)?`<span class="potm">★ POTM</span>`:"";
+     return `<div class="rrow ${cls}"><span class="pos">${(s.pos||"–")}</span><span class="nm">${s.name} ${star}</span><span class="tags">${tags}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span></div>`;
+    }).join("");};
+  ratHTML=`<div class="rlist">${block("home")}${block("away")}</div>`;
+ } else {
+  ratTag="our model · goal contributors";
+  const rows=playerRatings(ev, score);
+  ratHTML = rows.length ? `<div class="rlist">`+rows.map((s,i)=>{
+    const cls=s.rating>=8?"r-hi":s.rating>=7?"r-mid":"r-lo";
+    const tags=[s.goals?`${s.goals}⚽`:"",s.pens?`${s.pens} pen`:"",s.og?`${s.og} OG`:""].filter(Boolean).join(" · ");
+    const star=i===0&&s.goals>0?`<span class="potm">★ POTM</span>`:"";
+    return `<div class="rrow ${cls}"><span class="nm">${F(teamName(s.team))} ${s.name} ${star}</span><span class="tags">${tags}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span></div>`;
+   }).join("")+`</div>` : `<div class="locked">Ratings appear once goals are scored.</div>`;
+ }
+
+ // ---- formations / cards / subs (only with lineup data) ----
+ let extraHTML="";
+ if(lu && (lu.home||lu.away)){
+  const posOrder={G:0,D:1,M:2,F:3};
+  const pitch=t=>{const b=lu[t]; if(!b||!b.xi||!b.xi.length)return"";
+    const lines={G:[],D:[],M:[],F:[]};
+    b.xi.forEach(p=>{const k=(p.pos||"M").toUpperCase(); (lines[k]||lines.M).push(p);});
+    const rows=["G","D","M","F"].filter(k=>lines[k].length).map(k=>
+      `<div class="pline">`+lines[k].map(p=>`<span class="pchip"><span class="n">${p.num||""}</span><span class="nm">${p.name}</span></span>`).join("")+`</div>`).join("");
+    return `<div class="luhdr"><b>${F(teamName(t))} ${teamName(t)}</b><span class="formtag">${b.formation||""}</span></div><div class="pitch">${rows}</div>`;
+  };
+  const cards=(lu.events||[]).filter(e=>e.type==="card").sort((a,b)=>a.min-b.min);
+  const subs=(lu.events||[]).filter(e=>e.type==="subst").sort((a,b)=>a.min-b.min);
+  const cardsHTML=cards.length?`<div class="cards">`+cards.map(e=>`<div class="cardr"><span class="mn">${e.min}'</span><span class="cardchip ${e.card==="red"?"r":"y"}"></span><span class="nm">${F(teamName(e.team))} ${e.player||""}</span></div>`).join("")+`</div>`:`<div class="locked">No cards.</div>`;
+  const subsHTML=subs.length?`<div class="subsl">`+subs.map(e=>`<div class="subr"><span class="mn">${e.min}'</span><span class="in">▲ ${e.assist||"?"}</span><span class="ar">←</span><span class="out">▼ ${e.player||"?"}</span><span class="nm" style="color:var(--mut);font-size:11px">${F(teamName(e.team))}</span></div>`).join("")+`</div>`:`<div class="locked">No substitutions.</div>`;
+  extraHTML=`
+   <div class="mcsec"><h4>Formations <span class="tag">${(lu.home&&lu.home.formation)||""} v ${(lu.away&&lu.away.formation)||""}</span></h4>${pitch("home")}${pitch("away")}</div>
+   <div class="mcsec"><h4>Cards</h4>${cardsHTML}</div>
+   <div class="mcsec"><h4>Substitutions</h4>${subsHTML}</div>`;
+ } else {
+  extraHTML=`<div class="mcsec"><h4>Lineups · cards · subs</h4><div class="locked">Formations, bookings and substitutions need a squad-data provider — <b>add a free API-Football key (see DEPLOY.md) and these unlock automatically</b>. Not shown rather than guessed.</div></div>`;
+ }
+
+ // ---- result vs model ----
+ const pre=WCInPlay.probs(f.eh,f.ea,0,0,0);
+ const favIdx=pre.indexOf(Math.max(...pre));
+ const favName=favIdx===1?"Draw":favIdx===0?f.home:f.away;
+ const actIdx=score[0]>score[1]?0:score[0]<score[1]?2:1;
+ const settled=WP.status==="ft", matched=actIdx===favIdx;
+ const mvmHTML=`<div class="mvm">
+   <div class="box"><div class="k">Model favoured</div><div class="v">${favName} · ${pc(pre[favIdx],0)}</div></div>
+   <div class="box"><div class="k">Model xG → actual</div><div class="v">${f.eh.toFixed(2)}–${f.ea.toFixed(2)} → ${score[0]}–${score[1]}</div></div>
+   <div class="box"><div class="k">Pre-match odds</div><div class="v" style="font-size:13px">${pc(pre[0],0)} / ${pc(pre[1],0)} / ${pc(pre[2],0)}</div></div>
+   <div class="box"><div class="k">${settled?"Outcome":"So far"}</div><div class="v ${settled?(matched?"ok":"no"):""}">${settled?(matched?"✓ as predicted":"✗ upset"):"in progress"}</div></div>
+  </div>`;
+
+ return `<div class="mc">
+   <div class="mcsec"><h4>Our player ratings <span class="tag">${ratTag}</span></h4>${ratHTML}</div>
+   <div class="mcsec"><h4>Goals</h4>${golHTML}</div>
+   ${extraHTML}
+   <div class="mcsec"><h4>Result vs model</h4>${mvmHTML}</div>
+  </div>`;
+}
 function drawModal(){
  const f=fixById[WP.fid];
  const kt=f.utc?new Date(f.utc):null;
@@ -568,7 +748,8 @@ function drawModal(){
    <div class="seg"><button class="solid" id="wpplay">▶ Replay</button><button id="wprewind">↺</button></div>
   </div>
   ${liveNote}
-  <div class="hint">Remaining-time goals modelled as Poisson(xG × time left) — exact in-play win probability from the real scoreline. Drag to scrub the minute, or press Replay.</div>`;
+  <div class="hint">Remaining-time goals modelled as Poisson(xG × time left) — exact in-play win probability from the real scoreline. Drag to scrub the minute, or press Replay.</div>
+  ${matchCentre(f)}`;
  document.getElementById("wpclose").onclick=closeModal;
  const mr=document.getElementById("wpmin");
  mr.oninput=()=>{WP.minute=+mr.value;stopAnim();drawModal();};

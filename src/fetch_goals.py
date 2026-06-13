@@ -78,7 +78,14 @@ def events_from_match(m):
             mn = parse_minute(g.get("minute"))
             if mn is None:
                 continue
-            ev.append({"min": mn, "team": team})
+            e = {"min": mn, "team": team}
+            if g.get("name"):
+                e["name"] = g["name"]
+            if g.get("owngoal"):
+                e["og"] = True
+            if g.get("penalty"):
+                e["pen"] = True
+            ev.append(e)
     ev.sort(key=lambda e: e["min"])
     return ev
 
@@ -141,18 +148,18 @@ def main():
 
     path = "data/goal_events.json"
     existing = json.load(open(path)) if os.path.exists(path) else {}
-    added = []
-    for k, ev in parsed.items():
-        if k not in existing:                            # preserve curated entries
+    changed = []
+    for k, ev in parsed.items():                         # source (with scorer names) wins
+        if existing.get(k) != ev:
             existing[k] = ev
-            added.append(k)
+            changed.append(k)
 
     if print_only:
         print(json.dumps(parsed, indent=1))
         return 0
-    if added:
+    if changed:
         json.dump(existing, open(path, "w"), indent=2)
-    print(f"[fetch_goals] matched {len(parsed)} matches; added {len(added)} new: {added}")
+    print(f"[fetch_goals] matched {len(parsed)} matches; updated {len(changed)}: {changed}")
     return 0
 
 

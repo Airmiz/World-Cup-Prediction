@@ -54,6 +54,20 @@ the cloud, Netlify republishes, and your computer is never involved.
   netlify.com/drop for instant hosting — you just won't get the automatic cloud
   refresh (scores still self-update in the browser; goal timelines/model won't).
 
+## Optional: unlock formations, cards, subs & full-squad ratings
+
+The Match Centre shows our player ratings, goal log and result-vs-model from free data.
+To also fill in **formations, lineups, cards, substitutions and full-squad ratings**, add
+a free **API-Football** key (no card required):
+
+1. Sign up at **dashboard.api-football.com** (or api-sports.io) → copy your API key.
+2. In your GitHub repo: **Settings → Secrets and variables → Actions → New repository
+   secret**. Name it exactly `API_FOOTBALL_KEY`, paste the key, save.
+3. That's it. On the next cloud run, `src/fetch_squad.py` pulls lineups/cards/subs into
+   `data/lineups.json`, and the Match Centre fills them in automatically. Without the
+   key, those sections simply stay hidden (never faked). Free tier is ~100 requests/day,
+   which the script stays within by caching finished matches.
+
 ## What each piece is
 
 - `src/refresh.sh` — the one command the cloud job runs: pull results → fetch goal
