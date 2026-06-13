@@ -658,8 +658,9 @@ function parseESPN(d){
   const ev=[];
   (comp.details||[]).forEach(x=>{ if(!x.scoringPlay) return;
    const side=idSide[x.team&&x.team.id]; if(!side) return;
-   const mn=parseInt(String((x.clock&&x.clock.displayValue)||"").replace(/[^0-9]/g,""),10);
-   const o={min:isNaN(mn)?0:mn, team:side}; if(x.ownGoal)o.og=true; if(x.penaltyKick)o.pen=true; ev.push(o);
+   const dv=String((x.clock&&x.clock.displayValue)||""); const bm=dv.match(/\d+/), pm=dv.match(/\+\s*(\d+)/);   // "90'+4'" -> base 90, add 4
+   const o={min:bm?Math.min(90,parseInt(bm[0],10)):0, team:side}; if(pm)o.add=parseInt(pm[1],10);
+   if(x.ownGoal)o.og=true; if(x.penaltyKick)o.pen=true; ev.push(o);
   });
   ev.sort((a,b)=>a.min-b.min);
   if(state==="post"){ finals[fid]=[hs,as]; if(ev.length)goals[key]=ev; post.push({key,eid:e.id}); }
@@ -729,9 +730,9 @@ async function espnSummaryHydrate(key, eid, goals, lineups){
   const s=await r.json();
   if(goals && goals[key]){ const byMin={};
    (s.keyEvents||[]).forEach(x=>{ if(!x.scoringPlay)return;
-    const mn=parseInt(String((x.clock&&x.clock.displayValue)||"").replace(/[^0-9]/g,""),10);
+    const bm=String((x.clock&&x.clock.displayValue)||"").match(/\d+/); const mn=bm?Math.min(90,parseInt(bm[0],10)):null;   // base minute, stoppage clamped to 90
     const nm=x.participants&&x.participants[0]&&x.participants[0].athlete&&x.participants[0].athlete.displayName;
-    if(!isNaN(mn)&&nm&&byMin[mn]==null)byMin[mn]=nm; });
+    if(mn!=null&&nm&&byMin[mn]==null)byMin[mn]=nm; });
    goals[key].forEach(g=>{ if(byMin[g.min])g.name=byMin[g.min]; });
   }
   const i=key.indexOf("|"); const rec=buildLineupFromSummary(s, key.slice(0,i), key.slice(i+1));
@@ -1303,7 +1304,7 @@ function matchCentre(f){
  const golHTML = ev.length ? `<div class="golog">`+ev.slice().sort((a,b)=>a.min-b.min).map(e=>{
    const pt = e.og ? (e.team==="home"?"away":"home") : e.team;
    const bdg = e.og?`<span class="bdg og">OG</span>`:(e.pen?`<span class="bdg pen">PEN</span>`:"");
-   return `<div class="gol"><span class="mn">${e.min}'</span><span class="ic">⚽</span><span class="nm">${F(teamName(pt))} ${e.name||"—"}</span>${bdg}</div>`;
+   return `<div class="gol"><span class="mn">${e.min}${e.add?'+'+e.add:''}'</span><span class="ic">⚽</span><span class="nm">${F(teamName(pt))} ${e.name||"—"}</span>${bdg}</div>`;
   }).join("")+`</div>` : `<div class="locked">No goals ${WP.status==="live"?"yet":"in this match"}.</div>`;
 
  // ---- ratings: full squad if lineup present, else goal contributors ----
