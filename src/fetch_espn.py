@@ -229,33 +229,62 @@ def parse_summary(summ, our_home, our_away):
     return rec
 
 
+PROVIDERS = ("espn", "api-football", "football-data")
+SCHEDULE = "output/match_predictions.csv"
+
+
+def load_schedule():
+    """Full WC2026 fixture list with our canonical home/away orientation + match date.
+
+    Prefers output/match_predictions.csv (all 72 group fixtures, scheduled or not) so live
+    and just-finished matches can be mapped even before they appear in results.csv. Falls
+    back to results.csv (played matches only) if the schedule file is missing.
+    """
+    fixtures = []  # (home, away, "YYYYMMDD")
+    if os.path.exists(SCHEDULE):
+        with open(SCHEDULE) as f:
+            for row in csv.DictReader(f):
+                h, a = row.get("home_team"), row.get("away_team")
+                d = (row.get("date") or row.get("utc_kickoff") or "")[:10].replace("-", "")
+                if h and a and len(d) == 8:
+                    fixtures.append((h, a, d))
+    if not fixtures and os.path.exists("data/results.csv"):
+        with open("data/results.csv") as f:
+            for row in csv.DictReader(f):
+                if row["tournament"] == "FIFA World Cup" and row["date"] >= "2026-06-01":
+                    fixtures.append((row["home_team"], row["away_team"], row["date"].replace("-", "")))
+    return fixtures
+
+
 def main():
     if "--selftest" in sys.argv:
         selftest(); return 0
 
-    fixtures, played_dates = [], set()
-    played = []
-    with open("data/results.csv") as f:
-        for row in csv.DictReader(f):
-            if row["tournament"] == "FIFA World Cup" and row["date"] >= "2026-06-01":
-                fixtures.append((row["home_team"], row["away_team"]))
-                if row.get("home_score") not in ("", None, "NA"):
-                    played.append((row["home_team"], row["away_team"]))
-                    played_dates.add(row["date"].replace("-", ""))
-    names = sorted({t for p in fixtures for t in p})
-    pair_set = {(h, a) for h, a in fixtures}
+    fixtures = load_schedule()
+    if not fixtures:
+        print("[fetch_espn] no schedule found"); return 0
+    names = sorted({t for h, a, _ in fixtures for t in (h, a)})
+    pair_set = {(h, a) for h, a, _ in fixtures}
 
     path = "data/lineups.json"
     existing = json.load(open(path)) if os.path.exists(path) else {}
-    need = [(h, a) for h, a in played
-            if existing.get(f"{h}|{a}", {}).get("source") not in ("espn", "api-football", "football-data")]
-    if not need:
-        print("[fetch_espn] nothing to fetch — played matches already have lineups")
+
+    def is_final(key):
+        e = existing.get(key) or {}
+        return bool(e.get("final")) and e.get("source") in PROVIDERS
+
+    # Only scan dates that could have new data: a fixture's date that has arrived (UTC) and
+    # whose match isn't already stored as final. Past finals drop out → fewer calls over time.
+    today = time.strftime("%Y%m%d", time.gmtime())
+    scan_dates = sorted({d for h, a, d in fixtures if d <= today and not is_final(f"{h}|{a}")})
+    if not scan_dates:
+        print(f"[fetch_espn] nothing to scan — all {len(fixtures)} fixtures up to today are final")
         return 0
 
-    # map our fixtures -> ESPN gameIds via the scoreboard for each played date
+    # Map fixtures -> (ESPN gameId, swap, state) via the scoreboard for each scan date.
+    # state: "pre" (not started), "in" (live), "post" (finished).
     gameids = {}
-    for d in sorted(played_dates):
+    for d in scan_dates:
         try:
             sb = get(f"{SB}?dates={d}")
         except Exception as e:
@@ -263,22 +292,27 @@ def main():
         for ev in sb.get("events", []):
             comp = (ev.get("competitions") or [{}])[0]
             cs = comp.get("competitors", [])
+            state = (((ev.get("status") or {}).get("type") or {}).get("state") or "").lower()
             h = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "home"), None)
             a = next((c["team"]["displayName"] for c in cs if c.get("homeAway") == "away"), None)
             ch, ca = canon(h, names), canon(a, names)
             if ch and ca:
                 if (ch, ca) in pair_set:
-                    gameids[f"{ch}|{ca}"] = (ev.get("id"), False)
+                    gameids[f"{ch}|{ca}"] = (ev.get("id"), False, state)
                 elif (ca, ch) in pair_set:
-                    gameids[f"{ca}|{ch}"] = (ev.get("id"), True)
+                    gameids[f"{ca}|{ch}"] = (ev.get("id"), True, state)
         time.sleep(1)
 
+    # Fetch every live/finished match that isn't already stored as final.
+    need = [(k, v) for k, v in gameids.items()
+            if v[2] in ("in", "post") and not is_final(k)]
+    if not need:
+        print(f"[fetch_espn] nothing to update — {sum(is_final(k) for k in gameids)} mapped match(es) already final")
+        return 0
+
     updated = 0
-    for h, a in need:
-        key = f"{h}|{a}"
-        if key not in gameids:
-            continue
-        gid, swap = gameids[key]
+    for key, (gid, swap, state) in need:
+        h, a = key.split("|", 1)
         try:
             rec = parse_summary(get(f"{SUM}?event={gid}"), h, a)
         except Exception as e:
@@ -292,13 +326,15 @@ def main():
                 ts["home"], ts["away"] = ts["away"], ts["home"]
             for e in rec["events"]:
                 e["team"] = "home" if e["team"] == "away" else "away"
+        rec["final"] = (state == "post")
+        rec["status"] = "FINISHED" if state == "post" else "LIVE"
         existing[key] = rec
         updated += 1
         time.sleep(1)
 
     json.dump(existing, open(path, "w"), indent=1)
-    note = "" if updated else " (no populated lineups yet — ESPN fills in once matches kick off)"
-    print(f"[fetch_espn] updated {updated} match(es){note}; {len(existing)} total")
+    finals = sum(1 for k in gameids if is_final(k) or (gameids[k][2] == "post"))
+    print(f"[fetch_espn] updated {updated} match(es); {len(existing)} stored, {finals} final")
     return 0
 
 

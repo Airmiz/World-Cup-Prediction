@@ -1080,7 +1080,8 @@
     "interceptions": false,
     "saves": false
    }
-  }
+  },
+  "final": true
  },
  "South Korea|Czech Republic": {
   "status": "FINISHED",
@@ -2136,7 +2137,8 @@
     "interceptions": false,
     "saves": false
    }
-  }
+  },
+  "final": true
  },
  "Canada|Bosnia and Herzegovina": {
   "status": "FINISHED",
@@ -3219,7 +3221,8 @@
     "interceptions": false,
     "saves": false
    }
-  }
+  },
+  "final": true
  },
  "United States|Paraguay": {
   "status": "FINISHED",
@@ -4325,6 +4328,7 @@
     "interceptions": false,
     "saves": false
    }
-  }
+  },
+  "final": true
  }
 }
