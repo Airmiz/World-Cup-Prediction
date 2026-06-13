@@ -963,7 +963,7 @@ function matchCentre(f){
    <div class="mcsec"><h4>Cards</h4>${cardsHTML}</div>
    <div class="mcsec"><h4>Substitutions</h4>${subsHTML}</div>`;
  } else {
-  extraHTML=`<div class="mcsec"><h4>Lineups · cards · subs</h4><div class="locked">Formations, bookings and substitutions come from a squad-data provider — <b>add a free football-data.org key (see DEPLOY.md) and they fill in here automatically</b>. Never guessed.</div></div>`;
+  extraHTML="";   // no lineup data → no formations/cards/subs section (removed by request)
  }
 
  // ---- result vs model ----
