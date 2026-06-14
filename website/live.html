@@ -317,11 +317,15 @@ table.big tbody tr:hover{background:var(--tint)}
 .slchip .slt{color:var(--mut);font-size:11px}
 footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);color:var(--mut);font-size:12px;text-align:center;line-height:1.8}
 @media(max-width:640px){.hero h1{font-size:32px}}
+.mv{font-weight:800;font-size:12px;font-variant-numeric:tabular-nums}
+.mv.up{color:#1f9d4d}.mv.dn{color:var(--red)}.mv.fl{color:var(--mut)}
+.elobar{display:inline-block;width:46px;height:5px;border-radius:3px;background:var(--track);vertical-align:middle;margin-right:6px;overflow:hidden}
+.elobar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#5aa6ff)}
 </style>
 </head>
 <body>
 <nav><div class="in"><b><span class="lg">26</span> World Cup 26</b>
-<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#tracker">Title race</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#bracket">Bracket</a></div></nav>
+<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#bracket">Bracket</a></div></nav>
 <div class="wrap">
 
 <header class="hero">
@@ -341,6 +345,11 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
  <div id="statsbox"></div>
 </section>
 
+<section id="bestxi">
+ <div class="shead"><h2>Team of the Tournament</h2><p>The best XI so far by our player-rating model — highest average rating in each position, in a 4-3-3. Tap a player for their match-by-match form.</p></div>
+ <div class="card" id="bestxibox" style="padding:18px"></div>
+</section>
+
 <section id="tracker">
  <div class="shead"><h2>Title race</h2><p>How each contender's championship probability has moved since kickoff — recomputed by the model after every result.</p></div>
  <div class="card" id="trackerbox" style="padding:18px"></div>
@@ -356,6 +365,11 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
  <div class="card tscroll"><table class="big" id="oddstable">
   <thead><tr><th>#</th><th>Team</th><th>Champion</th><th>Δ</th><th>Final</th><th>Semis</th><th>Quarters</th><th>R16</th><th>Advance</th></tr></thead>
   <tbody></tbody></table></div>
+</section>
+
+<section id="power">
+ <div class="shead"><h2>Power Rankings</h2><p>All 48 teams by the model's team strength (Elo), with their live championship odds and how those have moved (Δ) since the pre-tournament forecast.</p></div>
+ <div class="card tscroll" id="powerbox"></div>
 </section>
 
 <section id="bracket">
@@ -856,13 +870,13 @@ async function loadLive(){
 }
 
 /* ---- run the Monte Carlo + render ---- */
-let LAST=null;
+let LAST=null, STATAGG={ratingAcc:{},gkAcc:{}};
 function recompute(){
  setStatus("sim");
  setTimeout(()=>{                       // let the spinner paint
   const out=WCLive.runLive(D,{N:NSIMS,results:STATE.results,ko:STATE.ko});
   LAST=out;
-  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderTracker(); renderGroups(out); renderOdds(out); renderBracket(out); refreshOpenModal();
+  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderBestXI(); renderTracker(); renderGroups(out); renderOdds(out); renderPower(out); renderBracket(out); refreshOpenModal();
  },20);
 }
 /* keep an open in-play popup tracking a live match as new goals arrive */
@@ -918,7 +932,7 @@ function renderStats(){
  const fxKey={}; D.fixtures.forEach(f=>fxKey[f.home+"|"+f.away]=f);
  const keys=Object.keys(D.goal_events).filter(k=>fxKey[k]);
  if(!keys.length){ box.innerHTML=`<div class="stcard"><div class="locked">Leaderboards and storylines appear once matches are played.</div></div>`; return; }
- const scorers={}, ratingAcc={}, teamAcc={};
+ const scorers={}, ratingAcc={}, teamAcc={}, gkAcc={}, cardAcc={};
  let totalGoals=0;
  keys.forEach(k=>{
    const ev=D.goal_events[k], f=fxKey[k], score=matchScore(f,ev);
@@ -933,7 +947,16 @@ function renderStats(){
      a.sum+=r.rating; a.n++; a.best=Math.max(a.best,r.rating); a.goals+=r.goals||0; a.assists+=r.assists||0;
      const ta=teamAcc[t]||(teamAcc[t]={team:t,sum:0,n:0}); ta.sum+=r.rating; ta.n++;
    });
+   if(lu){   // keepers (clean sheets / saves) + cards (fair play), from lineup data
+     ["home","away"].forEach(t=>{ const b=lu[t]; if(!b)return; const tn=t==="home"?f.home:f.away; const conc=t==="home"?score[1]:score[0];
+       const gk=(b.xi||[]).find(p=>(p.pos||"").toUpperCase()==="G");
+       if(gk){ const id=gk.name+"|"+tn; const g=gkAcc[id]||(gkAcc[id]={name:gk.name,team:tn,cs:0,sv:0,gc:0,n:0});
+         g.n++; g.gc+=conc; if(gk.st)g.sv+=+gk.st.SV||0; if(conc===0)g.cs++; } });
+     (lu.events||[]).forEach(e=>{ if(e.type!=="card")return; const tn=e.team==="home"?f.home:f.away;
+       const c=cardAcc[tn]||(cardAcc[tn]={team:tn,y:0,r:0}); e.card==="red"?c.r++:c.y++; });
+   }
  });
+ STATAGG={ratingAcc,gkAcc};   // shared with Team of the Tournament
  const boot=Object.values(scorers).sort((a,b)=>b.goals-a.goals||a.pens-b.pens).slice(0,8);
  const power=Object.values(ratingAcc).map(a=>({...a,avg:a.sum/a.n})).sort((a,b)=>b.avg-a.avg||b.best-a.best).slice(0,12);
  const teamRank=Object.values(teamAcc).map(a=>({...a,avg:a.sum/a.n})).sort((a,b)=>b.avg-a.avg);
@@ -970,13 +993,59 @@ function renderStats(){
    return `<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(s.team)}</span><span class="nm">${s.name} <span class="sub">${s.pos||""} ${ga}</span></span><span class="sub" title="matches">${s.n}m</span><span class="ratemini"><i style="width:${s.avg*10}%"></i></span><span class="big">${s.avg.toFixed(1)}</span></div>`;}).join("");
  const teamRankHTML=teamRank.map((s,i)=>`<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(s.team)}</span><span class="nm">${s.team}</span><span class="ratemini"><i style="width:${s.avg*10}%"></i></span><span class="big">${s.avg.toFixed(1)}</span></div>`).join("");
 
+ const emptyLB=`<div class="lbrow"><span class="sub" style="padding:7px 4px">None yet.</span></div>`;
+ const glove=Object.values(gkAcc).map(g=>({...g,svpct:(g.sv+g.gc)>0?g.sv/(g.sv+g.gc):0})).sort((a,b)=>b.cs-a.cs||b.svpct-a.svpct||b.sv-a.sv).slice(0,8);
+ const assistL=Object.values(ratingAcc).filter(a=>a.assists>0).sort((a,b)=>b.assists-a.assists||b.goals-a.goals).slice(0,8);
+ const fair=Object.values(cardAcc).map(c=>({...c,fp:c.y+c.r*3,tot:c.y+c.r})).sort((a,b)=>b.fp-a.fp||b.r-a.r).slice(0,8);
+ const lbtag='style="font-size:9.5px;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px"';
+ const gloveHTML=glove.length?glove.map((g,i)=>`<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(g.team)}</span><span class="nm">${g.name} <span class="sub">${g.cs} CS · ${(g.svpct*100)|0}% sv · ${g.n}m</span></span><span class="big">${g.cs}</span></div>`).join(""):emptyLB;
+ const assistHTML=assistL.length?assistL.map((a,i)=>`<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(a.team)}</span><span class="nm">${a.name} <span class="sub">${a.pos||""}</span></span><span class="big">${a.assists}</span></div>`).join(""):emptyLB;
+ const fairHTML=fair.length?fair.map((c,i)=>`<div class="lbrow ${i===0?'lead':''}"><span class="rk">${i+1}</span><span class="gb">${F(c.team)}</span><span class="nm">${c.team}</span><span class="sub">${c.y?'🟨'+c.y+' ':''}${c.r?'🟥'+c.r:''}</span><span class="big">${c.tot}</span></div>`).join(""):emptyLB;
  box.innerHTML=`
   <div class="stwrap">
    <div class="stcard"><h3>🥇 Golden Boot</h3>${bootHTML}</div>
-   <div class="stcard"><h3>⭐ Top performers <span style="font-size:9.5px;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px">avg rating · model v2</span></h3>${powerHTML}</div>
-   <div class="stcard"><h3>🛡 Team rating table <span style="font-size:9.5px;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px">squad avg</span></h3>${teamRankHTML}</div>
+   <div class="stcard"><h3>⭐ Top performers <span ${lbtag}>avg rating · model v3</span></h3>${powerHTML}</div>
+   <div class="stcard"><h3>🛡 Team rating table <span ${lbtag}>squad avg</span></h3>${teamRankHTML}</div>
+  </div>
+  <div class="stwrap" style="margin-top:16px">
+   <div class="stcard"><h3>🧤 Golden Glove <span ${lbtag}>clean sheets · save%</span></h3>${gloveHTML}</div>
+   <div class="stcard"><h3>🅰️ Assist King</h3>${assistHTML}</div>
+   <div class="stcard"><h3>🟨 Discipline <span ${lbtag}>cards · fair play</span></h3>${fairHTML}</div>
   </div>
   <div class="stcard" style="margin-top:16px"><h3>📈 Storylines</h3><div class="tiles">${tiles}</div></div>`;
+}
+
+/* ---- Team of the Tournament: best XI by avg rating, laid out 4-3-3 ---- */
+function renderBestXI(){
+ const box=document.getElementById("bestxibox"); if(!box)return;
+ const acc=(STATAGG&&STATAGG.ratingAcc)||{};
+ const players=Object.values(acc).filter(a=>a.n>=1).map(a=>({...a,avg:a.sum/a.n,POS:(a.pos||"M").toUpperCase()}));
+ if(players.length<11){ box.innerHTML=`<div class="locked">The Team of the Tournament builds as matches are played.</div>`; return; }
+ const used=new Set(); const key=p=>p.name+"|"+p.team;
+ const pick=(P,n)=>{const o=[]; players.filter(x=>x.POS===P).sort((a,b)=>b.avg-a.avg||b.n-a.n).forEach(x=>{ if(o.length<n&&!used.has(key(x))){o.push(x);used.add(key(x));} }); return o;};
+ let gk=pick("G",1), df=pick("D",4), md=pick("M",3), fw=pick("F",3);
+ const rest=players.filter(x=>x.POS!=="G"&&!used.has(key(x))).sort((a,b)=>b.avg-a.avg);
+ while(gk.length+df.length+md.length+fw.length<11 && rest.length){ const p=rest.shift();
+   if(df.length<4)df.push(p); else if(md.length<3)md.push(p); else if(fw.length<3)fw.push(p); else md.push(p); }
+ if(!gk.length){ const any=players.filter(x=>!used.has(key(x))).sort((a,b)=>b.avg-a.avg)[0]; if(any)gk=[any]; }
+ const xi=[...gk,...df,...md,...fw]; const avgX=xi.length?(xi.reduce((s,p)=>s+p.avg,0)/xi.length):0;
+ const chip=p=>`<span class="pchip"><span class="phead" data-pl="${escAttr(p.name)}"><span class="pnum">${p.avg.toFixed(1)}</span></span><span class="pnm">${p.name}</span><span class="pnm" style="color:var(--mut);font-size:9px">${F(p.team)} ${p.avg.toFixed(2)}</span></span>`;
+ const rows=[gk,df,md,fw].filter(r=>r.length).map(r=>`<div class="pline">${r.map(chip).join("")}</div>`).join("");
+ box.innerHTML=`<div class="luhdr"><b>Best XI so far</b><span class="formtag">4-3-3 · squad avg ${avgX.toFixed(2)}</span></div><div class="pitch">${rows}</div>`;
+ hydratePhotos(box);
+}
+
+/* ---- Power Rankings: all 48 teams by model strength (Elo) + live title odds & movement ---- */
+function renderPower(out){
+ const box=document.getElementById("powerbox"); if(!box)return;
+ const ti=D.teaminfo||{}, base=D.baseline||{}, champ=(out&&out.champion)||{};
+ const rows=D.teams.map(t=>{ const info=ti[t]||{}; const c=champ[t]||0; const b=(base[t]&&base[t].p_champion)||0;
+   return {team:t, elo:info.elo||0, group:info.group||"", champ:c, d:c-b}; }).sort((a,b)=>b.elo-a.elo);
+ const maxElo=Math.max(1,...rows.map(r=>r.elo));
+ const mv=d=> d>0.003?`<span class="mv up">▲ ${pc(d,1)}</span>`:d<-0.003?`<span class="mv dn">▼ ${pc(-d,1)}</span>`:`<span class="mv fl">–</span>`;
+ box.innerHTML=`<table class="big"><thead><tr><th>#</th><th>Team</th><th>Grp</th><th>Strength (Elo)</th><th>Champion</th><th>Δ vs forecast</th></tr></thead><tbody>`+
+  rows.map((r,i)=>`<tr><td>${i+1}</td><td><span class="gb">${F(r.team)}</span> ${r.team}</td><td>${r.group}</td><td><span class="elobar"><i style="width:${(100*r.elo/maxElo).toFixed(0)}%"></i></span><b>${r.elo}</b></td><td>${pc(r.champ,1)}</td><td>${mv(r.d)}</td></tr>`).join("")+
+  `</tbody></table>`;
 }
 
 /* ---- status bar ---- */
