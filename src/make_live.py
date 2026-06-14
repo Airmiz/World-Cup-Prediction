@@ -452,13 +452,14 @@ function espnDateRange(){   // YYYYMMDD-YYYYMMDD spanning the tournament so far 
  return fmt(Math.min(...ds))+"-"+fmt(Math.min(Date.now()+6*3600e3, Math.max(...ds)));
 }
 function parseESPN(d){
- const finals={}, live={}, goals={}, post=[];
+ const finals={}, live={}, goals={}, post=[], kick={};
  (d.events||[]).forEach(e=>{
   const comp=e.competitions&&e.competitions[0]; if(!comp) return;
   const cs=comp.competitors||[];
   const hc=cs.find(c=>c.homeAway==="home"), ac=cs.find(c=>c.homeAway==="away"); if(!hc||!ac) return;
   const home=espnCanon(hc.team&&hc.team.displayName), away=espnCanon(ac.team&&ac.team.displayName); if(!home||!away) return;
   const fid=fixByPair[home+"|"+away]; if(fid==null) return;   // unknown/reversed pairing → leave to martj42
+  if(e.date) kick[fid]=e.date;                                 // ESPN's authoritative kickoff time (UTC)
   const state=(e.status&&e.status.type&&e.status.type.state)||"pre";   // pre | in | post
   const hs=+hc.score, as=+ac.score, key=home+"|"+away;
   const idSide={}; cs.forEach(c=>{ if(c.team) idSide[c.team.id]=c.homeAway; });
@@ -473,7 +474,7 @@ function parseESPN(d){
   if(state==="post"){ finals[fid]=[hs,as]; if(ev.length)goals[key]=ev; post.push({key,eid:e.id}); }
   else if(state==="in"){ live[fid]={hs,as,minute:espnMinute(e),added:espnAdded(e),eid:e.id,key}; goals[key]=ev; }
  });
- return {finals,live,goals,post};
+ return {finals,live,goals,post,kick};
 }
 // ESPN per-player stat name -> our short column (mirrors fetch_espn.PLAYER_STATS)
 const ESPN_PSTAT={totalGoals:"G",goalAssists:"A",totalShots:"SH",shotsOnTarget:"SOT",foulsCommitted:"FC",foulsSuffered:"FS",offsides:"OFF",yellowCards:"YC",redCards:"RC",saves:"SV",goalsConceded:"GC"};
@@ -576,6 +577,7 @@ async function loadLive(){
    }
    if(!D.lineups) D.lineups={};
    for(const k in espn.lineups){ D.lineups[k]=espn.lineups[k]; }   // live = fresh each cycle; just-finished = fill once
+   if(espn.kick){ D.fixtures.forEach(f=>{ if(espn.kick[f.id]) f.utc=espn.kick[f.id]; }); }   // correct kickoff times from ESPN (authoritative)
   }
   STATE={results,ko:{},live,source:espn?"espn":"live",fetchedUTC:new Date(),
    played:Object.keys(results).length, liveCount:Object.keys(live).length, err:espn?null:String((err&&err.message)||err||"")};
@@ -760,7 +762,8 @@ function renderFeed(){
  const now=Date.now();
  const items=D.fixtures.map(f=>{
   const r=STATE.results[f.id]; const lv=STATE.live&&STATE.live[f.id]; const t=f.utc?new Date(f.utc).getTime():null;
-  let status= r?"ft":((lv||(t&&now>=t&&now<t+2.5*3600e3))?"live":"upcoming");
+  const wallLive = STATE.source!=="espn" && t && now>=t && now<t+2.5*3600e3;   // clock guess only when ESPN status is unavailable
+  let status= r?"ft":((lv||wallLive)?"live":"upcoming");
   return {f,r,lv,t,status,key:f.utc?fmtDayKey.format(new Date(f.utc)):f.id};
  }).sort((a,b)=>(a.t||0)-(b.t||0));
  const byDay={};
@@ -923,9 +926,11 @@ function openTeam(team){
 function matchStatus(fid){
  const f=fixById[fid]; const res=STATE.results[fid];
  if(res) return "ft";
- if(STATE.live&&STATE.live[fid]) return "live";   // ESPN says in-progress
- const t=f.utc?new Date(f.utc).getTime():null;
- if(t && Date.now()>=t) return "live";
+ if(STATE.live&&STATE.live[fid]) return "live";   // ESPN says in-progress — authoritative
+ if(STATE.source!=="espn"){                        // only guess "live" from the clock when ESPN status is unavailable
+   const t=f.utc?new Date(f.utc).getTime():null;
+   if(t && Date.now()>=t) return "live";
+ }
  return "upcoming";
 }
 function openMatch(fid){
