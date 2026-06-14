@@ -421,22 +421,36 @@ function escAttr(s){ return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&q
 const PHOTOS={}, PHOTO_REQ={};
 function photoGet(n){ if(n in PHOTOS) return PHOTOS[n]; try{const v=localStorage.getItem("wcph:"+n); if(v!=null) return (PHOTOS[n]=v);}catch(e){} return undefined; }
 function photoSet(n,v){ PHOTOS[n]=v||""; try{localStorage.setItem("wcph:"+n,v||"");}catch(e){} }
-function fetchWikiPhoto(name){
+const FB_RE=/foot(ball)?|soccer|winger|midfield|defender|goalkeep|striker|forward/;   // footballer description guard (avoid same-name people)
+// tier 1: Wikipedia REST summary thumbnail
+async function wikiSummaryPhoto(name){ try{
+  const u="https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(name.replace(/ /g,"_"))+"?redirect=true";
+  const r=await fetch(u); if(!r.ok) return "";
+  const d=await r.json(); if(!FB_RE.test(((d.description||"")+" "+(d.extract||"")).toLowerCase())) return "";
+  return (d.thumbnail||{}).source||"";
+}catch(e){ return ""; } }
+// tier 2: Wikidata P18 image (same open Commons pool; CORS-open via w/api.php?origin=*)
+async function wikidataPhoto(name){ try{
+  const s="https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=5&origin=*&search="+encodeURIComponent(name);
+  const d=await (await fetch(s)).json(); let qid=null;
+  for(const h of (d.search||[])){ if(FB_RE.test((h.description||"").toLowerCase())){ qid=h.id; break; } }
+  if(!qid) return "";
+  const c="https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&property=P18&origin=*&entity="+encodeURIComponent(qid);
+  const d2=await (await fetch(c)).json(); const cl=(d2.claims&&d2.claims.P18)||[];
+  const fn=cl[0]&&cl[0].mainsnak&&cl[0].mainsnak.datavalue&&cl[0].mainsnak.datavalue.value;
+  return fn ? "https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(fn)+"?width=200" : "";
+}catch(e){ return ""; } }
+// combined chain: Wikipedia -> Wikidata; cached (memory + localStorage), deduped per name
+function fetchPlayerPhoto(name){
  if(PHOTO_REQ[name]) return PHOTO_REQ[name];
- return PHOTO_REQ[name]=(async()=>{ try{
-   const u="https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(name.replace(/ /g,"_"))+"?redirect=true";
-   const r=await fetch(u); if(!r.ok){photoSet(name,"");return"";}
-   const d=await r.json(); const desc=((d.description||"")+" "+(d.extract||"")).toLowerCase();
-   const isFb=/foot(ball)?|soccer|winger|midfield|defender|goalkeep|striker|forward/.test(desc);   // avoid same-name non-footballers
-   const th=(d.thumbnail||{}).source||""; const url=(th&&isFb)?th:""; photoSet(name,url); return url;
- }catch(e){ photoSet(name,""); return ""; } })();
+ return PHOTO_REQ[name]=(async()=>{ let url=await wikiSummaryPhoto(name); if(!url) url=await wikidataPhoto(name); photoSet(name,url); return url; })();
 }
 function applyPhoto(el,url){ if(!url||!el)return; const img=new Image();
  img.onload=()=>{ el.style.backgroundImage="url('"+url.replace(/'/g,"%27")+"')"; el.classList.add("has-img"); }; img.src=url; }
 function hydratePhotos(root){ (root||document).querySelectorAll(".phead[data-pl]").forEach(el=>{
  const nm=el.getAttribute("data-pl"); if(!nm)return; const c=photoGet(nm);
  if(c!==undefined){ if(c) applyPhoto(el,c); return; }
- fetchWikiPhoto(nm).then(url=>{ if(url) applyPhoto(el,url); }); }); }
+ fetchPlayerPhoto(nm).then(url=>{ if(url) applyPhoto(el,url); }); }); }
 
 let STATE={results:{},ko:{},live:{},source:"snapshot",fetchedUTC:null,played:0};
 
@@ -1235,7 +1249,7 @@ function matchCentre(f){
   const cardsHTML=cards.length?`<div class="cards">`+cards.map(e=>`<div class="cardr"><span class="mn">${e.min}'</span><span class="cardchip ${e.card==="red"?"r":"y"}"></span><span class="nm">${F(teamName(e.team))} ${e.player||""}</span></div>`).join("")+`</div>`:`<div class="locked">No cards.</div>`;
   const subsHTML=subs.length?`<div class="subsl">`+subs.map(e=>`<div class="subr"><span class="mn">${e.min}'</span><span class="in">▲ ${e.assist||"?"}</span><span class="ar">←</span><span class="out">▼ ${e.player||"?"}</span><span class="nm" style="color:var(--mut);font-size:11px">${F(teamName(e.team))}</span></div>`).join("")+`</div>`:`<div class="locked">No substitutions.</div>`;
   const srcLabel = {espn:"Lineups, stats, cards &amp; subs via ESPN", wikipedia:"Lineups, cards &amp; subs via Wikipedia (CC BY-SA)", "api-football":"Lineups via API-Football", "football-data":"Lineups via football-data.org"}[lu.source] || "";
-  const attr = `<div class="heatcap">${srcLabel?srcLabel+" · ":""}Player photos via Wikipedia / Wikimedia Commons</div>`;
+  const attr = `<div class="heatcap">${srcLabel?srcLabel+" · ":""}Player photos via Wikipedia, Wikidata &amp; Wikimedia Commons</div>`;
 
   // ---- team match stats: side-by-side comparison bars (hide if absent) ----
   let teamStatsHTML="";
