@@ -40,5 +40,26 @@
    "Belgium": 0.0208,
    "Norway": 0.0205
   }
+ },
+ {
+  "date": "2026-06-14",
+  "champ": {
+   "Argentina": 0.1647,
+   "Spain": 0.1568,
+   "France": 0.0636,
+   "England": 0.0626,
+   "Brazil": 0.0544,
+   "Colombia": 0.0465,
+   "Morocco": 0.0439,
+   "Japan": 0.041,
+   "Portugal": 0.0398,
+   "Mexico": 0.0336,
+   "Ecuador": 0.0319,
+   "Netherlands": 0.0302,
+   "Germany": 0.0278,
+   "Belgium": 0.0218,
+   "United States": 0.0207,
+   "Norway": 0.0202
+  }
  }
 ]
