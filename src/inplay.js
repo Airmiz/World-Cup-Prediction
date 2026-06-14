@@ -15,8 +15,11 @@ function poissonPmf(mean, K){
 /* Win/draw/loss probabilities at `minute` given current score (gh,ga). */
 function probs(lh, la, gh, ga, minute, fullMin){
   fullMin=fullMin||90;
-  const f=Math.max(0,(fullMin-minute)/fullMin);
-  if(f<=0){ return gh>ga?[1,0,0]:gh<ga?[0,0,1]:[0,1,0]; }
+  // remaining-goal rate stays per-90 (lh/90 per minute); the match window may extend past
+  // 90 into stoppage time, so scale by remaining minutes / 90 (identical to the old form when
+  // fullMin==90). Only a truly finished match (minute>=fullMin) locks to the current scoreline.
+  const rem=Math.max(0, fullMin-minute), f=rem/90;
+  if(rem<=0){ return gh>ga?[1,0,0]:gh<ga?[0,0,1]:[0,1,0]; }
   const K=12, ph=poissonPmf(lh*f,K), pa=poissonPmf(la*f,K);
   let H=0,D=0,A=0;
   for(let i=0;i<=K;i++) for(let j=0;j<=K;j++){
@@ -28,7 +31,7 @@ function probs(lh, la, gh, ga, minute, fullMin){
 
 /* Score after applying goal events with minute <= t. events:[{min,team}] team:'home'|'away' */
 function scoreAt(events, t){
-  let h=0,a=0; for(const e of events){ if(e.min<=t){ (e.team==="home")?h++:a++; } } return [h,a];
+  let h=0,a=0; for(const e of events){ const m=e.min+(e.add||0); if(m<=t){ (e.team==="home")?h++:a++; } } return [h,a];
 }
 
 /* Build a 0..fullMin timeline (per-minute) of [H,D,A] given events. */

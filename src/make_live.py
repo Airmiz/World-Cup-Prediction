@@ -445,6 +445,7 @@ function espnCanon(name){ const n=espnNorm(name); if(CANON_BY_NORM[n])return CAN
  for(const k in CANON_BY_NORM){ if(n.length>=4&&(k.includes(n)||n.includes(k)))return CANON_BY_NORM[k]; } return null; }
 function espnMinute(e){ const dc=(e.status&&(e.status.displayClock||(e.status.type&&e.status.type.shortDetail)))||"";
  const m=String(dc).match(/(\d+)/); return m?Math.max(0,Math.min(90,parseInt(m[1],10))):null; }
+function espnAdded(e){ const dc=(e.status&&e.status.displayClock)||""; const m=String(dc).match(/\+\s*(\d+)/); return m?parseInt(m[1],10):0; }   // stoppage minutes from "90'+4'"
 function espnDateRange(){   // YYYYMMDD-YYYYMMDD spanning the tournament so far (+ today's late games)
  const ds=D.fixtures.filter(f=>f.utc).map(f=>new Date(f.utc).getTime()); if(!ds.length) return null;
  const fmt=ms=>new Date(ms).toISOString().slice(0,10).replace(/-/g,"");
@@ -470,7 +471,7 @@ function parseESPN(d){
   });
   ev.sort((a,b)=>a.min-b.min);
   if(state==="post"){ finals[fid]=[hs,as]; if(ev.length)goals[key]=ev; post.push({key,eid:e.id}); }
-  else if(state==="in"){ live[fid]={hs,as,minute:espnMinute(e),eid:e.id,key}; goals[key]=ev; }
+  else if(state==="in"){ live[fid]={hs,as,minute:espnMinute(e),added:espnAdded(e),eid:e.id,key}; goals[key]=ev; }
  });
  return {finals,live,goals,post};
 }
@@ -597,13 +598,22 @@ function recompute(){
  },20);
 }
 /* keep an open in-play popup tracking a live match as new goals arrive */
+function matchFull(){    // effective final minute for the chart/model — extends into stoppage while live
+ let mx=90; (WP.events||[]).forEach(e=>{const m=e.min+(e.add||0); if(m>mx)mx=m;});
+ if(WP.status==="live"){
+   const lv=STATE.live&&STATE.live[WP.fid]; const added=(lv&&lv.added)||0;
+   return added>0 ? Math.max(mx,90+added)+3 : 90;   // in stoppage: a tail so a live match is never shown as "over"
+ }
+ return mx;   // finished: locks at the last goal (>=90)
+}
 function refreshOpenModal(){
  if(!ov.classList.contains("show") || WP.fid==null) return;
  if(matchStatus(WP.fid)!=="live" || animTimer || !WP.followLive) return;   // only follow live; never fight Replay or a manual scrub
  const f=fixById[WP.fid]; const known=D.goal_events[f.home+"|"+f.away];
  WP.events = known ? known.map(e=>({...e})) : [];
- const lv=STATE.live&&STATE.live[WP.fid];
- if(lv && lv.minute!=null) WP.minute=Math.max(0,Math.min(90,lv.minute));
+ const lv=STATE.live&&STATE.live[WP.fid]; const added=(lv&&lv.added)||0;
+ if(lv && lv.minute!=null) WP.minute = added>0 ? 90+added : Math.max(0,Math.min(90,lv.minute));
+ WP.full = matchFull();
  drawModal();
 }
 
@@ -670,7 +680,7 @@ function renderStats(){
    brier += [0,1,2].reduce((s,j)=>s+(pre[j]-(j===actIdx?1:0))**2,0);
    if(actIdx!==favSide){ if(!upset||favProb>upset.mag) upset={f,score,mag:favProb,
      favName:favSide===0?f.home:f.away, winName:actIdx===1?"Draw":(actIdx===0?f.home:f.away)}; }
-   const tl=WCInPlay.timeline(f.eh,f.ea,ev); let mx=0,mn=1; tl.forEach(p=>{mx=Math.max(mx,p.p[0]);mn=Math.min(mn,p.p[0]);});
+   const full=Math.max(90,...ev.map(e=>e.min+(e.add||0))); const tl=WCInPlay.timeline(f.eh,f.ea,ev,full); let mx=0,mn=1; tl.forEach(p=>{mx=Math.max(mx,p.p[0]);mn=Math.min(mn,p.p[0]);});
    const sw=mx-mn; if(!drama||sw>drama.sw) drama={f,score,sw};
    const tot=score[0]+score[1]; if(!hi||tot>hi.tot) hi={f,score,tot};
  });
@@ -927,14 +937,15 @@ function openMatch(fid){
  WP.followLive=(WP.status==="live");   // a freshly-opened live match auto-tracks new goals
  if(WP.status==="ft"){
    WP.events = known ? known.map(e=>({...e})) : (res ? spreadGoals(res[0],res[1]) : []);
-   WP.minute = 90;
+   WP.full = matchFull(); WP.minute = WP.full;   // ends at the last goal (>=90), locked there
  } else if(WP.status==="live"){
    WP.events = known ? known.map(e=>({...e})) : [];   // real ESPN goals if available, else 0-0 baseline
-   const lv=STATE.live&&STATE.live[fid];
-   if(lv && lv.minute!=null){ WP.minute = Math.max(0, Math.min(90, lv.minute)); }   // ESPN match clock
+   const lv=STATE.live&&STATE.live[fid]; const added=(lv&&lv.added)||0;
+   if(lv && lv.minute!=null){ WP.minute = added>0 ? 90+added : Math.max(0,Math.min(90,lv.minute)); }   // ESPN match clock incl. stoppage
    else { const t=new Date(f.utc).getTime(); WP.minute = Math.max(0, Math.min(90, Math.round((Date.now()-t)/60000))); }
+   WP.full = matchFull();
  } else {
-   WP.events=[]; WP.minute=0;                          // upcoming: no fabricated story
+   WP.events=[]; WP.minute=0; WP.full=90;              // upcoming: no fabricated story
  }
  ov.classList.add("show"); document.body.style.overflow="hidden";
  drawModal();
@@ -947,16 +958,18 @@ function closeModal(){ov.classList.remove("show");document.body.style.overflow="
 ov.addEventListener("click",e=>{if(e.target===ov)closeModal();});
 addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 
-function xMap(m){return 52+(m/90)*(1000-52-72);}
+function xMap(m,FM){FM=FM||90; return 52+(m/FM)*(1000-52-72);}
 function yMap(p){return 18+(1-p)*(360-18-30);}
 function buildChart(f){
- const T=WCInPlay.timeline(f.eh,f.ea,WP.events);
- const line=(sel)=>T.map(pt=>xMap(pt.m)+","+yMap(pt.p[sel])).join(" ");
+ const FM=WP.full||90;
+ const T=WCInPlay.timeline(f.eh,f.ea,WP.events,FM);
+ const line=(sel)=>T.map(pt=>xMap(pt.m,FM)+","+yMap(pt.p[sel])).join(" ");
  const grid=[0,.25,.5,.75,1].map(v=>`<line class="gridln" x1="52" y1="${yMap(v)}" x2="928" y2="${yMap(v)}"/><text class="axt" x="44" y="${yMap(v)+4}" text-anchor="end">${v*100|0}%</text>`).join("");
- const xt=[1,15,30,45,60,75,90].map(m=>`<text class="axt" x="${xMap(m)}" y="352" text-anchor="middle">${m}'</text>`).join("");
- const goals=WP.events.map(e=>`<line x1="${xMap(e.min)}" y1="18" x2="${xMap(e.min)}" y2="330" stroke="${e.team==='home'?'var(--g2)':'var(--g3)'}" stroke-width="1" stroke-dasharray="2 3" opacity=".5"/>
-  <circle cx="${xMap(e.min)}" cy="14" r="3.2" fill="${e.team==='home'?'var(--g2)':'var(--g3)'}"/>`).join("");
- const nowX=xMap(WP.minute);
+ const ticks=[1,15,30,45,60,75,90].filter(m=>m<=FM); if(WP.status!=="live" && FM>90.5)ticks.push(Math.round(FM));   // label the true end only when finished (live tail is model padding)
+ const xt=ticks.map(m=>`<text class="axt" x="${xMap(m,FM)}" y="352" text-anchor="middle">${m>90?"90+"+(m-90):m}'</text>`).join("");
+ const goals=WP.events.map(e=>{const gm=e.min+(e.add||0); return `<line x1="${xMap(gm,FM)}" y1="18" x2="${xMap(gm,FM)}" y2="330" stroke="${e.team==='home'?'var(--g2)':'var(--g3)'}" stroke-width="1" stroke-dasharray="2 3" opacity=".5"/>
+  <circle cx="${xMap(gm,FM)}" cy="14" r="3.2" fill="${e.team==='home'?'var(--g2)':'var(--g3)'}"/>`;}).join("");
+ const nowX=xMap(WP.minute,FM);
  const cur=T[WP.minute].p;
  const nowMarks=`<line x1="${nowX}" y1="14" x2="${nowX}" y2="330" stroke="var(--txt)" stroke-width="1.5" opacity=".5"/>`+
   [[0,'var(--g2)'],[1,'#9aa3b2'],[2,'var(--g3)']].map(([s,c])=>`<circle cx="${nowX}" cy="${yMap(cur[s])}" r="4" fill="${c}" stroke="var(--surface)" stroke-width="1.5"/>`).join("");
@@ -1086,7 +1099,7 @@ function potmLine(r){
 function matchCentre(f){
  const ev=WP.events;
  const res=STATE.results[WP.fid];
- const score = (WP.status==="ft" && res) ? res : WCInPlay.scoreAt(ev, WP.status==="live"?WP.minute:90);
+ const score = (WP.status==="ft" && res) ? res : WCInPlay.scoreAt(ev, WP.status==="live"?WP.minute:(WP.full||90));
  const teamName=t=>t==="home"?f.home:f.away;
  const lu=D.lineups[f.home+"|"+f.away];
 
@@ -1294,10 +1307,11 @@ function drawModal(){
  }
 
  // --- live or finished: real in-play win-probability chart ---
- const T=WCInPlay.timeline(f.eh,f.ea,WP.events);
+ const T=WCInPlay.timeline(f.eh,f.ea,WP.events,WP.full);
  const [gh,ga]=WCInPlay.scoreAt(WP.events,WP.minute);
  const cur=T[WP.minute].p;
- const statusTxt = WP.status==="live" ? `● LIVE — ${WP.minute}′` : "Full time · actual goal timeline";
+ const mlbl=m=>m>90?"90+"+(m-90):(""+m);
+ const statusTxt = WP.status==="live" ? `● LIVE — ${mlbl(WP.minute)}′` : "Full time · actual goal timeline";
  const liveNote = (WP.status==="live" && WP.events.length===0)
    ? `<div class="hint" style="margin-top:8px">No goals reported yet — showing the live win probability at the current scoreline. The full goal-by-goal timeline fills in as the match progresses.</div>` : "";
  modalEl.innerHTML=`
@@ -1306,8 +1320,8 @@ function drawModal(){
   <div class="meta">Group ${f.group} · ${f.city}${kt?" · "+fmtDay.format(kt):""} · model xG ${f.eh.toFixed(2)}–${f.ea.toFixed(2)} · <b style="color:${WP.status==="live"?"var(--live)":"var(--blue)"}">${statusTxt}</b></div>
   ${readouts(f,cur)}
   <div class="chartbox">${buildChart(f)}</div>
-  <div class="minrow"><span class="mm">${WP.minute}'</span>
-   <input type="range" id="wpmin" min="0" max="90" value="${WP.minute}"></div>
+  <div class="minrow"><span class="mm">${mlbl(WP.minute)}'</span>
+   <input type="range" id="wpmin" min="0" max="${WP.full||90}" value="${WP.minute}"></div>
   <div class="ctrls">
    <div class="seg"><button class="solid" id="wpplay">▶ Replay</button><button id="wprewind">↺</button></div>
   </div>
@@ -1323,8 +1337,8 @@ function drawModal(){
 let animTimer=null;
 function stopAnim(){if(animTimer){clearInterval(animTimer);animTimer=null;const b=document.getElementById("wpplay");if(b)b.textContent="▶ Play";}}
 function animateToggle(){ if(animTimer){stopAnim();return;} animatePlay(); }
-function animatePlay(){ stopAnim(); WP.followLive=false; if(WP.minute>=90)WP.minute=0; const b=document.getElementById("wpplay");if(b)b.textContent="⏸ Pause";
- animTimer=setInterval(()=>{ WP.minute+=1; if(WP.minute>=90){WP.minute=90;drawModal();stopAnim();return;} drawModal(); },55); }
+function animatePlay(){ stopAnim(); WP.followLive=false; const FM=WP.full||90; if(WP.minute>=FM)WP.minute=0; const b=document.getElementById("wpplay");if(b)b.textContent="⏸ Pause";
+ animTimer=setInterval(()=>{ WP.minute+=1; if(WP.minute>=FM){WP.minute=FM;drawModal();stopAnim();return;} drawModal(); },55); }
 
 document.getElementById("feedbox").addEventListener("click",e=>{const c=e.target.closest(".mcard.clk");if(c)openMatch(+c.dataset.fid);});
 document.getElementById("oddstable").addEventListener("click",e=>{const tr=e.target.closest("tr[data-team]");if(tr)openTeam(tr.dataset.team);});
