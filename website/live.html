@@ -347,6 +347,10 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 #goalflash.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .gf-in{display:flex;align-items:center;gap:13px;background:linear-gradient(135deg,#1f9d4d,#34c759);color:#fff;padding:12px 22px;border-radius:14px;box-shadow:0 12px 44px rgba(0,0,0,.45)}
 .gf-ball{font-size:26px}.gf-t{font-weight:900;font-size:15px;letter-spacing:.3px}.gf-s{font-size:12px;opacity:.93}
+.callt{font-size:9px;font-weight:800;border-radius:5px;padding:2px 6px;margin-left:6px;background:var(--track);color:var(--mut);white-space:nowrap}
+.callt.ok{background:rgba(52,199,89,.16);color:#1f9d4d}
+.callt.mkt{background:rgba(255,159,10,.16);color:#c0820f}
+.resrow{background:rgba(255,255,255,.04);border-radius:8px}
 </style>
 </head>
 <body>
@@ -1764,12 +1768,15 @@ function matchCentre(f){
 
  // ---- Model vs Market (betting market implied odds vs our model) ----
  let mktSec=""; const mkt=lu&&lu.market;
- if(mkt){ const cur2=WCInPlay.timeline(f.eh,f.ea,WP.events,WP.full)[WP.minute].p;
-   const mr=(lab,m,k)=>{const sh=(m+k)>0?100*m/(m+k):50; const md=m-k; const dt=Math.abs(md)>=0.05?` <span class="mv ${md>0?'up':'dn'}">${md>0?'+':''}${pc(md,0)}</span>`:'';
-     return `<div class="tsrow"><span class="tsv h ${m>=k?'lead':''}">${pc(m,0)}</span><span class="tslbl">${lab}${dt}</span><span class="tsv a ${k>m?'lead':''}">${pc(k,0)}</span><span class="tsbar"><i class="h ${m>=k?'':'lo'}" style="width:${sh.toFixed(0)}%"></i><i class="a ${k>m?'':'lo'}" style="width:${(100-sh).toFixed(0)}%"></i></span></div>`;};
-   mktSec=`<div class="mcsec"><h4>Model vs Market <span class="tag">our model v ${mkt.prov}</span></h4>
+ if(mkt){ const settled=WP.status==="ft";   // compare like-for-like: PRE-MATCH model (pre) vs the pre-match market line
+   const mr=(lab,m,k,idx)=>{const sh=(m+k)>0?100*m/(m+k):50; const md=m-k; const dt=Math.abs(md)>=0.04?` <span class="mv ${md>0?'up':'dn'}">${md>0?'+':''}${pc(md,0)}</span>`:'';
+     const isRes=settled&&idx===actIdx;
+     const call=isRes?(Math.abs(m-k)<0.02?'<span class="callt">level</span>':m>k?'<span class="callt ok">✓ our model</span>':'<span class="callt mkt">✓ market</span>'):'';
+     return `<div class="tsrow${isRes?' resrow':''}"><span class="tsv h ${m>=k?'lead':''}">${pc(m,0)}</span><span class="tslbl">${lab}${dt}${call}</span><span class="tsv a ${k>m?'lead':''}">${pc(k,0)}</span><span class="tsbar"><i class="h ${m>=k?'':'lo'}" style="width:${sh.toFixed(0)}%"></i><i class="a ${k>m?'':'lo'}" style="width:${(100-sh).toFixed(0)}%"></i></span></div>`;};
+   mktSec=`<div class="mcsec"><h4>Model vs Market <span class="tag">pre-match · our model v ${mkt.prov}</span></h4>
      <div class="tpiov"><span class="tpi h">Our model</span><span class="tpi a">Market</span></div>
-     <div class="tstat">${mr(F(f.home)+" "+f.home+" win",cur2[0],mkt.h)}${mr("Draw",cur2[1],mkt.d)}${mr(F(f.away)+" "+f.away+" win",cur2[2],mkt.a)}</div></div>`;
+     <div class="tstat">${mr(F(f.home)+" "+f.home+" win",pre[0],mkt.h,0)}${mr("Draw",pre[1],mkt.d,1)}${mr(F(f.away)+" "+f.away+" win",pre[2],mkt.a,2)}</div>
+     <div class="heatcap">${settled?`Pre-match forecasts vs the actual result (${score[0]}–${score[1]}).`:"Pre-match forecasts — what each gave before kickoff. The market line isn't updated live."}</div></div>`;
  }
 
  // ---- live qualification impact of the current scoreline ----
