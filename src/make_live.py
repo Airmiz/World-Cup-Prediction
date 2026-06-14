@@ -236,6 +236,8 @@ table.big tbody tr:hover{background:var(--tint)}
 .tg.a{background:var(--blue-soft);color:var(--blue)}
 .tg.og{background:rgba(255,59,48,.14);color:var(--red)}
 .tg.sub{background:var(--track);color:var(--mut);font-size:8.5px;letter-spacing:.4px}
+.tg.subon{background:rgba(52,199,89,.14);color:#1f9d4d;font-size:9px}
+.tg.suboff{background:rgba(255,159,10,.16);color:#c0820f;font-size:9px}
 .tg.cd{width:11px;height:14px;border-radius:2.5px;padding:0;box-shadow:0 1px 2px rgba(0,0,0,.18)}
 .tg.cd.y{background:#f5c518}
 .tg.cd.r{background:#e0322b}
@@ -1123,7 +1125,7 @@ function fullSquadRatings(lu, score){
      else if(d.includes("miss")){ if(s)s.missed++; }
      else { if(s){s.goals++; if(d.includes("pen"))s.pens++;} const a=e.assist&&findStat(stat,e.assist); if(a)a.assists++; }
    } else if(e.type==="card"){const s=findStat(stat,e.player); if(s){e.card==="red"?s.red++:s.yel++;}}
-   else if(e.type==="subst"){const onP=e.assist&&findStat(stat,e.assist); const offP=findStat(stat,e.player); if(onP)onP.on=true; if(offP)offP.off=true;}
+   else if(e.type==="subst"){const onP=e.assist&&findStat(stat,e.assist); const offP=findStat(stat,e.player); if(onP){onP.on=true;onP.onMin=e.min;} if(offP){offP.off=true;offP.offMin=e.min;}}
  });
  const ts=lu.teamstats||{};
  const Nts=v=>{const x=parseFloat(String(v).replace(/[^0-9.\-]/g,""));return isNaN(x)?0:x;};
@@ -1160,7 +1162,7 @@ function fullSquadRatings(lu, score){
    }
    if(s.started){ if(won[s.team])add("Team won",RW.winStart); else if(drew)add("Team drew",RW.drawStart); }
    const rating=clampR(base + bd.reduce((a,x)=>a+x.v,0));
-   return {team:s.team,name:s.name,pos:s.pos,num:s.num,started:s.started,on:s.on,
+   return {team:s.team,name:s.name,pos:s.pos,num:s.num,started:s.started,on:s.on,off:s.off,onMin:s.onMin,offMin:s.offMin,
      goals:s.goals,assists:s.assists,pens:s.pens,og:s.og,yel:s.yel,red:s.red,
      rating, base, breakdown:bd};
  }).sort((a,b)=>b.rating-a.rating);
@@ -1222,7 +1224,8 @@ function matchCentre(f){
     if(s.yel)o.push(`<span class="tg cd y" title="Yellow card"></span>`);
     if(s.red)o.push(`<span class="tg cd r" title="Red card"></span>`);
     if(s.og)o.push(`<span class="tg og" title="Own goal">OG</span>`);
-    if(!s.started&&s.on)o.push(`<span class="tg sub" title="Substitute">SUB</span>`);
+    if(!s.started&&s.on)o.push(`<span class="tg subon" title="Came on as substitute${s.onMin?" at "+s.onMin+"'":""}">▲${s.onMin?" "+s.onMin+"'":" SUB"}</span>`);
+    else if(s.started&&s.off)o.push(`<span class="tg suboff" title="Substituted off${s.offMin?" at "+s.offMin+"'":""}">▼${s.offMin?" "+s.offMin+"'":""}</span>`);
     return o.join("");};
   const POS={G:"GK",D:"DEF",M:"MID",F:"FWD"};
   const block=t=>{const rs=rows.filter(s=>s.team===t); if(!rs.length)return"";
