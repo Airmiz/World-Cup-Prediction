@@ -290,6 +290,10 @@ table.big tbody tr:hover{background:var(--tint)}
 .phead .pnum{font-weight:800;font-size:13px;color:var(--mut)}
 .phead.has-img .pnum{display:none}
 .pnm{font-size:10px;line-height:1.15;max-width:86px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;color:var(--txt)}
+.pclub{display:block;font-size:8.5px;line-height:1.1;max-width:86px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;color:var(--mut);opacity:0;transition:opacity .2s}
+.pclub.has-club{opacity:.85}
+.pclub-i{font-size:10px;color:var(--mut);margin-left:6px;opacity:0}
+.pclub-i.has-club{opacity:.8}
 .luhdr{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut);margin-bottom:2px}
 .luhdr b{color:var(--txt);font-size:13px}
 .formtag{font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums}
@@ -515,6 +519,30 @@ function hydratePhotos(root){ (root||document).querySelectorAll(".phead[data-pl]
  const nm=el.getAttribute("data-pl"); if(!nm)return;
  fetchPlayerPhoto(nm).then(url=>{ if(url) applyPhoto(el,url); }); }); }
 
+/* ---- player's current club via ESPN athlete endpoint (CORS-open), keyed by ESPN athlete id; cached in memory + localStorage ---- */
+const CLUBS={}, CLUB_REQ={};
+function clubGet(id){ if(id in CLUBS) return CLUBS[id]; try{const v=localStorage.getItem("wccl1:"+id); if(v!=null) return (CLUBS[id]=v);}catch(e){} return undefined; }
+function clubSet(id,nm){ CLUBS[id]=nm; try{localStorage.setItem("wccl1:"+id,nm);}catch(e){} }
+// returns club name (found) | "" (player has no club / 404) | null (transient — don't cache, retry next render)
+async function espnAthleteClub(id){
+  const r=await pfetch("https://site.web.api.espn.com/apis/common/v3/sports/soccer/all/athletes/"+encodeURIComponent(id));
+  if(!r) return null; if(r.status===404) return ""; if(!r.ok) return null;
+  try{ const d=await r.json(); const a=d.athlete||d; const t=a.team||{}; return t.shortDisplayName||t.displayName||t.name||""; }catch(e){ return null; }
+}
+function fetchClub(id){
+  if(!id) return Promise.resolve("");
+  const c=clubGet(id); if(c!==undefined) return Promise.resolve(c);
+  if(CLUB_REQ[id]) return CLUB_REQ[id];
+  const p=(async()=>{ const v=await photoSchedule(()=>espnAthleteClub(id));   // share the photo throttle so a lineup doesn't burst ESPN
+    if(v){ clubSet(id,v); return v; } if(v===""){ clubSet(id,""); } return ""; })();
+  CLUB_REQ[id]=p;
+  p.then(()=>{ if(clubGet(id)===undefined) delete CLUB_REQ[id]; });   // transient (uncached) → allow a later retry
+  return p;
+}
+function hydrateClubs(root){ (root||document).querySelectorAll("[data-club]").forEach(el=>{
+ const id=el.getAttribute("data-club"); if(!id)return;
+ fetchClub(id).then(nm=>{ if(nm){ el.textContent=nm; el.classList.add("has-club"); } }); }); }
+
 let STATE={results:{},ko:{},live:{},source:"snapshot",fetchedUTC:null,played:0};
 
 /* ---- martj42 CSV feed (fallback source; finals only) ---- */
@@ -613,7 +641,7 @@ function buildLineupFromSummary(s, home, away){
  rosters.forEach(r=>{ const side=sideOf((r.team&&r.team.displayName)||""); if(!side) return;
   const xi=[], subs=[];
   (r.roster||[]).forEach(p=>{ const ath=p.athlete&&p.athlete.displayName; if(!ath) return;
-   const pos=p.position||{}; const e={name:ath,num:p.jersey,pos:espnPosBucket(pos.displayName||pos.name||pos.abbreviation),posAbbr:(pos.abbreviation||""),fp:p.formationPlace};
+   const pos=p.position||{}; const e={name:ath,num:p.jersey,pos:espnPosBucket(pos.displayName||pos.name||pos.abbreviation),posAbbr:(pos.abbreviation||""),fp:p.formationPlace,aid:(p.athlete&&p.athlete.id)||null};
    const st=espnPlayerStats(p); if(st)e.st=st;
    (p.starter?xi:subs).push(e); });
   blocks[side]={formation:r.formation||"",xi:xi.slice(0,11),subs}; });
@@ -1292,10 +1320,10 @@ function fullSquadRatings(lu, score){
  const conceded={home:score[1],away:score[0]};
  const won={home:score[0]>score[1],away:score[1]>score[0]}, drew=score[0]===score[1];
  const stat={};
- const ensure=(t,name,pos,num,started)=>{const k=t+"|"+name; return stat[k]||(stat[k]={team:t,name,pos:(pos||"").toUpperCase(),num:num,goals:0,pens:0,assists:0,og:0,yel:0,red:0,missed:0,on:false,off:false,started,st:null});};
+ const ensure=(t,name,pos,num,started,aid)=>{const k=t+"|"+name; return stat[k]||(stat[k]={team:t,name,pos:(pos||"").toUpperCase(),num:num,goals:0,pens:0,assists:0,og:0,yel:0,red:0,missed:0,on:false,off:false,started,st:null,aid:aid||null});};
  ["home","away"].forEach(t=>{const b=lu[t]; if(!b)return;
-   (b.xi||[]).forEach(p=>{const s=ensure(t,p.name,p.pos,p.num,true); if(p.st)s.st=p.st;});
-   (b.subs||[]).forEach(p=>{const s=ensure(t,p.name,p.pos,p.num,false); if(p.st)s.st=p.st;});});
+   (b.xi||[]).forEach(p=>{const s=ensure(t,p.name,p.pos,p.num,true,p.aid); if(p.st)s.st=p.st;});
+   (b.subs||[]).forEach(p=>{const s=ensure(t,p.name,p.pos,p.num,false,p.aid); if(p.st)s.st=p.st;});});
  (lu.events||[]).forEach(e=>{
    if(e.type==="goal"){const d=(e.detail||"").toLowerCase();
      const s=findStat(stat,e.player);
@@ -1422,14 +1450,14 @@ function matchCentre(f){
     const cls=s.rating>=8?"r-hi":s.rating>=7?"r-mid":"r-lo";
     const tags=[s.goals?`${s.goals}⚽`:"",s.pens?`${s.pens} pen`:"",s.og?`${s.og} OG`:""].filter(Boolean).join(" · ");
     const star=i===0&&s.goals>0?`<span class="potm">★ POTM</span>`:"";
-    return `<div class="rrow ${cls}"><span class="nm">${F(teamName(s.team))} ${s.name} ${star}</span><span class="tags">${tags}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span></div>`;
+    return `<div class="rrow ${cls}"><span class="nm">${F(teamName(s.team))} ${s.name} ${star}${s.aid?`<span class="pclub-i" data-club="${escAttr(s.aid)}"></span>`:""}</span><span class="tags">${tags}</span><span class="rbar"><i style="width:${s.rating*10}%"></i></span><span class="rv">${s.rating.toFixed(1)}</span></div>`;
    }).join("")+`</div>` : `<div class="locked">Ratings appear once goals are scored.</div>`;
  }
 
  // ---- formations / cards / subs (only with lineup data) ----
  let extraHTML="", teamPerfHTML="", statLeadersHTML="";
  if(lu && (lu.home||lu.away)){
-  const pchip=p=>`<span class="pchip"><span class="phead" data-pl="${escAttr(p.name||"")}"><span class="pnum">${p.num||""}</span></span><span class="pnm">${p.name||""}</span></span>`;
+  const pchip=p=>`<span class="pchip"><span class="phead" data-pl="${escAttr(p.name||"")}"><span class="pnum">${p.num||""}</span></span><span class="pnm">${p.name||""}</span>${p.aid?`<span class="pclub" data-club="${escAttr(p.aid)}"></span>`:""}</span>`;
   const pitch=t=>{const b=lu[t]; if(!b||!b.xi||!b.xi.length)return"";
     const gk=b.xi.filter(p=>posTier(p.posAbbr||p.pos)===0);
     const out=b.xi.filter(p=>posTier(p.posAbbr||p.pos)!==0);
@@ -1640,6 +1668,7 @@ function drawModal(){
  document.getElementById("wpplay").onclick=animateToggle;
  document.getElementById("wprewind").onclick=()=>{WP.minute=0;WP.followLive=false;stopAnim();drawModal();};
  hydratePhotos(modalEl);   // fill in player headshots (Wikipedia, cached) after the pitch renders
+ hydrateClubs(modalEl);    // fill in each player's current club (ESPN athlete endpoint, cached)
 }
 let animTimer=null;
 function stopAnim(){if(animTimer){clearInterval(animTimer);animTimer=null;const b=document.getElementById("wpplay");if(b)b.textContent="▶ Play";}}
