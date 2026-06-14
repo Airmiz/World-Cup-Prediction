@@ -7499,5 +7499,997 @@
    }
   },
   "final": true
+ },
+ "Australia|Turkey": {
+  "status": "LIVE",
+  "source": "espn",
+  "home": {
+   "formation": "5-4-1",
+   "xi": [
+    {
+     "name": "Patrick Beach",
+     "num": "18",
+     "pos": "G",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 5,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Harry Souttar",
+     "num": "19",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Cameron Burgess",
+     "num": "21",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Alessandro Circati",
+     "num": "3",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Jordan Bos",
+     "num": "5",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 2,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Jacob Italiano",
+     "num": "4",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Paul Okon-Engstler",
+     "num": "24",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 1,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Aiden O'Neill",
+     "num": "13",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Nestory Irankunda",
+     "num": "17",
+     "pos": "M",
+     "st": {
+      "G": 1,
+      "A": 0,
+      "SH": 2,
+      "SOT": 2,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Connor Metcalfe",
+     "num": "8",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Mohamed Toure",
+     "num": "9",
+     "pos": "F",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 1,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "Mathew Ryan",
+     "num": "1",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Kai Trewin",
+     "num": "15",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Cameron Devlin",
+     "num": "14",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Paul Izzo",
+     "num": "12",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Cristian Volpato",
+     "num": "20",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Jason Geria",
+     "num": "6",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Awer Mabil",
+     "num": "11",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Aziz Behich",
+     "num": "16",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Mathew Leckie",
+     "num": "7",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Ajdin Hrustic",
+     "num": "10",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Tete Yengi",
+     "num": "26",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Lucas Herrington",
+     "num": "25",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Milos Degenek",
+     "num": "2",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Jackson Irvine",
+     "num": "22",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Nishan Velupillay",
+     "num": "23",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    }
+   ]
+  },
+  "away": {
+   "formation": "4-2-3-1",
+   "xi": [
+    {
+     "name": "Ugurcan \u00c7akir",
+     "num": "23",
+     "pos": "G",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 2,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Abd\u00fclkerim Bardak\u00e7i",
+     "num": "14",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Merih Demiral",
+     "num": "3",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Ferdi Kadioglu",
+     "num": "20",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Zeki \u00c7elik",
+     "num": "2",
+     "pos": "D",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Orkun K\u00f6k\u00e7\u00fc",
+     "num": "6",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 3,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Hakan \u00c7alhanoglu",
+     "num": "10",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 4,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Ismail Y\u00fcksek",
+     "num": "16",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 3,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Kerem Akt\u00fcrkoglu",
+     "num": "7",
+     "pos": "F",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 2,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Baris Alper Yilmaz",
+     "num": "21",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    },
+    {
+     "name": "Arda G\u00fcler",
+     "num": "8",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 5,
+      "SOT": 2,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "Yunus Akg\u00fcn",
+     "num": "19",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Deniz G\u00fcl",
+     "num": "9",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Kaan Ayhan",
+     "num": "22",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Kenan Yildiz",
+     "num": "11",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 4,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Oguz Aydin",
+     "num": "24",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Altay Bayindir",
+     "num": "12",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Salih \u00d6zcan",
+     "num": "5",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Can Uzun",
+     "num": "26",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Ozan Kabak",
+     "num": "15",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Samet Akaydin",
+     "num": "25",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Irfan Can Kahveci",
+     "num": "17",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "\u00c7aglar S\u00f6y\u00fcnc\u00fc",
+     "num": "4",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Eren Elmali",
+     "num": "13",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Mert M\u00fcld\u00fcr",
+     "num": "18",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0
+     }
+    },
+    {
+     "name": "Mert G\u00fcnok",
+     "num": "1",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0
+     }
+    }
+   ]
+  },
+  "events": [
+   {
+    "min": 27,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Nestory Irankunda",
+    "assist": "Paul Okon-Engstler"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Kenan Yildiz",
+    "player": "Baris Alper Yilmaz"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nishan Velupillay",
+    "player": "Nestory Irankunda"
+   },
+   {
+    "min": 62,
+    "team": "away",
+    "type": "subst",
+    "assist": "Yunus Akg\u00fcn",
+    "player": "Orkun K\u00f6k\u00e7\u00fc"
+   }
+  ],
+  "teamstats": {
+   "home": {
+    "possessionPct": "31.9",
+    "totalShots": "8",
+    "shotsOnTarget": "3",
+    "wonCorners": "4",
+    "totalPasses": "244",
+    "foulsCommitted": "7",
+    "offsides": "1",
+    "yellowCards": "0",
+    "redCards": "0",
+    "totalTackles": "11",
+    "interceptions": "5",
+    "saves": "5"
+   },
+   "away": {
+    "possessionPct": "68.1",
+    "totalShots": "22",
+    "shotsOnTarget": "5",
+    "wonCorners": "6",
+    "totalPasses": "536",
+    "foulsCommitted": "3",
+    "offsides": "2",
+    "yellowCards": "0",
+    "redCards": "0",
+    "totalTackles": "10",
+    "interceptions": "2",
+    "saves": "2"
+   },
+   "labels": {
+    "possessionPct": "Possession",
+    "totalShots": "Shots",
+    "shotsOnTarget": "Shots on Target",
+    "wonCorners": "Corners",
+    "totalPasses": "Passes",
+    "foulsCommitted": "Fouls",
+    "offsides": "Offsides",
+    "yellowCards": "Yellow Cards",
+    "redCards": "Red Cards",
+    "totalTackles": "Tackles",
+    "interceptions": "Interceptions",
+    "saves": "Saves"
+   },
+   "pct": {
+    "possessionPct": true,
+    "totalShots": false,
+    "shotsOnTarget": false,
+    "wonCorners": false,
+    "totalPasses": false,
+    "foulsCommitted": false,
+    "offsides": false,
+    "yellowCards": false,
+    "redCards": false,
+    "totalTackles": false,
+    "interceptions": false,
+    "saves": false
+   }
+  },
+  "final": false
  }
 }

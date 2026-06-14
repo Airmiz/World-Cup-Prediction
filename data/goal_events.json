@@ -92,5 +92,12 @@
       "team": "home",
       "name": "Vin\u00edcius J\u00fanior"
     }
+  ],
+  "Haiti|Scotland": [
+    {
+      "min": 28,
+      "team": "away",
+      "name": "John McGinn"
+    }
   ]
 }
