@@ -7501,7 +7501,7 @@
   "final": true
  },
  "Australia|Turkey": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "5-4-1",
@@ -7519,7 +7519,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 5,
+      "SV": 8,
       "GC": 0
      }
     },
@@ -7635,7 +7635,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -7664,10 +7664,10 @@
      "num": "8",
      "pos": "M",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -7823,7 +7823,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -7874,7 +7874,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -7925,7 +7925,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -7969,7 +7969,7 @@
       "YC": 0,
       "RC": 0,
       "SV": 2,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -7982,11 +7982,11 @@
       "SH": 1,
       "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -7996,14 +7996,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 1,
-      "OFF": 1,
+      "OFF": 2,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -8020,7 +8020,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -8037,7 +8037,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -8064,14 +8064,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 4,
-      "SOT": 1,
+      "SH": 5,
+      "SOT": 2,
       "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -8088,7 +8088,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -8098,14 +8098,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 2,
-      "SOT": 0,
+      "SH": 3,
+      "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     },
     {
@@ -8132,14 +8132,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 5,
-      "SOT": 2,
+      "SH": 8,
+      "SOT": 3,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 2
      }
     }
    ],
@@ -8153,12 +8153,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -8202,14 +8202,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 4,
+      "SH": 6,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -8256,7 +8256,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -8430,35 +8430,98 @@
     "type": "subst",
     "assist": "Yunus Akg\u00fcn",
     "player": "Orkun K\u00f6k\u00e7\u00fc"
+   },
+   {
+    "min": 74,
+    "team": "home",
+    "type": "subst",
+    "assist": "Tete Yengi",
+    "player": "Mohamed Toure"
+   },
+   {
+    "min": 74,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jason Geria",
+    "player": "Jacob Italiano"
+   },
+   {
+    "min": 75,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Connor Metcalfe"
+   },
+   {
+    "min": 81,
+    "team": "away",
+    "type": "subst",
+    "assist": "Salih \u00d6zcan",
+    "player": "Ismail Y\u00fcksek"
+   },
+   {
+    "min": 81,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mert M\u00fcld\u00fcr",
+    "player": "Zeki \u00c7elik"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "subst",
+    "assist": "Aziz Behich",
+    "player": "Jordan Bos"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jackson Irvine",
+    "player": "Paul Okon-Engstler"
+   },
+   {
+    "min": 85,
+    "team": "away",
+    "type": "subst",
+    "assist": "Deniz G\u00fcl",
+    "player": "Kerem Akt\u00fcrkoglu"
+   },
+   {
+    "min": 86,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Yunus Akg\u00fcn"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "31.9",
-    "totalShots": "8",
-    "shotsOnTarget": "3",
-    "wonCorners": "4",
-    "totalPasses": "244",
-    "foulsCommitted": "7",
+    "possessionPct": "28.3",
+    "totalShots": "9",
+    "shotsOnTarget": "4",
+    "wonCorners": "5",
+    "totalPasses": "270",
+    "foulsCommitted": "12",
     "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "11",
-    "interceptions": "5",
-    "saves": "5"
+    "totalTackles": "16",
+    "interceptions": "6",
+    "saves": "8"
    },
    "away": {
-    "possessionPct": "68.1",
-    "totalShots": "22",
-    "shotsOnTarget": "5",
-    "wonCorners": "6",
-    "totalPasses": "536",
-    "foulsCommitted": "3",
-    "offsides": "2",
-    "yellowCards": "0",
+    "possessionPct": "71.7",
+    "totalShots": "30",
+    "shotsOnTarget": "8",
+    "wonCorners": "8",
+    "totalPasses": "704",
+    "foulsCommitted": "4",
+    "offsides": "3",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "10",
-    "interceptions": "2",
+    "totalTackles": "12",
+    "interceptions": "4",
     "saves": "2"
    },
    "labels": {
@@ -8490,6 +8553,6 @@
     "saves": false
    }
   },
-  "final": false
+  "final": true
  }
 }
