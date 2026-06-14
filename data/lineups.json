@@ -5401,7 +5401,7 @@
   "final": true
  },
  "Brazil|Morocco": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-2-3-1",
@@ -5419,8 +5419,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0
+      "SV": 2,
+      "GC": 1
      }
     },
     {
@@ -5432,12 +5432,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5447,14 +5447,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5471,7 +5471,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5483,12 +5483,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5499,13 +5499,13 @@
       "G": 0,
       "A": 0,
       "SH": 2,
-      "SOT": 0,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5514,15 +5514,15 @@
      "pos": "M",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
+      "A": 1,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5534,12 +5534,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5549,14 +5549,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 1,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5564,16 +5564,16 @@
      "num": "7",
      "pos": "M",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 3,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5583,14 +5583,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     }
    ],
@@ -5605,7 +5605,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -5672,7 +5672,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -5707,7 +5707,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -5789,8 +5789,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -5851,8 +5851,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0
+      "SV": 4,
+      "GC": 1
      }
     },
     {
@@ -5869,7 +5869,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5886,7 +5886,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5898,12 +5898,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5913,14 +5913,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 3,
       "SOT": 0,
-      "FC": 1,
-      "FS": 0,
+      "FC": 3,
+      "FS": 5,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5937,24 +5937,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
-     }
-    },
-    {
-     "name": "Neil El Aynaoui",
-     "num": "24",
-     "pos": "M",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 1,
-      "FS": 1,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -5967,11 +5950,28 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
+     }
+    },
+    {
+     "name": "Neil El Aynaoui",
+     "num": "24",
+     "pos": "M",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 3,
+      "SOT": 0,
+      "FC": 4,
+      "FS": 3,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1
      }
     },
     {
@@ -5979,16 +5979,16 @@
      "num": "11",
      "pos": "F",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 1,
-      "FS": 0,
-      "OFF": 0,
+      "SH": 3,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 1,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -6000,12 +6000,12 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     },
     {
@@ -6014,15 +6014,15 @@
      "pos": "M",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 2,
-      "SOT": 0,
+      "A": 1,
+      "SH": 3,
+      "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 1
      }
     }
    ],
@@ -6102,8 +6102,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -6139,7 +6139,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -6284,35 +6284,136 @@
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 21,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Ismael Saibari",
+    "assist": "Brahim D\u00edaz"
+   },
+   {
+    "min": 32,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Vin\u00edcius J\u00fanior",
+    "assist": "Bruno Guimar\u00e3es"
+   },
+   {
+    "min": 37,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Casemiro"
+   },
+   {
+    "min": 43,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Roger Iba\u00f1ez"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Danilo",
+    "player": "Roger Iba\u00f1ez"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Fabinho",
+    "player": "Casemiro"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Matheus Cunha",
+    "player": "Lucas Paquet\u00e1"
+   },
+   {
+    "min": 62,
+    "team": "home",
+    "type": "subst",
+    "assist": "Luiz Henrique",
+    "player": "Igor Thiago"
+   },
+   {
+    "min": 65,
+    "team": "away",
+    "type": "subst",
+    "assist": "Samir El Mourabet",
+    "player": "Azzedine Ounahi"
+   },
+   {
+    "min": 65,
+    "team": "away",
+    "type": "subst",
+    "assist": "Chemsdine Talbi",
+    "player": "Brahim D\u00edaz"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "subst",
+    "assist": "Anass Salah-Eddine",
+    "player": "Noussair Mazraoui"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ayoube Amaimouni",
+    "player": "Bilal El Khannouss"
+   },
+   {
+    "min": 80,
+    "team": "home",
+    "type": "subst",
+    "assist": "Danilo Santos",
+    "player": "Bruno Guimar\u00e3es"
+   },
+   {
+    "min": 89,
+    "team": "away",
+    "type": "subst",
+    "assist": "Soufiane Rahimi",
+    "player": "Ismael Saibari"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "53.4",
-    "totalShots": "3",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "124",
-    "foulsCommitted": "3",
+    "possessionPct": "51.3",
+    "totalShots": "12",
+    "shotsOnTarget": "5",
+    "wonCorners": "6",
+    "totalPasses": "513",
+    "foulsCommitted": "16",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "4",
-    "interceptions": "2",
-    "saves": "0"
+    "totalTackles": "23",
+    "interceptions": "5",
+    "saves": "2"
    },
    "away": {
-    "possessionPct": "46.6",
-    "totalShots": "6",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "108",
-    "foulsCommitted": "4",
-    "offsides": "0",
+    "possessionPct": "48.7",
+    "totalShots": "14",
+    "shotsOnTarget": "3",
+    "wonCorners": "2",
+    "totalPasses": "487",
+    "foulsCommitted": "14",
+    "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "6",
-    "interceptions": "2",
-    "saves": "0"
+    "totalTackles": "24",
+    "interceptions": "4",
+    "saves": "4"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -6343,6 +6444,6 @@
     "saves": false
    }
   },
-  "final": false
+  "final": true
  }
 }
