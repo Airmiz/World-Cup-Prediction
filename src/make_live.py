@@ -341,12 +341,30 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 .stag.hunt{background:var(--blue-soft);color:var(--blue)}
 .sc3{font-size:10px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
 .sc3 b{color:var(--txt)}
+.commlist{display:flex;flex-direction:column;max-height:360px;overflow-y:auto;margin-top:6px;padding-right:4px}
+.commrow{display:flex;gap:9px;align-items:flex-start;padding:6px 4px;border-bottom:1px solid var(--hair);font-size:12.5px;line-height:1.42}
+.commrow.big{background:rgba(52,199,89,.07);border-radius:7px;font-weight:600;border-bottom:none;margin:2px 0}
+.commrow .cmn{flex:none;width:36px;color:var(--mut);font-weight:800;font-variant-numeric:tabular-nums;text-align:right}
+.commrow .cic{flex:none;width:16px;text-align:center}
+.commrow .ctx{flex:1;color:var(--txt)}
+#tickerbar{display:none;gap:16px;overflow-x:auto;white-space:nowrap;padding:9px 14px;margin:0 0 14px;background:var(--surface);border:1px solid var(--hair);border-radius:12px;font-size:13px;align-items:center;box-shadow:var(--shadow)}
+#tickerbar.show{display:flex}
+#tickerbar::-webkit-scrollbar{height:0}
+.tklbl{color:var(--live);font-weight:800;font-size:11px;letter-spacing:.5px;flex:none}
+.tk{flex:none;color:var(--txt)}.tk b{font-variant-numeric:tabular-nums;color:var(--txt)}.tk.clk{cursor:pointer}
+.tk .tkm{color:var(--live);font-weight:800;font-size:11px;margin-right:5px}
+#goalflash{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-34px);opacity:0;pointer-events:none;z-index:200;transition:opacity .35s,transform .35s cubic-bezier(.2,.8,.2,1)}
+#goalflash.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.gf-in{display:flex;align-items:center;gap:13px;background:linear-gradient(135deg,#1f9d4d,#34c759);color:#fff;padding:12px 22px;border-radius:14px;box-shadow:0 12px 44px rgba(0,0,0,.45)}
+.gf-ball{font-size:26px}.gf-t{font-weight:900;font-size:15px;letter-spacing:.3px}.gf-s{font-size:12px;opacity:.93}
 </style>
 </head>
 <body>
+<div id="goalflash"></div>
 <nav><div class="in"><b><span class="lg">26</span> World Cup 26</b>
 <a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#bracket">Bracket</a></div></nav>
 <div class="wrap">
+<div id="tickerbar"></div>
 
 <header class="hero">
  <div class="livetag"><span class="pulse"></span>LIVE · AUTO-UPDATING</div>
@@ -624,6 +642,33 @@ function buildLineupFromSummary(s, home, away){
  return rec;
 }
 // Fetch one summary and use it to (a) attach scorer names to the goal timeline and (b) build the live Match Centre record.
+function mlToProb(ml){ ml=+ml; if(isNaN(ml))return null; return ml>0 ? 100/(ml+100) : (-ml)/((-ml)+100); }
+function parseMarket(s){   // betting-market implied H/D/A probabilities (over-round removed)
+ const pc=(s.pickcenter||[]).find(o=>o&&o.homeTeamOdds&&o.awayTeamOdds&&o.homeTeamOdds.moneyLine!=null&&o.awayTeamOdds.moneyLine!=null);
+ if(!pc)return null;
+ const h=mlToProb(pc.homeTeamOdds.moneyLine), a=mlToProb(pc.awayTeamOdds.moneyLine), d=mlToProb(pc.drawOdds&&pc.drawOdds.moneyLine);
+ if(h==null||a==null)return null; const dd=d==null?0:d; const tot=h+dd+a; if(tot<=0)return null;
+ return {h:h/tot,d:dd/tot,a:a/tot,prov:(pc.provider&&pc.provider.name)||"Market"};
+}
+function commentaryType(t){ t=(t||"").toLowerCase();
+ if(/own goal/.test(t)) return "og";
+ if(/\bgoal\b|scores|back of the net/.test(t)) return "goal";
+ if(/penalty/.test(t)) return "pen";
+ if(/red card|sent off|second yellow/.test(t)) return "red";
+ if(/yellow card|booked|is shown/.test(t)) return "yellow";
+ if(/substitution|replaces/.test(t)) return "sub";
+ if(/saved|save\b/.test(t)) return "save";
+ if(/attempt missed|misses|off target|hits the (post|bar)|blocked/.test(t)) return "miss";
+ if(/corner/.test(t)) return "corner";
+ if(/offside/.test(t)) return "offside";
+ if(/foul|free kick/.test(t)) return "foul";
+ if(/half begins|half ends|kick.?off|full.?time|half.?time|delay/.test(t)) return "whistle";
+ return ""; }
+function parseCommentary(s){
+ return (s.commentary||[]).map(c=>{ const tv=(c.time&&c.time.displayValue)||""; const m=String(tv).match(/(\d+)(?:'?\s*\+\s*(\d+))?/);
+   return {min:m?parseInt(m[1],10):null, add:(m&&m[2])?parseInt(m[2],10):0, text:(c.text||"").trim(), type:commentaryType(c.text)}; })
+  .filter(c=>c.text);
+}
 async function espnSummaryHydrate(key, eid, goals, lineups){
  try{
   const r=await fetch(ESPN_SUM+"?event="+eid,{cache:"no-store"}); if(!r.ok)return;
@@ -636,7 +681,7 @@ async function espnSummaryHydrate(key, eid, goals, lineups){
    goals[key].forEach(g=>{ if(byMin[g.min])g.name=byMin[g.min]; });
   }
   const i=key.indexOf("|"); const rec=buildLineupFromSummary(s, key.slice(0,i), key.slice(i+1));
-  if(rec) lineups[key]=rec;
+  if(rec){ rec.commentary=parseCommentary(s); rec.market=parseMarket(s); lineups[key]=rec; }
  }catch(_){}
 }
 async function loadESPN(){
@@ -685,14 +730,39 @@ async function loadLive(){
 }
 
 /* ---- run the Monte Carlo + render ---- */
-let LAST=null, STATAGG={ratingAcc:{},gkAcc:{}};
+let LAST=null, STATAGG={ratingAcc:{},gkAcc:{}}, PREVSCORES=null;
 function recompute(){
  setStatus("sim");
  setTimeout(()=>{                       // let the spinner paint
   const out=WCLive.runLive(D,{N:NSIMS,results:STATE.results,ko:STATE.ko});
   LAST=out;
-  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderBestXI(); renderTracker(); renderGroups(out); renderOdds(out); renderPower(out); renderBracket(out); refreshOpenModal();
+  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderBestXI(); renderTracker(); renderGroups(out); renderOdds(out); renderPower(out); renderBracket(out); renderTickerBar(); refreshOpenModal(); detectGoals();
  },20);
+}
+/* ---- live score ticker + goal flash ---- */
+function renderTickerBar(){
+ const el=document.getElementById("tickerbar"); if(!el)return;
+ const items=Object.keys(STATE.live||{}).map(fid=>{const lv=STATE.live[fid],f=fixById[fid]; if(!f)return"";
+   return `<span class="tk clk" data-fid="${fid}"><span class="tkm">${lv.minute!=null?(lv.minute>=90&&lv.added?"90+"+lv.added:lv.minute)+"'":"LIVE"}</span>${F(f.home)} <b>${lv.hs}</b>–<b>${lv.as}</b> ${F(f.away)}</span>`;}).filter(Boolean).join("");
+ if(items){ el.innerHTML=`<span class="tklbl">● LIVE NOW</span>${items}`; el.classList.add("show"); }
+ else el.classList.remove("show");
+}
+function detectGoals(){
+ const cur={};
+ for(const fid in (STATE.live||{})){ const lv=STATE.live[fid]; cur[fid]=(+lv.hs||0)+(+lv.as||0); }
+ for(const fid in (STATE.results||{})){ const r=STATE.results[fid]; cur[fid]=(+r[0]||0)+(+r[1]||0); }
+ if(PREVSCORES){ for(const fid in cur){ if(cur[fid]>(PREVSCORES[fid]||0) && STATE.live && STATE.live[fid]){
+   const lv=STATE.live[fid], f=fixById[fid]; if(!f)continue;
+   const ev=D.goal_events[f.home+"|"+f.away]||[]; const last=ev[ev.length-1];
+   const pt= last ? (last.og?(last.team==="home"?"away":"home"):last.team) : (lv.hs>lv.as?"home":"away");
+   flashGoal(f, pt==="home"?f.home:f.away, (last&&last.name)||"", lv);
+ } } }
+ PREVSCORES=cur;
+}
+function flashGoal(f,team,scorer,lv){
+ const el=document.getElementById("goalflash"); if(!el)return;
+ el.innerHTML=`<div class="gf-in"><span class="gf-ball">⚽</span><div><div class="gf-t">GOAL · ${F(team)} ${team}</div><div class="gf-s">${scorer?scorer+" — ":""}${F(f.home)} ${lv.hs}–${lv.as} ${F(f.away)}</div></div></div>`;
+ el.classList.add("show"); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove("show"),6500);
 }
 /* keep an open in-play popup tracking a live match as new goals arrive */
 function matchFull(){    // effective final minute for the chart/model — extends into stoppage while live
@@ -1140,15 +1210,20 @@ function buildChart(f){
  const grid=[0,.25,.5,.75,1].map(v=>`<line class="gridln" x1="52" y1="${yMap(v)}" x2="928" y2="${yMap(v)}"/><text class="axt" x="44" y="${yMap(v)+4}" text-anchor="end">${v*100|0}%</text>`).join("");
  const ticks=[1,15,30,45,60,75,90].filter(m=>m<=FM); if(WP.status!=="live" && FM>90.5)ticks.push(Math.round(FM));   // label the true end only when finished (live tail is model padding)
  const xt=ticks.map(m=>`<text class="axt" x="${xMap(m,FM)}" y="352" text-anchor="middle">${m>90?"90+"+(m-90):m}'</text>`).join("");
- const goals=WP.events.map(e=>{const gm=e.min+(e.add||0); return `<line x1="${xMap(gm,FM)}" y1="18" x2="${xMap(gm,FM)}" y2="330" stroke="${e.team==='home'?'var(--g2)':'var(--g3)'}" stroke-width="1" stroke-dasharray="2 3" opacity=".5"/>
-  <circle cx="${xMap(gm,FM)}" cy="14" r="3.2" fill="${e.team==='home'?'var(--g2)':'var(--g3)'}"/>`;}).join("");
+ const lu=D.lineups[f.home+"|"+f.away];
+ const goals=WP.events.map(e=>{const gm=e.min+(e.add||0); const c=e.team==='home'?'var(--g2)':'var(--g3)'; const tag=e.og?" (OG)":e.pen?" (pen)":"";
+   return `<g><title>${e.min}${e.add?'+'+e.add:''}' — ${F(e.team==='home'?f.home:f.away)} ${(e.name||'goal')}${tag}</title>
+    <line x1="${xMap(gm,FM)}" y1="18" x2="${xMap(gm,FM)}" y2="330" stroke="${c}" stroke-width="1" stroke-dasharray="2 3" opacity=".5"/>
+    <circle cx="${xMap(gm,FM)}" cy="14" r="3.6" fill="${c}"/></g>`;}).join("");
+ const cards=(lu&&lu.events?lu.events.filter(e=>e.type==="card"):[]).map(e=>{const cm=e.min+(e.add||0); const col=e.card==="red"?"#e0322b":"#f5c518";
+   return `<g><title>${e.min}' ${F(e.team==='home'?f.home:f.away)} ${e.player||""} — ${e.card} card</title><rect x="${(xMap(cm,FM)-2).toFixed(1)}" y="328" width="4" height="8" rx="1" fill="${col}"/></g>`;}).join("");
  const nowX=xMap(WP.minute,FM);
  const cur=T[WP.minute].p;
  const nowMarks=`<line x1="${nowX}" y1="14" x2="${nowX}" y2="330" stroke="var(--txt)" stroke-width="1.5" opacity=".5"/>`+
   [[0,'var(--g2)'],[1,'#9aa3b2'],[2,'var(--g3)']].map(([s,c])=>`<circle cx="${nowX}" cy="${yMap(cur[s])}" r="4" fill="${c}" stroke="var(--surface)" stroke-width="1.5"/>`).join("");
  const endLbl=(sel,c,txt)=>{const p=T[T.length-1].p[sel];return `<text x="934" y="${yMap(p)+4}" class="axt" fill="${c}" font-weight="700">${txt}</text>`;};
  return `<svg viewBox="0 0 1000 360" preserveAspectRatio="xMidYMid meet">
-  ${grid}${xt}${goals}
+  ${grid}${xt}${goals}${cards}
   <polyline fill="none" stroke="#9aa3b2" stroke-width="2" stroke-dasharray="5 4" points="${line(1)}"/>
   <polyline fill="none" stroke="var(--g3)" stroke-width="2.5" points="${line(2)}"/>
   <polyline fill="none" stroke="var(--g2)" stroke-width="2.5" points="${line(0)}"/>
@@ -1471,7 +1546,40 @@ function matchCentre(f){
    <div class="box"><div class="k">${settled?"Outcome":"So far"}</div><div class="v ${settled?(matched?"ok":"no"):""}">${settled?(matched?"✓ as predicted":"✗ upset"):"in progress"}</div></div>
   </div>`;
 
+ // ---- Model vs Market (betting market implied odds vs our model) ----
+ let mktSec=""; const mkt=lu&&lu.market;
+ if(mkt){ const cur2=WCInPlay.timeline(f.eh,f.ea,WP.events,WP.full)[WP.minute].p;
+   const mr=(lab,m,k)=>{const sh=(m+k)>0?100*m/(m+k):50; const md=m-k; const dt=Math.abs(md)>=0.05?` <span class="mv ${md>0?'up':'dn'}">${md>0?'+':''}${pc(md,0)}</span>`:'';
+     return `<div class="tsrow"><span class="tsv h ${m>=k?'lead':''}">${pc(m,0)}</span><span class="tslbl">${lab}${dt}</span><span class="tsv a ${k>m?'lead':''}">${pc(k,0)}</span><span class="tsbar"><i class="h ${m>=k?'':'lo'}" style="width:${sh.toFixed(0)}%"></i><i class="a ${k>m?'':'lo'}" style="width:${(100-sh).toFixed(0)}%"></i></span></div>`;};
+   mktSec=`<div class="mcsec"><h4>Model vs Market <span class="tag">our model v ${mkt.prov}</span></h4>
+     <div class="tpiov"><span class="tpi h">Our model</span><span class="tpi a">Market</span></div>
+     <div class="tstat">${mr(F(f.home)+" "+f.home+" win",cur2[0],mkt.h)}${mr("Draw",cur2[1],mkt.d)}${mr(F(f.away)+" "+f.away+" win",cur2[2],mkt.a)}</div></div>`;
+ }
+
+ // ---- live qualification impact of the current scoreline ----
+ let impSec=""; const cond=LAST&&LAST.cond;
+ if(WP.status==="live" && cond){ const base=D.baseline||{};
+   const outcome=side=>{ if(score[0]===score[1])return "draw"; const hw=score[0]>score[1]; return side==="home"?(hw?"win":"lose"):(hw?"lose":"win"); };
+   const imp=(team,side)=>{ const c=cond[team], o=outcome(side); if(!c||!c[o]||c[o].p==null)return "";
+     const p=c[o].p, b=base[team]&&base[team].p_reach_r32, d=b!=null?p-b:0;
+     const arr=d>0.012?`<span class="mv up">▲ ${pc(d,0)}</span>`:d<-0.012?`<span class="mv dn">▼ ${pc(-d,0)}</span>`:`<span class="mv fl">–</span>`;
+     return `<div class="scenrow"><span class="gb">${F(team)}</span><span class="snm">${team}</span><span class="stag hunt">${pc(p,0)} to advance</span>${arr}</div>`;};
+   const hi=imp(f.home,"home"), ai=imp(f.away,"away");
+   if(hi||ai) impSec=`<div class="mcsec"><h4>If it ends ${score[0]}–${score[1]} <span class="tag">live qualification impact · Δ vs pre-tournament</span></h4>${hi}${ai}</div>`;
+ }
+
+ // ---- live commentary / play-by-play ----
+ let commSec=""; const comm=(lu&&lu.commentary)||[];
+ if(comm.length){ const ic={goal:"⚽",og:"⚽",pen:"🎯",yellow:"🟨",red:"🟥",sub:"🔁",save:"🧤",miss:"↗️",corner:"⛳",offside:"🚩",foul:"⚠️",whistle:"🔔"};
+   const rows=comm.slice().reverse().slice(0,40).map(c=>{ const mn=c.min!=null?(c.min+(c.add?"+"+c.add:"")+"'"):"";
+     return `<div class="commrow ${(c.type==='goal'||c.type==='og'||c.type==='red')?'big':''}"><span class="cmn">${mn}</span><span class="cic">${ic[c.type]||"·"}</span><span class="ctx">${c.text}</span></div>`;}).join("");
+   commSec=`<div class="mcsec"><h4>Commentary <span class="tag">live play-by-play</span></h4><div class="commlist">${rows}</div></div>`;
+ }
+
  return `<div class="mc">
+   ${mktSec}
+   ${impSec}
+   ${commSec}
    ${statLeadersHTML}
    <div class="mcsec"><h4>Our player ratings <span class="tag">${ratTag}</span></h4>${ratHTML}</div>
    <div class="mcsec"><h4>Goals</h4>${golHTML}</div>
@@ -1533,6 +1641,7 @@ function animatePlay(){ stopAnim(); WP.followLive=false; const FM=WP.full||90; i
  animTimer=setInterval(()=>{ WP.minute+=1; if(WP.minute>=FM){WP.minute=FM;drawModal();stopAnim();return;} drawModal(); },55); }
 
 document.getElementById("feedbox").addEventListener("click",e=>{const c=e.target.closest(".mcard.clk");if(c)openMatch(+c.dataset.fid);});
+document.getElementById("tickerbar").addEventListener("click",e=>{const c=e.target.closest(".tk.clk");if(c)openMatch(+c.dataset.fid);});
 document.getElementById("oddstable").addEventListener("click",e=>{const tr=e.target.closest("tr[data-team]");if(tr)openTeam(tr.dataset.team);});
 addEventListener("keydown",e=>{if(e.key==="Escape")closeTeam();});
 
