@@ -62,7 +62,7 @@ PLAYER_STATS = [
     ("totalGoals", "G"), ("goalAssists", "A"), ("totalShots", "SH"),
     ("shotsOnTarget", "SOT"), ("foulsCommitted", "FC"), ("foulsSuffered", "FS"),
     ("offsides", "OFF"), ("yellowCards", "YC"), ("redCards", "RC"),
-    ("saves", "SV"), ("goalsConceded", "GC"),
+    ("saves", "SV"), ("goalsConceded", "GC"), ("shotsFaced", "SF"),
 ]
 
 # team match stats we surface, in display order (ESPN name -> nice label, is-percentage)

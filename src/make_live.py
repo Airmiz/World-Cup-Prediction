@@ -543,7 +543,7 @@ function parseESPN(d){
  return {finals,live,goals,post,kick};
 }
 // ESPN per-player stat name -> our short column (mirrors fetch_espn.PLAYER_STATS)
-const ESPN_PSTAT={totalGoals:"G",goalAssists:"A",totalShots:"SH",shotsOnTarget:"SOT",foulsCommitted:"FC",foulsSuffered:"FS",offsides:"OFF",yellowCards:"YC",redCards:"RC",saves:"SV",goalsConceded:"GC"};
+const ESPN_PSTAT={totalGoals:"G",goalAssists:"A",totalShots:"SH",shotsOnTarget:"SOT",foulsCommitted:"FC",foulsSuffered:"FS",offsides:"OFF",yellowCards:"YC",redCards:"RC",saves:"SV",goalsConceded:"GC",shotsFaced:"SF"};
 // ESPN team stat name -> [label, isPercent], in display order (mirrors fetch_espn.TEAM_STATS)
 const ESPN_TSTAT=[["possessionPct","Possession",true],["totalShots","Shots",false],["shotsOnTarget","Shots on Target",false],["wonCorners","Corners",false],["totalPasses","Passes",false],["foulsCommitted","Fouls",false],["offsides","Offsides",false],["yellowCards","Yellow Cards",false],["redCards","Red Cards",false],["totalTackles","Tackles",false],["interceptions","Interceptions",false],["saves","Saves",false]];
 function espnPosBucket(name){ const n=String(name||"").toLowerCase();
@@ -1097,10 +1097,11 @@ function findStat(stat,name){const n=RNORM(name);return Object.values(stat).find
  *   matching the feel of WhoScored/SofaScore-style models.
  * ========================================================================== */
 const RW={ goal:1.25, pen:0.85, brace:0.40, hat:1.00, assist:0.75,
-  shot:0.05, shotCap:0.40, sot:0.11, sotCap:0.55,
-  og:-1.60, miss:-0.70, foulC:-0.06, foulCcap:-0.40, foulS:0.03, foulScap:0.25,
-  offside:-0.05, offCap:-0.25, yel:-0.30, red:-1.20,
-  save:0.18, saveCap:1.20, gkConcede:-0.22, cleanGK:0.70, cleanDef:0.45, defConcede:-0.18,
+  shot:0.05, shotCap:0.30, sot:0.12, sotCap:0.55, wasteful:-0.20,
+  og:-1.60, miss:-0.70, foulC:-0.05, foulCcap:-0.35, foulS:0.04, foulScap:0.28,
+  offside:-0.06, offCap:-0.25, yel:-0.30, red:-1.25,
+  save:0.16, saveCap:1.30, svPct:2.60, svPctCap:1.10, gkConcede:-0.24, cleanGK:0.70,
+  cleanDef:0.45, defConcede:-0.18, csPressure:0.04, csPressureCap:0.45,
   winStart:0.25, drawStart:0.05 };
 const clampR=x=>Math.max(3,Math.min(10,Math.round(x*10)/10));
 function togRate(el){const d=el.nextElementSibling; if(d&&d.classList.contains("rdet")){d.classList.toggle("open"); el.classList.toggle("ropen");}}
@@ -1124,8 +1125,11 @@ function fullSquadRatings(lu, score){
    } else if(e.type==="card"){const s=findStat(stat,e.player); if(s){e.card==="red"?s.red++:s.yel++;}}
    else if(e.type==="subst"){const onP=e.assist&&findStat(stat,e.assist); const offP=findStat(stat,e.player); if(onP)onP.on=true; if(offP)offP.off=true;}
  });
+ const ts=lu.teamstats||{};
+ const Nts=v=>{const x=parseFloat(String(v).replace(/[^0-9.\-]/g,""));return isNaN(x)?0:x;};
+ const oppShots=t=>{ const o=(t==="home")?ts.away:ts.home; return (o&&o.totalShots!=null)?Nts(o.totalShots):null; };   // shots the team faced (defensive workload)
  return Object.values(stat).filter(s=>s.started||s.on).map(s=>{
-   const bd=[]; const base=s.started?6.5:6.4;
+   const bd=[]; const base=s.started?6.6:6.5;   // anchored near a real match average (~6.7)
    const add=(k,v)=>{ if(v) bd.push({k,v:Math.round(v*100)/100}); };
    const og=s.goals-s.pens;
    add("Goals",RW.goal*og); add("Penalty goals",RW.pen*s.pens);
@@ -1138,17 +1142,20 @@ function fullSquadRatings(lu, score){
    if(has){
      add("Shot volume",cap(RW.shot*SH,0,RW.shotCap));
      add("Shots on target",cap(RW.sot*nonGoalSOT,0,RW.sotCap));
+     if(SH>=4 && SOT===0 && s.goals===0) add("Wasteful shooting",RW.wasteful);   // lots of shots, none on target
      add("Fouls committed",cap(RW.foulC*(+st.FC||0),RW.foulCcap,0));
      add("Fouls won",cap(RW.foulS*(+st.FS||0),0,RW.foulScap));
      if(s.pos==="F"||s.pos==="M") add("Offsides",cap(RW.offside*(+st.OFF||0),RW.offCap,0));
    }
    if(s.pos==="G"){
-     add("Saves",cap(RW.save*(+st.SV||0),0,RW.saveCap));
-     const gc = has && st.GC!=null ? (+st.GC||0) : (s.started?conceded[s.team]:0);
+     const SV=+st.SV||0; const gc = has && st.GC!=null ? (+st.GC||0) : (s.started?conceded[s.team]:0);
+     const sotFaced=SV+gc;                                                        // on-target shots faced ≈ saves + conceded
+     add("Saves",cap(RW.save*SV,0,RW.saveCap));
+     if(sotFaced>=3) add("Shot-stopping",cap((SV/sotFaced-0.70)*RW.svPct,-RW.svPctCap,RW.svPctCap));   // save % — the strongest GK signal
      add("Goals conceded",RW.gkConcede*gc);
-     if(s.started&&conceded[s.team]===0) add("Clean sheet",RW.cleanGK);
+     if(s.started&&conceded[s.team]===0){ const sf=(+st.SF||sotFaced); add("Clean sheet",RW.cleanGK+cap((sf-3)*RW.csPressure,0,RW.csPressureCap)); }   // worth more under fire
    } else if(s.pos==="D"){
-     if(s.started&&conceded[s.team]===0) add("Clean sheet",RW.cleanDef);
+     if(s.started&&conceded[s.team]===0){ const op=oppShots(s.team); add("Clean sheet",RW.cleanDef+(op!=null?cap((op-7)*RW.csPressure,0,RW.csPressureCap):0)); }
      else if(conceded[s.team]>=2) add("Heavy concession",RW.defConcede*(conceded[s.team]-1));
    }
    if(s.started){ if(won[s.team])add("Team won",RW.winStart); else if(drew)add("Team drew",RW.drawStart); }
