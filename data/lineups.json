@@ -9793,7 +9793,7 @@
   "final": true
  },
  "Netherlands|Japan": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-3-3",
@@ -9813,8 +9813,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -9825,16 +9825,16 @@
      "posAbbr": "CD-L",
      "fp": "6",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -9847,14 +9847,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -9867,14 +9867,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -9894,7 +9894,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -9909,12 +9909,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -9934,7 +9934,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -9946,7 +9946,7 @@
      "fp": "7",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 2,
       "SH": 0,
       "SOT": 0,
       "FC": 0,
@@ -9954,7 +9954,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -9967,14 +9967,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
+      "SH": 2,
+      "SOT": 2,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -9987,14 +9987,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 1,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -10005,16 +10005,16 @@
      "posAbbr": "RF",
      "fp": "10",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 3,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -10089,14 +10089,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -10156,7 +10156,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -10176,7 +10176,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -10231,12 +10231,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -10316,7 +10316,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -10340,8 +10340,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
-      "GC": 0,
+      "SV": 4,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10357,11 +10357,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10376,12 +10376,12 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10397,11 +10397,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10412,16 +10412,16 @@
      "posAbbr": "CM-L",
      "fp": "8",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10441,7 +10441,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10452,16 +10452,16 @@
      "posAbbr": "LM",
      "fp": "3",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 1,
+      "SH": 3,
+      "SOT": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10476,12 +10476,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10494,14 +10494,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10521,7 +10521,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -10533,15 +10533,15 @@
      "fp": "10",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
+      "A": 1,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -10559,7 +10559,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -10575,8 +10575,8 @@
      "fp": "0",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
+      "A": 1,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -10816,8 +10816,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -10838,8 +10838,8 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -10849,35 +10849,159 @@
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 51,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Virgil van Dijk",
+    "assist": "Ryan Gravenberch"
+   },
+   {
+    "min": 57,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Keito Nakamura",
+    "assist": "Takefusa Kubo"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Crysencio Summerville"
+   },
+   {
+    "min": 64,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Crysencio Summerville",
+    "assist": "Ryan Gravenberch"
+   },
+   {
+    "min": 66,
+    "team": "away",
+    "type": "subst",
+    "assist": "Junya Ito",
+    "player": "Daizen Maeda"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Memphis Depay",
+    "player": "Donyell Malen"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Teun Koopmeiners",
+    "player": "Crysencio Summerville"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Quinten Timber",
+    "player": "Tijjani Reijnders"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "subst",
+    "assist": "Yukinari Sugawara",
+    "player": "Ritsu Doan"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "subst",
+    "assist": "Takehiro Tomiyasu",
+    "player": "Tsuyoshi Watanabe"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "subst",
+    "assist": "Koki Ogawa",
+    "player": "Takefusa Kubo"
+   },
+   {
+    "min": 81,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nathan Ak\u00e9",
+    "player": "Ryan Gravenberch"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Memphis Depay"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Kento Shiogai",
+    "player": "Ayase Ueda"
+   },
+   {
+    "min": 85,
+    "team": "home",
+    "type": "subst",
+    "assist": "Brian Brobbey",
+    "player": "Cody Gakpo"
+   },
+   {
+    "min": 88,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Daichi Kamada",
+    "assist": "Koki Ogawa"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Micky van de Ven"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "60.6",
-    "totalShots": "1",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "172",
-    "foulsCommitted": "2",
-    "offsides": "0",
-    "yellowCards": "0",
+    "possessionPct": "59.8",
+    "totalShots": "10",
+    "shotsOnTarget": "6",
+    "wonCorners": "5",
+    "totalPasses": "525",
+    "foulsCommitted": "7",
+    "offsides": "1",
+    "yellowCards": "3",
     "redCards": "0",
-    "totalTackles": "4",
-    "interceptions": "3",
-    "saves": "0"
+    "totalTackles": "11",
+    "interceptions": "7",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "39.4",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "1",
-    "totalPasses": "107",
-    "foulsCommitted": "1",
+    "possessionPct": "40.2",
+    "totalShots": "10",
+    "shotsOnTarget": "3",
+    "wonCorners": "4",
+    "totalPasses": "342",
+    "foulsCommitted": "7",
     "offsides": "0",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "5",
-    "interceptions": "2",
-    "saves": "1"
+    "totalTackles": "11",
+    "interceptions": "4",
+    "saves": "4"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -10908,6 +11032,6 @@
     "saves": false
    }
   },
-  "final": false
+  "final": true
  }
 }

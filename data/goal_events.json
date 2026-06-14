@@ -154,5 +154,27 @@
       "team": "home",
       "name": "Kai Havertz"
     }
+  ],
+  "Netherlands|Japan": [
+    {
+      "min": 51,
+      "team": "home",
+      "name": "Virgil van Dijk"
+    },
+    {
+      "min": 57,
+      "team": "away",
+      "name": "Keito Nakamura"
+    },
+    {
+      "min": 64,
+      "team": "home",
+      "name": "Crysencio Summerville"
+    },
+    {
+      "min": 88,
+      "team": "away",
+      "name": "Daichi Kamada"
+    }
   ]
 }
