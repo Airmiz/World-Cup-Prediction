@@ -99,5 +99,17 @@
       "team": "away",
       "name": "John McGinn"
     }
+  ],
+  "Australia|Turkey": [
+    {
+      "min": 27,
+      "team": "home",
+      "name": "Nestory Irankunda"
+    },
+    {
+      "min": 75,
+      "team": "home",
+      "name": "Connor Metcalfe"
+    }
   ]
 }
