@@ -38,6 +38,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes this run."
           else
-            git commit -m "Auto-refresh live data [skip ci] $(date -u +%FT%TZ)"
-            git push
+            git commit -m "Auto-refresh live data $(date -u +%FT%TZ)"
+            git push                       # triggers the Pages deploy workflow (deploy.yml)
           fi
