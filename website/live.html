@@ -866,7 +866,8 @@ async function loadESPN(){
  Object.values(parsed.live).forEach(lv=>jobs.push(espnSummaryHydrate(lv.key, lv.eid, parsed.goals, parsed.lineups)));
  // finished matches missing from embedded lineups, OR whose embedded lineup predates formation data: hydrate once
  const hasFP=lu=>lu&&["home","away"].some(t=>lu[t]&&(lu[t].xi||[]).some(p=>p.fp!=null));
- (parsed.post||[]).forEach(pm=>{ const ex=D.lineups&&D.lineups[pm.key]; if(!ex || !hasFP(ex)) jobs.push(espnSummaryHydrate(pm.key, pm.eid, parsed.goals, parsed.lineups)); });
+ const goalsNamed=k=>{const g=D.goal_events[k]; return g&&g.length&&g.every(x=>x.og||x.name);};
+ (parsed.post||[]).forEach(pm=>{ const ex=D.lineups&&D.lineups[pm.key]; if(!ex || !hasFP(ex) || !goalsNamed(pm.key)) jobs.push(espnSummaryHydrate(pm.key, pm.eid, parsed.goals, parsed.lineups)); });
  await Promise.all(jobs);
  return parsed;
 }
@@ -882,7 +883,8 @@ async function loadLive(){
   if(espn){
    for(const k in espn.goals){
     const isLive=Object.keys(live).some(fid=>live[fid].key===k);
-    if(isLive || !D.goal_events[k] || !D.goal_events[k].length) D.goal_events[k]=espn.goals[k]; // fresh for live; fill gaps; keep richer embedded finals
+    const newNm=espn.goals[k].some(g=>g.name), oldNm=D.goal_events[k]&&D.goal_events[k].some(g=>g.name);
+    if(isLive || !D.goal_events[k] || !D.goal_events[k].length || (newNm && !oldNm)) D.goal_events[k]=espn.goals[k]; // fresh for live; fill gaps; upgrade nameless→named; keep richer embedded finals
    }
    if(!D.lineups) D.lineups={};
    for(const k in espn.lineups){ D.lineups[k]=espn.lineups[k]; }   // live = fresh each cycle; just-finished = fill once
@@ -966,10 +968,14 @@ function renderStats(){
  keys.forEach(k=>{
    const ev=D.goal_events[k], f=fxKey[k], score=matchScore(f,ev);
    totalGoals+=score[0]+score[1];
-   ev.forEach(e=>{ if(e.og)return; const t=e.team==="home"?f.home:f.away; const id=e.name+"|"+t;
+   const lu=D.lineups[k];
+   // scorer names: prefer the lineup's goal events (reliable scorer name) over the score timeline (which can be unnamed)
+   const luG = lu && lu.events ? lu.events.filter(e=>e.type==="goal" && !(e.detail||"").toLowerCase().includes("own")) : null;
+   const goalList = (luG && luG.length) ? luG.map(e=>({name:e.player,team:e.team,pen:(e.detail||"").toLowerCase().includes("pen")}))
+                    : (ev||[]).filter(e=>!e.og).map(e=>({name:e.name,team:e.team,pen:e.pen}));
+   goalList.forEach(e=>{ if(!e.name)return; const t=e.team==="home"?f.home:f.away; const id=e.name+"|"+t;   // skip goals with no known scorer (no "undefined")
      const s=scorers[id]||(scorers[id]={name:e.name,team:t,goals:0,pens:0}); s.goals++; if(e.pen)s.pens++; });
    // full-model ratings when a lineup exists for this match; else goal-contributor fallback
-   const lu=D.lineups[k];
    const rated = (lu && (lu.home||lu.away)) ? fullSquadRatings(lu,score) : playerRatings(ev,score);
    rated.forEach(r=>{ const t=r.team==="home"?f.home:f.away; const id=r.name+"|"+t;
      const a=ratingAcc[id]||(ratingAcc[id]={name:r.name,team:t,pos:r.pos||"",sum:0,n:0,best:0,goals:0,assists:0});
