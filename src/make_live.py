@@ -282,10 +282,12 @@ table.big tbody tr:hover{background:var(--tint)}
 .subr .in{color:var(--green);font-weight:600}.subr .out{color:var(--red)}
 .subr .ar{color:var(--mut)}
 .pitch{display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,rgba(52,199,89,.10),rgba(52,199,89,.03));border-radius:12px;padding:14px 10px;margin-top:8px}
-.pline{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
-.pchip{font-size:11px;background:var(--surface);box-shadow:var(--shadow);border-radius:8px;padding:4px 9px;display:flex;align-items:center;gap:5px;max-width:130px}
-.pchip .n{font-weight:700;color:var(--mut);font-size:10px}
-.pchip .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pline{display:flex;justify-content:space-around;gap:6px;align-items:flex-start}
+.pchip{display:flex;flex-direction:column;align-items:center;gap:3px;max-width:86px;min-width:48px}
+.phead{width:38px;height:38px;border-radius:50%;background:var(--surface) center/cover no-repeat;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);border:2px solid rgba(255,255,255,.14)}
+.phead .pnum{font-weight:800;font-size:13px;color:var(--mut)}
+.phead.has-img .pnum{display:none}
+.pnm{font-size:10px;line-height:1.15;max-width:86px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;color:var(--txt)}
 .luhdr{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut);margin-bottom:2px}
 .luhdr b{color:var(--txt);font-size:13px}
 .formtag{font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums}
@@ -401,6 +403,41 @@ const fixByPair={}; D.fixtures.forEach(f=>fixByPair[f.home+"|"+f.away]=f.id);
 const fixById={}; D.fixtures.forEach(f=>fixById[f.id]=f);
 const groupOf={}; for(const g of D.group_order) for(const t of D.groups[g]) groupOf[t]=g;
 
+/* ---- formation layout: vertical tier (0=GK..5=FWD) + horizontal side (-2 wide L .. +2 wide R) from ESPN position abbreviation ---- */
+function posTier(ab){ const a=String(ab||"").toUpperCase().replace(/[^A-Z]/g,"");
+ if(a==="G"||a==="GK") return 0;
+ if(/ST|CF|SS|^F$|RF|LF|RW|LW/.test(a)) return 5;
+ if(/AM/.test(a)) return 4;
+ if(/DM/.test(a)) return 2;
+ if(/M/.test(a)) return 3;
+ if(/CB|RB|LB|WB|SW|D/.test(a)||/B$/.test(a)) return 1;
+ return 3; }
+function posSide(ab){ const a=String(ab||"").toUpperCase();
+ if(/-R$/.test(a)) return 1; if(/-L$/.test(a)) return -1;
+ if(/^R/.test(a)) return 2; if(/^L/.test(a)) return -2; return 0; }
+function escAttr(s){ return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;"); }
+
+/* ---- player headshots from Wikipedia (CORS-open REST summary); cached in memory + localStorage; footballer-verified ---- */
+const PHOTOS={}, PHOTO_REQ={};
+function photoGet(n){ if(n in PHOTOS) return PHOTOS[n]; try{const v=localStorage.getItem("wcph:"+n); if(v!=null) return (PHOTOS[n]=v);}catch(e){} return undefined; }
+function photoSet(n,v){ PHOTOS[n]=v||""; try{localStorage.setItem("wcph:"+n,v||"");}catch(e){} }
+function fetchWikiPhoto(name){
+ if(PHOTO_REQ[name]) return PHOTO_REQ[name];
+ return PHOTO_REQ[name]=(async()=>{ try{
+   const u="https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(name.replace(/ /g,"_"))+"?redirect=true";
+   const r=await fetch(u); if(!r.ok){photoSet(name,"");return"";}
+   const d=await r.json(); const desc=((d.description||"")+" "+(d.extract||"")).toLowerCase();
+   const isFb=/foot(ball)?|soccer|winger|midfield|defender|goalkeep|striker|forward/.test(desc);   // avoid same-name non-footballers
+   const th=(d.thumbnail||{}).source||""; const url=(th&&isFb)?th:""; photoSet(name,url); return url;
+ }catch(e){ photoSet(name,""); return ""; } })();
+}
+function applyPhoto(el,url){ if(!url||!el)return; const img=new Image();
+ img.onload=()=>{ el.style.backgroundImage="url('"+url.replace(/'/g,"%27")+"')"; el.classList.add("has-img"); }; img.src=url; }
+function hydratePhotos(root){ (root||document).querySelectorAll(".phead[data-pl]").forEach(el=>{
+ const nm=el.getAttribute("data-pl"); if(!nm)return; const c=photoGet(nm);
+ if(c!==undefined){ if(c) applyPhoto(el,c); return; }
+ fetchWikiPhoto(nm).then(url=>{ if(url) applyPhoto(el,url); }); }); }
+
 let STATE={results:{},ko:{},live:{},source:"snapshot",fetchedUTC:null,played:0};
 
 /* ---- martj42 CSV feed (fallback source; finals only) ---- */
@@ -499,7 +536,7 @@ function buildLineupFromSummary(s, home, away){
  rosters.forEach(r=>{ const side=sideOf((r.team&&r.team.displayName)||""); if(!side) return;
   const xi=[], subs=[];
   (r.roster||[]).forEach(p=>{ const ath=p.athlete&&p.athlete.displayName; if(!ath) return;
-   const pos=p.position||{}; const e={name:ath,num:p.jersey,pos:espnPosBucket(pos.displayName||pos.name||pos.abbreviation)};
+   const pos=p.position||{}; const e={name:ath,num:p.jersey,pos:espnPosBucket(pos.displayName||pos.name||pos.abbreviation),posAbbr:(pos.abbreviation||""),fp:p.formationPlace};
    const st=espnPlayerStats(p); if(st)e.st=st;
    (p.starter?xi:subs).push(e); });
   blocks[side]={formation:r.formation||"",xi:xi.slice(0,11),subs}; });
@@ -556,8 +593,9 @@ async function loadESPN(){
  const jobs=[];
  // live matches: refresh scorer names + the full Match Centre (lineups/stats/cards/subs) every cycle
  Object.values(parsed.live).forEach(lv=>jobs.push(espnSummaryHydrate(lv.key, lv.eid, parsed.goals, parsed.lineups)));
- // just-finished matches not yet in the embedded lineups: hydrate once (then they stay cached)
- (parsed.post||[]).forEach(pm=>{ if(!(D.lineups&&D.lineups[pm.key])) jobs.push(espnSummaryHydrate(pm.key, pm.eid, parsed.goals, parsed.lineups)); });
+ // finished matches missing from embedded lineups, OR whose embedded lineup predates formation data: hydrate once
+ const hasFP=lu=>lu&&["home","away"].some(t=>lu[t]&&(lu[t].xi||[]).some(p=>p.fp!=null));
+ (parsed.post||[]).forEach(pm=>{ const ex=D.lineups&&D.lineups[pm.key]; if(!ex || !hasFP(ex)) jobs.push(espnSummaryHydrate(pm.key, pm.eid, parsed.goals, parsed.lineups)); });
  await Promise.all(jobs);
  return parsed;
 }
@@ -1174,20 +1212,30 @@ function matchCentre(f){
  // ---- formations / cards / subs (only with lineup data) ----
  let extraHTML="", teamPerfHTML="", statLeadersHTML="";
  if(lu && (lu.home||lu.away)){
-  const posOrder={G:0,D:1,M:2,F:3};
+  const pchip=p=>`<span class="pchip"><span class="phead" data-pl="${escAttr(p.name||"")}"><span class="pnum">${p.num||""}</span></span><span class="pnm">${p.name||""}</span></span>`;
   const pitch=t=>{const b=lu[t]; if(!b||!b.xi||!b.xi.length)return"";
-    const lines={G:[],D:[],M:[],F:[]};
-    b.xi.forEach(p=>{const k=(p.pos||"M").toUpperCase(); (lines[k]||lines.M).push(p);});
-    const rows=["G","D","M","F"].filter(k=>lines[k].length).map(k=>
-      `<div class="pline">`+lines[k].map(p=>`<span class="pchip"><span class="n">${p.num||""}</span><span class="nm">${p.name}</span></span>`).join("")+`</div>`).join("");
-    return `<div class="luhdr"><b>${F(teamName(t))} ${teamName(t)}</b><span class="formtag">${b.formation||""}</span></div><div class="pitch">${rows}</div>`;
+    const gk=b.xi.filter(p=>posTier(p.posAbbr||p.pos)===0);
+    const out=b.xi.filter(p=>posTier(p.posAbbr||p.pos)!==0);
+    const rowSizes=(b.formation||"").split("-").map(n=>parseInt(n,10)).filter(n=>n>0);
+    let rows=[];
+    if(rowSizes.length && rowSizes.reduce((a,c)=>a+c,0)===out.length){   // lay out by the real formation
+      const sorted=out.slice().sort((a,b)=>posTier(a.posAbbr||a.pos)-posTier(b.posAbbr||b.pos)||(a.fp||0)-(b.fp||0));
+      let i=0; rowSizes.forEach(n=>{ const row=sorted.slice(i,i+n); i+=n;
+        row.sort((a,b)=>posSide(a.posAbbr)-posSide(b.posAbbr)||(a.fp||0)-(b.fp||0)); rows.push(row); });
+    } else {                                                              // no/mismatched formation → bucket by G/D/M/F
+      const buck={D:[],M:[],F:[]}; out.forEach(p=>{const k=(p.pos||"M").toUpperCase(); (buck[k]||buck.M).push(p);});
+      ["D","M","F"].forEach(k=>{ if(buck[k].length){ buck[k].sort((a,b)=>posSide(a.posAbbr)-posSide(b.posAbbr)); rows.push(buck[k]); } });
+    }
+    const allRows=[gk].concat(rows).filter(r=>r.length);                 // GK back row, forwards in front
+    return `<div class="luhdr"><b>${F(teamName(t))} ${teamName(t)}</b><span class="formtag">${b.formation||""}</span></div>`+
+      `<div class="pitch">`+allRows.map(row=>`<div class="pline">`+row.map(pchip).join("")+`</div>`).join("")+`</div>`;
   };
   const cards=(lu.events||[]).filter(e=>e.type==="card").sort((a,b)=>a.min-b.min);
   const subs=(lu.events||[]).filter(e=>e.type==="subst").sort((a,b)=>a.min-b.min);
   const cardsHTML=cards.length?`<div class="cards">`+cards.map(e=>`<div class="cardr"><span class="mn">${e.min}'</span><span class="cardchip ${e.card==="red"?"r":"y"}"></span><span class="nm">${F(teamName(e.team))} ${e.player||""}</span></div>`).join("")+`</div>`:`<div class="locked">No cards.</div>`;
   const subsHTML=subs.length?`<div class="subsl">`+subs.map(e=>`<div class="subr"><span class="mn">${e.min}'</span><span class="in">▲ ${e.assist||"?"}</span><span class="ar">←</span><span class="out">▼ ${e.player||"?"}</span><span class="nm" style="color:var(--mut);font-size:11px">${F(teamName(e.team))}</span></div>`).join("")+`</div>`:`<div class="locked">No substitutions.</div>`;
   const srcLabel = {espn:"Lineups, stats, cards &amp; subs via ESPN", wikipedia:"Lineups, cards &amp; subs via Wikipedia (CC BY-SA)", "api-football":"Lineups via API-Football", "football-data":"Lineups via football-data.org"}[lu.source] || "";
-  const attr = srcLabel ? `<div class="heatcap">${srcLabel}</div>` : "";
+  const attr = `<div class="heatcap">${srcLabel?srcLabel+" · ":""}Player photos via Wikipedia / Wikimedia Commons</div>`;
 
   // ---- team match stats: side-by-side comparison bars (hide if absent) ----
   let teamStatsHTML="";
@@ -1338,6 +1386,7 @@ function drawModal(){
  mr.oninput=()=>{WP.minute=+mr.value;WP.followLive=false;stopAnim();drawModal();};
  document.getElementById("wpplay").onclick=animateToggle;
  document.getElementById("wprewind").onclick=()=>{WP.minute=0;WP.followLive=false;stopAnim();drawModal();};
+ hydratePhotos(modalEl);   // fill in player headshots (Wikipedia, cached) after the pitch renders
 }
 let animTimer=null;
 function stopAnim(){if(animTimer){clearInterval(animTimer);animTimer=null;const b=document.getElementById("wpplay");if(b)b.textContent="▶ Play";}}

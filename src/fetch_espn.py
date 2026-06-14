@@ -136,7 +136,8 @@ def parse_summary(summ, our_home, our_away):
                 continue
             posn = (p.get("position") or {})
             entry = {"name": ath, "num": p.get("jersey"),
-                     "pos": pos_bucket(posn.get("displayName") or posn.get("name") or posn.get("abbreviation"))}
+                     "pos": pos_bucket(posn.get("displayName") or posn.get("name") or posn.get("abbreviation")),
+                     "posAbbr": posn.get("abbreviation") or "", "fp": p.get("formationPlace")}
             ps = player_stats(p)
             if ps:
                 entry["st"] = ps
