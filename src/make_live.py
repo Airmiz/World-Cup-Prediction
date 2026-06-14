@@ -419,37 +419,52 @@ function escAttr(s){ return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&q
 
 /* ---- player headshots from Wikipedia (CORS-open REST summary); cached in memory + localStorage; footballer-verified ---- */
 const PHOTOS={}, PHOTO_REQ={};
-function photoGet(n){ if(n in PHOTOS) return PHOTOS[n]; try{const v=localStorage.getItem("wcph:"+n); if(v!=null) return (PHOTOS[n]=v);}catch(e){} return undefined; }
-function photoSet(n,v){ PHOTOS[n]=v||""; try{localStorage.setItem("wcph:"+n,v||"");}catch(e){} }
+function photoGet(n){ if(n in PHOTOS) return PHOTOS[n]; try{const v=localStorage.getItem("wcph2:"+n); if(v) return (PHOTOS[n]=v);}catch(e){} return undefined; }
+function photoSetPos(n,url){ PHOTOS[n]=url; try{localStorage.setItem("wcph2:"+n,url);}catch(e){} }   // positive: persist
+function photoSetNeg(n){ if(!(n in PHOTOS)) PHOTOS[n]=""; }                                            // genuine miss: memory only (retry next session)
 const FB_RE=/foot(ball)?|soccer|winger|midfield|defender|goalkeep|striker|forward/;   // footballer description guard (avoid same-name people)
-// tier 1: Wikipedia REST summary thumbnail
-async function wikiSummaryPhoto(name){ try{
-  const u="https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(name.replace(/ /g,"_"))+"?redirect=true";
-  const r=await fetch(u); if(!r.ok) return "";
-  const d=await r.json(); if(!FB_RE.test(((d.description||"")+" "+(d.extract||"")).toLowerCase())) return "";
-  return (d.thumbnail||{}).source||"";
-}catch(e){ return ""; } }
-// tier 2: Wikidata P18 image (same open Commons pool; CORS-open via w/api.php?origin=*)
-async function wikidataPhoto(name){ try{
-  const s="https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=5&origin=*&search="+encodeURIComponent(name);
-  const d=await (await fetch(s)).json(); let qid=null;
-  for(const h of (d.search||[])){ if(FB_RE.test((h.description||"").toLowerCase())){ qid=h.id; break; } }
+const psleep=ms=>new Promise(r=>setTimeout(r,ms));
+// throttle concurrent lookups so a full lineup doesn't burst the APIs into HTTP 429
+let PHOTO_ACTIVE=0; const PHOTO_Q=[];
+function photoSchedule(fn){ return new Promise(res=>{ PHOTO_Q.push({fn,res}); photoPump(); }); }
+function photoPump(){ while(PHOTO_ACTIVE<3 && PHOTO_Q.length){ const job=PHOTO_Q.shift(); PHOTO_ACTIVE++;
+  Promise.resolve().then(job.fn).then(v=>{PHOTO_ACTIVE--;job.res(v);photoPump();},()=>{PHOTO_ACTIVE--;job.res(null);photoPump();}); } }
+// fetch with retry on 429/5xx; returns null on persistent transient failure (so it is NOT cached and retries later)
+async function pfetch(url){ for(let i=0;i<3;i++){ try{ const r=await fetch(url); if(r.status===429||r.status>=500){ await psleep(700*(i+1)+Math.random()*500); continue; } return r; }catch(e){ await psleep(500*(i+1)); } } return null; }
+// each tier returns: URL (found) | "" (genuine 200 with no image) | null (transient — don't cache)
+async function wikiSummaryPhoto(name){
+  const r=await pfetch("https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(name.replace(/ /g,"_"))+"?redirect=true");
+  if(!r) return null; if(r.status===404) return ""; if(!r.ok) return null;
+  try{ const d=await r.json(); if(!FB_RE.test(((d.description||"")+" "+(d.extract||"")).toLowerCase())) return ""; return (d.thumbnail||{}).source||""; }catch(e){ return null; }
+}
+async function wikidataPhoto(name){
+  const r=await pfetch("https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=5&origin=*&search="+encodeURIComponent(name));
+  if(!r||!r.ok) return null; let qid=null;
+  try{ const d=await r.json(); for(const h of (d.search||[])){ if(FB_RE.test((h.description||"").toLowerCase())){ qid=h.id; break; } } }catch(e){ return null; }
   if(!qid) return "";
-  const c="https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&property=P18&origin=*&entity="+encodeURIComponent(qid);
-  const d2=await (await fetch(c)).json(); const cl=(d2.claims&&d2.claims.P18)||[];
-  const fn=cl[0]&&cl[0].mainsnak&&cl[0].mainsnak.datavalue&&cl[0].mainsnak.datavalue.value;
-  return fn ? "https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(fn)+"?width=200" : "";
-}catch(e){ return ""; } }
-// combined chain: Wikipedia -> Wikidata; cached (memory + localStorage), deduped per name
+  const r2=await pfetch("https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&property=P18&origin=*&entity="+encodeURIComponent(qid));
+  if(!r2||!r2.ok) return null;
+  try{ const d2=await r2.json(); const cl=(d2.claims&&d2.claims.P18)||[]; const fn=cl[0]&&cl[0].mainsnak&&cl[0].mainsnak.datavalue&&cl[0].mainsnak.datavalue.value;
+    return fn ? "https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(fn)+"?width=200" : ""; }catch(e){ return null; }
+}
+// combined chain: Wikipedia -> Wikidata; throttled; caches only definite results; transient failures retry on next render
 function fetchPlayerPhoto(name){
+ const cached=photoGet(name); if(cached!==undefined) return Promise.resolve(cached);
  if(PHOTO_REQ[name]) return PHOTO_REQ[name];
- return PHOTO_REQ[name]=(async()=>{ let url=await wikiSummaryPhoto(name); if(!url) url=await wikidataPhoto(name); photoSet(name,url); return url; })();
+ const p=(async()=>{
+   const w=await photoSchedule(()=>wikiSummaryPhoto(name)); if(w){ photoSetPos(name,w); return w; }
+   const d=await photoSchedule(()=>wikidataPhoto(name)); if(d){ photoSetPos(name,d); return d; }
+   if(w!==null && d!==null) photoSetNeg(name);   // both tiers definitively had no image
+   return "";
+ })();
+ PHOTO_REQ[name]=p;
+ p.then(()=>{ if(photoGet(name)===undefined) delete PHOTO_REQ[name]; });   // transient (uncached) → allow a later retry
+ return p;
 }
 function applyPhoto(el,url){ if(!url||!el)return; const img=new Image();
  img.onload=()=>{ el.style.backgroundImage="url('"+url.replace(/'/g,"%27")+"')"; el.classList.add("has-img"); }; img.src=url; }
 function hydratePhotos(root){ (root||document).querySelectorAll(".phead[data-pl]").forEach(el=>{
- const nm=el.getAttribute("data-pl"); if(!nm)return; const c=photoGet(nm);
- if(c!==undefined){ if(c) applyPhoto(el,c); return; }
+ const nm=el.getAttribute("data-pl"); if(!nm)return;
  fetchPlayerPhoto(nm).then(url=>{ if(url) applyPhoto(el,url); }); }); }
 
 let STATE={results:{},ko:{},live:{},source:"snapshot",fetchedUTC:null,played:0};
