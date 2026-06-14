@@ -111,5 +111,48 @@
       "team": "home",
       "name": "Connor Metcalfe"
     }
+  ],
+  "Germany|Cura\u00e7ao": [
+    {
+      "min": 6,
+      "team": "home",
+      "name": "Felix Nmecha"
+    },
+    {
+      "min": 21,
+      "team": "away",
+      "name": "Livano Comenencia"
+    },
+    {
+      "min": 38,
+      "team": "home",
+      "name": "Nico Schlotterbeck"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Kai Havertz",
+      "pen": true
+    },
+    {
+      "min": 47,
+      "team": "home",
+      "name": "Jamal Musiala"
+    },
+    {
+      "min": 68,
+      "team": "home",
+      "name": "Nathaniel Brown"
+    },
+    {
+      "min": 78,
+      "team": "home",
+      "name": "Deniz Undav"
+    },
+    {
+      "min": 88,
+      "team": "home",
+      "name": "Kai Havertz"
+    }
   ]
 }
