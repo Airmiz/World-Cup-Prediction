@@ -331,6 +331,16 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 .mv.up{color:#1f9d4d}.mv.dn{color:var(--red)}.mv.fl{color:var(--mut)}
 .elobar{display:inline-block;width:46px;height:5px;border-radius:3px;background:var(--track);vertical-align:middle;margin-right:6px;overflow:hidden}
 .elobar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#5aa6ff)}
+.scen{margin-top:11px;border-top:1px solid var(--hair);padding-top:9px}
+.scenh{font-size:10px;color:var(--mut);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
+.scenrow{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:12.5px}
+.scenrow .snm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.stag{font-size:9.5px;font-weight:800;border-radius:5px;padding:2px 6px;white-space:nowrap}
+.stag.thru{background:rgba(52,199,89,.16);color:#1f9d4d}
+.stag.out{background:rgba(142,142,147,.18);color:var(--mut)}
+.stag.hunt{background:var(--blue-soft);color:var(--blue)}
+.sc3{font-size:10px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sc3 b{color:var(--txt)}
 </style>
 </head>
 <body>
@@ -941,10 +951,24 @@ function renderGroups(out){
     <td class="adv"><span class="barmini"><i style="width:${100*adv}%"></i></span> ${pc(adv)}</td></tr>`;
   }).join("");
   const played=tbl.reduce((s,o)=>s+o.pld,0)/2;
+  const N3=p=>p==null?"–":(p*100)|0;
+  const scen=D.groups[g].map(t=>{ const adv=out.r32[t]||0, c=out.cond&&out.cond[t];
+    let tag,cls="hunt";
+    if(adv>=0.999){tag="Through";cls="thru";}
+    else if(adv<=0.001){tag="Out";cls="out";}
+    else if(!c||c.win.p==null){tag=adv>=0.5?"Favoured":"Long shot";}
+    else if(c.draw.p>=0.985){tag="A point is enough";}
+    else if(c.win.p>=0.97){tag="Win to qualify";}
+    else if(c.win.p<0.85){tag="Win and hope";}
+    else {tag="In contention";}
+    const s3=(c&&c.win.p!=null)?`<span class="sc3">W <b>${N3(c.win.p)}</b> · D <b>${N3(c.draw.p)}</b> · L <b>${N3(c.lose.p)}</b></span>`:"";
+    return `<div class="scenrow"><span class="gb">${F(t)}</span><span class="snm">${t}</span><span class="stag ${cls}">${tag}</span>${s3}</div>`;
+  }).join("");
+  const scenBlock = played<6 ? `<div class="scen"><div class="scenh">Who needs what · next match (% to advance)</div>${scen}</div>` : "";
   box.insertAdjacentHTML("beforeend",
    `<div class="gcard"><h3><span>GROUP ${g}</span><span>${played}/6 played</span></h3>
     <table class="gt"><thead><tr><th>Team</th><th>Pld</th><th>Pts</th><th>GD</th><th>Advance</th></tr></thead>
-    <tbody>${rows}</tbody></table></div>`);
+    <tbody>${rows}</tbody></table>${scenBlock}</div>`);
  }
 }
 

@@ -321,6 +321,16 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 .mv.up{color:#1f9d4d}.mv.dn{color:var(--red)}.mv.fl{color:var(--mut)}
 .elobar{display:inline-block;width:46px;height:5px;border-radius:3px;background:var(--track);vertical-align:middle;margin-right:6px;overflow:hidden}
 .elobar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#5aa6ff)}
+.scen{margin-top:11px;border-top:1px solid var(--hair);padding-top:9px}
+.scenh{font-size:10px;color:var(--mut);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
+.scenrow{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:12.5px}
+.scenrow .snm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.stag{font-size:9.5px;font-weight:800;border-radius:5px;padding:2px 6px;white-space:nowrap}
+.stag.thru{background:rgba(52,199,89,.16);color:#1f9d4d}
+.stag.out{background:rgba(142,142,147,.18);color:var(--mut)}
+.stag.hunt{background:var(--blue-soft);color:var(--blue)}
+.sc3{font-size:10px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
+.sc3 b{color:var(--txt)}
 </style>
 </head>
 <body>
@@ -454,6 +464,9 @@ function simOnce(D,P,results,ko,r){
   for(const g of D.group_order){
     const fx=gfix[g];
     const sc=fx.map(f=> results[f.id] || sampleScore(cdf[f.id],G,r));
+    if(P.condTeams&&P.condTeams.length){ for(let k=0;k<fx.length;k++){ const nt=P.fixNextTeams[fx[k].id];
+      if(nt){ const hs=sc[k][0],as=sc[k][1]; for(let j=0;j<nt.length;j++){ const e=nt[j];
+        P.nextOutcome[e.idx]= e.isHome?(hs>as?0:hs<as?2:1):(as>hs?0:as<hs?2:1); } } } }
     const {order,pts,gd,gf}=standGroup(fx,sc,r);
     const gt=D.groups[g];
     winners[g]=gt[order[0]]; runners[g]=gt[order[1]]; thirds[g]=gt[order[2]];
@@ -468,6 +481,10 @@ function simOnce(D,P,results,ko,r){
     return (B.pts-A.pts)||(B.gd-A.gd)||(B.gf-A.gf)|| (r()-0.5);});
   const qualG=tg.slice(0,8).sort();
   qualG.forEach(g=>reach.r32[idx[thirds[g]]]++);
+  if(P.condTeams&&P.condTeams.length){ const qs={}; for(let i=0;i<qualG.length;i++)qs[qualG[i]]=1;
+    for(let c=0;c<P.condTeams.length;c++){ const ti=P.condTeams[c], name=D.teams[ti], g=groupOf[name];
+      const adv=(name===winners[g]||name===runners[g]||(name===thirds[g]&&qs[g])); const o=P.nextOutcome[ti];
+      P.condN[ti*3+o]++; if(adv)P.condAdv[ti*3+o]++; } }
   const combo=qualG.join("");
   const slotGroups=D.annex[combo];
   const thirdForSlot={};
@@ -510,11 +527,23 @@ function runLive(D, opts){
   const z=()=>new Float64Array(n);
   P._reach={r32:z(),r16:z(),qf:z(),sf:z(),final:z(),champion:z()};
   P.pos=Array.from({length:n},()=>[0,0,0,0]);
+  // conditional next-match tracking for qualification scenarios (read-only; no effect on the sim)
+  P.nextOf=new Int32Array(n).fill(-1); P.nextHome=new Uint8Array(n); P.fixNextTeams={};
+  for(let ti=0;ti<n;ti++){ const t=D.teams[ti];
+    for(let fi=0;fi<D.fixtures.length;fi++){ const f=D.fixtures[fi];
+      if((f.home===t||f.away===t) && !results[f.id]){ const isHome=f.home===t; P.nextOf[ti]=f.id; P.nextHome[ti]=isHome?1:0;
+        (P.fixNextTeams[f.id]=P.fixNextTeams[f.id]||[]).push({idx:ti,isHome}); break; } } }
+  P.condTeams=[]; for(let i=0;i<n;i++) if(P.nextOf[i]>=0) P.condTeams.push(i);
+  P.condN=new Float64Array(n*3); P.condAdv=new Float64Array(n*3); P.nextOutcome=new Int8Array(n);
   for(let s=0;s<N;s++) simOnce(D,P,results,ko,r);
   const out={};
   ["r32","r16","qf","sf","final","champion"].forEach(k=>{ out[k]={};
     D.teams.forEach((t,i)=> out[k][t]=P._reach[k][i]/N); });
   out.pos={}; D.teams.forEach((t,i)=> out.pos[t]=P.pos[i].map(x=>x/N));
+  out.cond={};   // per team with an upcoming group match: P(advance | win/draw/lose it)
+  for(let c=0;c<P.condTeams.length;c++){ const i=P.condTeams[c], t=D.teams[i]; const o={nextFix:P.nextOf[i], home:!!P.nextHome[i]};
+    ["win","draw","lose"].forEach((kk,oi)=>{ const nn=P.condN[i*3+oi]; o[kk]={n:nn, p: nn>0? P.condAdv[i*3+oi]/nn : null}; });
+    out.cond[t]=o; }
   out.N=N;
   return out;
 }
@@ -1138,10 +1167,24 @@ function renderGroups(out){
     <td class="adv"><span class="barmini"><i style="width:${100*adv}%"></i></span> ${pc(adv)}</td></tr>`;
   }).join("");
   const played=tbl.reduce((s,o)=>s+o.pld,0)/2;
+  const N3=p=>p==null?"–":(p*100)|0;
+  const scen=D.groups[g].map(t=>{ const adv=out.r32[t]||0, c=out.cond&&out.cond[t];
+    let tag,cls="hunt";
+    if(adv>=0.999){tag="Through";cls="thru";}
+    else if(adv<=0.001){tag="Out";cls="out";}
+    else if(!c||c.win.p==null){tag=adv>=0.5?"Favoured":"Long shot";}
+    else if(c.draw.p>=0.985){tag="A point is enough";}
+    else if(c.win.p>=0.97){tag="Win to qualify";}
+    else if(c.win.p<0.85){tag="Win and hope";}
+    else {tag="In contention";}
+    const s3=(c&&c.win.p!=null)?`<span class="sc3">W <b>${N3(c.win.p)}</b> · D <b>${N3(c.draw.p)}</b> · L <b>${N3(c.lose.p)}</b></span>`:"";
+    return `<div class="scenrow"><span class="gb">${F(t)}</span><span class="snm">${t}</span><span class="stag ${cls}">${tag}</span>${s3}</div>`;
+  }).join("");
+  const scenBlock = played<6 ? `<div class="scen"><div class="scenh">Who needs what · next match (% to advance)</div>${scen}</div>` : "";
   box.insertAdjacentHTML("beforeend",
    `<div class="gcard"><h3><span>GROUP ${g}</span><span>${played}/6 played</span></h3>
     <table class="gt"><thead><tr><th>Team</th><th>Pld</th><th>Pts</th><th>GD</th><th>Advance</th></tr></thead>
-    <tbody>${rows}</tbody></table></div>`);
+    <tbody>${rows}</tbody></table>${scenBlock}</div>`);
  }
 }
 

@@ -60,6 +60,9 @@ function simOnce(D,P,results,ko,r){
   for(const g of D.group_order){
     const fx=gfix[g];
     const sc=fx.map(f=> results[f.id] || sampleScore(cdf[f.id],G,r));
+    if(P.condTeams&&P.condTeams.length){ for(let k=0;k<fx.length;k++){ const nt=P.fixNextTeams[fx[k].id];
+      if(nt){ const hs=sc[k][0],as=sc[k][1]; for(let j=0;j<nt.length;j++){ const e=nt[j];
+        P.nextOutcome[e.idx]= e.isHome?(hs>as?0:hs<as?2:1):(as>hs?0:as<hs?2:1); } } } }
     const {order,pts,gd,gf}=standGroup(fx,sc,r);
     const gt=D.groups[g];
     winners[g]=gt[order[0]]; runners[g]=gt[order[1]]; thirds[g]=gt[order[2]];
@@ -74,6 +77,10 @@ function simOnce(D,P,results,ko,r){
     return (B.pts-A.pts)||(B.gd-A.gd)||(B.gf-A.gf)|| (r()-0.5);});
   const qualG=tg.slice(0,8).sort();
   qualG.forEach(g=>reach.r32[idx[thirds[g]]]++);
+  if(P.condTeams&&P.condTeams.length){ const qs={}; for(let i=0;i<qualG.length;i++)qs[qualG[i]]=1;
+    for(let c=0;c<P.condTeams.length;c++){ const ti=P.condTeams[c], name=D.teams[ti], g=groupOf[name];
+      const adv=(name===winners[g]||name===runners[g]||(name===thirds[g]&&qs[g])); const o=P.nextOutcome[ti];
+      P.condN[ti*3+o]++; if(adv)P.condAdv[ti*3+o]++; } }
   const combo=qualG.join("");
   const slotGroups=D.annex[combo];
   const thirdForSlot={};
@@ -116,11 +123,23 @@ function runLive(D, opts){
   const z=()=>new Float64Array(n);
   P._reach={r32:z(),r16:z(),qf:z(),sf:z(),final:z(),champion:z()};
   P.pos=Array.from({length:n},()=>[0,0,0,0]);
+  // conditional next-match tracking for qualification scenarios (read-only; no effect on the sim)
+  P.nextOf=new Int32Array(n).fill(-1); P.nextHome=new Uint8Array(n); P.fixNextTeams={};
+  for(let ti=0;ti<n;ti++){ const t=D.teams[ti];
+    for(let fi=0;fi<D.fixtures.length;fi++){ const f=D.fixtures[fi];
+      if((f.home===t||f.away===t) && !results[f.id]){ const isHome=f.home===t; P.nextOf[ti]=f.id; P.nextHome[ti]=isHome?1:0;
+        (P.fixNextTeams[f.id]=P.fixNextTeams[f.id]||[]).push({idx:ti,isHome}); break; } } }
+  P.condTeams=[]; for(let i=0;i<n;i++) if(P.nextOf[i]>=0) P.condTeams.push(i);
+  P.condN=new Float64Array(n*3); P.condAdv=new Float64Array(n*3); P.nextOutcome=new Int8Array(n);
   for(let s=0;s<N;s++) simOnce(D,P,results,ko,r);
   const out={};
   ["r32","r16","qf","sf","final","champion"].forEach(k=>{ out[k]={};
     D.teams.forEach((t,i)=> out[k][t]=P._reach[k][i]/N); });
   out.pos={}; D.teams.forEach((t,i)=> out.pos[t]=P.pos[i].map(x=>x/N));
+  out.cond={};   // per team with an upcoming group match: P(advance | win/draw/lose it)
+  for(let c=0;c<P.condTeams.length;c++){ const i=P.condTeams[c], t=D.teams[i]; const o={nextFix:P.nextOf[i], home:!!P.nextHome[i]};
+    ["win","draw","lose"].forEach((kk,oi)=>{ const nn=P.condN[i*3+oi]; o[kk]={n:nn, p: nn>0? P.condAdv[i*3+oi]/nn : null}; });
+    out.cond[t]=o; }
   out.N=N;
   return out;
 }
