@@ -80,5 +80,17 @@
       "team": "home",
       "name": "Boualem Khoukhi"
     }
+  ],
+  "Brazil|Morocco": [
+    {
+      "min": 21,
+      "team": "away",
+      "name": "Ismael Saibari"
+    },
+    {
+      "min": 32,
+      "team": "home",
+      "name": "Vin\u00edcius J\u00fanior"
+    }
   ]
 }
