@@ -914,8 +914,8 @@ function recompute(){
 function matchFull(){    // effective final minute for the chart/model — extends into stoppage while live
  let mx=90; (WP.events||[]).forEach(e=>{const m=e.min+(e.add||0); if(m>mx)mx=m;});
  if(WP.status==="live"){
-   const lv=STATE.live&&STATE.live[WP.fid]; const added=(lv&&lv.added)||0;
-   return added>0 ? Math.max(mx,90+added)+3 : 90;   // in stoppage: a tail so a live match is never shown as "over"
+   const lv=STATE.live&&STATE.live[WP.fid]; const added=(lv&&lv.added)||0; const m=(lv&&lv.minute)||0;
+   return (m>=90 && added>0) ? Math.max(mx,90+added)+3 : 90;   // extend past 90 only in 2nd-half stoppage (90'+x), NOT first-half (45'+x)
  }
  return mx;   // finished: locks at the last goal (>=90)
 }
@@ -925,7 +925,7 @@ function refreshOpenModal(){
  const f=fixById[WP.fid]; const known=D.goal_events[f.home+"|"+f.away];
  WP.events = known ? known.map(e=>({...e})) : [];
  const lv=STATE.live&&STATE.live[WP.fid]; const added=(lv&&lv.added)||0;
- if(lv && lv.minute!=null) WP.minute = added>0 ? 90+added : Math.max(0,Math.min(90,lv.minute));
+ if(lv && lv.minute!=null){ const m=Math.max(0,Math.min(90,lv.minute)); WP.minute = (m>=90 && added>0) ? 90+added : m; }
  WP.full = matchFull();
  drawModal();
 }
@@ -1330,7 +1330,7 @@ function openMatch(fid){
  } else if(WP.status==="live"){
    WP.events = known ? known.map(e=>({...e})) : [];   // real ESPN goals if available, else 0-0 baseline
    const lv=STATE.live&&STATE.live[fid]; const added=(lv&&lv.added)||0;
-   if(lv && lv.minute!=null){ WP.minute = added>0 ? 90+added : Math.max(0,Math.min(90,lv.minute)); }   // ESPN match clock incl. stoppage
+   if(lv && lv.minute!=null){ const m=Math.max(0,Math.min(90,lv.minute)); WP.minute = (m>=90 && added>0) ? 90+added : m; }   // 90'+x extends; 45'+x stays first-half
    else { const t=new Date(f.utc).getTime(); WP.minute = Math.max(0, Math.min(90, Math.round((Date.now()-t)/60000))); }
    WP.full = matchFull();
  } else {
