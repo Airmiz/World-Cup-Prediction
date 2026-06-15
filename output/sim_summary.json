@@ -2,91 +2,91 @@
   "n_sims": 200000,
   "seed": 20260611,
   "cutoff": "2026-06-11",
-  "blend_w": 0.5,
-  "dc_home_adv": 0.25946365262708365,
-  "dc_rho": -0.05574539871980576,
+  "blend_w": 0.4,
+  "dc_home_adv": 0.2553793124046582,
+  "dc_rho": -0.048035008804491935,
   "top_finals": [
     {
       "final": "Spain vs Argentina",
-      "p": 0.051295
-    },
-    {
-      "final": "Spain vs England",
-      "p": 0.019815
+      "p": 0.060515
     },
     {
       "final": "France vs Argentina",
-      "p": 0.01881
+      "p": 0.02427
+    },
+    {
+      "final": "Spain vs England",
+      "p": 0.02316
     },
     {
       "final": "Brazil vs Spain",
-      "p": 0.014685
+      "p": 0.01869
     },
     {
       "final": "Spain vs Colombia",
-      "p": 0.014295
-    },
-    {
-      "final": "Brazil vs Argentina",
-      "p": 0.013325
-    },
-    {
-      "final": "Japan vs Argentina",
-      "p": 0.013095
+      "p": 0.017835
     },
     {
       "final": "Spain vs France",
-      "p": 0.01306
+      "p": 0.016335
     },
     {
-      "final": "Argentina vs England",
-      "p": 0.01255
+      "final": "Brazil vs Argentina",
+      "p": 0.01476
     },
     {
       "final": "Spain vs Portugal",
-      "p": 0.012115
+      "p": 0.01444
+    },
+    {
+      "final": "Argentina vs England",
+      "p": 0.01266
+    },
+    {
+      "final": "Argentina vs Colombia",
+      "p": 0.012385
     }
   ],
   "champion_top10": [
     {
-      "team": "Argentina",
-      "p_champion": 0.171155
-    },
-    {
       "team": "Spain",
-      "p_champion": 0.15701
+      "p_champion": 0.17706
     },
     {
-      "team": "England",
-      "p_champion": 0.063555
+      "team": "Argentina",
+      "p_champion": 0.1749
     },
     {
       "team": "France",
-      "p_champion": 0.06339
+      "p_champion": 0.07605
+    },
+    {
+      "team": "England",
+      "p_champion": 0.06647
     },
     {
       "team": "Brazil",
-      "p_champion": 0.05633
+      "p_champion": 0.06223
     },
     {
       "team": "Colombia",
-      "p_champion": 0.047965
-    },
-    {
-      "team": "Morocco",
-      "p_champion": 0.042455
-    },
-    {
-      "team": "Japan",
-      "p_champion": 0.040975
+      "p_champion": 0.05174
     },
     {
       "team": "Portugal",
-      "p_champion": 0.04089
+      "p_champion": 0.04257
+    },
+    {
+      "team": "Morocco",
+      "p_champion": 0.033405
+    },
+    {
+      "team": "Japan",
+      "p_champion": 0.031385
     },
     {
       "team": "Ecuador",
-      "p_champion": 0.032105
+      "p_champion": 0.03057
     }
   ]
 }

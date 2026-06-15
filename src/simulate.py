@@ -76,8 +76,11 @@ def main():
                              for t in teams], dtype=object)
 
     # ---------------- fixtures & exact match-level predictions ----------------
+    # Pre-tournament group-stage forecast: all 72 group fixtures (Jun 11-27),
+    # whether or not they have since been played. Leakage is controlled by CUTOFF
+    # in the model fit, not by hiding fixtures, so this stays correct mid-tournament.
     fix = df[(df["tournament"] == "FIFA World Cup") & (df["date"] >= "2026-06-01")
-             & df["home_score"].isna()].reset_index(drop=True)
+             & (df["date"] <= "2026-06-27")].reset_index(drop=True)
     assert len(fix) == 72, f"expected 72 group fixtures, got {len(fix)}"
 
     pmfs = np.zeros((72, GRID, GRID))
@@ -98,7 +101,16 @@ def main():
             "p_home_win": pH, "p_draw": pD, "p_away_win": pA,
             "exp_goals_home": lh, "exp_goals_away": la,
             "most_likely_scores": "; ".join(scores)})
-    pd.DataFrame(match_rows).to_csv("output/match_predictions.csv", index=False)
+    mpdf = pd.DataFrame(match_rows)
+    # preserve kickoff columns (added downstream) so make_live_data/make_site keep working
+    _mp = "output/match_predictions.csv"
+    if os.path.exists(_mp):
+        _prev = pd.read_csv(_mp)
+        _kk = [c for c in ("utc_kickoff", "local_kickoff") if c in _prev.columns]
+        if _kk:
+            mpdf = mpdf.merge(_prev[["home_team", "away_team"] + _kk].drop_duplicates(
+                ["home_team", "away_team"]), on=["home_team", "away_team"], how="left")
+    mpdf.to_csv(_mp, index=False)
 
     # ---------------- sample group-stage scores ----------------
     S = N_SIMS
