@@ -216,5 +216,18 @@
       "name": "Yasin Ayari"
     }
   ],
-  "Spain|Cape Verde": []
+  "Spain|Cape Verde": [],
+  "Belgium|Egypt": [
+    {
+      "min": 19,
+      "team": "away",
+      "name": "Emam Ashour"
+    },
+    {
+      "min": 66,
+      "team": "home",
+      "name": "Mohamed Hany",
+      "og": true
+    }
+  ]
 }
