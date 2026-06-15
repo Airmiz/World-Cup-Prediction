@@ -9,6 +9,9 @@
      "name": "Ra\u00fal Rangel",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "290899",
      "st": {
       "G": 0,
       "A": 0,
@@ -19,13 +22,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 2,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Johan V\u00e1squez",
      "num": "5",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "259975",
      "st": {
       "G": 0,
       "A": 0,
@@ -36,13 +43,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "C\u00e9sar Montes",
      "num": "3",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "224323",
      "st": {
       "G": 0,
       "A": 0,
@@ -53,13 +64,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 1,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "\u00c9rik Lira",
      "num": "6",
      "pos": "M",
+     "posAbbr": "DM",
+     "fp": "4",
+     "aid": "276942",
      "st": {
       "G": 0,
       "A": 1,
@@ -70,13 +85,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jes\u00fas Gallardo",
      "num": "23",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "132098",
      "st": {
       "G": 0,
       "A": 0,
@@ -87,13 +106,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Israel Reyes",
      "num": "15",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "290414",
      "st": {
       "G": 0,
       "A": 0,
@@ -104,13 +127,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "\u00c1lvaro Fidalgo",
      "num": "8",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "10",
+     "aid": "283827",
      "st": {
       "G": 0,
       "A": 0,
@@ -121,13 +148,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Brian Guti\u00e9rrez",
      "num": "26",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "8",
+     "aid": "303577",
      "st": {
       "G": 0,
       "A": 0,
@@ -138,13 +169,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Juli\u00e1n Qui\u00f1ones",
      "num": "16",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "11",
+     "aid": "233075",
      "st": {
       "G": 1,
       "A": 0,
@@ -155,13 +190,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Roberto Alvarado",
      "num": "25",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "194308",
      "st": {
       "G": 0,
       "A": 1,
@@ -172,13 +211,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ra\u00fal Jim\u00e9nez",
      "num": "9",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "167060",
      "st": {
       "G": 1,
       "A": 0,
@@ -189,7 +232,8 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ],
@@ -198,6 +242,9 @@
      "name": "Luis Romo",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "242614",
      "st": {
       "G": 0,
       "A": 0,
@@ -208,13 +255,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "C\u00e9sar Huerta",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "265969",
      "st": {
       "G": 0,
       "A": 0,
@@ -225,13 +276,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Guillermo Ochoa",
      "num": "13",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "137038",
      "st": {
       "G": 0,
       "A": 0,
@@ -242,13 +297,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Carlos Acevedo",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "236368",
      "st": {
       "G": 0,
       "A": 0,
@@ -259,13 +318,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Luis Ch\u00e1vez",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "104497",
      "st": {
       "G": 0,
       "A": 0,
@@ -276,13 +339,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mateo Ch\u00e1vez",
      "num": "20",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "379193",
      "st": {
       "G": 0,
       "A": 0,
@@ -293,13 +360,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Santiago Gimenez",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "260775",
      "st": {
       "G": 0,
       "A": 0,
@@ -310,13 +381,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Obed Vargas",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "318554",
      "st": {
       "G": 0,
       "A": 0,
@@ -327,13 +402,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Alexis Vega",
      "num": "10",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "229487",
      "st": {
       "G": 0,
       "A": 0,
@@ -344,13 +423,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Guillermo Mart\u00ednez",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "193566",
      "st": {
       "G": 0,
       "A": 0,
@@ -361,13 +444,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Armando Gonz\u00e1lez",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "376110",
      "st": {
       "G": 0,
       "A": 0,
@@ -378,13 +465,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Gilberto Mora",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "389575",
      "st": {
       "G": 0,
       "A": 0,
@@ -395,13 +486,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Edson \u00c1lvarez",
      "num": "4",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "241627",
      "st": {
       "G": 0,
       "A": 0,
@@ -412,13 +507,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jorge S\u00e1nchez",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "178746",
      "st": {
       "G": 0,
       "A": 0,
@@ -429,13 +528,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Orbel\u00edn Pineda",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "207011",
      "st": {
       "G": 0,
       "A": 0,
@@ -446,7 +549,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -458,6 +562,9 @@
      "name": "Ronwen Williams",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "196230",
      "st": {
       "G": 0,
       "A": 0,
@@ -468,13 +575,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 2,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Ime Okon",
      "num": "21",
      "pos": "D",
+     "posAbbr": "CD",
+     "fp": "5",
+     "aid": "358744",
      "st": {
       "G": 0,
       "A": 0,
@@ -485,13 +596,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Mbekezeli Mbokazi",
      "num": "14",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "4",
+     "aid": "400594",
      "st": {
       "G": 0,
       "A": 0,
@@ -502,13 +617,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Nkosinathi Sibisi",
      "num": "19",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "6",
+     "aid": "266125",
      "st": {
       "G": 0,
       "A": 0,
@@ -519,13 +638,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Aubrey Modiba",
      "num": "6",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "223818",
      "st": {
       "G": 0,
       "A": 0,
@@ -536,13 +659,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Khuliso Mudau",
      "num": "20",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "276767",
      "st": {
       "G": 0,
       "A": 0,
@@ -553,13 +680,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Sphephelo Sithole",
      "num": "13",
      "pos": "M",
+     "posAbbr": "CM",
+     "fp": "8",
+     "aid": "228595",
      "st": {
       "G": 0,
       "A": 0,
@@ -570,13 +701,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 1,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Jayden Adams",
      "num": "23",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "11",
+     "aid": "304736",
      "st": {
       "G": 0,
       "A": 0,
@@ -587,13 +722,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Teboho Mokoena",
      "num": "4",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "7",
+     "aid": "256691",
      "st": {
       "G": 0,
       "A": 0,
@@ -604,13 +743,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Lyle Foster",
      "num": "9",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "9",
+     "aid": "264751",
      "st": {
       "G": 0,
       "A": 0,
@@ -621,13 +764,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Iqraam Rayners",
      "num": "15",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "291141",
      "st": {
       "G": 0,
       "A": 0,
@@ -638,7 +785,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     }
    ],
@@ -647,6 +795,9 @@
      "name": "Oswin Appollis",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "288771",
      "st": {
       "G": 0,
       "A": 0,
@@ -657,13 +808,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Sipho Chaine",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "265713",
      "st": {
       "G": 0,
       "A": 0,
@@ -674,13 +829,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Themba Zwane",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "157046",
      "st": {
       "G": 0,
       "A": 0,
@@ -691,13 +850,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 1,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Kamogelo Sebelebele",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "337134",
      "st": {
       "G": 0,
       "A": 0,
@@ -708,13 +871,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Khulumani Ndamane",
      "num": "3",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "390448",
      "st": {
       "G": 0,
       "A": 0,
@@ -725,13 +892,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Thabang Matuludi",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "365623",
      "st": {
       "G": 0,
       "A": 0,
@@ -742,13 +913,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Samukele Kabini",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "366883",
      "st": {
       "G": 0,
       "A": 0,
@@ -759,13 +934,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Relebohile Mofokeng",
      "num": "10",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "361211",
      "st": {
       "G": 0,
       "A": 0,
@@ -776,13 +955,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Thalente Mbatha",
      "num": "5",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "301321",
      "st": {
       "G": 0,
       "A": 0,
@@ -793,13 +976,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ricardo Goss",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "186121",
      "st": {
       "G": 0,
       "A": 0,
@@ -810,13 +997,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Bradley Cross",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "310593",
      "st": {
       "G": 0,
       "A": 0,
@@ -827,13 +1018,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Thapelo Maseko",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "335450",
      "st": {
       "G": 0,
       "A": 0,
@@ -844,13 +1039,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Tshepang Moremi",
      "num": "8",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "313399",
      "st": {
       "G": 0,
       "A": 0,
@@ -861,13 +1060,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Evidence Makgopa",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "303312",
      "st": {
       "G": 0,
       "A": 0,
@@ -878,13 +1081,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Olwethu Makhanya",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "351372",
      "st": {
       "G": 0,
       "A": 0,
@@ -895,7 +1102,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -1081,6 +1289,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.6655714342266735,
+   "d": 0.2220814694588496,
+   "a": 0.11234709631447685,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "South Korea|Czech Republic": {
@@ -1093,6 +1307,9 @@
      "name": "Kim Seung-Gyu",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "175921",
      "st": {
       "G": 0,
       "A": 0,
@@ -1103,13 +1320,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 3,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Kim Min-Jae",
      "num": "4",
      "pos": "D",
+     "posAbbr": "CD",
+     "fp": "5",
+     "aid": "157688",
      "st": {
       "G": 0,
       "A": 0,
@@ -1120,13 +1341,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Lee Gi-Hyuk",
      "num": "3",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "4",
+     "aid": "345769",
      "st": {
       "G": 0,
       "A": 0,
@@ -1137,13 +1362,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Lee Han-Beom",
      "num": "2",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "6",
+     "aid": "297788",
      "st": {
       "G": 0,
       "A": 0,
@@ -1154,13 +1383,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Paik Seung-Ho",
      "num": "8",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "256598",
      "st": {
       "G": 0,
       "A": 0,
@@ -1171,13 +1404,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Hwang In-Beom",
      "num": "6",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "7",
+     "aid": "280061",
      "st": {
       "G": 1,
       "A": 1,
@@ -1188,13 +1425,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Lee Tae-Seok",
      "num": "13",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "3",
+     "aid": "297270",
      "st": {
       "G": 0,
       "A": 0,
@@ -1205,13 +1446,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Seol Young-Woo",
      "num": "22",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "2",
+     "aid": "302793",
      "st": {
       "G": 0,
       "A": 0,
@@ -1222,13 +1467,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Son Heung-Min",
      "num": "7",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "149945",
      "st": {
       "G": 0,
       "A": 0,
@@ -1239,13 +1488,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Lee Jae-Sung",
      "num": "10",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "11",
+     "aid": "134103",
      "st": {
       "G": 0,
       "A": 0,
@@ -1256,13 +1509,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Lee Kang-In",
      "num": "19",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "274197",
      "st": {
       "G": 0,
       "A": 1,
@@ -1273,7 +1530,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ],
@@ -1282,6 +1540,9 @@
      "name": "Bae Jun-Ho",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "362208",
      "st": {
       "G": 0,
       "A": 0,
@@ -1292,13 +1553,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kim Jin-Gyu",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "90721",
      "st": {
       "G": 0,
       "A": 0,
@@ -1309,13 +1574,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kim Tae-Hyeon",
      "num": "5",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "286268",
      "st": {
       "G": 0,
       "A": 0,
@@ -1326,13 +1595,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Lee Dong-Gyeong",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "271702",
      "st": {
       "G": 0,
       "A": 0,
@@ -1343,13 +1616,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jens Castrop",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "304793",
      "st": {
       "G": 0,
       "A": 0,
@@ -1360,13 +1637,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Song Bum-Keun",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "256724",
      "st": {
       "G": 0,
       "A": 0,
@@ -1377,13 +1658,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Hwang Hee-Chan",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "237224",
      "st": {
       "G": 0,
       "A": 0,
@@ -1394,13 +1679,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Cho Gue-Sung",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "303464",
      "st": {
       "G": 0,
       "A": 0,
@@ -1411,13 +1700,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Eom Ji-Sung",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "297791",
      "st": {
       "G": 0,
       "A": 0,
@@ -1428,13 +1721,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jo Hyeon-Woo",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "230244",
      "st": {
       "G": 0,
       "A": 0,
@@ -1445,13 +1742,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Yang Hyun-Jun",
      "num": "20",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "350711",
      "st": {
       "G": 0,
       "A": 0,
@@ -1462,13 +1763,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kim Moon-Hwan",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "280060",
      "st": {
       "G": 0,
       "A": 0,
@@ -1479,13 +1784,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Cho Wi-Je",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "3098209",
      "st": {
       "G": 0,
       "A": 0,
@@ -1496,13 +1805,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Park Jin-Seop",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "336178",
      "st": {
       "G": 0,
       "A": 0,
@@ -1513,13 +1826,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Oh Hyeon-Gyu",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "302434",
      "st": {
       "G": 1,
       "A": 0,
@@ -1530,7 +1847,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -1542,6 +1860,9 @@
      "name": "Matej Kov\u00e1r",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "277313",
      "st": {
       "G": 0,
       "A": 0,
@@ -1552,13 +1873,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 4,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Robin Hran\u00e1c",
      "num": "4",
      "pos": "D",
+     "posAbbr": "CD",
+     "fp": "5",
+     "aid": "322510",
      "st": {
       "G": 0,
       "A": 0,
@@ -1569,13 +1894,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Ladislav Krejc\u00ed",
      "num": "7",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "4",
+     "aid": "151714",
      "st": {
       "G": 1,
       "A": 0,
@@ -1586,13 +1915,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Step\u00e1n Chaloupek",
      "num": "6",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "6",
+     "aid": "370744",
      "st": {
       "G": 0,
       "A": 0,
@@ -1603,13 +1936,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Alexandr Sojka",
      "num": "24",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "387865",
      "st": {
       "G": 0,
       "A": 0,
@@ -1620,13 +1957,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Tom\u00e1s Soucek",
      "num": "22",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "7",
+     "aid": "230666",
      "st": {
       "G": 0,
       "A": 0,
@@ -1637,13 +1978,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Jaroslav Zelen\u00fd",
      "num": "20",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "3",
+     "aid": "276659",
      "st": {
       "G": 0,
       "A": 0,
@@ -1654,13 +1999,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Vladim\u00edr Coufal",
      "num": "5",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "2",
+     "aid": "191209",
      "st": {
       "G": 0,
       "A": 1,
@@ -1671,13 +2020,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Patrik Schick",
      "num": "10",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "212330",
      "st": {
       "G": 0,
       "A": 0,
@@ -1688,13 +2041,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Pavel Sulc",
      "num": "15",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "11",
+     "aid": "305545",
      "st": {
       "G": 0,
       "A": 0,
@@ -1705,13 +2062,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Luk\u00e1s Provod",
      "num": "17",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "294618",
      "st": {
       "G": 0,
       "A": 0,
@@ -1722,7 +2083,8 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ],
@@ -1731,6 +2093,9 @@
      "name": "Jindrich Stanek",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "199988",
      "st": {
       "G": 0,
       "A": 0,
@@ -1741,13 +2106,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Adam Hlozek",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "292169",
      "st": {
       "G": 0,
       "A": 0,
@@ -1758,13 +2127,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Tom\u00e1s Chor\u00fd",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "257336",
      "st": {
       "G": 0,
       "A": 0,
@@ -1775,13 +2148,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "David Doudera",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "343937",
      "st": {
       "G": 0,
       "A": 0,
@@ -1792,13 +2169,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Luk\u00e1s Cerv",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "303726",
      "st": {
       "G": 0,
       "A": 0,
@@ -1809,13 +2190,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Tom\u00e1s Holes",
      "num": "3",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "280885",
      "st": {
       "G": 0,
       "A": 0,
@@ -1826,13 +2211,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Vladim\u00edr Darida",
      "num": "8",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "165637",
      "st": {
       "G": 0,
       "A": 0,
@@ -1843,13 +2232,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Luk\u00e1s Horn\u00edcek",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "319267",
      "st": {
       "G": 0,
       "A": 0,
@@ -1860,13 +2253,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jan Kuchta",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "306008",
      "st": {
       "G": 0,
       "A": 0,
@@ -1877,13 +2274,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mojm\u00edr Chytil",
      "num": "13",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "343733",
      "st": {
       "G": 0,
       "A": 0,
@@ -1894,13 +2295,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Michal Sad\u00edlek",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "249525",
      "st": {
       "G": 0,
       "A": 0,
@@ -1911,13 +2316,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Hugo Sochurek",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "403974",
      "st": {
       "G": 0,
       "A": 0,
@@ -1928,13 +2337,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "David Jur\u00e1sek",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "335996",
      "st": {
       "G": 0,
       "A": 0,
@@ -1945,13 +2358,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Denis Visinsk\u00fd",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "310027",
      "st": {
       "G": 0,
       "A": 0,
@@ -1962,13 +2379,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "David Zima",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "290116",
      "st": {
       "G": 0,
       "A": 0,
@@ -1979,7 +2400,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -2138,6 +2560,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.3696343402225755,
+   "d": 0.31001589825119236,
+   "a": 0.32034976152623207,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "Canada|Bosnia and Herzegovina": {
@@ -2150,6 +2578,9 @@
      "name": "Maxime Cr\u00e9peau",
      "num": "16",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "159382",
      "st": {
       "G": 0,
       "A": 0,
@@ -2160,13 +2591,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 2,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Derek Cornelius",
      "num": "13",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "238712",
      "st": {
       "G": 0,
       "A": 0,
@@ -2177,13 +2612,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Luc de Fougerolles",
      "num": "4",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "365345",
      "st": {
       "G": 0,
       "A": 0,
@@ -2194,13 +2633,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Richie Laryea",
      "num": "22",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "230626",
      "st": {
       "G": 0,
       "A": 0,
@@ -2211,13 +2654,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Alistair Johnston",
      "num": "2",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "293691",
      "st": {
       "G": 0,
       "A": 0,
@@ -2228,13 +2675,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Stephen Eust\u00e1quio",
      "num": "7",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "270505",
      "st": {
       "G": 0,
       "A": 0,
@@ -2245,13 +2696,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Isma\u00ebl Kon\u00e9",
      "num": "8",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "4",
+     "aid": "325001",
      "st": {
       "G": 0,
       "A": 0,
@@ -2262,13 +2717,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Liam Millar",
      "num": "11",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "11",
+     "aid": "271879",
      "st": {
       "G": 0,
       "A": 0,
@@ -2279,13 +2738,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Tajon Buchanan",
      "num": "17",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "284769",
      "st": {
       "G": 0,
       "A": 0,
@@ -2296,13 +2759,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Tani Oluwaseyi",
      "num": "12",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "9",
+     "aid": "294039",
      "st": {
       "G": 0,
       "A": 0,
@@ -2313,13 +2780,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Jonathan David",
      "num": "10",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "273499",
      "st": {
       "G": 0,
       "A": 0,
@@ -2330,7 +2801,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ],
@@ -2339,6 +2811,9 @@
      "name": "Alfie Jones",
      "num": "3",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "240589",
      "st": {
       "G": 0,
       "A": 0,
@@ -2349,13 +2824,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Niko Sigur",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "363538",
      "st": {
       "G": 0,
       "A": 0,
@@ -2366,13 +2845,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jacob Shaffelburg",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "286214",
      "st": {
       "G": 0,
       "A": 0,
@@ -2383,13 +2866,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Joel Waterman",
      "num": "5",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "236890",
      "st": {
       "G": 0,
       "A": 0,
@@ -2400,13 +2887,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jonathan Osorio",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "184221",
      "st": {
       "G": 0,
       "A": 0,
@@ -2417,13 +2908,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jayden Nelson",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "280612",
      "st": {
       "G": 0,
       "A": 0,
@@ -2434,13 +2929,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Cyle Larin",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "205024",
      "st": {
       "G": 1,
       "A": 0,
@@ -2451,13 +2950,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ali Ahmed",
      "num": "20",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "340228",
      "st": {
       "G": 0,
       "A": 0,
@@ -2468,13 +2971,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Promise David",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "318522",
      "st": {
       "G": 0,
       "A": 1,
@@ -2485,13 +2992,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Owen Goodman",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "330618",
      "st": {
       "G": 0,
       "A": 0,
@@ -2502,13 +3013,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Alphonso Davies",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "236721",
      "st": {
       "G": 0,
       "A": 0,
@@ -2519,13 +3034,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Dayne St. Clair",
      "num": "1",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "231059",
      "st": {
       "G": 0,
       "A": 0,
@@ -2536,13 +3055,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mo\u00efse Bombito",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "358975",
      "st": {
       "G": 0,
       "A": 0,
@@ -2553,13 +3076,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Nathan Saliba",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "311163",
      "st": {
       "G": 0,
       "A": 0,
@@ -2570,13 +3097,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mathieu Choini\u00e8re",
      "num": "6",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "274296",
      "st": {
       "G": 0,
       "A": 0,
@@ -2587,7 +3118,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -2599,6 +3131,9 @@
      "name": "Nikola Vasilj",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "79941",
      "st": {
       "G": 0,
       "A": 0,
@@ -2609,13 +3144,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 1,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Tarik Muharemovic",
      "num": "4",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "318390",
      "st": {
       "G": 0,
       "A": 0,
@@ -2626,13 +3165,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Nikola Katic",
      "num": "18",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "220538",
      "st": {
       "G": 0,
       "A": 0,
@@ -2643,13 +3186,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Sead Kolasinac",
      "num": "5",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "170553",
      "st": {
       "G": 0,
       "A": 1,
@@ -2660,13 +3207,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Amar Dedic",
      "num": "7",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "308979",
      "st": {
       "G": 0,
       "A": 0,
@@ -2677,13 +3228,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ivan Basic",
      "num": "13",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "306256",
      "st": {
       "G": 0,
       "A": 0,
@@ -2694,13 +3249,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Benjamin Tahirovic",
      "num": "6",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "4",
+     "aid": "352660",
      "st": {
       "G": 0,
       "A": 0,
@@ -2711,13 +3270,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Amar Memic",
      "num": "15",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "11",
+     "aid": "338199",
      "st": {
       "G": 0,
       "A": 0,
@@ -2728,13 +3291,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Esmir Bajraktarevic",
      "num": "20",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "325410",
      "st": {
       "G": 0,
       "A": 0,
@@ -2745,13 +3312,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jovo Lukic",
      "num": "25",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "9",
+     "aid": "305118",
      "st": {
       "G": 1,
       "A": 0,
@@ -2762,13 +3333,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ermedin Demirovic",
      "num": "10",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "269136",
      "st": {
       "G": 0,
       "A": 0,
@@ -2779,7 +3354,8 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ],
@@ -2788,6 +3364,9 @@
      "name": "Edin Dzeko",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "102337",
      "st": {
       "G": 0,
       "A": 0,
@@ -2798,13 +3377,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Martin Zlomislic",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "258757",
      "st": {
       "G": 0,
       "A": 0,
@@ -2815,13 +3398,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mladen Jurkas",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "401246",
      "st": {
       "G": 0,
       "A": 0,
@@ -2832,13 +3419,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Samed Bazdar",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "322244",
      "st": {
       "G": 0,
       "A": 0,
@@ -2849,13 +3440,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Amir Hadziahmetovic",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "221961",
      "st": {
       "G": 0,
       "A": 0,
@@ -2866,13 +3461,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ermin Mahmic",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "414676",
      "st": {
       "G": 0,
       "A": 0,
@@ -2883,13 +3482,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Armin Gigovic",
      "num": "8",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "288932",
      "st": {
       "G": 0,
       "A": 0,
@@ -2900,13 +3503,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Stjepan Radeljic",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "275414",
      "st": {
       "G": 0,
       "A": 0,
@@ -2917,13 +3524,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Dzenis Burnic",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "225571",
      "st": {
       "G": 0,
       "A": 0,
@@ -2934,13 +3545,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kerim Alajbegovic",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "391034",
      "st": {
       "G": 0,
       "A": 0,
@@ -2951,13 +3566,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Arjan Malic",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "374533",
      "st": {
       "G": 0,
       "A": 0,
@@ -2968,13 +3587,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Dennis Hadzikadunic",
      "num": "3",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "246836",
      "st": {
       "G": 0,
       "A": 0,
@@ -2985,13 +3608,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Haris Tabakovic",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "184869",
      "st": {
       "G": 0,
       "A": 0,
@@ -3002,13 +3629,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ivan Sunjic",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "194767",
      "st": {
       "G": 0,
       "A": 0,
@@ -3019,13 +3650,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Nihad Mujakic",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "257942",
      "st": {
       "G": 0,
       "A": 0,
@@ -3036,7 +3671,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -3222,6 +3858,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.5129203539823008,
+   "d": 0.27398230088495573,
+   "a": 0.21309734513274334,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "United States|Paraguay": {
@@ -3234,6 +3876,9 @@
      "name": "Matt Freese",
      "num": "24",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "252974",
      "st": {
       "G": 0,
       "A": 0,
@@ -3244,13 +3889,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Tim Ream",
      "num": "13",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "146290",
      "st": {
       "G": 0,
       "A": 0,
@@ -3261,13 +3910,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Chris Richards",
      "num": "3",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "272585",
      "st": {
       "G": 0,
       "A": 0,
@@ -3278,13 +3931,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Antonee Robinson",
      "num": "5",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "222396",
      "st": {
       "G": 0,
       "A": 0,
@@ -3295,13 +3952,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Alex Freeman",
      "num": "16",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "248276",
      "st": {
       "G": 0,
       "A": 1,
@@ -3312,13 +3973,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Weston McKennie",
      "num": "8",
      "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "256715",
      "st": {
       "G": 0,
       "A": 0,
@@ -3329,13 +3994,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Malik Tillman",
      "num": "17",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "301416",
      "st": {
       "G": 0,
       "A": 1,
@@ -3346,13 +4015,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Tyler Adams",
      "num": "4",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "222776",
      "st": {
       "G": 0,
       "A": 0,
@@ -3363,13 +4036,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Folarin Balogun",
      "num": "20",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "282643",
      "st": {
       "G": 2,
       "A": 0,
@@ -3380,13 +4057,17 @@
       "OFF": 2,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Christian Pulisic",
      "num": "10",
      "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "225607",
      "st": {
       "G": 0,
       "A": 1,
@@ -3397,13 +4078,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Sergi\u00f1o Dest",
      "num": "2",
      "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "266291",
      "st": {
       "G": 0,
       "A": 0,
@@ -3414,7 +4099,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ],
@@ -3423,6 +4109,9 @@
      "name": "Alejandro Zendejas",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "212824",
      "st": {
       "G": 0,
       "A": 0,
@@ -3433,13 +4122,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Sebastian Berhalter",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "295771",
      "st": {
       "G": 0,
       "A": 0,
@@ -3450,13 +4143,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ricardo Pepi",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "289120",
      "st": {
       "G": 0,
       "A": 0,
@@ -3467,13 +4164,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Cristian Roldan",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "216617",
      "st": {
       "G": 0,
       "A": 0,
@@ -3484,13 +4185,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mark McKenzie",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "77072",
      "st": {
       "G": 0,
       "A": 0,
@@ -3501,13 +4206,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Joe Scally",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "272135",
      "st": {
       "G": 0,
       "A": 0,
@@ -3518,13 +4227,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Max Arfsten",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "359542",
      "st": {
       "G": 0,
       "A": 0,
@@ -3535,13 +4248,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Matt Turner",
      "num": "1",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "303794",
      "st": {
       "G": 0,
       "A": 0,
@@ -3552,13 +4269,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Haji Wright",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "220474",
      "st": {
       "G": 0,
       "A": 0,
@@ -3569,13 +4290,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Chris Brady",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "303693",
      "st": {
       "G": 0,
       "A": 0,
@@ -3586,13 +4311,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Brenden Aaronson",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "259653",
      "st": {
       "G": 0,
       "A": 0,
@@ -3603,13 +4332,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Giovanni Reyna",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "290230",
      "st": {
       "G": 1,
       "A": 0,
@@ -3620,13 +4353,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Timothy Weah",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "266027",
      "st": {
       "G": 0,
       "A": 0,
@@ -3637,13 +4374,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Miles Robinson",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "249768",
      "st": {
       "G": 0,
       "A": 0,
@@ -3654,13 +4395,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Auston Trusty",
      "num": "6",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "228619",
      "st": {
       "G": 0,
       "A": 0,
@@ -3671,7 +4416,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -3683,6 +4429,9 @@
      "name": "Orlando Gil",
      "num": "12",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "301648",
      "st": {
       "G": 0,
       "A": 0,
@@ -3693,13 +4442,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 3,
-      "GC": 4
+      "GC": 4,
+      "SF": 0
      }
     },
     {
      "name": "Omar Alderete",
      "num": "3",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "215401",
      "st": {
       "G": 0,
       "A": 0,
@@ -3710,13 +4463,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 4
+      "GC": 4,
+      "SF": 0
      }
     },
     {
      "name": "Gustavo G\u00f3mez",
      "num": "15",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "118395",
      "st": {
       "G": 0,
       "A": 0,
@@ -3727,13 +4484,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 4
+      "GC": 4,
+      "SF": 0
      }
     },
     {
      "name": "J\u00fanior Alonso",
      "num": "6",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "181657",
      "st": {
       "G": 0,
       "A": 0,
@@ -3744,13 +4505,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 4
+      "GC": 4,
+      "SF": 0
      }
     },
     {
      "name": "Juan Jose C\u00e1ceres",
      "num": "4",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "84295",
      "st": {
       "G": 0,
       "A": 0,
@@ -3761,13 +4526,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 3
+      "GC": 3,
+      "SF": 0
      }
     },
     {
      "name": "Dami\u00e1n Bobadilla",
      "num": "16",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "301516",
      "st": {
       "G": 0,
       "A": 0,
@@ -3778,13 +4547,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3
+      "GC": 3,
+      "SF": 0
      }
     },
     {
      "name": "Andr\u00e9s Cubas",
      "num": "14",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "4",
+     "aid": "202501",
      "st": {
       "G": 0,
       "A": 0,
@@ -3795,13 +4568,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 4
+      "GC": 4,
+      "SF": 0
      }
     },
     {
      "name": "Miguel Almir\u00f3n",
      "num": "10",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "11",
+     "aid": "48128",
      "st": {
       "G": 0,
       "A": 0,
@@ -3812,13 +4589,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 3
+      "GC": 3,
+      "SF": 0
      }
     },
     {
      "name": "Diego G\u00f3mez",
      "num": "8",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "192278",
      "st": {
       "G": 0,
       "A": 0,
@@ -3829,13 +4610,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 3
+      "GC": 3,
+      "SF": 0
      }
     },
     {
      "name": "Julio Enciso",
      "num": "19",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "9",
+     "aid": "20975",
      "st": {
       "G": 0,
       "A": 1,
@@ -3846,13 +4631,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 4
+      "GC": 4,
+      "SF": 0
      }
     },
     {
      "name": "Antonio Sanabria",
      "num": "9",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "192162",
      "st": {
       "G": 0,
       "A": 0,
@@ -3863,7 +4652,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3
+      "GC": 3,
+      "SF": 0
      }
     }
    ],
@@ -3872,6 +4662,9 @@
      "name": "Alex Arce",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "257754",
      "st": {
       "G": 0,
       "A": 0,
@@ -3882,13 +4675,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Jos\u00e9 Canale",
      "num": "13",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "227682",
      "st": {
       "G": 0,
       "A": 0,
@@ -3899,13 +4696,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Gabriel \u00c1valos",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "208421",
      "st": {
       "G": 0,
       "A": 0,
@@ -3916,13 +4717,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Alexandro Maidana",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "399687",
      "st": {
       "G": 0,
       "A": 0,
@@ -3933,13 +4738,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Gustavo Caballero",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "154853",
      "st": {
       "G": 0,
       "A": 0,
@@ -3950,13 +4759,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Alejandro Romero Gamarra",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "188160",
      "st": {
       "G": 0,
       "A": 0,
@@ -3967,13 +4780,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Braian Ojeda",
      "num": "20",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "265977",
      "st": {
       "G": 0,
       "A": 0,
@@ -3984,13 +4801,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Gast\u00f3n Olveira",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "190375",
      "st": {
       "G": 0,
       "A": 0,
@@ -4001,13 +4822,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Gatito Fern\u00e1ndez",
      "num": "1",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "164262",
      "st": {
       "G": 0,
       "A": 0,
@@ -4018,13 +4843,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Isidro Pitta",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "287035",
      "st": {
       "G": 0,
       "A": 0,
@@ -4035,13 +4864,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Fabi\u00e1n Balbuena",
      "num": "5",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "199101",
      "st": {
       "G": 0,
       "A": 0,
@@ -4052,13 +4885,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mat\u00edas Galarza",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "297328",
      "st": {
       "G": 0,
       "A": 0,
@@ -4069,13 +4906,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ram\u00f3n Sosa",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "301653",
      "st": {
       "G": 0,
       "A": 0,
@@ -4086,13 +4927,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Maur\u00edcio",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "289046",
      "st": {
       "G": 1,
       "A": 0,
@@ -4103,13 +4948,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Gustavo Vel\u00e1zquez",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "119413",
      "st": {
       "G": 0,
       "A": 0,
@@ -4120,7 +4969,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ]
@@ -4329,6 +5179,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.46715328467153283,
+   "d": 0.29927007299270075,
+   "a": 0.23357664233576642,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "Qatar|Switzerland": {
@@ -4341,6 +5197,9 @@
      "name": "Mahmoud Abunada",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "310372",
      "st": {
       "G": 0,
       "A": 0,
@@ -4351,30 +5210,38 @@
       "YC": 1,
       "RC": 0,
       "SV": 5,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Boualem Khoukhi",
      "num": "16",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "205377",
      "st": {
-      "G": 1,
+      "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
+      "SH": 0,
+      "SOT": 0,
       "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Pedro Miguel",
      "num": "2",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "101982",
      "st": {
       "G": 0,
       "A": 0,
@@ -4385,16 +5252,20 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Homam Ahmed",
      "num": "14",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "272874",
      "st": {
       "G": 0,
-      "A": 1,
+      "A": 0,
       "SH": 1,
       "SOT": 0,
       "FC": 1,
@@ -4402,13 +5273,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ayoub Al-Oui",
      "num": "13",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "346649",
      "st": {
       "G": 0,
       "A": 0,
@@ -4419,13 +5294,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Assim Madibo",
      "num": "23",
      "pos": "M",
+     "posAbbr": "CM",
+     "fp": "4",
+     "aid": "219254",
      "st": {
       "G": 0,
       "A": 0,
@@ -4436,13 +5315,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Issa Laye",
      "num": "4",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "8",
+     "aid": "415148",
      "st": {
       "G": 0,
       "A": 0,
@@ -4453,13 +5336,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Jassem Gaber",
      "num": "5",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "310373",
      "st": {
       "G": 0,
       "A": 0,
@@ -4470,13 +5357,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Yusuf Abdurisag",
      "num": "15",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "274164",
      "st": {
       "G": 0,
       "A": 0,
@@ -4487,13 +5378,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Akram Afif",
      "num": "11",
      "pos": "F",
+     "posAbbr": "LF",
+     "fp": "11",
+     "aid": "219258",
      "st": {
       "G": 0,
       "A": 0,
@@ -4504,13 +5399,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Edm\u00edlson Junior",
      "num": "8",
      "pos": "F",
+     "posAbbr": "RF",
+     "fp": "10",
+     "aid": "109204",
      "st": {
       "G": 0,
       "A": 0,
@@ -4521,7 +5420,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ],
@@ -4530,6 +5430,9 @@
      "name": "Hassan Al-Haydos",
      "num": "10",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "236586",
      "st": {
       "G": 0,
       "A": 0,
@@ -4540,13 +5443,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ahmed Al-Ganehi",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "336120",
      "st": {
       "G": 0,
       "A": 0,
@@ -4557,13 +5464,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mohamed Manai",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "309315",
      "st": {
       "G": 0,
       "A": 0,
@@ -4574,13 +5485,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mohammed Muntari",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "185984",
      "st": {
       "G": 0,
       "A": 0,
@@ -4591,13 +5506,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Lucas Mendes",
      "num": "3",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "125617",
      "st": {
       "G": 0,
       "A": 0,
@@ -4608,13 +5527,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Al-Hashmi Al-Hussain",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "384827",
      "st": {
       "G": 0,
       "A": 0,
@@ -4625,13 +5548,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Tahsin Jamshid",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "371967",
      "st": {
       "G": 0,
       "A": 0,
@@ -4642,13 +5569,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Meshaal Barsham",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "270844",
      "st": {
       "G": 0,
       "A": 0,
@@ -4659,13 +5590,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Sultan Al-Brake",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "219248",
      "st": {
       "G": 0,
       "A": 0,
@@ -4676,13 +5611,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Abdulaziz Hatem",
      "num": "6",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "143613",
      "st": {
       "G": 0,
       "A": 0,
@@ -4693,13 +5632,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ahmed Fathy",
      "num": "20",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "268018",
      "st": {
       "G": 0,
       "A": 0,
@@ -4710,13 +5653,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ahmed Alaaeldin",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "263311",
      "st": {
       "G": 0,
       "A": 0,
@@ -4727,13 +5674,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Almoez Ali",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "219252",
      "st": {
       "G": 0,
       "A": 0,
@@ -4744,13 +5695,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Salah Zakaria",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "288537",
      "st": {
       "G": 0,
       "A": 0,
@@ -4761,13 +5716,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Karim Boudiaf",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "172245",
      "st": {
       "G": 0,
       "A": 0,
@@ -4778,7 +5737,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -4790,6 +5750,9 @@
      "name": "Gregor Kobel",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "238544",
      "st": {
       "G": 0,
       "A": 0,
@@ -4800,13 +5763,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 3,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Manuel Akanji",
      "num": "5",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "214562",
      "st": {
       "G": 0,
       "A": 0,
@@ -4817,13 +5784,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Nico Elvedi",
      "num": "4",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "212237",
      "st": {
       "G": 0,
       "A": 0,
@@ -4834,13 +5805,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ricardo Rodr\u00edguez",
      "num": "13",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "136865",
      "st": {
       "G": 0,
       "A": 0,
@@ -4851,13 +5826,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Denis Zakaria",
      "num": "6",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "222628",
      "st": {
       "G": 0,
       "A": 0,
@@ -4868,13 +5847,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Granit Xhaka",
      "num": "10",
      "pos": "M",
+     "posAbbr": "CM",
+     "fp": "4",
+     "aid": "149981",
      "st": {
       "G": 0,
       "A": 0,
@@ -4885,13 +5868,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Remo Freuler",
      "num": "8",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "8",
+     "aid": "152600",
      "st": {
       "G": 0,
       "A": 0,
@@ -4902,13 +5889,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Michel Aebischer",
      "num": "20",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "245623",
      "st": {
       "G": 0,
       "A": 0,
@@ -4919,13 +5910,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Breel Embolo",
      "num": "7",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "202099",
      "st": {
       "G": 1,
       "A": 0,
@@ -4936,13 +5931,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Rub\u00e9n Vargas",
      "num": "17",
      "pos": "F",
+     "posAbbr": "LF",
+     "fp": "11",
+     "aid": "259513",
      "st": {
       "G": 0,
       "A": 0,
@@ -4953,13 +5952,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Dan Ndoye",
      "num": "11",
      "pos": "F",
+     "posAbbr": "RF",
+     "fp": "10",
+     "aid": "275842",
      "st": {
       "G": 0,
       "A": 0,
@@ -4970,7 +5973,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ],
@@ -4979,6 +5983,9 @@
      "name": "Eray C\u00f6mert",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "231697",
      "st": {
       "G": 0,
       "A": 0,
@@ -4989,13 +5996,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Marvin Keller",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "341948",
      "st": {
       "G": 0,
       "A": 0,
@@ -5006,13 +6017,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Aur\u00e8le Amenda",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "319404",
      "st": {
       "G": 0,
       "A": 0,
@@ -5023,13 +6038,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Miro Muheim",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "243626",
      "st": {
       "G": 0,
       "A": 0,
@@ -5040,13 +6059,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Silvan Widmer",
      "num": "3",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "175905",
      "st": {
       "G": 0,
       "A": 0,
@@ -5057,13 +6080,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Noah Okafor",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "270641",
      "st": {
       "G": 0,
       "A": 0,
@@ -5074,13 +6101,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Luca Jaquez",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "332574",
      "st": {
       "G": 0,
       "A": 0,
@@ -5091,13 +6122,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Fabian Rieder",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "308908",
      "st": {
       "G": 0,
       "A": 0,
@@ -5108,13 +6143,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Djibril Sow",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "222446",
      "st": {
       "G": 0,
       "A": 0,
@@ -5125,13 +6164,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Zeki Amdouni",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "320757",
      "st": {
       "G": 0,
       "A": 0,
@@ -5142,13 +6185,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Yvon Mvogo",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "199381",
      "st": {
       "G": 0,
       "A": 0,
@@ -5159,13 +6206,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Christian Fassnacht",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "238502",
      "st": {
       "G": 0,
       "A": 0,
@@ -5176,13 +6227,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Johan Manzambi",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "386992",
      "st": {
       "G": 0,
       "A": 0,
@@ -5193,13 +6248,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Cedric Itten",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "234153",
      "st": {
       "G": 0,
       "A": 0,
@@ -5210,13 +6269,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ardon Jashari",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "303973",
      "st": {
       "G": 0,
       "A": 0,
@@ -5227,7 +6290,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ]
@@ -5336,17 +6400,17 @@
     "team": "home",
     "type": "goal",
     "detail": "Normal Goal",
-    "player": "Boualem Khoukhi",
+    "player": "Miro Muheim",
     "assist": "Homam Ahmed"
    }
   ],
   "teamstats": {
    "home": {
     "possessionPct": "32",
-    "totalShots": "7",
-    "shotsOnTarget": "4",
+    "totalShots": "6",
+    "shotsOnTarget": "3",
     "wonCorners": "3",
-    "totalPasses": "279",
+    "totalPasses": "278",
     "foulsCommitted": "12",
     "offsides": "0",
     "yellowCards": "2",
@@ -5360,7 +6424,7 @@
     "totalShots": "26",
     "shotsOnTarget": "7",
     "wonCorners": "10",
-    "totalPasses": "578",
+    "totalPasses": "576",
     "foulsCommitted": "11",
     "offsides": "1",
     "yellowCards": "1",
@@ -5398,6 +6462,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.05978817902289033,
+   "d": 0.1366586949094636,
+   "a": 0.8035531260676461,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "Brazil|Morocco": {
@@ -5410,6 +6480,9 @@
      "name": "Alisson Becker",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "196876",
      "st": {
       "G": 0,
       "A": 0,
@@ -5420,13 +6493,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 2,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Gabriel Magalh\u00e3es",
      "num": "3",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "236322",
      "st": {
       "G": 0,
       "A": 0,
@@ -5437,13 +6514,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Marquinhos",
      "num": "4",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "159047",
      "st": {
       "G": 0,
       "A": 0,
@@ -5454,13 +6535,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Douglas Santos",
      "num": "16",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "186575",
      "st": {
       "G": 0,
       "A": 0,
@@ -5471,13 +6556,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Roger Iba\u00f1ez",
      "num": "24",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "259835",
      "st": {
       "G": 0,
       "A": 0,
@@ -5488,13 +6577,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Raphinha",
      "num": "11",
      "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "231050",
      "st": {
       "G": 0,
       "A": 0,
@@ -5505,13 +6598,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Bruno Guimar\u00e3es",
      "num": "8",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "218522",
      "st": {
       "G": 0,
       "A": 1,
@@ -5522,13 +6619,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Casemiro",
      "num": "5",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "173666",
      "st": {
       "G": 0,
       "A": 0,
@@ -5539,13 +6640,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Igor Thiago",
      "num": "25",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "301894",
      "st": {
       "G": 0,
       "A": 0,
@@ -5556,13 +6661,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Vin\u00edcius J\u00fanior",
      "num": "7",
      "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "252107",
      "st": {
       "G": 1,
       "A": 0,
@@ -5573,13 +6682,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Lucas Paquet\u00e1",
      "num": "20",
      "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "234715",
      "st": {
       "G": 0,
       "A": 0,
@@ -5590,7 +6703,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ],
@@ -5599,6 +6713,9 @@
      "name": "Matheus Cunha",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "259902",
      "st": {
       "G": 0,
       "A": 0,
@@ -5609,13 +6726,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ederson",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "176948",
      "st": {
       "G": 0,
       "A": 0,
@@ -5626,13 +6747,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Rayan",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "357719",
      "st": {
       "G": 0,
       "A": 0,
@@ -5643,13 +6768,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "L\u00e9o Pereira",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "145405",
      "st": {
       "G": 0,
       "A": 0,
@@ -5660,13 +6789,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Fabinho",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "176287",
      "st": {
       "G": 0,
       "A": 0,
@@ -5677,13 +6810,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "\u00c9derson",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "278210",
      "st": {
       "G": 0,
       "A": 0,
@@ -5694,13 +6831,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Luiz Henrique",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "304215",
      "st": {
       "G": 0,
       "A": 0,
@@ -5711,13 +6852,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Gabriel Martinelli",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "269844",
      "st": {
       "G": 0,
       "A": 0,
@@ -5728,13 +6873,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Danilo",
      "num": "13",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "170369",
      "st": {
       "G": 0,
       "A": 0,
@@ -5745,13 +6894,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Alex Sandro",
      "num": "6",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "125514",
      "st": {
       "G": 0,
       "A": 0,
@@ -5762,13 +6915,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Endrick",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "346612",
      "st": {
       "G": 0,
       "A": 0,
@@ -5779,13 +6936,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Danilo Santos",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "306764",
      "st": {
       "G": 0,
       "A": 0,
@@ -5796,13 +6957,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Bremer",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "258307",
      "st": {
       "G": 0,
       "A": 0,
@@ -5813,13 +6978,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Weverton",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "198983",
      "st": {
       "G": 0,
       "A": 0,
@@ -5830,7 +6999,8 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -5842,6 +7012,9 @@
      "name": "Yassine Bounou",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "175149",
      "st": {
       "G": 0,
       "A": 0,
@@ -5852,13 +7025,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 4,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Chadi Riad",
      "num": "18",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "307870",
      "st": {
       "G": 0,
       "A": 0,
@@ -5869,13 +7046,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Issa Diop",
      "num": "14",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "230963",
      "st": {
       "G": 0,
       "A": 0,
@@ -5886,13 +7067,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Noussair Mazraoui",
      "num": "3",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "239350",
      "st": {
       "G": 0,
       "A": 0,
@@ -5903,13 +7088,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Achraf Hakimi",
      "num": "2",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "240233",
      "st": {
       "G": 0,
       "A": 0,
@@ -5920,13 +7109,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Azzedine Ounahi",
      "num": "8",
      "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "291552",
      "st": {
       "G": 0,
       "A": 0,
@@ -5937,13 +7130,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ayyoub Bouaddi",
      "num": "6",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "373927",
      "st": {
       "G": 0,
       "A": 0,
@@ -5954,13 +7151,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Neil El Aynaoui",
      "num": "24",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "323807",
      "st": {
       "G": 0,
       "A": 0,
@@ -5971,13 +7172,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ismael Saibari",
      "num": "11",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "304572",
      "st": {
       "G": 1,
       "A": 0,
@@ -5988,13 +7193,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Bilal El Khannouss",
      "num": "23",
      "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "336595",
      "st": {
       "G": 0,
       "A": 0,
@@ -6005,13 +7214,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Brahim D\u00edaz",
      "num": "10",
      "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "246532",
      "st": {
       "G": 0,
       "A": 1,
@@ -6022,7 +7235,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ],
@@ -6031,6 +7245,9 @@
      "name": "Ahmed Reda Tagnaouti",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "195240",
      "st": {
       "G": 0,
       "A": 0,
@@ -6041,13 +7258,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Amine Sba\u00ef",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "314388",
      "st": {
       "G": 0,
       "A": 0,
@@ -6058,13 +7279,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Chemsdine Talbi",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "360062",
      "st": {
       "G": 0,
       "A": 0,
@@ -6075,13 +7300,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Soufiane Rahimi",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "276139",
      "st": {
       "G": 0,
       "A": 0,
@@ -6092,13 +7321,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ayoube Amaimouni",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "416636",
      "st": {
       "G": 0,
       "A": 0,
@@ -6109,13 +7342,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Gessime Yassine",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "379012",
      "st": {
       "G": 0,
       "A": 0,
@@ -6126,13 +7363,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Samir El Mourabet",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "378491",
      "st": {
       "G": 0,
       "A": 0,
@@ -6143,13 +7384,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Anass Salah-Eddine",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "297296",
      "st": {
       "G": 0,
       "A": 0,
@@ -6160,13 +7405,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ayoub El Kaabi",
      "num": "20",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "269562",
      "st": {
       "G": 0,
       "A": 0,
@@ -6177,13 +7426,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Marwane Saadane",
      "num": "5",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "230430",
      "st": {
       "G": 0,
       "A": 0,
@@ -6194,13 +7447,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Sofyan Amrabat",
      "num": "4",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "195226",
      "st": {
       "G": 0,
       "A": 0,
@@ -6211,13 +7468,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Youssef Belammari",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "393692",
      "st": {
       "G": 0,
       "A": 0,
@@ -6228,13 +7489,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Zakaria El Ouahdi",
      "num": "13",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "325024",
      "st": {
       "G": 0,
       "A": 0,
@@ -6245,13 +7510,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Munir El Kajoui",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "206232",
      "st": {
       "G": 0,
       "A": 0,
@@ -6262,13 +7531,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Redouane Halhal",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "328300",
      "st": {
       "G": 0,
       "A": 0,
@@ -6279,7 +7552,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -6388,11 +7662,11 @@
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "51.3",
+    "possessionPct": "51.4",
     "totalShots": "12",
     "shotsOnTarget": "5",
     "wonCorners": "6",
-    "totalPasses": "513",
+    "totalPasses": "514",
     "foulsCommitted": "16",
     "offsides": "0",
     "yellowCards": "2",
@@ -6402,17 +7676,17 @@
     "saves": "2"
    },
    "away": {
-    "possessionPct": "48.7",
+    "possessionPct": "48.6",
     "totalShots": "14",
     "shotsOnTarget": "3",
     "wonCorners": "2",
-    "totalPasses": "487",
+    "totalPasses": "486",
     "foulsCommitted": "14",
     "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "24",
-    "interceptions": "4",
+    "totalTackles": "26",
+    "interceptions": "5",
     "saves": "4"
    },
    "labels": {
@@ -6444,6 +7718,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.572581561896101,
+   "d": 0.2614527679890872,
+   "a": 0.16596567011481186,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "Haiti|Scotland": {
@@ -6456,6 +7736,9 @@
      "name": "Johny Placide",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "89090",
      "st": {
       "G": 0,
       "A": 0,
@@ -6466,13 +7749,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 1,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Hannes Delcroix",
      "num": "5",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "252521",
      "st": {
       "G": 0,
       "A": 0,
@@ -6483,13 +7770,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ricardo Ad\u00e9",
      "num": "4",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "188106",
      "st": {
       "G": 0,
       "A": 0,
@@ -6500,13 +7791,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Martin Exp\u00e9rience",
      "num": "8",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "320212",
      "st": {
       "G": 0,
       "A": 0,
@@ -6517,13 +7812,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Carlens Arcus",
      "num": "2",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "218703",
      "st": {
       "G": 0,
       "A": 0,
@@ -6534,13 +7833,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Jean-Ricner Bellegarde",
      "num": "10",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "240369",
      "st": {
       "G": 0,
       "A": 0,
@@ -6551,13 +7854,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Danley Jean Jacques",
      "num": "17",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "4",
+     "aid": "333939",
      "st": {
       "G": 0,
       "A": 0,
@@ -6568,13 +7875,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Ruben Providence",
      "num": "15",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "11",
+     "aid": "307861",
      "st": {
       "G": 0,
       "A": 0,
@@ -6585,13 +7896,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Louicius Deedson",
      "num": "11",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "291608",
      "st": {
       "G": 0,
       "A": 0,
@@ -6602,13 +7917,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Wilson Isidor",
      "num": "18",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "9",
+     "aid": "265915",
      "st": {
       "G": 0,
       "A": 0,
@@ -6619,13 +7938,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Frantzdy Pierrot",
      "num": "20",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "250241",
      "st": {
       "G": 0,
       "A": 0,
@@ -6636,7 +7959,8 @@
       "OFF": 2,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     }
    ],
@@ -6645,6 +7969,9 @@
      "name": "Josu\u00e9 Duverger",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "274131",
      "st": {
       "G": 0,
       "A": 0,
@@ -6655,13 +7982,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Carl Saint\u00e9",
      "num": "6",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "297177",
      "st": {
       "G": 0,
       "A": 0,
@@ -6672,13 +8003,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Duckens Nazon",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "210778",
      "st": {
       "G": 0,
       "A": 0,
@@ -6689,13 +8024,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Wilguens Paugain",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "385479",
      "st": {
       "G": 0,
       "A": 0,
@@ -6706,13 +8045,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Josu\u00e9 Casimir",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "304212",
      "st": {
       "G": 0,
       "A": 0,
@@ -6723,13 +8066,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Lenny Joseph",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "301093",
      "st": {
       "G": 0,
       "A": 0,
@@ -6740,13 +8087,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Garven Metusala",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "320621",
      "st": {
       "G": 0,
       "A": 0,
@@ -6757,13 +8108,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jean-K\u00e9vin Duverne",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "241032",
      "st": {
       "G": 0,
       "A": 0,
@@ -6774,13 +8129,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Woodensky Pierre",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "359946",
      "st": {
       "G": 0,
       "A": 0,
@@ -6791,13 +8150,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Dominique Simon",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "342631",
      "st": {
       "G": 0,
       "A": 0,
@@ -6808,13 +8171,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Keeto Thermoncy",
      "num": "3",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "409965",
      "st": {
       "G": 0,
       "A": 0,
@@ -6825,13 +8192,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Alexandre Pierre",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "310715",
      "st": {
       "G": 0,
       "A": 0,
@@ -6842,13 +8213,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Markhus Lacroix",
      "num": "13",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "235401",
      "st": {
       "G": 0,
       "A": 0,
@@ -6859,13 +8234,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Derrick Etienne Jr.",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "231098",
      "st": {
       "G": 0,
       "A": 0,
@@ -6876,13 +8255,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Yassin Fortun\u00e9",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "275007",
      "st": {
       "G": 0,
       "A": 0,
@@ -6893,7 +8276,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -6905,6 +8289,9 @@
      "name": "Angus Gunn",
      "num": "1",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "181299",
      "st": {
       "G": 0,
       "A": 0,
@@ -6915,13 +8302,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 2,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jack Hendry",
      "num": "13",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "207454",
      "st": {
       "G": 0,
       "A": 0,
@@ -6932,13 +8323,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Grant Hanley",
      "num": "5",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "146577",
      "st": {
       "G": 0,
       "A": 0,
@@ -6949,13 +8344,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Andy Robertson",
      "num": "3",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "104943",
      "st": {
       "G": 0,
       "A": 0,
@@ -6966,13 +8365,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Aaron Hickey",
      "num": "2",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "283940",
      "st": {
       "G": 0,
       "A": 0,
@@ -6983,13 +8386,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Lewis Ferguson",
      "num": "19",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "202429",
      "st": {
       "G": 0,
       "A": 0,
@@ -7000,13 +8407,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Scott McTominay",
      "num": "4",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "4",
+     "aid": "255850",
      "st": {
       "G": 0,
       "A": 0,
@@ -7017,13 +8428,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "John McGinn",
      "num": "7",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "11",
+     "aid": "162843",
      "st": {
       "G": 1,
       "A": 0,
@@ -7034,13 +8449,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ben Gannon-Doak",
      "num": "17",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "332948",
      "st": {
       "G": 0,
       "A": 0,
@@ -7051,13 +8470,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ch\u00e9 Adams",
      "num": "10",
      "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "9",
+     "aid": "213725",
      "st": {
       "G": 0,
       "A": 0,
@@ -7068,13 +8491,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Lawrence Shankland",
      "num": "20",
      "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "173306",
      "st": {
       "G": 0,
       "A": 0,
@@ -7085,7 +8512,8 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ],
@@ -7094,6 +8522,9 @@
      "name": "Craig Gordon",
      "num": "21",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "17617",
      "st": {
       "G": 0,
       "A": 0,
@@ -7104,13 +8535,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Nathan Patterson",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "271191",
      "st": {
       "G": 0,
       "A": 0,
@@ -7121,13 +8556,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "John Souttar",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "181394",
      "st": {
       "G": 0,
       "A": 0,
@@ -7138,13 +8577,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ryan Christie",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "93435",
      "st": {
       "G": 0,
       "A": 0,
@@ -7155,13 +8598,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Tyler Fletcher",
      "num": "8",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "393138",
      "st": {
       "G": 0,
       "A": 0,
@@ -7172,13 +8619,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Anthony Ralston",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "224305",
      "st": {
       "G": 0,
       "A": 0,
@@ -7189,13 +8640,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kieran Tierney",
      "num": "6",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "214794",
      "st": {
       "G": 0,
       "A": 0,
@@ -7206,13 +8661,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ross Stewart",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "251936",
      "st": {
       "G": 0,
       "A": 0,
@@ -7223,13 +8682,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Lyndon Dykes",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "207538",
      "st": {
       "G": 0,
       "A": 0,
@@ -7240,13 +8703,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kenny McLean",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "141870",
      "st": {
       "G": 0,
       "A": 0,
@@ -7257,13 +8724,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Findlay Curtis",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "368045",
      "st": {
       "G": 0,
       "A": 0,
@@ -7274,13 +8745,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "George Hirst",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "241325",
      "st": {
       "G": 0,
       "A": 0,
@@ -7291,13 +8766,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Dominic Hyam",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "231572",
      "st": {
       "G": 0,
       "A": 0,
@@ -7308,13 +8787,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Scott McKenna",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "191450",
      "st": {
       "G": 0,
       "A": 0,
@@ -7325,13 +8808,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Liam Kelly",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "16264",
      "st": {
       "G": 0,
       "A": 0,
@@ -7342,7 +8829,8 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -7442,7 +8930,7 @@
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "53.8",
+    "possessionPct": "53.7",
     "totalShots": "15",
     "shotsOnTarget": "2",
     "wonCorners": "4",
@@ -7451,16 +8939,16 @@
     "offsides": "3",
     "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "11",
-    "interceptions": "7",
+    "totalTackles": "12",
+    "interceptions": "6",
     "saves": "1"
    },
    "away": {
-    "possessionPct": "46.2",
+    "possessionPct": "46.3",
     "totalShots": "9",
     "shotsOnTarget": "2",
     "wonCorners": "3",
-    "totalPasses": "373",
+    "totalPasses": "374",
     "foulsCommitted": "21",
     "offsides": "1",
     "yellowCards": "3",
@@ -7498,6 +8986,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.18245614035087718,
+   "d": 0.22807017543859645,
+   "a": 0.5894736842105263,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "Australia|Turkey": {
@@ -7510,6 +9004,9 @@
      "name": "Patrick Beach",
      "num": "18",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "335240",
      "st": {
       "G": 0,
       "A": 0,
@@ -7520,13 +9017,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 8,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Harry Souttar",
      "num": "19",
      "pos": "D",
+     "posAbbr": "CD",
+     "fp": "5",
+     "aid": "207461",
      "st": {
       "G": 0,
       "A": 0,
@@ -7537,13 +9038,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Cameron Burgess",
      "num": "21",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "4",
+     "aid": "207350",
      "st": {
       "G": 0,
       "A": 0,
@@ -7554,13 +9059,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Alessandro Circati",
      "num": "3",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "6",
+     "aid": "332081",
      "st": {
       "G": 0,
       "A": 0,
@@ -7571,13 +9080,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jordan Bos",
      "num": "5",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "328541",
      "st": {
       "G": 0,
       "A": 0,
@@ -7588,13 +9101,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jacob Italiano",
      "num": "4",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "267053",
      "st": {
       "G": 0,
       "A": 0,
@@ -7605,13 +9122,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Paul Okon-Engstler",
      "num": "24",
      "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "10",
+     "aid": "403528",
      "st": {
       "G": 0,
       "A": 1,
@@ -7622,13 +9143,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Aiden O'Neill",
      "num": "13",
      "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "8",
+     "aid": "241031",
      "st": {
       "G": 0,
       "A": 0,
@@ -7639,13 +9164,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Nestory Irankunda",
      "num": "17",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "11",
+     "aid": "328535",
      "st": {
       "G": 1,
       "A": 0,
@@ -7656,13 +9185,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Connor Metcalfe",
      "num": "8",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "260643",
      "st": {
       "G": 1,
       "A": 0,
@@ -7673,13 +9206,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mohamed Toure",
      "num": "9",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "302688",
      "st": {
       "G": 0,
       "A": 0,
@@ -7690,7 +9227,8 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ],
@@ -7699,6 +9237,9 @@
      "name": "Mathew Ryan",
      "num": "1",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "141438",
      "st": {
       "G": 0,
       "A": 0,
@@ -7709,13 +9250,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kai Trewin",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "291697",
      "st": {
       "G": 0,
       "A": 0,
@@ -7726,13 +9271,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Cameron Devlin",
      "num": "14",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "276917",
      "st": {
       "G": 0,
       "A": 0,
@@ -7743,13 +9292,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Paul Izzo",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "159494",
      "st": {
       "G": 0,
       "A": 0,
@@ -7760,13 +9313,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Cristian Volpato",
      "num": "20",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "330259",
      "st": {
       "G": 0,
       "A": 0,
@@ -7777,13 +9334,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jason Geria",
      "num": "6",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "172137",
      "st": {
       "G": 0,
       "A": 0,
@@ -7794,13 +9355,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Awer Mabil",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "181707",
      "st": {
       "G": 0,
       "A": 0,
@@ -7811,13 +9376,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Aziz Behich",
      "num": "16",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "200414",
      "st": {
       "G": 0,
       "A": 0,
@@ -7828,13 +9397,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mathew Leckie",
      "num": "7",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "140994",
      "st": {
       "G": 0,
       "A": 0,
@@ -7845,13 +9418,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ajdin Hrustic",
      "num": "10",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "227289",
      "st": {
       "G": 0,
       "A": 0,
@@ -7862,13 +9439,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Tete Yengi",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "312261",
      "st": {
       "G": 0,
       "A": 0,
@@ -7879,13 +9460,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Lucas Herrington",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "392320",
      "st": {
       "G": 0,
       "A": 0,
@@ -7896,13 +9481,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Milos Degenek",
      "num": "2",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "159502",
      "st": {
       "G": 0,
       "A": 0,
@@ -7913,13 +9502,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Jackson Irvine",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "178071",
      "st": {
       "G": 0,
       "A": 0,
@@ -7930,13 +9523,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Nishan Velupillay",
      "num": "23",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "318429",
      "st": {
       "G": 0,
       "A": 0,
@@ -7947,7 +9544,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -7959,6 +9557,9 @@
      "name": "Ugurcan \u00c7akir",
      "num": "23",
      "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "222922",
      "st": {
       "G": 0,
       "A": 0,
@@ -7969,13 +9570,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 2,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Abd\u00fclkerim Bardak\u00e7i",
      "num": "14",
      "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "193149",
      "st": {
       "G": 0,
       "A": 0,
@@ -7986,13 +9591,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Merih Demiral",
      "num": "3",
      "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "267178",
      "st": {
       "G": 0,
       "A": 0,
@@ -8003,13 +9612,17 @@
       "OFF": 2,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Ferdi Kadioglu",
      "num": "20",
      "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "238318",
      "st": {
       "G": 0,
       "A": 0,
@@ -8020,13 +9633,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Zeki \u00c7elik",
      "num": "2",
      "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "271873",
      "st": {
       "G": 0,
       "A": 0,
@@ -8037,13 +9654,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Orkun K\u00f6k\u00e7\u00fc",
      "num": "6",
      "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "272700",
      "st": {
       "G": 0,
       "A": 0,
@@ -8054,13 +9675,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Hakan \u00c7alhanoglu",
      "num": "10",
      "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "170785",
      "st": {
       "G": 0,
       "A": 0,
@@ -8071,13 +9696,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Ismail Y\u00fcksek",
      "num": "16",
      "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "305629",
      "st": {
       "G": 0,
       "A": 0,
@@ -8088,13 +9717,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Kerem Akt\u00fcrkoglu",
      "num": "7",
      "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "306789",
      "st": {
       "G": 0,
       "A": 0,
@@ -8105,13 +9738,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     },
     {
      "name": "Baris Alper Yilmaz",
      "num": "21",
      "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "322538",
      "st": {
       "G": 0,
       "A": 0,
@@ -8122,13 +9759,17 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Arda G\u00fcler",
      "num": "8",
      "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "310452",
      "st": {
       "G": 0,
       "A": 0,
@@ -8139,7 +9780,8 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2
+      "GC": 2,
+      "SF": 0
      }
     }
    ],
@@ -8148,6 +9790,9 @@
      "name": "Yunus Akg\u00fcn",
      "num": "19",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "266575",
      "st": {
       "G": 0,
       "A": 0,
@@ -8158,13 +9803,17 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Deniz G\u00fcl",
      "num": "9",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "350513",
      "st": {
       "G": 0,
       "A": 0,
@@ -8175,13 +9824,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kaan Ayhan",
      "num": "22",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "159146",
      "st": {
       "G": 0,
       "A": 0,
@@ -8192,13 +9845,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Kenan Yildiz",
      "num": "11",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "366509",
      "st": {
       "G": 0,
       "A": 0,
@@ -8209,13 +9866,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1
+      "GC": 1,
+      "SF": 0
      }
     },
     {
      "name": "Oguz Aydin",
      "num": "24",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "322813",
      "st": {
       "G": 0,
       "A": 0,
@@ -8226,13 +9887,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Altay Bayindir",
      "num": "12",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "274272",
      "st": {
       "G": 0,
       "A": 0,
@@ -8243,13 +9908,17 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Salih \u00d6zcan",
      "num": "5",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "225563",
      "st": {
       "G": 0,
       "A": 0,
@@ -8260,13 +9929,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Can Uzun",
      "num": "26",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "355369",
      "st": {
       "G": 0,
       "A": 0,
@@ -8277,13 +9950,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Ozan Kabak",
      "num": "15",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "266565",
      "st": {
       "G": 0,
       "A": 0,
@@ -8294,13 +9971,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Samet Akaydin",
      "num": "25",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "322807",
      "st": {
       "G": 0,
       "A": 0,
@@ -8311,13 +9992,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Irfan Can Kahveci",
      "num": "17",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "211923",
      "st": {
       "G": 0,
       "A": 0,
@@ -8328,13 +10013,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "\u00c7aglar S\u00f6y\u00fcnc\u00fc",
      "num": "4",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "230757",
      "st": {
       "G": 0,
       "A": 0,
@@ -8345,13 +10034,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Eren Elmali",
      "num": "13",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "287678",
      "st": {
       "G": 0,
       "A": 0,
@@ -8362,13 +10055,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mert M\u00fcld\u00fcr",
      "num": "18",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "266002",
      "st": {
       "G": 0,
       "A": 0,
@@ -8379,13 +10076,17 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     },
     {
      "name": "Mert G\u00fcnok",
      "num": "1",
      "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "124880",
      "st": {
       "G": 0,
       "A": 0,
@@ -8396,7 +10097,8 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0
+      "GC": 0,
+      "SF": 0
      }
     }
    ]
@@ -8497,21 +10199,21 @@
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "28.3",
+    "possessionPct": "28.4",
     "totalShots": "9",
     "shotsOnTarget": "4",
     "wonCorners": "5",
-    "totalPasses": "270",
+    "totalPasses": "271",
     "foulsCommitted": "12",
     "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "16",
-    "interceptions": "6",
+    "totalTackles": "15",
+    "interceptions": "7",
     "saves": "8"
    },
    "away": {
-    "possessionPct": "71.7",
+    "possessionPct": "71.6",
     "totalShots": "30",
     "shotsOnTarget": "8",
     "wonCorners": "8",
@@ -8553,6 +10255,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.1839968258166909,
+   "d": 0.26107657717233174,
+   "a": 0.5549265970109775,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "Germany|Cura\u00e7ao": {
@@ -8567,6 +10275,7 @@
      "pos": "G",
      "posAbbr": "G",
      "fp": "1",
+     "aid": "84774",
      "st": {
       "G": 0,
       "A": 0,
@@ -8587,6 +10296,7 @@
      "pos": "D",
      "posAbbr": "CD-L",
      "fp": "6",
+     "aid": "286828",
      "st": {
       "G": 1,
       "A": 0,
@@ -8607,6 +10317,7 @@
      "pos": "D",
      "posAbbr": "CD-R",
      "fp": "5",
+     "aid": "188052",
      "st": {
       "G": 0,
       "A": 0,
@@ -8627,6 +10338,7 @@
      "pos": "D",
      "posAbbr": "LB",
      "fp": "3",
+     "aid": "120829",
      "st": {
       "G": 1,
       "A": 1,
@@ -8647,6 +10359,7 @@
      "pos": "D",
      "posAbbr": "RB",
      "fp": "2",
+     "aid": "190161",
      "st": {
       "G": 0,
       "A": 2,
@@ -8667,6 +10380,7 @@
      "pos": "M",
      "posAbbr": "AM",
      "fp": "10",
+     "aid": "303821",
      "st": {
       "G": 1,
       "A": 0,
@@ -8687,6 +10401,7 @@
      "pos": "M",
      "posAbbr": "LM",
      "fp": "4",
+     "aid": "359370",
      "st": {
       "G": 0,
       "A": 0,
@@ -8707,6 +10422,7 @@
      "pos": "M",
      "posAbbr": "RM",
      "fp": "8",
+     "aid": "281122",
      "st": {
       "G": 1,
       "A": 0,
@@ -8727,6 +10443,7 @@
      "pos": "F",
      "posAbbr": "F",
      "fp": "9",
+     "aid": "231182",
      "st": {
       "G": 2,
       "A": 0,
@@ -8747,6 +10464,7 @@
      "pos": "M",
      "posAbbr": "AM-L",
      "fp": "11",
+     "aid": "303748",
      "st": {
       "G": 0,
       "A": 1,
@@ -8767,6 +10485,7 @@
      "pos": "M",
      "posAbbr": "AM-R",
      "fp": "7",
+     "aid": "202641",
      "st": {
       "G": 0,
       "A": 0,
@@ -8789,6 +10508,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "249548",
      "st": {
       "G": 0,
       "A": 0,
@@ -8809,6 +10529,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "298349",
      "st": {
       "G": 0,
       "A": 0,
@@ -8829,6 +10550,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "290232",
      "st": {
       "G": 0,
       "A": 0,
@@ -8849,6 +10571,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "273300",
      "st": {
       "G": 1,
       "A": 2,
@@ -8869,6 +10592,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "220714",
      "st": {
       "G": 0,
       "A": 0,
@@ -8889,6 +10613,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "290811",
      "st": {
       "G": 0,
       "A": 0,
@@ -8909,6 +10634,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "205750",
      "st": {
       "G": 0,
       "A": 0,
@@ -8929,6 +10655,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "174550",
      "st": {
       "G": 0,
       "A": 0,
@@ -8949,6 +10676,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "169438",
      "st": {
       "G": 0,
       "A": 0,
@@ -8969,6 +10697,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "303444",
      "st": {
       "G": 0,
       "A": 0,
@@ -8989,6 +10718,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "210818",
      "st": {
       "G": 0,
       "A": 0,
@@ -9009,6 +10739,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "138213",
      "st": {
       "G": 0,
       "A": 0,
@@ -9029,6 +10760,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "132659",
      "st": {
       "G": 0,
       "A": 0,
@@ -9049,6 +10781,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "364897",
      "st": {
       "G": 0,
       "A": 0,
@@ -9069,6 +10802,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "290639",
      "st": {
       "G": 0,
       "A": 0,
@@ -9094,6 +10828,7 @@
      "pos": "G",
      "posAbbr": "G",
      "fp": "1",
+     "aid": "127444",
      "st": {
       "G": 0,
       "A": 0,
@@ -9114,6 +10849,7 @@
      "pos": "D",
      "posAbbr": "CD-L",
      "fp": "6",
+     "aid": "245918",
      "st": {
       "G": 0,
       "A": 0,
@@ -9134,6 +10870,7 @@
      "pos": "D",
      "posAbbr": "CD-R",
      "fp": "5",
+     "aid": "188411",
      "st": {
       "G": 0,
       "A": 0,
@@ -9154,6 +10891,7 @@
      "pos": "D",
      "posAbbr": "LB",
      "fp": "3",
+     "aid": "335203",
      "st": {
       "G": 0,
       "A": 0,
@@ -9174,6 +10912,7 @@
      "pos": "D",
      "posAbbr": "RB",
      "fp": "2",
+     "aid": "224786",
      "st": {
       "G": 0,
       "A": 0,
@@ -9194,6 +10933,7 @@
      "pos": "M",
      "posAbbr": "M",
      "fp": "10",
+     "aid": "297299",
      "st": {
       "G": 0,
       "A": 0,
@@ -9214,6 +10954,7 @@
      "pos": "M",
      "posAbbr": "CM",
      "fp": "4",
+     "aid": "138664",
      "st": {
       "G": 0,
       "A": 0,
@@ -9234,6 +10975,7 @@
      "pos": "M",
      "posAbbr": "AM",
      "fp": "8",
+     "aid": "276218",
      "st": {
       "G": 0,
       "A": 0,
@@ -9254,6 +10996,7 @@
      "pos": "M",
      "posAbbr": "LM",
      "fp": "11",
+     "aid": "216287",
      "st": {
       "G": 0,
       "A": 0,
@@ -9274,6 +11017,7 @@
      "pos": "M",
      "posAbbr": "RM",
      "fp": "7",
+     "aid": "317285",
      "st": {
       "G": 1,
       "A": 0,
@@ -9294,6 +11038,7 @@
      "pos": "F",
      "posAbbr": "CF-R",
      "fp": "9",
+     "aid": "167213",
      "st": {
       "G": 0,
       "A": 0,
@@ -9316,6 +11061,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "306553",
      "st": {
       "G": 0,
       "A": 0,
@@ -9336,6 +11082,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "246281",
      "st": {
       "G": 0,
       "A": 0,
@@ -9356,6 +11103,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "297542",
      "st": {
       "G": 0,
       "A": 0,
@@ -9376,6 +11124,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "262738",
      "st": {
       "G": 0,
       "A": 0,
@@ -9396,6 +11145,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "178433",
      "st": {
       "G": 0,
       "A": 0,
@@ -9416,6 +11166,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "178273",
      "st": {
       "G": 0,
       "A": 0,
@@ -9436,6 +11187,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "177058",
      "st": {
       "G": 0,
       "A": 0,
@@ -9456,6 +11208,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "359132",
      "st": {
       "G": 0,
       "A": 0,
@@ -9476,6 +11229,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "301441",
      "st": {
       "G": 0,
       "A": 0,
@@ -9496,6 +11250,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "310925",
      "st": {
       "G": 0,
       "A": 0,
@@ -9516,6 +11271,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "301456",
      "st": {
       "G": 0,
       "A": 0,
@@ -9536,6 +11292,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "262109",
      "st": {
       "G": 0,
       "A": 0,
@@ -9556,6 +11313,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "188452",
      "st": {
       "G": 0,
       "A": 0,
@@ -9576,6 +11334,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "273295",
      "st": {
       "G": 0,
       "A": 0,
@@ -9596,6 +11355,7 @@
      "pos": "M",
      "posAbbr": "",
      "fp": "0",
+     "aid": "270807",
      "st": {
       "G": 0,
       "A": 0,
@@ -9734,25 +11494,25 @@
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "64.7",
+    "possessionPct": "64.6",
     "totalShots": "26",
     "shotsOnTarget": "12",
     "wonCorners": "8",
-    "totalPasses": "635",
+    "totalPasses": "637",
     "foulsCommitted": "18",
     "offsides": "0",
     "yellowCards": "0",
     "redCards": "0",
     "totalTackles": "19",
-    "interceptions": "10",
+    "interceptions": "12",
     "saves": "1"
    },
    "away": {
-    "possessionPct": "35.3",
+    "possessionPct": "35.4",
     "totalShots": "8",
     "shotsOnTarget": "2",
     "wonCorners": "1",
-    "totalPasses": "341",
+    "totalPasses": "343",
     "foulsCommitted": "11",
     "offsides": "1",
     "yellowCards": "0",
@@ -9790,6 +11550,12 @@
     "saves": false
    }
   },
+  "market": {
+   "h": 0.9089128305582761,
+   "d": 0.05870062030688867,
+   "a": 0.03238654913483512,
+   "prov": "DraftKings"
+  },
   "final": true
  },
  "Netherlands|Japan": {
@@ -9804,6 +11570,7 @@
      "pos": "G",
      "posAbbr": "G",
      "fp": "1",
+     "aid": "291609",
      "st": {
       "G": 0,
       "A": 0,
@@ -9824,6 +11591,7 @@
      "pos": "D",
      "posAbbr": "CD-L",
      "fp": "6",
+     "aid": "157892",
      "st": {
       "G": 1,
       "A": 0,
@@ -9844,6 +11612,7 @@
      "pos": "D",
      "posAbbr": "CD-R",
      "fp": "5",
+     "aid": "282583",
      "st": {
       "G": 0,
       "A": 0,
@@ -9864,6 +11633,7 @@
      "pos": "D",
      "posAbbr": "LB",
      "fp": "3",
+     "aid": "296512",
      "st": {
       "G": 0,
       "A": 0,
@@ -9884,6 +11654,7 @@
      "pos": "D",
      "posAbbr": "RB",
      "fp": "2",
+     "aid": "213248",
      "st": {
       "G": 0,
       "A": 0,
@@ -9904,6 +11675,7 @@
      "pos": "M",
      "posAbbr": "CM",
      "fp": "4",
+     "aid": "219022",
      "st": {
       "G": 0,
       "A": 0,
@@ -9924,6 +11696,7 @@
      "pos": "M",
      "posAbbr": "LM",
      "fp": "8",
+     "aid": "261328",
      "st": {
       "G": 0,
       "A": 0,
@@ -9944,6 +11717,7 @@
      "pos": "M",
      "posAbbr": "RM",
      "fp": "7",
+     "aid": "274632",
      "st": {
       "G": 0,
       "A": 2,
@@ -9964,6 +11738,7 @@
      "pos": "F",
      "posAbbr": "F",
      "fp": "9",
+     "aid": "259481",
      "st": {
       "G": 0,
       "A": 0,
@@ -9984,6 +11759,7 @@
      "pos": "F",
      "posAbbr": "LF",
      "fp": "11",
+     "aid": "249524",
      "st": {
       "G": 0,
       "A": 0,
@@ -10004,6 +11780,7 @@
      "pos": "F",
      "posAbbr": "RF",
      "fp": "10",
+     "aid": "284792",
      "st": {
       "G": 1,
       "A": 0,
@@ -10026,6 +11803,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "282186",
      "st": {
       "G": 0,
       "A": 0,
@@ -10046,6 +11824,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "264828",
      "st": {
       "G": 0,
       "A": 0,
@@ -10066,6 +11845,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "245916",
      "st": {
       "G": 0,
       "A": 0,
@@ -10086,6 +11866,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "258968",
      "st": {
       "G": 0,
       "A": 0,
@@ -10106,6 +11887,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "240965",
      "st": {
       "G": 0,
       "A": 0,
@@ -10126,6 +11908,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "301449",
      "st": {
       "G": 0,
       "A": 0,
@@ -10146,6 +11929,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "282230",
      "st": {
       "G": 0,
       "A": 0,
@@ -10166,6 +11950,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "159248",
      "st": {
       "G": 0,
       "A": 0,
@@ -10186,6 +11971,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "177042",
      "st": {
       "G": 0,
       "A": 0,
@@ -10206,6 +11992,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "177821",
      "st": {
       "G": 0,
       "A": 0,
@@ -10226,6 +12013,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "159255",
      "st": {
       "G": 0,
       "A": 0,
@@ -10246,6 +12034,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "255344",
      "st": {
       "G": 0,
       "A": 0,
@@ -10266,6 +12055,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "146335",
      "st": {
       "G": 0,
       "A": 0,
@@ -10286,6 +12076,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "353951",
      "st": {
       "G": 0,
       "A": 0,
@@ -10306,6 +12097,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "282229",
      "st": {
       "G": 0,
       "A": 0,
@@ -10331,6 +12123,7 @@
      "pos": "G",
      "posAbbr": "G",
      "fp": "1",
+     "aid": "265958",
      "st": {
       "G": 0,
       "A": 0,
@@ -10351,6 +12144,7 @@
      "pos": "D",
      "posAbbr": "CD",
      "fp": "5",
+     "aid": "202728",
      "st": {
       "G": 0,
       "A": 0,
@@ -10371,6 +12165,7 @@
      "pos": "D",
      "posAbbr": "CD-L",
      "fp": "4",
+     "aid": "97111",
      "st": {
       "G": 0,
       "A": 0,
@@ -10391,6 +12186,7 @@
      "pos": "D",
      "posAbbr": "CD-R",
      "fp": "6",
+     "aid": "276279",
      "st": {
       "G": 0,
       "A": 0,
@@ -10411,6 +12207,7 @@
      "pos": "M",
      "posAbbr": "CM-L",
      "fp": "8",
+     "aid": "219362",
      "st": {
       "G": 1,
       "A": 0,
@@ -10431,6 +12228,7 @@
      "pos": "M",
      "posAbbr": "CM-R",
      "fp": "7",
+     "aid": "357030",
      "st": {
       "G": 0,
       "A": 0,
@@ -10451,6 +12249,7 @@
      "pos": "M",
      "posAbbr": "LM",
      "fp": "3",
+     "aid": "265953",
      "st": {
       "G": 1,
       "A": 0,
@@ -10471,6 +12270,7 @@
      "pos": "M",
      "posAbbr": "RM",
      "fp": "2",
+     "aid": "219627",
      "st": {
       "G": 0,
       "A": 0,
@@ -10491,6 +12291,7 @@
      "pos": "F",
      "posAbbr": "F",
      "fp": "9",
+     "aid": "274277",
      "st": {
       "G": 0,
       "A": 0,
@@ -10511,6 +12312,7 @@
      "pos": "F",
      "posAbbr": "CF-L",
      "fp": "11",
+     "aid": "286347",
      "st": {
       "G": 0,
       "A": 0,
@@ -10531,6 +12333,7 @@
      "pos": "F",
      "posAbbr": "CF-R",
      "fp": "10",
+     "aid": "256587",
      "st": {
       "G": 0,
       "A": 1,
@@ -10553,6 +12356,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "219350",
      "st": {
       "G": 0,
       "A": 0,
@@ -10573,6 +12377,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "238016",
      "st": {
       "G": 0,
       "A": 1,
@@ -10593,6 +12398,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "119082",
      "st": {
       "G": 0,
       "A": 0,
@@ -10613,6 +12419,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "362959",
      "st": {
       "G": 0,
       "A": 0,
@@ -10633,6 +12440,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "346208",
      "st": {
       "G": 0,
       "A": 0,
@@ -10653,6 +12461,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "303031",
      "st": {
       "G": 0,
       "A": 0,
@@ -10673,6 +12482,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "258270",
      "st": {
       "G": 0,
       "A": 0,
@@ -10693,6 +12503,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "312924",
      "st": {
       "G": 0,
       "A": 0,
@@ -10713,6 +12524,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "271352",
      "st": {
       "G": 0,
       "A": 0,
@@ -10733,6 +12545,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "238033",
      "st": {
       "G": 0,
       "A": 0,
@@ -10753,6 +12566,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "333663",
      "st": {
       "G": 0,
       "A": 0,
@@ -10773,6 +12587,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "255723",
      "st": {
       "G": 0,
       "A": 0,
@@ -10793,6 +12608,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "253173",
      "st": {
       "G": 0,
       "A": 0,
@@ -10813,6 +12629,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "265965",
      "st": {
       "G": 0,
       "A": 0,
@@ -10833,6 +12650,7 @@
      "pos": "M",
      "posAbbr": "SUB",
      "fp": "0",
+     "aid": "238004",
      "st": {
       "G": 0,
       "A": 0,
@@ -10959,7 +12777,7 @@
     "player": "Cody Gakpo"
    },
    {
-    "min": 88,
+    "min": 89,
     "team": "away",
     "type": "goal",
     "detail": "Normal Goal",
@@ -10980,7 +12798,7 @@
     "totalShots": "10",
     "shotsOnTarget": "6",
     "wonCorners": "5",
-    "totalPasses": "525",
+    "totalPasses": "524",
     "foulsCommitted": "7",
     "offsides": "1",
     "yellowCards": "3",
@@ -10994,7 +12812,7 @@
     "totalShots": "10",
     "shotsOnTarget": "3",
     "wonCorners": "4",
-    "totalPasses": "342",
+    "totalPasses": "341",
     "foulsCommitted": "7",
     "offsides": "0",
     "yellowCards": "0",
@@ -11031,6 +12849,12 @@
     "interceptions": false,
     "saves": false
    }
+  },
+  "market": {
+   "h": 0.46975354742345027,
+   "d": 0.27632561613144135,
+   "a": 0.25392083644510827,
+   "prov": "DraftKings"
   },
   "final": true
  },
@@ -12246,7 +14070,7 @@
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "48.3",
+    "possessionPct": "48.4",
     "totalShots": "15",
     "shotsOnTarget": "4",
     "wonCorners": "3",
@@ -12255,16 +14079,16 @@
     "offsides": "0",
     "yellowCards": "3",
     "redCards": "0",
-    "totalTackles": "15",
+    "totalTackles": "14",
     "interceptions": "11",
     "saves": "1"
    },
    "away": {
-    "possessionPct": "51.7",
+    "possessionPct": "51.6",
     "totalShots": "12",
     "shotsOnTarget": "1",
     "wonCorners": "6",
-    "totalPasses": "494",
+    "totalPasses": "492",
     "foulsCommitted": "13",
     "offsides": "0",
     "yellowCards": "1",
@@ -12301,6 +14125,12 @@
     "interceptions": false,
     "saves": false
    }
+  },
+  "market": {
+   "h": 0.29556650246305427,
+   "d": 0.3201970443349754,
+   "a": 0.38423645320197053,
+   "prov": "DraftKings"
   },
   "final": true
  },
@@ -13541,31 +15371,31 @@
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "49.1",
+    "possessionPct": "48.7",
     "totalShots": "13",
     "shotsOnTarget": "7",
     "wonCorners": "4",
-    "totalPasses": "355",
+    "totalPasses": "356",
     "foulsCommitted": "10",
     "offsides": "3",
     "yellowCards": "0",
     "redCards": "0",
     "totalTackles": "14",
-    "interceptions": "8",
+    "interceptions": "6",
     "saves": "1"
    },
    "away": {
-    "possessionPct": "50.9",
+    "possessionPct": "51.3",
     "totalShots": "6",
     "shotsOnTarget": "2",
     "wonCorners": "2",
-    "totalPasses": "364",
+    "totalPasses": "371",
     "foulsCommitted": "8",
     "offsides": "6",
     "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "20",
-    "interceptions": "5",
+    "totalTackles": "21",
+    "interceptions": "6",
     "saves": "1"
    },
    "labels": {
@@ -13596,6 +15426,12 @@
     "interceptions": false,
     "saves": false
    }
+  },
+  "market": {
+   "h": 0.5035906642728906,
+   "d": 0.2827648114901257,
+   "a": 0.21364452423698385,
+   "prov": "DraftKings"
   },
   "final": true
  }

@@ -118,6 +118,31 @@ def minute(ev):
     return int(m.group(1)) if m else 0
 
 
+def _ml_to_prob(ml):
+    try:
+        ml = float(ml)
+    except (TypeError, ValueError):
+        return None
+    return 100.0 / (ml + 100.0) if ml > 0 else (-ml) / ((-ml) + 100.0)
+
+
+def parse_market(summ):
+    """Bookmaker-implied H/D/A from ESPN pickcenter money lines (over-round removed)."""
+    for o in (summ.get("pickcenter") or []):
+        h = _ml_to_prob((o.get("homeTeamOdds") or {}).get("moneyLine"))
+        a = _ml_to_prob((o.get("awayTeamOdds") or {}).get("moneyLine"))
+        d = _ml_to_prob((o.get("drawOdds") or {}).get("moneyLine"))
+        if h is None or a is None:
+            continue
+        dd = d or 0.0
+        tot = h + dd + a
+        if tot <= 0:
+            continue
+        return {"h": h / tot, "d": dd / tot, "a": a / tot,
+                "prov": (o.get("provider") or {}).get("name") or "Market"}
+    return None
+
+
 def parse_summary(summ, our_home, our_away):
     """Map an ESPN summary payload to our lineups.json record (or None)."""
     rosters = summ.get("rosters") or []
@@ -229,6 +254,9 @@ def parse_summary(summ, our_home, our_away):
            "events": events}
     if has_team_stats:
         rec["teamstats"] = teamstats
+    market = parse_market(summ)
+    if market:
+        rec["market"] = market
     return rec
 
 

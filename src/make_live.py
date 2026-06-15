@@ -213,6 +213,21 @@ table.big tbody tr:hover{background:var(--tint)}
 /* match centre */
 .mc{margin-top:18px;display:grid;gap:14px}
 .mcsec{background:var(--surface);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px}
+.scgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.sctile{background:var(--surface);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;text-align:center}
+.sctile .scv{font-size:26px;font-weight:900;color:var(--txt);font-variant-numeric:tabular-nums;line-height:1}
+.sctile .scl{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-top:6px}
+.sctile .scs{font-size:10px;color:var(--mut);opacity:.8;margin-top:2px}
+.mvk{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mvkside .mvkh{font-size:11px;font-weight:800;color:var(--txt);margin-bottom:8px}
+.scbar{display:grid;grid-template-columns:54px 1fr auto;gap:8px;align-items:center;margin:5px 0}
+.scbar .scbl{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px;font-weight:700}
+.scbar .scbb{height:8px;background:var(--track);border-radius:4px;overflow:hidden}
+.scbar .scbb i{display:block;height:100%;border-radius:4px;background:var(--mut);transition:width .4s ease}
+.scbar .scbb i.win{background:var(--live)}
+.scbar .scbv{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--txt)}
+.sctab td .pkpc{color:var(--mut);font-size:11px;font-variant-numeric:tabular-nums}
+.sctab .okp{color:var(--live);font-weight:900}.sctab .nop{color:var(--amber);font-weight:900}
 .mcsec h4{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 .mcsec h4 .tag{font-size:9.5px;font-weight:600;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px;text-transform:none;letter-spacing:0}
 .golog{display:flex;flex-direction:column;gap:7px}
@@ -370,7 +385,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 <body>
 <div id="goalflash"></div>
 <nav><div class="in"><b><span class="lg">26</span> World Cup 26</b>
-<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#bracket">Bracket</a></div></nav>
+<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#scorecard">Accuracy</a><a href="#bracket">Bracket</a></div></nav>
 <div class="wrap">
 <div id="tickerbar"></div>
 
@@ -418,6 +433,11 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
  <div class="card tscroll" id="powerbox"></div>
 </section>
 
+<section id="scorecard">
+ <div class="shead"><h2>Model accuracy — and how it's beating the market</h2><p>Every settled match scored against the model's pre-match prediction, using the same metrics serious forecasters report (Rank Probability Score, log loss, hit rate), benchmarked head-to-head against the betting market and a coin flip.</p></div>
+ <div id="scorecardbox"></div>
+</section>
+
 <section id="bracket">
  <div class="shead"><h2>Projected bracket</h2><p>The current most-likely path given results so far — favourites advancing each tie, with live win probabilities. Completed knockout matches lock in automatically.</p></div>
  <div class="bwrap"><div class="bracket" id="btree"></div></div>
@@ -426,7 +446,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 
 <footer>
  Live engine runs entirely in your browser: <span id="ftN"></span> Monte-Carlo tournaments per refresh, conditioned on real results fetched from the open match database.<br>
- Pre-tournament model: penalised Dixon-Coles (ξ=0.7/yr) ⊗ World Football Elo · Bracket &amp; Annex C: FIFA regulations.<br>
+ Pre-tournament model: penalised Dixon-Coles (ξ=0.4/yr) ⊗ World Football Elo · Bracket &amp; Annex C: FIFA regulations.<br>
  Unofficial fan analytics project — not affiliated with or endorsed by FIFA. Remaining-match probabilities use the pre-tournament model; played results are locked in.
 </footer>
 </div>
@@ -768,7 +788,7 @@ function recompute(){
  setTimeout(()=>{                       // let the spinner paint
   const out=WCLive.runLive(D,{N:NSIMS,results:STATE.results,ko:STATE.ko});
   LAST=out;
-  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderBestXI(); renderTracker(); renderGroups(out); renderOdds(out); renderPower(out); renderBracket(out); renderTickerBar(); refreshOpenModal(); detectGoals();
+  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderBestXI(); renderTracker(); renderGroups(out); renderOdds(out); renderPower(out); renderModelScore(); renderBracket(out); renderTickerBar(); refreshOpenModal(); detectGoals();
  },20);
 }
 /* ---- live score ticker + goal flash ---- */
@@ -967,6 +987,61 @@ function renderPower(out){
  box.innerHTML=`<table class="big"><thead><tr><th>#</th><th>Team</th><th>Grp</th><th>Strength (Elo)</th><th>Champion</th><th>Δ vs forecast</th></tr></thead><tbody>`+
   rows.map((r,i)=>`<tr><td>${i+1}</td><td><span class="gb">${F(r.team)}</span> ${r.team}</td><td>${r.group}</td><td><span class="elobar"><i style="width:${(100*r.elo/maxElo).toFixed(0)}%"></i></span><b>${r.elo}</b></td><td>${pc(r.champ,1)}</td><td>${mv(r.d)}</td></tr>`).join("")+
   `</tbody></table>`;
+}
+
+/* ---- model accuracy scorecard (model vs market vs coin-flip, on settled matches) ---- */
+function hdaFromPmf(pm){ const G=D.grid; let h=0,d=0,a=0;
+ for(let i=0;i<G;i++)for(let j=0;j<G;j++){const p=pm[i*G+j]||0; if(i>j)h+=p; else if(i===j)d+=p; else a+=p;}
+ const s=h+d+a||1; return [h/s,d/s,a/s]; }
+function _rps(p,o){ const c1=p[0],c2=p[0]+p[1],o1=o===0?1:0,o2=o<=1?1:0; return 0.5*((c1-o1)*(c1-o1)+(c2-o2)*(c2-o2)); }
+function _ll(p,o){ return -Math.log(Math.max(1e-12,p[o])); }
+function _brier(p,o){ let s=0; for(let k=0;k<3;k++){const t=k===o?1:0; s+=(p[k]-t)*(p[k]-t);} return s; }
+function renderModelScore(){
+ const box=document.getElementById("scorecardbox"); if(!box)return;
+ const rows=[];
+ D.fixtures.forEach(f=>{ const res=STATE.results[f.id]; if(!res)return; const pm=f.pmf||[]; if(!pm.length)return;
+   const o=res[0]>res[1]?0:(res[0]===res[1]?1:2);
+   const lu=D.lineups[f.home+"|"+f.away]; const mk=lu&&lu.market;
+   rows.push({f,res,o,model:hdaFromPmf(pm),market:mk?[mk.h,mk.d,mk.a]:null}); });
+ if(!rows.length){ box.innerHTML=`<div class="locked">The scorecard fills in as group matches are played.</div>`; return; }
+ const agg=(sel,subset)=>{ let n=0,ll=0,rp=0,br=0,hit=0; (subset||rows).forEach(r=>{const p=sel(r); if(!p)return; n++; ll+=_ll(p,r.o); rp+=_rps(p,r.o); br+=_brier(p,r.o); const mx=Math.max(p[0],p[1],p[2]); if(p[r.o]===mx)hit++;}); return n?{n,ll:ll/n,rp:rp/n,br:br/n,hit:hit/n}:null; };
+ const M=agg(r=>r.model);
+ const U=agg(r=>[1/3,1/3,1/3]);
+ const skill=(1-M.rp/U.rp);                                   // RPS skill score vs coin-flip
+ const withMkt=rows.filter(r=>r.market);
+ const Mh=withMkt.length?agg(r=>r.model,withMkt):null;        // model on the market-covered subset
+ const K=withMkt.length?agg(r=>r.market,withMkt):null;        // the market itself
+ const tile=(lbl,v,sub)=>`<div class="sctile"><div class="scv">${v}</div><div class="scl">${lbl}</div>${sub?`<div class="scs">${sub}</div>`:""}</div>`;
+ let head=`<div class="scgrid">`+
+   tile("matches scored",M.n)+
+   tile("hit rate",pc(M.hit,0),"model's favourite won")+
+   tile("RPS",M.rp.toFixed(3),"lower is better")+
+   tile("log loss",M.ll.toFixed(3),`coin-flip ${U.ll.toFixed(3)}`)+
+   tile("skill vs coin-flip",(skill>=0?"+":"")+pc(skill,0),"RPS improvement")+
+   `</div>`;
+ // head-to-head vs market
+ let h2h="";
+ if(Mh&&K){
+   const dR=K.rp-Mh.rp;                                       // >0 => model better (lower RPS)
+   const verdict = Math.abs(dR)<0.002 ? `<span class="callt">dead level with the market</span>`
+     : dR>0 ? `<span class="callt ok">✓ model ahead of the market</span>` : `<span class="callt mkt">market ahead</span>`;
+   const bar=(lbl,a,b,fmt)=>{const better=a<=b; return `<div class="scbar"><span class="scbl">${lbl}</span><span class="scbb"><i class="${better?'win':''}" style="width:${(100*a/Math.max(a,b)).toFixed(0)}%"></i></span><span class="scbv">${fmt(a)}</span></div>`;};
+   h2h=`<div class="card mcsec" style="margin-top:14px"><h4>Model vs Market <span class="tag">${withMkt.length} matches with odds</span> ${verdict}</h4>`+
+     `<div class="mvk"><div class="mvkside"><div class="mvkh">Our model</div>`+
+       bar("RPS",Mh.rp,K.rp,v=>v.toFixed(3))+bar("Log loss",Mh.ll,K.ll,v=>v.toFixed(3))+bar("Hit rate",1-Mh.hit,1-K.hit,()=>pc(Mh.hit,0))+
+     `</div><div class="mvkside"><div class="mvkh">Bookmaker market</div>`+
+       bar("RPS",K.rp,Mh.rp,v=>v.toFixed(3))+bar("Log loss",K.ll,Mh.ll,v=>v.toFixed(3))+bar("Hit rate",1-K.hit,1-Mh.hit,()=>pc(K.hit,0))+
+     `</div></div><div class="heatcap">Lower RPS / log loss = sharper, better-calibrated probabilities. Market implied from ESPN money lines (vig removed).</div></div>`;
+ }
+ // per-match table
+ const lab=p=>["H","D","A"][p.indexOf(Math.max(p[0],p[1],p[2]))];
+ const pick=(r,p)=> p ? `${lab(p)==="H"?F(r.f.home)+" "+r.f.home:lab(p)==="A"?F(r.f.away)+" "+r.f.away:"Draw"} <span class="pkpc">${pc(Math.max(p[0],p[1],p[2]),0)}</span>` : "—";
+ const okmark=(p,o)=> p ? (p.indexOf(Math.max(p[0],p[1],p[2]))===o?`<span class="okp">✓</span>`:`<span class="nop">✗</span>`) : "";
+ let list=`<div class="card tscroll" style="margin-top:14px"><table class="big sctab"><thead><tr><th>Match</th><th>Result</th><th>Model pick</th><th></th><th>Market pick</th><th></th></tr></thead><tbody>`+
+   rows.slice().reverse().map(r=>{const m=r.model,k=r.market;
+     return `<tr><td>${F(r.f.home)} ${r.f.home} v ${r.f.away} ${F(r.f.away)}</td><td><b>${r.res[0]}–${r.res[1]}</b></td><td>${pick(r,m)}</td><td>${okmark(m,r.o)}</td><td>${pick(r,k)}</td><td>${okmark(k,r.o)}</td></tr>`;}).join("")+
+   `</tbody></table></div>`;
+ box.innerHTML=head+h2h+list;
 }
 
 /* ---- status bar ---- */
