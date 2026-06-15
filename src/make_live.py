@@ -855,6 +855,7 @@ function refreshOpenModal(){
  if(matchStatus(WP.fid)!=="live" || animTimer || !WP.followLive) return;   // only follow live; never fight Replay or a manual scrub
  const f=fixById[WP.fid]; const known=D.goal_events[f.home+"|"+f.away];
  WP.events = known ? known.map(e=>({...e})) : [];
+ WP.reds = redsOf(f);
  const lv=STATE.live&&STATE.live[WP.fid]; const added=(lv&&lv.added)||0;
  if(lv && lv.minute!=null){ const m=Math.max(0,Math.min(90,lv.minute)); WP.minute = (m>=90 && added>0) ? 90+added : m; }
  WP.full = matchFull();
@@ -937,7 +938,7 @@ function renderStats(){
    brier += [0,1,2].reduce((s,j)=>s+(pre[j]-(j===actIdx?1:0))**2,0);
    if(actIdx!==favSide){ if(!upset||favProb>upset.mag) upset={f,score,mag:favProb,
      favName:favSide===0?f.home:f.away, winName:actIdx===1?"Draw":(actIdx===0?f.home:f.away)}; }
-   const full=Math.max(90,...ev.map(e=>e.min+(e.add||0))); const tl=WCInPlay.timeline(f.eh,f.ea,ev,full); let mx=0,mn=1; tl.forEach(p=>{mx=Math.max(mx,p.p[0]);mn=Math.min(mn,p.p[0]);});
+   const full=Math.max(90,...ev.map(e=>e.min+(e.add||0))); const tl=WCInPlay.timeline(f.eh,f.ea,ev,full,redsOf(f)); let mx=0,mn=1; tl.forEach(p=>{mx=Math.max(mx,p.p[0]);mn=Math.min(mn,p.p[0]);});
    const sw=mx-mn; if(!drama||sw>drama.sw) drama={f,score,sw};
    const tot=score[0]+score[1]; if(!hi||tot>hi.tot) hi={f,score,tot};
  });
@@ -1298,7 +1299,14 @@ document.getElementById("ftN").textContent=NSIMS.toLocaleString();
 loadLive().then(scheduleAuto);
 
 /* ===== Win-probability explorer ===== */
-const WP={fid:null,events:[],minute:90,anim:null,mode:"actual",followLive:false};
+const WP={fid:null,events:[],reds:[],minute:90,anim:null,mode:"actual",followLive:false};
+// red-card events for a fixture (from the lineup feed) — drive the man-advantage in the in-play model
+function redsOf(f){ const lu=D.lineups[f.home+"|"+f.away]; if(!lu||!lu.events)return [];
+ return lu.events.filter(e=>e.type==="card"&&e.card==="red").map(e=>({min:e.min,add:e.add||0,team:e.team})); }
+// home/away shots on target so far (live xG proxy) from team stats, or null
+function sotOf(f){ const lu=D.lineups[f.home+"|"+f.away]; const ts=lu&&lu.teamstats; if(!ts)return null;
+ const g=s=>{const v=s&&s.shotsOnTarget; const n=parseInt(String(v==null?"":v),10); return isNaN(n)?null:n;};
+ const h=g(ts.home), a=g(ts.away); return (h==null||a==null)?null:{hsot:h,asot:a}; }
 const ov=document.getElementById("wpov"), modalEl=document.getElementById("wpmodal");
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
 
@@ -1348,6 +1356,7 @@ function openMatch(fid){
  const res=STATE.results[fid];
  const known=D.goal_events[f.home+"|"+f.away];
  WP.status=matchStatus(fid);
+ WP.reds=redsOf(f);                    // red cards drive the man-advantage in the win-prob model
  WP.followLive=(WP.status==="live");   // a freshly-opened live match auto-tracks new goals
  if(WP.status==="ft"){
    WP.events = known ? known.map(e=>({...e})) : (res ? spreadGoals(res[0],res[1]) : []);
@@ -1376,7 +1385,7 @@ function xMap(m,FM){FM=FM||90; return 52+(m/FM)*(1000-52-72);}
 function yMap(p){return 18+(1-p)*(360-18-30);}
 function buildChart(f){
  const FM=WP.full||90;
- const T=WCInPlay.timeline(f.eh,f.ea,WP.events,FM);
+ const T=WCInPlay.timeline(f.eh,f.ea,WP.events,FM,WP.reds);
  const line=(sel)=>T.map(pt=>xMap(pt.m,FM)+","+yMap(pt.p[sel])).join(" ");
  const grid=[0,.25,.5,.75,1].map(v=>`<line class="gridln" x1="52" y1="${yMap(v)}" x2="928" y2="${yMap(v)}"/><text class="axt" x="44" y="${yMap(v)+4}" text-anchor="end">${v*100|0}%</text>`).join("");
  const ticks=[1,15,30,45,60,75,90].filter(m=>m<=FM); if(WP.status!=="live" && FM>90.5)ticks.push(Math.round(FM));   // label the true end only when finished (live tail is model padding)
@@ -1780,13 +1789,18 @@ function drawModal(){
  }
 
  // --- live or finished: real in-play win-probability chart ---
- const T=WCInPlay.timeline(f.eh,f.ea,WP.events,WP.full);
+ const T=WCInPlay.timeline(f.eh,f.ea,WP.events,WP.full,WP.reds);
  const [gh,ga]=WCInPlay.scoreAt(WP.events,WP.minute);
- const cur=T[WP.minute].p;
+ // current readout: for a live match, also reflect red cards + shot dominance at this minute
+ let cur=T[WP.minute].p;
+ if(WP.status==="live"){ const rc=WCInPlay.redsAt(WP.reds,WP.minute), sh=sotOf(f);
+   cur=WCInPlay.probs(f.eh,f.ea,gh,ga,WP.minute,WP.full,Object.assign({},rc,sh||{})); }
  const mlbl=m=>m>90?"90+"+(m-90):(""+m);
  const statusTxt = WP.status==="live" ? `● LIVE — ${mlbl(WP.minute)}′` : "Full time · actual goal timeline";
  const liveNote = (WP.status==="live" && WP.events.length===0)
    ? `<div class="hint" style="margin-top:8px">No goals reported yet — showing the live win probability at the current scoreline. The full goal-by-goal timeline fills in as the match progresses.</div>` : "";
+ const redNote = (WP.reds&&WP.reds.length)
+   ? `<div class="hint" style="margin-top:6px">🟥 Model adjusts for the red card${WP.reds.length>1?"s":""}: ${WP.reds.map(r=>(F(r.team==="home"?f.home:f.away)+" "+(r.team==="home"?f.home:f.away)+" "+r.min+"′")).join(", ")} — a side down to ten scores less and concedes more${WP.status==="live"&&sotOf(f)?", and the live readout reflects shot dominance":""}.</div>` : "";
  modalEl.innerHTML=`
   <button class="close" id="wpclose">✕</button>
   <div class="mh"><span class="tn">${F(f.home)} ${f.home}</span><span class="sc">${gh} – ${ga}</span><span class="tn">${f.away} ${F(f.away)}</span></div>
@@ -1798,7 +1812,7 @@ function drawModal(){
   <div class="ctrls">
    <div class="seg"><button class="solid" id="wpplay">▶ Replay</button><button id="wprewind">↺</button></div>
   </div>
-  ${liveNote}
+  ${liveNote}${redNote}
   <div class="hint">Remaining-time goals modelled as Poisson(xG × time left) — exact in-play win probability from the real scoreline. Drag to scrub the minute, or press Replay.</div>
   ${matchCentre(f)}`;
  document.getElementById("wpclose").onclick=closeModal;
