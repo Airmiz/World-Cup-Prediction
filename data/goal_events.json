@@ -176,5 +176,12 @@
       "team": "away",
       "name": "Daichi Kamada"
     }
+  ],
+  "Ivory Coast|Ecuador": [
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Amad Diallo"
+    }
   ]
 }
