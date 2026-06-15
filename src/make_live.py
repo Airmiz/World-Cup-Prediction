@@ -228,6 +228,26 @@ table.big tbody tr:hover{background:var(--tint)}
 .scbar .scbv{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--txt)}
 .sctab td .pkpc{color:var(--mut);font-size:11px;font-variant-numeric:tabular-nums}
 .sctab .okp{color:var(--live);font-weight:900}.sctab .nop{color:var(--amber);font-weight:900}
+.wiftop{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:10px}
+.wifhint{font-size:11px;color:var(--mut)}
+.wifgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:8px 18px}
+.wifgrp{padding:4px 0}
+.wifgl{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:6px 0 4px}
+.wifrow{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:3px 0}
+.wift{font-size:12px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wift.a{text-align:right}
+.wifbtns{display:flex;gap:3px}
+.wifbtns button{width:26px;height:24px;border:1px solid var(--border);background:var(--surface);color:var(--mut);border-radius:6px;font-weight:800;font-size:11px;cursor:pointer;transition:.15s}
+.wifbtns button:hover{border-color:var(--blue)}
+.wifbtns button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.wifimpact{margin-top:14px}
+.wifcols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.wifh{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.wifh.up{color:var(--live)}.wifh.dn{color:var(--amber)}
+.wifm{display:flex;align-items:center;gap:7px;font-size:13px;padding:4px 0;border-bottom:1px solid var(--border)}
+.wifm .wifd{margin-left:auto;font-weight:800;font-size:11px;font-variant-numeric:tabular-nums}
+.wifm .wifd.up{color:var(--live)}.wifm .wifd.dn{color:var(--amber)}
+.wifm .wifnow{font-weight:700;font-variant-numeric:tabular-nums;color:var(--mut);min-width:42px;text-align:right}
 .mcsec h4{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 .mcsec h4 .tag{font-size:9.5px;font-weight:600;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px;text-transform:none;letter-spacing:0}
 .golog{display:flex;flex-direction:column;gap:7px}
@@ -385,7 +405,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 <body>
 <div id="goalflash"></div>
 <nav><div class="in"><b><span class="lg">26</span> World Cup 26</b>
-<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#scorecard">Accuracy</a><a href="#bracket">Bracket</a></div></nav>
+<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#scorecard">Accuracy</a><a href="#bracket">Bracket</a><a href="#whatif">What if?</a></div></nav>
 <div class="wrap">
 <div id="tickerbar"></div>
 
@@ -442,6 +462,11 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
  <div class="shead"><h2>Projected bracket</h2><p>The current most-likely path given results so far — favourites advancing each tie, with live win probabilities. Completed knockout matches lock in automatically.</p></div>
  <div class="bwrap"><div class="bracket" id="btree"></div></div>
  <div class="note" id="bracketnote"></div>
+</section>
+
+<section id="whatif">
+ <div class="shead"><h2>What-if simulator</h2><p>Set the result of any remaining group match and watch the model re-run thousands of tournaments live — see exactly how each scenario reshapes the title race. Stack as many as you like.</p></div>
+ <div class="card" id="whatifbox" style="padding:16px"></div>
 </section>
 
 <footer>
@@ -788,7 +813,7 @@ function recompute(){
  setTimeout(()=>{                       // let the spinner paint
   const out=WCLive.runLive(D,{N:NSIMS,results:STATE.results,ko:STATE.ko});
   LAST=out;
-  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderBestXI(); renderTracker(); renderGroups(out); renderOdds(out); renderPower(out); renderModelScore(); renderBracket(out); renderTickerBar(); refreshOpenModal(); detectGoals();
+  renderStatus(); renderBig(out); renderFeed(); renderStats(); renderBestXI(); renderTracker(); renderGroups(out); renderOdds(out); renderPower(out); renderModelScore(); renderBracket(out); renderWhatIf(); renderTickerBar(); refreshOpenModal(); detectGoals();
  },20);
 }
 /* ---- live score ticker + goal flash ---- */
@@ -987,6 +1012,45 @@ function renderPower(out){
  box.innerHTML=`<table class="big"><thead><tr><th>#</th><th>Team</th><th>Grp</th><th>Strength (Elo)</th><th>Champion</th><th>Δ vs forecast</th></tr></thead><tbody>`+
   rows.map((r,i)=>`<tr><td>${i+1}</td><td><span class="gb">${F(r.team)}</span> ${r.team}</td><td>${r.group}</td><td><span class="elobar"><i style="width:${(100*r.elo/maxElo).toFixed(0)}%"></i></span><b>${r.elo}</b></td><td>${pc(r.champ,1)}</td><td>${mv(r.d)}</td></tr>`).join("")+
   `</tbody></table>`;
+}
+
+/* ---- what-if simulator: overlay hypothetical group results, re-run the engine, show title-race shift ---- */
+let WIF={}, WIF_BUILT=false;
+function whatifScores(){ const m={H:[1,0],D:[1,1],A:[0,1]}, o={}; for(const fid in WIF) o[fid]=m[WIF[fid]]; return o; }
+function runWhatIf(){
+ const box=document.getElementById("wifimpact"); if(!box)return;
+ if(!Object.keys(WIF).length){ box.innerHTML=`<div class="locked">Pick one or more results above to see how the title race shifts.</div>`; return; }
+ const merged=Object.assign({}, whatifScores(), STATE.results);   // real results always win over hypotheticals
+ const out=WCLive.runLive(D,{N:Math.min(NSIMS,30000), results:merged, ko:STATE.ko, seed:99});
+ const baseC=(LAST&&LAST.champion)||{};
+ const all=D.teams.map(t=>{const now=out.champion[t]||0, was=baseC[t]||0; return {t,now,d:now-was};});
+ const movers=all.filter(x=>Math.abs(x.d)>0.0015).sort((a,b)=>b.d-a.d);
+ const ups=movers.filter(x=>x.d>0).slice(0,6), dns=movers.filter(x=>x.d<0).sort((a,b)=>a.d-b.d).slice(0,6);
+ const chip=x=>`<div class="wifm"><span class="gb">${F(x.t)}</span> ${x.t}<span class="wifd ${x.d>0?'up':'dn'}">${x.d>0?'▲':'▼'} ${pc(Math.abs(x.d),1)}</span><span class="wifnow">${pc(x.now,1)}</span></div>`;
+ box.innerHTML=`<div class="wifcols"><div><div class="wifh up">Title chances rise</div>${ups.length?ups.map(chip).join(""):'<div class="locked">—</div>'}</div>`+
+   `<div><div class="wifh dn">Title chances fall</div>${dns.length?dns.map(chip).join(""):'<div class="locked">—</div>'}</div></div>`+
+   `<div class="heatcap">${Object.keys(WIF).length} hypothetical result(s) · ${Math.min(NSIMS,30000).toLocaleString()} tournaments re-simulated · Δ vs the live forecast</div>`;
+}
+function renderWhatIf(){
+ if(WIF_BUILT) return;
+ const box=document.getElementById("whatifbox"); if(!box)return;
+ const rem=D.fixtures.filter(f=>!STATE.results[f.id] && !(STATE.live&&STATE.live[f.id]));
+ if(!rem.length){ box.innerHTML=`<div class="locked">All group matches are decided — the what-if simulator returns for the knockout rounds.</div>`; WIF_BUILT=true; return; }
+ const byG={}; rem.forEach(f=>{(byG[f.group]=byG[f.group]||[]).push(f);});
+ const btn=(f,o,lbl)=>`<button data-fid="${f.id}" data-out="${o}" class="${WIF[f.id]===o?'on':''}">${lbl}</button>`;
+ const row=f=>`<div class="wifrow"><span class="wift">${F(f.home)} ${f.home}</span><span class="wifbtns">${btn(f,'H','1')}${btn(f,'D','X')}${btn(f,'A','2')}</span><span class="wift a">${f.away} ${F(f.away)}</span></div>`;
+ const groups=Object.keys(byG).sort().map(g=>`<div class="wifgrp"><div class="wifgl">Group ${g}</div>${byG[g].map(row).join("")}</div>`).join("");
+ box.innerHTML=`<div class="wiftop"><span class="wifhint">1 = left team wins · X = draw · 2 = right team wins</span><button class="btn ghost" id="wifreset">Reset</button></div>`+
+   `<div class="wifgrid">${groups}</div><div id="wifimpact" class="wifimpact"></div>`;
+ box.querySelector(".wifgrid").addEventListener("click",e=>{ const b=e.target.closest("button[data-fid]"); if(!b)return;
+   const fid=b.dataset.fid, o=b.dataset.out;
+   if(WIF[fid]===o) delete WIF[fid]; else WIF[fid]=o;
+   b.closest(".wifrow").querySelectorAll("button[data-fid]").forEach(x=>x.classList.toggle("on", WIF[x.dataset.fid]===x.dataset.out));
+   runWhatIf();
+ });
+ document.getElementById("wifreset").onclick=()=>{ WIF={}; box.querySelectorAll("button[data-fid]").forEach(x=>x.classList.remove("on")); runWhatIf(); };
+ runWhatIf();
+ WIF_BUILT=true;
 }
 
 /* ---- model accuracy scorecard (model vs market vs coin-flip, on settled matches) ---- */
