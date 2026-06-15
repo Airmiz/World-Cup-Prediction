@@ -329,7 +329,7 @@ footer{margin-top:110px;padding:28px 22px 0;border-top:1px solid var(--hair);
 
 <footer>Generated 11 June 2026, pre-tournament · 200,000 simulations, seed 20260611<br>
 Data: github.com/martj42/international_results · Bracket &amp; Annex C: FIFA regulations ·
-Model: penalised Dixon-Coles (ξ = 0.7/yr) ⊗ World Football Elo, log-linear blend w = 0.5<br>
+Model: penalised Dixon-Coles (ξ = 0.4/yr) ⊗ World Football Elo, log-linear blend w = 0.4<br>
 Unofficial fan analytics project — not affiliated with or endorsed by FIFA. Team names and flags are used for identification only.</footer>
 </div>
 
@@ -446,7 +446,7 @@ renderTeams();
 
 /* model prose */
 document.getElementById("prose").innerHTML = `
-<p><b>Two engines, one forecast.</b> Goal rates for every fixture come from a 50/50 log-linear blend of
+<p><b>Two engines, one forecast.</b> Goal rates for every fixture come from a ${Math.round(D.best.blend_w*100)}/${Math.round((1-D.best.blend_w)*100)} log-linear blend of
 (1) a <b>time-decayed Dixon-Coles bivariate Poisson</b> — attack and defence strengths per team, a fitted
 home advantage of ${D.home_adv} log-goals applied only to hosts playing at home, a low-score dependence
 correction (ρ = ${D.rho}), exponential decay ξ = ${D.best.xi}/yr and importance-weighted matches
