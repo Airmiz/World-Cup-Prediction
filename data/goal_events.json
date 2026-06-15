@@ -183,5 +183,37 @@
       "team": "home",
       "name": "Amad Diallo"
     }
+  ],
+  "Sweden|Tunisia": [
+    {
+      "min": 7,
+      "team": "home",
+      "name": "Yasin Ayari"
+    },
+    {
+      "min": 30,
+      "team": "home",
+      "name": "Alexander Isak"
+    },
+    {
+      "min": 43,
+      "team": "away",
+      "name": "Omar Rekik"
+    },
+    {
+      "min": 59,
+      "team": "home",
+      "name": "Viktor Gy\u00f6keres"
+    },
+    {
+      "min": 84,
+      "team": "home",
+      "name": "Mattias Svanberg"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Yasin Ayari"
+    }
   ]
 }

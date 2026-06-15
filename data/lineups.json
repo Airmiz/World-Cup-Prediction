@@ -12305,7 +12305,7 @@
   "final": true
  },
  "Sweden|Tunisia": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "3-1-4-2",
@@ -12326,7 +12326,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
+      "SV": 1,
       "GC": 1,
       "SF": 0
      }
@@ -12343,8 +12343,8 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -12364,7 +12364,7 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -12386,7 +12386,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -12406,7 +12406,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -12423,10 +12423,10 @@
      "fp": "11",
      "aid": "304242",
      "st": {
-      "G": 1,
+      "G": 2,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
+      "SH": 2,
+      "SOT": 2,
       "FC": 1,
       "FS": 1,
       "OFF": 0,
@@ -12470,7 +12470,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 2,
-      "FS": 2,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -12491,7 +12491,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -12508,12 +12508,12 @@
      "aid": "235662",
      "st": {
       "G": 1,
-      "A": 0,
-      "SH": 1,
-      "SOT": 1,
-      "FC": 0,
+      "A": 2,
+      "SH": 3,
+      "SOT": 2,
+      "FC": 1,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 3,
       "YC": 0,
       "RC": 0,
       "GC": 1,
@@ -12528,10 +12528,10 @@
      "fp": "9",
      "aid": "258906",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 1,
-      "SH": 2,
-      "SOT": 1,
+      "SH": 5,
+      "SOT": 2,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -12551,10 +12551,10 @@
      "fp": "0",
      "aid": "220120",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -12741,10 +12741,10 @@
      "aid": "356379",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
+      "A": 1,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -12879,8 +12879,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 2,
+      "SV": 1,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -12894,14 +12894,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -12918,11 +12918,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -12943,7 +12943,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -12959,12 +12959,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -12980,12 +12980,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 2,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -13006,7 +13006,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -13020,14 +13020,14 @@
      "st": {
       "G": 0,
       "A": 1,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -13046,9 +13046,9 @@
       "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -13066,10 +13066,10 @@
       "SOT": 0,
       "FC": 0,
       "FS": 0,
-      "OFF": 1,
+      "OFF": 2,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -13086,11 +13086,11 @@
       "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     }
@@ -13150,12 +13150,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -13197,7 +13197,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -13253,14 +13253,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 1,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -13302,7 +13302,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -13341,10 +13341,10 @@
       "SOT": 0,
       "FC": 0,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 2,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -13436,36 +13436,137 @@
     "detail": "Normal Goal",
     "player": "Omar Rekik",
     "assist": "Hannibal Mejbri"
+   },
+   {
+    "min": 54,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Rani Khedira"
+   },
+   {
+    "min": 59,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Viktor Gy\u00f6keres",
+    "assist": "Alexander Isak"
+   },
+   {
+    "min": 65,
+    "team": "home",
+    "type": "subst",
+    "assist": "Elliot Stroud",
+    "player": "Gabriel Gudmundsson"
+   },
+   {
+    "min": 65,
+    "team": "home",
+    "type": "subst",
+    "assist": "Lucas Bergvall",
+    "player": "Benjamin Nygren"
+   },
+   {
+    "min": 72,
+    "team": "away",
+    "type": "subst",
+    "assist": "Elias Achouri",
+    "player": "Ellyes Skhiri"
+   },
+   {
+    "min": 72,
+    "team": "away",
+    "type": "subst",
+    "assist": "Sebastian Tounekti",
+    "player": "Elias Saad"
+   },
+   {
+    "min": 72,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mohamed Hadj Mahmoud",
+    "player": "Yan Valery"
+   },
+   {
+    "min": 83,
+    "team": "away",
+    "type": "subst",
+    "assist": "Isma\u00ebl Gharbi",
+    "player": "Rani Khedira"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Firas Chaouat",
+    "player": "Anis Slimane"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "subst",
+    "assist": "Mattias Svanberg",
+    "player": "Jesper Karlstr\u00f6m"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Mattias Svanberg",
+    "assist": "Alexander Isak"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Anthony Elanga",
+    "player": "Alexander Isak"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Daniel Svensson",
+    "player": "Alexander Bernhardsson"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Yasin Ayari",
+    "assist": "Lucas Bergvall"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "52.2",
-    "totalShots": "5",
-    "shotsOnTarget": "3",
-    "wonCorners": "2",
-    "totalPasses": "227",
-    "foulsCommitted": "4",
-    "offsides": "0",
+    "possessionPct": "49.1",
+    "totalShots": "13",
+    "shotsOnTarget": "7",
+    "wonCorners": "4",
+    "totalPasses": "355",
+    "foulsCommitted": "10",
+    "offsides": "3",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "5",
-    "interceptions": "5",
-    "saves": "0"
+    "totalTackles": "14",
+    "interceptions": "8",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "47.8",
-    "totalShots": "3",
-    "shotsOnTarget": "1",
-    "wonCorners": "0",
-    "totalPasses": "207",
-    "foulsCommitted": "4",
-    "offsides": "2",
-    "yellowCards": "0",
+    "possessionPct": "50.9",
+    "totalShots": "6",
+    "shotsOnTarget": "2",
+    "wonCorners": "2",
+    "totalPasses": "364",
+    "foulsCommitted": "8",
+    "offsides": "6",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "13",
-    "interceptions": "4",
-    "saves": "0"
+    "totalTackles": "20",
+    "interceptions": "5",
+    "saves": "1"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -13496,6 +13597,6 @@
     "saves": false
    }
   },
-  "final": false
+  "final": true
  }
 }
