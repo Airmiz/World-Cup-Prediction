@@ -238,6 +238,13 @@ table.big tbody tr:hover{background:var(--tint)}
 .wifm .wifd{margin-left:auto;font-weight:800;font-size:11px;font-variant-numeric:tabular-nums}
 .wifm .wifd.up{color:var(--live)}.wifm .wifd.dn{color:var(--amber)}
 .wifm .wifnow{font-weight:700;font-variant-numeric:tabular-nums;color:var(--mut);min-width:42px;text-align:right}
+#pedibar{margin-top:10px}
+.pedrow{display:grid;grid-template-columns:1fr 120px auto;gap:10px;align-items:center;margin:5px 0}
+.pednm{font-size:12px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pedbar{height:8px;background:var(--track);border-radius:4px;overflow:hidden}
+.pedbar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--live));transition:width .4s ease}
+.pedv{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--txt)}
+.pedv .pedn{font-size:10px;font-weight:600;color:var(--mut)}
 .mcsec h4{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 .mcsec h4 .tag{font-size:9.5px;font-weight:600;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px;text-transform:none;letter-spacing:0}
 .golog{display:flex;flex-direction:column;gap:7px}
@@ -812,14 +819,23 @@ function hydratePhotos(root){ (root||document).querySelectorAll(".phead[data-pl]
  fetchPlayerPhoto(nm).then(url=>{ if(url) applyPhoto(el,url); }); }); }
 
 /* ---- player's current club via ESPN athlete endpoint (CORS-open), keyed by ESPN athlete id; cached in memory + localStorage ---- */
-const CLUBS={}, CLUB_REQ={};
+const CLUBS={}, CLUB_REQ={}, CLUBLG={};
 function clubGet(id){ if(id in CLUBS) return CLUBS[id]; try{const v=localStorage.getItem("wccl1:"+id); if(v!=null) return (CLUBS[id]=v);}catch(e){} return undefined; }
 function clubSet(id,nm){ CLUBS[id]=nm; try{localStorage.setItem("wccl1:"+id,nm);}catch(e){} }
+function lgGet(id){ if(id in CLUBLG) return CLUBLG[id]; try{const v=localStorage.getItem("wclg1:"+id); if(v!=null) return (CLUBLG[id]=v);}catch(e){} return undefined; }
+// league-pedigree weight by league code (slug prefix) — top-5 European > other strong leagues > mid > rest
+function lgTier(code){ code=(code||"").toLowerCase();
+  if(["eng","esp","ger","ita","fra"].includes(code)) return 1.0;
+  if(["por","ned","tur","bel","sco","aut","sui","gre","ukr","rus","den","cro","srb","cze"].includes(code)) return 0.72;
+  if(["usa","mex","bra","arg","sau","jpn","kor","qat","uae","col","gre","nor","swe","pol"].includes(code)) return 0.55;
+  return 0.4; }
 // returns club name (found) | "" (player has no club / 404) | null (transient — don't cache, retry next render)
 async function espnAthleteClub(id){
   const r=await pfetch("https://site.web.api.espn.com/apis/common/v3/sports/soccer/all/athletes/"+encodeURIComponent(id));
   if(!r) return null; if(r.status===404) return ""; if(!r.ok) return null;
-  try{ const d=await r.json(); const a=d.athlete||d; const t=a.team||{}; return t.shortDisplayName||t.displayName||t.name||""; }catch(e){ return null; }
+  try{ const d=await r.json(); const a=d.athlete||d; const t=a.team||{};
+    const lg=String(t.slug||"").split(".")[0]; if(id&&lg){ CLUBLG[id]=lg; try{localStorage.setItem("wclg1:"+id,lg);}catch(e){} }
+    return t.shortDisplayName||t.displayName||t.name||""; }catch(e){ return null; }
 }
 function fetchClub(id){
   if(!id) return Promise.resolve("");
@@ -834,6 +850,22 @@ function fetchClub(id){
 function hydrateClubs(root){ (root||document).querySelectorAll("[data-club]").forEach(el=>{
  const id=el.getAttribute("data-club"); if(!id)return;
  fetchClub(id).then(nm=>{ if(nm){ el.textContent=nm; el.classList.add("has-club"); } }); }); }
+// Squad pedigree: average league tier of the named XI (on-paper club quality). DISPLAY ONLY —
+// it does NOT feed the forecast (which stays results-based and out-of-sample validated).
+function teamPedi(b){ if(!b||!b.xi)return null; let s=0,n=0;
+ b.xi.forEach(p=>{ if(p.aid!=null){ const lg=lgGet(p.aid); if(lg){ s+=lgTier(lg); n++; } } });
+ return n>=6 ? {idx:Math.round(100*s/n), n} : null; }
+function hydratePedigree(root, lu){
+ const el=(root||document).querySelector("#pedibar"); if(!el||!lu)return;
+ Promise.all(["home","away"].map(side=>{ const b=lu[side]; if(!b||!b.xi)return Promise.resolve(null);
+   return Promise.all(b.xi.filter(p=>p.aid).map(p=>fetchClub(p.aid))).then(()=>teamPedi(b)); }))
+  .then(([h,a])=>{ if(!h&&!a)return; const f=fixById[WP.fid]; if(!f)return;
+    const hi=h?h.idx:0, ai=a?a.idx:0, mx=Math.max(hi,ai,1);
+    const seg=(v,nm,n)=>`<div class="pedrow"><span class="pednm">${nm}</span><span class="pedbar"><i style="width:${(100*v/mx).toFixed(0)}%"></i></span><span class="pedv">${v}${n?` <span class="pedn">${n}/11</span>`:""}</span></div>`;
+    el.innerHTML=`<div class="mcsec"><h4>Squad pedigree <span class="tag">on-paper club quality · not a forecast input</span></h4>`+
+      (h?seg(h.idx,F(f.home)+" "+f.home,h.n):"")+(a?seg(a.idx,F(f.away)+" "+f.away,a.n):"")+
+      `<div class="heatcap">Average league strength of the starting XI (share at top-5 European &amp; other strong leagues), from each player's current club. Indicative only — the win-probability model is driven by team results, not this.</div></div>`;
+  }); }
 
 let STATE={results:{},ko:{},live:{},source:"snapshot",fetchedUTC:null,played:0};
 
@@ -1950,7 +1982,7 @@ function matchCentre(f){
   }
 
   extraHTML=`
-   <div class="mcsec"><h4>Formations <span class="tag">${(lu.home&&lu.home.formation)||""} v ${(lu.away&&lu.away.formation)||""}</span></h4>${pitch("home")}${pitch("away")}${attr}</div>
+   <div class="mcsec"><h4>Formations <span class="tag">${(lu.home&&lu.home.formation)||""} v ${(lu.away&&lu.away.formation)||""}</span></h4>${pitch("home")}${pitch("away")}${attr}</div><div id="pedibar"></div>
    ${teamStatsHTML}
    ${teamPerfHTML}
    ${playerStatsHTML}
@@ -2069,6 +2101,7 @@ function drawModal(){
  document.getElementById("wprewind").onclick=()=>{WP.minute=0;WP.followLive=false;stopAnim();drawModal();};
  hydratePhotos(modalEl);   // fill in player headshots (Wikipedia, cached) after the pitch renders
  hydrateClubs(modalEl);    // fill in each player's current club (ESPN athlete endpoint, cached)
+ { const _lu=f&&D.lineups[f.home+"|"+f.away]; if(_lu) hydratePedigree(modalEl, _lu); }   // squad pedigree (display only)
 }
 let animTimer=null;
 function stopAnim(){if(animTimer){clearInterval(animTimer);animTimer=null;const b=document.getElementById("wpplay");if(b)b.textContent="▶ Play";}}
