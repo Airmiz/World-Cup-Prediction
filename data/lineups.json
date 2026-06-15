@@ -16690,7 +16690,7 @@
   "final": true
  },
  "Belgium|Egypt": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-2-3-1",
@@ -16711,8 +16711,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 2,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16726,14 +16726,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 1,
-      "FS": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16749,12 +16749,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16775,7 +16775,7 @@
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16789,14 +16789,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 5,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16810,14 +16810,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 4,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16831,14 +16831,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16855,11 +16855,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 1,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16876,11 +16876,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16894,14 +16894,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 5,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -16915,14 +16915,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 3,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -17001,7 +17001,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -17192,10 +17192,10 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -17240,11 +17240,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 3,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17260,12 +17260,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17286,7 +17286,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17302,12 +17302,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17321,14 +17321,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17341,15 +17341,15 @@
      "aid": "173896",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 1,
-      "FS": 2,
+      "A": 1,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17365,12 +17365,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17384,14 +17384,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17405,14 +17405,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 5,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17424,16 +17424,16 @@
      "fp": "11",
      "aid": "299365",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -17447,14 +17447,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -17533,9 +17533,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -17791,36 +17791,135 @@
     "type": "card",
     "card": "yellow",
     "player": "Timothy Castagne"
+   },
+   {
+    "min": 19,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Emam Ashour",
+    "assist": "Mohamed Salah"
+   },
+   {
+    "min": 34,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Ahmed Fatouh"
+   },
+   {
+    "min": 56,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nicolas Raskin",
+    "player": "Timothy Castagne"
+   },
+   {
+    "min": 56,
+    "team": "home",
+    "type": "subst",
+    "assist": "Maxim De Cuyper",
+    "player": "Amadou Onana"
+   },
+   {
+    "min": 66,
+    "team": "home",
+    "type": "subst",
+    "assist": "Romelu Lukaku",
+    "player": "Charles De Ketelaere"
+   },
+   {
+    "min": 66,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Mohamed Hany"
+   },
+   {
+    "min": 71,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ramy Rabia",
+    "player": "Emam Ashour"
+   },
+   {
+    "min": 75,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Maxim De Cuyper"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "subst",
+    "assist": "Zizo",
+    "player": "Mostafa Zico"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "subst",
+    "assist": "Hamza Abdelkarim",
+    "player": "Mohamed Salah"
+   },
+   {
+    "min": 86,
+    "team": "home",
+    "type": "subst",
+    "assist": "Matias Fernandez-Pardo",
+    "player": "J\u00e9r\u00e9my Doku"
+   },
+   {
+    "min": 86,
+    "team": "home",
+    "type": "subst",
+    "assist": "Hans Vanaken",
+    "player": "Kevin De Bruyne"
+   },
+   {
+    "min": 89,
+    "team": "away",
+    "type": "subst",
+    "assist": "Karim Hafez",
+    "player": "Ahmed Fatouh"
+   },
+   {
+    "min": 89,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ibrahim Adel",
+    "player": "Hamdy Fathy"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "44.9",
-    "totalShots": "2",
-    "shotsOnTarget": "0",
-    "wonCorners": "1",
-    "totalPasses": "81",
-    "foulsCommitted": "4",
+    "possessionPct": "53.5",
+    "totalShots": "15",
+    "shotsOnTarget": "3",
+    "wonCorners": "2",
+    "totalPasses": "452",
+    "foulsCommitted": "15",
     "offsides": "0",
-    "yellowCards": "1",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "2",
-    "interceptions": "1",
-    "saves": "0"
+    "totalTackles": "16",
+    "interceptions": "10",
+    "saves": "2"
    },
    "away": {
-    "possessionPct": "55.1",
-    "totalShots": "0",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "100",
-    "foulsCommitted": "2",
+    "possessionPct": "46.5",
+    "totalShots": "14",
+    "shotsOnTarget": "3",
+    "wonCorners": "7",
+    "totalPasses": "397",
+    "foulsCommitted": "15",
     "offsides": "1",
-    "yellowCards": "1",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "7",
-    "interceptions": "1",
-    "saves": "0"
+    "totalTackles": "27",
+    "interceptions": "12",
+    "saves": "3"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -17857,6 +17956,6 @@
    "a": 0.14532871972318342,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
