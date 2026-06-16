@@ -5,7 +5,7 @@
  * the results CSV, club/photo lookups) are left completely untouched — never cached,
  * never intercepted — so live scores are always real-time.
  */
-const CACHE = "wc26-v2";
+const CACHE = "wc26-v3";
 const SHELL = ["./", "index.html", "live.html", "fantasy.html", "manifest.webmanifest",
                "icon-192.png", "icon-512.png", "og.png"];
 

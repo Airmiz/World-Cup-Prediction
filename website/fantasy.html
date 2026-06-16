@@ -162,7 +162,7 @@ footer{max-width:1080px;margin:10px auto 30px;padding:0 18px;color:var(--mut);fo
 
 <div class="ov" id="pickov"><div class="sheet">
  <div class="sheeth"><b id="pickttl">Pick a player</b><button class="x" id="pickx">✕</button></div>
- <div class="filt"><input id="fsearch" placeholder="Search…"><select id="fteam"><option value="">All teams</option></select><select id="fsort"><option value="pts">Sort: points</option><option value="price">Sort: price</option><option value="value">Sort: value</option></select></div>
+ <div class="filt"><input id="fsearch" placeholder="Search…"><select id="fteam"><option value="">All teams</option></select><select id="fsort"><option value="proj">Sort: projected</option><option value="form">Sort: form (MD1)</option><option value="price">Sort: price</option><option value="value">Sort: value</option></select></div>
  <div class="plist" id="plist"></div>
 </div></div>
 <div class="ov" id="mgrov"><div class="sheet">
@@ -203,29 +203,31 @@ function normaliseXI(){
   const ps=picked(); if(ps.length<15){ S.bench=S.picks.filter(id=>!xiIds().includes(id)); return; }
   // choose XI maximising pts within formation limits; keep 1 GK
   const byPos={GK:[],DEF:[],MID:[],FWD:[]}; ps.forEach(p=>byPos[p.pos].push(p));
-  for(const k in byPos) byPos[k].sort((a,b)=>b.pts-a.pts||b.price-a.price);
+  for(const k in byPos) byPos[k].sort((a,b)=>MET(b)-MET(a)||b.price-a.price);
   const xi=[byPos.GK[0]];
   let need=10; const take={DEF:FORM_MIN.DEF,MID:FORM_MIN.MID,FWD:FORM_MIN.FWD};
   ["DEF","MID","FWD"].forEach(k=>{ for(let i=0;i<take[k];i++){ if(byPos[k][i]){xi.push(byPos[k][i]);need--;} } });
   // fill remaining best outfielders respecting max
-  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>b.pts-a.pts||b.price-a.price);
+  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>MET(b)-MET(a)||b.price-a.price);
   const cnt={GK:1,DEF:FORM_MIN.DEF,MID:FORM_MIN.MID,FWD:FORM_MIN.FWD};
   for(const p of pool){ if(need<=0)break; if(cnt[p.pos]<FORM_MAX[p.pos]){ xi.push(p); cnt[p.pos]++; need--; } }
   const xiset=new Set(xi.map(p=>p.id));
   S.bench=ps.filter(p=>!xiset.has(p.id)).sort((a,b)=>(a.pos==="GK"?-1:0)-(b.pos==="GK"?-1:0)).map(p=>p.id);
   if(S.cap&&!S.picks.includes(S.cap))S.cap=null; if(S.vice&&!S.picks.includes(S.vice))S.vice=null;
-  if(!S.cap){ const best=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.price-a.price)[0]; if(best)S.cap=best.id; }
+  if(!S.cap){ const best=xi.filter(p=>p.pos!=="GK").sort((a,b)=>MET(b)-MET(a))[0]; if(best)S.cap=best.id; }
 }
 
 // ---------- render top bar ----------
 function renderBar(){
   const sp=spent(), rem=F.budget-sp, n=S.picks.length;
-  const tot=totalPoints();
+  const proj=n>=11?projOf(xiIds(),S.cap):0;
   $("#bar").innerHTML=
    card(`£${rem.toFixed(1)}m`,"Budget left",`of £${F.budget.toFixed(1)}m`,`<div class="budbar"><i class="${rem<0?'over':''}" style="width:${Math.max(0,Math.min(100,100*sp/F.budget))}%"></i></div>`)
   +card(`${n}/15`,"Squad",n<15?`pick ${15-n} more`:"complete")
-  +card(`${tot}`,"Total points","captain doubled")
-  +card(`${F.gws.length?("MD"+F.gws[F.gws.length-1]):"—"}`,"Latest matchday","scored so far");
+  +(F.started?card(`${totalPoints()}`,"Total points","captain doubled")
+              :card(`${proj}`,"Projected pts","per matchday"))
+  +(F.started?card(`MD${F.gws[F.gws.length-1]}`,"Latest matchday","scored so far")
+             :card(`MD ${F.start_gw}`,"Season starts","points count from here"));
   const c=posCount(S.picks); const ok=n===15&&rem>=0&&c.GK===2&&c.DEF===5&&c.MID===5&&c.FWD===3&&!overTeam();
   $("#valid").innerHTML= n<15?`Pick ${15-n} more · need 2 GK, 5 DEF, 5 MID, 3 FWD`
     : rem<0?`<span style="color:var(--red)">£${(-rem).toFixed(1)}m over budget</span>`
@@ -304,24 +306,28 @@ function dreamGW(gw){
 }
 // ---------- AI rival managers (a deterministic league to compete against) ----------
 function srng(s){ return function(){ s|=0; s=s+0x6D2B79F5|0; let t=Math.imul(s^s>>>15,1|s); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+const MET=p=>(p.pts||0)*1000+(p.xpts||0);   // rank by actual points, then projection (so pre-season uses xPts)
 function bestXIof(ids){
   const ps=ids.map(id=>F.byId[id]).filter(Boolean); const byPos={GK:[],DEF:[],MID:[],FWD:[]}; ps.forEach(p=>byPos[p.pos].push(p));
-  for(const k in byPos)byPos[k].sort((a,b)=>b.pts-a.pts||b.price-a.price); if(!byPos.GK.length)return {xi:[],bench:[]};
+  for(const k in byPos)byPos[k].sort((a,b)=>MET(b)-MET(a)||b.price-a.price); if(!byPos.GK.length)return {xi:[],bench:[]};
   const xi=[byPos.GK[0]],cnt={GK:1,DEF:0,MID:0,FWD:0};
   ["DEF","MID","FWD"].forEach(k=>{for(let i=0;i<FORM_MIN[k];i++)if(byPos[k][i]){xi.push(byPos[k][i]);cnt[k]++;}});
-  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>b.pts-a.pts);
+  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>MET(b)-MET(a));
   let need=11-xi.length; for(const p of pool){if(need<=0)break;if(cnt[p.pos]<FORM_MAX[p.pos]){xi.push(p);cnt[p.pos]++;need--;}}
   const xs=new Set(xi.map(p=>p.id)); return {xi, bench:ps.filter(p=>!xs.has(p.id))};
 }
+function projOf(ids, capId){ const {xi}=bestXIof(ids); let s=xi.reduce((a,p)=>a+(p.xpts||0),0);
+  const cp=F.byId[capId]; if(cp&&xi.some(p=>p.id===capId))s+=cp.xpts; else{const c=xi.filter(p=>p.pos!=="GK").sort((a,b)=>(b.xpts||0)-(a.xpts||0))[0]; if(c)s+=c.xpts;}
+  return Math.round(s*10)/10; }
 function scoreTeam(ids){
-  const {xi,bench}=bestXIof(ids); if(xi.length<11)return {total:0,gw:{},cap:null,xi:[],value:0};
-  const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.pts-a.pts)[0]||xi[0]; const bids=bench.map(p=>p.id);
+  const {xi,bench}=bestXIof(ids); if(xi.length<11)return {total:0,gw:{},cap:null,xi:[],value:0,proj:0};
+  const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>MET(b)-MET(a))[0]||xi[0]; const bids=bench.map(p=>p.id);
   const gw={}; let total=0;
   F.gws.forEach(g=>{ const G=String(g); const playing=id=>{const q=F.byId[id];return q&&q.gw&&q.gw[G]!=null;};
     const bp=bids.filter(playing); let line=xi.map(p=>p.id).map(id=>{ if(playing(id))return id; const p=F.byId[id];
       for(const b of bp){ if(line0has(line,b))continue; const q=F.byId[b]; if((p.pos==="GK")!==(q.pos==="GK"))continue; return b; } return id; });
     let s=0; line.forEach(id=>{const p=F.byId[id]; if(!p||!p.gw||p.gw[G]==null)return; let v=p.gw[G]; if(id===cap.id)v*=2; s+=v;}); gw[G]=s; total+=s; });
-  return {total, gw, cap:cap.id, xi:xi.map(p=>p.id), value:ids.reduce((a,id)=>a+(F.byId[id]?F.byId[id].price:0),0)};
+  return {total, gw, cap:cap.id, xi:xi.map(p=>p.id), value:ids.reduce((a,id)=>a+(F.byId[id]?F.byId[id].price:0),0), proj:projOf(ids, cap.id)};
 }
 function line0has(arr,x){ return arr.indexOf(x)>=0; }
 function buildAI(keyFn){
@@ -331,7 +337,7 @@ function buildAI(keyFn){
     while(got<need[pos]){ const p=cand.find(x=>!picks.includes(x.id)&&(tc[x.team]||0)<F.max); if(!p)break; picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;got++; } }
   const tco=()=>picks.map(id=>F.byId[id]).reduce((m,p)=>{m[p.team]=(m[p.team]||0)+1;return m;},{});
   let g=0; while(picks.reduce((s,id)=>s+F.byId[id].price,0)>F.budget&&g++<80){ let done=false; const c=tco();
-    for(const p of picks.map(id=>F.byId[id]).sort((a,b)=>b.price-a.price)){ const r=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!picks.includes(x.id)&&(x.team===p.team||(c[x.team]||0)<F.max)).sort((a,b)=>(b.pts/b.price)-(a.pts/a.price))[0]; if(r){picks=picks.map(id=>id===p.id?r.id:id);done=true;break;} } if(!done)break; }
+    for(const p of picks.map(id=>F.byId[id]).sort((a,b)=>b.price-a.price)){ const r=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!picks.includes(x.id)&&(x.team===p.team||(c[x.team]||0)<F.max)).sort((a,b)=>((b.xpts+0.5)/b.price)-((a.xpts+0.5)/a.price))[0]; if(r){picks=picks.map(id=>id===p.id?r.id:id);done=true;break;} } if(!done)break; }
   return picks;
 }
 let _MGRS=null;
@@ -339,7 +345,7 @@ function genManagers(){
   if(_MGRS)return _MGRS;
   const adj=["Galloping","Clinical","Rampant","Stubborn","Lethal","Rapid","Cunning","Mighty","Restless","Golden","Iron","Phantom","Rowdy","Daring","Sneaky","Electric","Rugged","Crafty","Bold","Savage","Royal","Frosty","Turbo","Velvet","Wily","Brave"];
   const noun=["Galácticos","Mavericks","Wizards","Underdogs","Tacticians","Renegades","Dynamos","Strikers","Hotshots","Rovers","Wanderers","Invincibles","Maestros","Outlaws","Titans","Comets","Pumas","Sharks","Falcons","Brigade","Legion","Mob","United","Athletic"];
-  const strat=[p=>(p.pts+1)/p.price, p=>p.pts, p=>p.price, p=>p.pts*0.6+p.price*0.4, p=>p.starts*2+p.pts*0.5];
+  const strat=[p=>(p.xpts+0.5)/p.price, p=>p.xpts, p=>p.price, p=>p.xpts*0.6+p.price*0.4, p=>p.xpts*0.85+(p.form||0)*0.06];
   const r=srng(20260616); const out=[]; const used=new Set();
   for(let i=0;i<40;i++){ const base=strat[i%strat.length]; const scale=i<5?0:0.55+((i-5)%8)*0.6;  // 5 optimal rivals (one per strategy), then a varied tail
     const jit={}; F.players.forEach(p=>jit[p.id]=(r()-0.5)*scale);
@@ -359,29 +365,29 @@ function showManager(m){
   $("#mgrov").classList.add("show");
 }
 function renderPoints(){
-  const box=$("#ptsbox");
-  if(S.picks.length<15){ box.innerHTML=`<div class="empty">Pick a full 15-player squad to enter the league and see your points.</div>`; return; }
-  const mine=totalPoints();
+  const box=$("#ptsbox"); const started=F.started;
+  if(S.picks.length<15){ box.innerHTML=`<div class="empty">Pick a full 15-player squad to enter the league.</div>`; return; }
+  const mine=totalPoints(); const myProj=projOf(xiIds(),S.cap);
   const mgrs=genManagers();
   const myGw=Object.fromEntries(F.gws.map(g=>[String(g),gwScoreFor(xiIds(),S.cap,S.vice,String(g))]));
-  const me={name:"⭐ Your team",total:mine,value:spent(),cap:S.cap,xi:xiIds(),gw:myGw,me:true};
-  const table=[me].concat(mgrs).sort((a,b)=>b.total-a.total||b.value-a.value);
+  const me={name:"⭐ Your team",total:mine,proj:myProj,value:spent(),cap:S.cap,xi:xiIds(),gw:myGw,me:true};
+  const rv=t=>(started?t.total:t.proj)*1000 - t.value;   // rank by score, tiebreak cheaper squad
+  const table=[me].concat(mgrs).sort((a,b)=>rv(b)-rv(a));
   const myRank=table.findIndex(t=>t.me)+1;
   const lastGW=F.gws.length?String(F.gws[F.gws.length-1]):null;
   const rows=table.map((t,i)=>{ const gwp=lastGW&&t.gw?(t.gw[lastGW]||0):0; const mi=t.me?-1:mgrs.indexOf(t);
-    return `<tr class="${t.me?'meRow':''}" data-mgr="${mi}"><td class="n">${i+1}</td><td>${t.name}</td><td class="n">£${t.value.toFixed(1)}</td><td class="n">${gwp}</td><td class="n"><b>${t.total}</b></td></tr>`; }).join("");
-  const dreamTot=F.gws.reduce((a,gw)=>a+dreamGW(String(gw)),0);
-  const gwHTML=F.gws.map(gw=>{ const m=gwScoreFor(xiIds(),S.cap,S.vice,String(gw)), dr=dreamGW(String(gw));
-    return `<div class="gwrow"><div><div class="gwn">Matchday ${gw}</div><div class="gwsub">dream team ${dr} · your best possible</div></div><div class="gwp">${m}</div></div>`; }).join("");
-  const tier=myRank===1?"🏆 Top of the league!":myRank<=Math.ceil(table.length*0.25)?"Top-quarter form 🔥":myRank<=Math.ceil(table.length*0.5)?"Upper half — keep climbing":"Room to climb — tweak your XI &amp; captain";
-  box.innerHTML=
+    return `<tr class="${t.me?'meRow':''}" data-mgr="${mi}"><td class="n">${i+1}</td><td>${t.name}</td><td class="n">£${t.value.toFixed(1)}</td>${started?`<td class="n">${gwp}</td>`:''}<td class="n"><b>${started?t.total:t.proj}</b></td></tr>`; }).join("");
+  const tier=myRank===1?"🏆 Top of the league!":myRank<=Math.ceil(table.length*0.25)?"Top-quarter — strong squad 🔥":myRank<=Math.ceil(table.length*0.5)?"Upper half — keep tinkering":"Room to climb — chase value &amp; a big captain";
+  const startCard = started?"":`<div class="card" style="border:1px solid var(--blue)"><div class="hint" style="color:var(--txt);padding:13px 16px;font-size:13.5px"><b>🚦 Your season kicks off at Matchday ${F.start_gw}.</b> The tournament was already under way, so — to keep it fair — your team only scores from Matchday ${F.start_gw} onward. Matchday 1 counts as <b>form</b> only (it sets prices, it doesn't score). Build the best squad you can now; the table below ranks everyone by <b>projected</b> points until kick-off.</div></div>`;
+  box.innerHTML= startCard+
    `<div class="card"><h3>Your season</h3>`+
-   `<div class="cmp"><span><b>Total points</b></span><span class="cv" style="font-size:22px">${mine}</span></div>`+
+   (started
+     ?`<div class="cmp"><span><b>Total points</b></span><span class="cv" style="font-size:22px">${mine}</span></div>`
+     :`<div class="cmp"><span><b>Projected points</b> <span style="color:var(--mut);font-weight:600;font-size:11px">per matchday</span></span><span class="cv" style="font-size:22px">${myProj}</span></div>`)+
    `<div class="cmp"><span>League position</span><span class="cv">${myRank}<span style="color:var(--mut);font-weight:600">/${table.length}</span></span></div>`+
-   `<div class="cmp"><span>Dream-team ceiling</span><span class="cv">${dreamTot}</span></div>`+
    `<div class="hint">${tier}</div></div>`+
-   `<div class="card"><h3>League table <span style="font-weight:600;color:var(--mut);font-size:11px">you vs ${mgrs.length} rival managers</span></h3><div class="tscroll"><table class="tbl" id="ltbl"><thead><tr><th class="n">#</th><th>Manager</th><th class="n">Squad £</th><th class="n">MD ${lastGW||"—"}</th><th class="n">Total</th></tr></thead><tbody>${rows}</tbody></table></div><div class="hint">Tap a rival to see their XI. Managers are AI-built with different strategies and scored on the same real results — they update as matches play.</div></div>`+
-   `<div class="card"><h3>Gameweek by gameweek</h3>${gwHTML||'<div class="hint">Matchday points appear as games are played.</div>'}</div>`;
+   `<div class="card"><h3>${started?"League table":"Projected league"} <span style="font-weight:600;color:var(--mut);font-size:11px">you vs ${mgrs.length} rivals</span></h3><div class="tscroll"><table class="tbl" id="ltbl"><thead><tr><th class="n">#</th><th>Manager</th><th class="n">Squad £</th>${started?`<th class="n">MD ${lastGW||"—"}</th>`:''}<th class="n">${started?"Total":"Proj"}</th></tr></thead><tbody>${rows}</tbody></table></div><div class="hint">Tap any rival to see their XI. Managers are AI-built with different strategies${started?" and scored on the same real results":", and pick from the same projections you do"}.</div></div>`+
+   (started?`<div class="card"><h3>Gameweek by gameweek</h3>`+F.gws.map(gw=>{const m=gwScoreFor(xiIds(),S.cap,S.vice,String(gw)),dr=dreamGW(String(gw));return `<div class="gwrow"><div><div class="gwn">Matchday ${gw}</div><div class="gwsub">dream team ${dr}</div></div><div class="gwp">${m}</div></div>`;}).join("")+`</div>`:"");
 }
 
 // ---------- player picker ----------
@@ -393,11 +399,13 @@ function renderPickList(){
   let list=F.players.filter(p=>p.pos===pos);
   if(team)list=list.filter(p=>p.team===team);
   if(q)list=list.filter(p=>p.name.toLowerCase().includes(q)||p.team.toLowerCase().includes(q));
-  list.sort(sort==="price"?(a,b)=>b.price-a.price : sort==="value"?(a,b)=>(b.pts/b.price)-(a.pts/a.price) : (a,b)=>b.pts-a.pts||b.price-a.price);
+  const projM=F.started?(p=>p.pts):(p=>p.xpts||0);
+  list.sort(sort==="price"?(a,b)=>b.price-a.price : sort==="value"?(a,b)=>((b.xpts+0.5)/b.price)-((a.xpts+0.5)/a.price) : sort==="form"?(a,b)=>(b.form||0)-(a.form||0)||projM(b)-projM(a) : (a,b)=>projM(b)-projM(a)||b.price-a.price);
   $("#plist").innerHTML=list.slice(0,220).map(p=>{
     const have=S.picks.includes(p.id); const full=teamCount(p.team)>=F.max&&!have; const afford=p.price<=rem||have;
-    const dis=have||full||!afford;
-    return `<div class="pl ${dis?'dis':''}" data-pick="${p.id}"><div><span class="pos-tag pos-${p.pos}">${p.pos}</span><span class="pnm">${flag(p.team)} ${p.name}</span><div class="psub">${p.team}${full?' · 3 already':''}${have?' · in squad':''}${!afford?' · too expensive':''}</div></div><div class="ppr">£${p.price.toFixed(1)}</div><div class="ppt">${p.pts} pts</div></div>`;
+    const dis=have||full||!afford; const fm=p.form||0;
+    const metaR=F.started?`<div class="ppt">${p.pts} pts</div>`:`<div class="ppt" title="projected points per matchday">x${(p.xpts||0).toFixed(1)}${fm?` · <span style="color:var(--mut)">${fm} form</span>`:''}</div>`;
+    return `<div class="pl ${dis?'dis':''}" data-pick="${p.id}"><div><span class="pos-tag pos-${p.pos}">${p.pos}</span><span class="pnm">${flag(p.team)} ${p.name}</span><div class="psub">${p.team}${full?' · 3 already':''}${have?' · in squad':''}${!afford?' · too expensive':''}</div></div><div class="ppr">£${p.price.toFixed(1)}</div>${metaR}</div>`;
   }).join("")||`<div class="empty">No players match.</div>`;
 }
 function pick(id){ const p=F.byId[id]; if(!p)return;
@@ -406,8 +414,9 @@ function pick(id){ const p=F.byId[id]; if(!p)return;
   // replace an existing player of same pos if that position is full, else add
   const cap=F.squad[p.pos]; const cur=picked().filter(x=>x.pos===p.pos);
   if(cur.length>=cap){ // remove cheapest same-pos to make room? better: tell user to remove
-    // auto-replace the lowest-points same-position player
-    const drop=cur.sort((a,b)=>a.pts-b.pts||a.price-b.price)[0];
+    // auto-replace the weakest same-position player (by projection pre-season, points once live)
+    const dk=F.started?(x=>x.pts):(x=>x.xpts||0);
+    const drop=cur.sort((a,b)=>dk(a)-dk(b)||a.price-b.price)[0];
     S.picks=S.picks.filter(x=>x!==drop.id); if(S.cap===drop.id)S.cap=null; if(S.vice===drop.id)S.vice=null;
   }
   if(spent()+p.price>F.budget){ toast("Not enough budget"); // still allow but flag
@@ -421,7 +430,7 @@ function autopick(){
   S={picks:[],cap:null,vice:null,bench:[]}; const need={GK:2,DEF:5,MID:5,FWD:3}; let bud=F.budget; const tc={};
   // greedy value within budget, leave room: target avg ~6.6
   for(const pos of POS){
-    const cand=F.players.filter(p=>p.pos===pos).slice().sort((a,b)=>(b.pts+1)/b.price-(a.pts+1)/a.price);
+    const cand=F.players.filter(p=>p.pos===pos).slice().sort((a,b)=>(b.xpts+0.5)/b.price-(a.xpts+0.5)/a.price);
     let got=0;
     for(const p of cand){ if(got>=need[pos])break; if((tc[p.team]||0)>=F.max)continue;
       const slotsLeft=15-S.picks.length; if(p.price>bud-(slotsLeft-1)*4.0)continue;
@@ -434,7 +443,7 @@ function autopick(){
   while(spent()>F.budget && guard++<80){
     let done=false;
     for(const p of picked().sort((a,b)=>b.price-a.price)){
-      const repl=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!S.picks.includes(x.id)&&(x.team===p.team||teamCount(x.team)<F.max)).sort((a,b)=>(b.pts/b.price)-(a.pts/a.price))[0];
+      const repl=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!S.picks.includes(x.id)&&(x.team===p.team||teamCount(x.team)<F.max)).sort((a,b)=>((b.xpts+0.5)/b.price)-((a.xpts+0.5)/a.price))[0];
       if(repl){ S.picks=S.picks.map(id=>id===p.id?repl.id:id); done=true; break; }
     }
     if(!done)break;
@@ -443,15 +452,16 @@ function autopick(){
 }
 
 // ---------- players table ----------
-let sortKey="pts",sortDir=-1;
+let sortKey="xpts",sortDir=-1;
 function renderTable(){
   const q=$("#psearch").value.toLowerCase(); const pf=$("#pposf").value;
   let list=F.players.slice(); if(pf)list=list.filter(p=>p.pos===pf);
   if(q)list=list.filter(p=>p.name.toLowerCase().includes(q)||p.team.toLowerCase().includes(q));
-  list.sort((a,b)=>{const k=sortKey; let av=k==="value"?(a.pts/a.price):a[k], bv=k==="value"?(b.pts/b.price):b[k]; if(k==="name"||k==="team"){av=a[k];bv=b[k];return sortDir*(""+av).localeCompare(""+bv);} return sortDir*((bv-av));});
-  const th=(k,l)=>`<th data-k="${k}">${l}${sortKey===k?(sortDir<0?" ▾":" ▴"):""}</th>`;
-  $("#ptbl").innerHTML=`<thead><tr>${th("name","Player")}${th("team","Team")}${th("pos","Pos")}<th class="n" data-k="price">Price</th><th class="n" data-k="pts">Pts</th><th class="n" data-k="g">G</th><th class="n" data-k="a">A</th><th class="n" data-k="value">Value</th></tr></thead><tbody>`+
-   list.slice(0,300).map(p=>`<tr><td>${flag(p.team)} ${p.name} ${S.picks.includes(p.id)?'<span style="color:var(--live)">●</span>':''}</td><td>${p.team}</td><td><span class="pos-tag pos-${p.pos}">${p.pos}</span></td><td class="n">£${p.price.toFixed(1)}</td><td class="n"><b>${p.pts}</b></td><td class="n">${p.g}</td><td class="n">${p.a}</td><td class="n">${(p.pts/p.price).toFixed(1)}</td></tr>`).join("")+`</tbody>`;
+  const vof=p=>((p.xpts||0)+0.5)/p.price;
+  list.sort((a,b)=>{const k=sortKey; if(k==="name"||k==="team")return sortDir*(""+a[k]).localeCompare(""+b[k]); let av=k==="value"?vof(a):(a[k]||0), bv=k==="value"?vof(b):(b[k]||0); return sortDir*(bv-av);});
+  const th=(k,l,t)=>`<th class="n" data-k="${k}"${t?` title="${t}"`:""}>${l}${sortKey===k?(sortDir<0?" ▾":" ▴"):""}</th>`;
+  $("#ptbl").innerHTML=`<thead><tr><th data-k="name">Player${sortKey==="name"?(sortDir<0?" ▾":" ▴"):""}</th><th data-k="team">Team${sortKey==="team"?(sortDir<0?" ▾":" ▴"):""}</th><th data-k="pos">Pos</th>${th("price","Price")}${th("xpts","xPts","projected points / matchday")}${th("form","Form","points on matchday 1 (does not score)")}${F.started?th("pts","Pts","points scored this season"):""}${th("value","Value","projection per £")}</tr></thead><tbody>`+
+   list.slice(0,300).map(p=>`<tr><td>${flag(p.team)} ${p.name} ${S.picks.includes(p.id)?'<span style="color:var(--live)">●</span>':''}</td><td>${p.team}</td><td><span class="pos-tag pos-${p.pos}">${p.pos}</span></td><td class="n">£${p.price.toFixed(1)}</td><td class="n"><b>${(p.xpts||0).toFixed(1)}</b></td><td class="n">${p.form||0}</td>${F.started?`<td class="n">${p.pts}</td>`:""}<td class="n">${vof(p).toFixed(1)}</td></tr>`).join("")+`</tbody>`;
 }
 
 // ---------- events ----------
@@ -482,9 +492,10 @@ function bind(){
 }
 
 fetch("fantasy.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
-  F.budget=d.budget; F.squad=d.squad; F.max=d.max_per_team; F.players=d.players;
+  F.budget=d.budget; F.squad=d.squad; F.max=d.max_per_team; F.players=d.players; F.start_gw=d.start_gw||1;
   F.players.forEach(p=>F.byId[p.id]=p);
-  const gws=new Set(); F.players.forEach(p=>{for(const g in (p.gw||{}))if(+g>0)gws.add(+g);}); F.gws=[...gws].sort((a,b)=>a-b);
+  const gws=new Set(); F.players.forEach(p=>{for(const g in (p.gw||{}))if(+g>=F.start_gw)gws.add(+g);}); F.gws=[...gws].sort((a,b)=>a-b);
+  F.started=F.gws.length>0;
   // team filter options
   const teams=[...new Set(F.players.map(p=>p.team))].sort();
   $("#fteam").innerHTML=`<option value="">All teams</option>`+teams.map(t=>`<option>${t}</option>`).join("");

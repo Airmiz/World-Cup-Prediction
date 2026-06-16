@@ -134,12 +134,15 @@ def main():
             players.append(pl); idx[(tname, norm(p["name"]))] = pl
 
     matched = unmatched = 0
+    md_played = {}
     if os.path.exists("data/lineups.json"):
         for key, L in json.load(open("data/lineups.json")).items():
             if not isinstance(L, dict) or "|" not in key:
                 continue
             home, away = key.split("|", 1)
             gw = gw_of.get(key, 0)
+            if gw:
+                md_played[gw] = md_played.get(gw, 0) + 1
             for team, name, pos, pts, g, a in match_points(L, home, away):
                 pl = idx.get((team, norm(name)))
                 if not pl:
@@ -154,33 +157,45 @@ def main():
                     if pl:
                         pl["starts"] += 1
 
-    POSBASE = {"GK": 4.0, "DEF": 4.0, "MID": 4.5, "FWD": 5.0}
-    TEAMSLOPE = {"GK": 3.0, "DEF": 3.5, "MID": 4.5, "FWD": 5.5}
+    # the fantasy "season" starts at the next matchday that has NOT begun, so a squad
+    # picked now isn't unfairly judged on a matchday already underway. Earlier matchdays
+    # become "form" (shown, and nudge price) but don't count toward fantasy points.
+    start_gw = next((md for md in (1, 2, 3) if md_played.get(md, 0) == 0), 4)
+    for pl in players:
+        pl["form"] = sum(v for g, v in pl["gw"].items() if g.isdigit() and 0 < int(g) < start_gw)
+        pl["pts"] = sum(v for g, v in pl["gw"].items() if g.isdigit() and int(g) >= start_gw)   # counted points
+
+    # forward-looking projection: expected fantasy points per match, independent of whether
+    # the player has featured yet — so quality players on teams still to play are valued and
+    # picked, not just whoever happened to score on matchday 1.
+    POSRET = {"GK": (1.0, 2.2), "DEF": (1.0, 2.0), "MID": (1.2, 2.2), "FWD": (1.6, 2.6)}
     for pl in players:
         st = strength.get(pl["team"])
-        if st:
-            ts = (0.5 * elo_p(st["elo"]) + 0.5 * att_p(st["att"])) if pl["pos"] in ("MID", "FWD") \
-                else (0.5 * elo_p(st["elo"]) + 0.5 * def_p(st["def"]))
-        else:
-            ts = 0.45
-        price = POSBASE[pl["pos"]] + TEAMSLOPE[pl["pos"]] * ts
-        price += 0.5 * min(pl["starts"], 3)              # first-choice bump
-        price += 0.13 * min(pl["pts"], 30)               # form (points so far)
+        offP = (0.5 * att_p(st["att"]) + 0.5 * elo_p(st["elo"])) if st else 0.45
+        defP = (0.5 * def_p(st["def"]) + 0.5 * elo_p(st["elo"])) if st else 0.45
+        spct = offP if pl["pos"] in ("MID", "FWD") else defP
+        startlik = 0.95 if pl["starts"] >= 1 else (0.55 if pl["apps"] >= 1 else (0.6 if (pl.get("num") or 99) <= 13 else 0.3))
+        base, slope = POSRET[pl["pos"]]
+        pl["xpts"] = round(startlik * (2.0 + base + slope * spct), 2)
+
+    xmin = min(p["xpts"] for p in players); xr = (max(p["xpts"] for p in players) - xmin) or 1
+    for pl in players:
+        price = 4.0 + 8.5 * ((pl["xpts"] - xmin) / xr) + 0.10 * min(pl["form"], 25)
         pl["price"] = max(4.0, min(13.0, round(price * 2) / 2))
 
     scoring = {"play60": 2, "play1": 1, "goal": GOAL, "assist": 3, "cs": CS,
                "save3": 1, "concede2": -1, "yellow": -1, "red": -3, "owngoal": -2, "bonus": [3, 2, 1]}
     out = {"generated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
            "budget": 100.0, "squad": {"GK": 2, "DEF": 5, "MID": 5, "FWD": 3},
-           "max_per_team": 3, "scoring": scoring,
+           "max_per_team": 3, "scoring": scoring, "start_gw": start_gw,
            "gameweeks": [{"gw": i, "name": f"Matchday {i}"} for i in (1, 2, 3)],
            "players": players}
     json.dump(out, open("data/fantasy.json", "w"))
     pr = sorted(players, key=lambda x: -x["price"])
-    print(f"[fantasy] {len(players)} players; event names matched {matched}, unmatched {unmatched}")
-    print("  priciest:", ", ".join(f"{p['name']}({p['team'][:3]},{p['pos']},£{p['price']},{p['pts']}pt)" for p in pr[:8]))
-    topsc = sorted(players, key=lambda x: -x["pts"])[:6]
-    print("  top scorers:", ", ".join(f"{p['name']}({p['pts']}pt,{p['g']}g,£{p['price']})" for p in topsc))
+    print(f"[fantasy] {len(players)} players; matched {matched}, unmatched {unmatched}; season starts Matchday {start_gw} (md_played={md_played})")
+    print("  priciest (projection-led):", ", ".join(f"{p['name']}({p['team'][:3]},{p['pos']},£{p['price']},x{p['xpts']})" for p in pr[:8]))
+    inform = sorted(players, key=lambda x: -x["form"])[:5]
+    print("  best MD1 form:", ", ".join(f"{p['name']}({p['form']}pt,£{p['price']})" for p in inform))
 
 
 if __name__ == "__main__":
