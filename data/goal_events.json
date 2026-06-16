@@ -229,5 +229,17 @@
       "name": "Mohamed Hany",
       "og": true
     }
+  ],
+  "Saudi Arabia|Uruguay": [
+    {
+      "min": 41,
+      "team": "home",
+      "name": "Abdulelah Al-Amri"
+    },
+    {
+      "min": 80,
+      "team": "away",
+      "name": "Maxi Ara\u00fajo"
+    }
   ]
 }

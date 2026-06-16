@@ -17959,7 +17959,7 @@
   "final": true
  },
  "Saudi Arabia|Uruguay": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-4-2",
@@ -17980,8 +17980,8 @@
       "FS": 1,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
-      "GC": 0,
+      "SV": 9,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18002,7 +18002,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18014,16 +18014,16 @@
      "fp": "5",
      "aid": "256667",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 2,
+      "SOT": 2,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18040,11 +18040,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 2,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18058,14 +18058,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18079,14 +18079,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18100,14 +18100,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18128,7 +18128,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18144,12 +18144,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18187,11 +18187,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -18356,12 +18356,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18440,7 +18440,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -18515,7 +18515,7 @@
    ]
   },
   "away": {
-   "formation": "4-4-2",
+   "formation": "4-2-3-1",
    "xi": [
     {
      "name": "Fernando Muslera",
@@ -18533,8 +18533,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 2,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18548,14 +18548,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18569,14 +18569,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18594,10 +18594,10 @@
       "SOT": 0,
       "FC": 0,
       "FS": 1,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18611,14 +18611,35 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Federico Vi\u00f1as",
+     "num": "21",
+     "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "295847",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 5,
+      "SOT": 3,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 2,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18626,8 +18647,8 @@
      "name": "Rodrigo Bentancur",
      "num": "6",
      "pos": "M",
-     "posAbbr": "CM-L",
-     "fp": "8",
+     "posAbbr": "LM",
+     "fp": "4",
      "aid": "215772",
      "st": {
       "G": 0,
@@ -18635,11 +18656,11 @@
       "SH": 1,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18647,62 +18668,20 @@
      "name": "Manuel Ugarte",
      "num": "5",
      "pos": "M",
-     "posAbbr": "CM-R",
-     "fp": "4",
+     "posAbbr": "RM",
+     "fp": "8",
      "aid": "241468",
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
-      "SF": 0
-     }
-    },
-    {
-     "name": "Maxi Ara\u00fajo",
-     "num": "20",
-     "pos": "M",
-     "posAbbr": "LM",
-     "fp": "11",
-     "aid": "287025",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 1,
-      "SOT": 1,
-      "FC": 1,
-      "FS": 1,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 0,
-      "SF": 0
-     }
-    },
-    {
-     "name": "Federico Valverde",
-     "num": "8",
-     "pos": "M",
-     "posAbbr": "RM",
-     "fp": "7",
-     "aid": "235818",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 1,
-      "FS": 0,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -18710,41 +18689,62 @@
      "name": "Darwin N\u00fa\u00f1ez",
      "num": "9",
      "pos": "F",
-     "posAbbr": "CF-L",
+     "posAbbr": "F",
      "fp": "9",
      "aid": "271788",
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
     {
-     "name": "Federico Vi\u00f1as",
-     "num": "21",
-     "pos": "F",
-     "posAbbr": "CF-R",
-     "fp": "10",
-     "aid": "295847",
+     "name": "Maxi Ara\u00fajo",
+     "num": "20",
+     "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "287025",
+     "st": {
+      "G": 1,
+      "A": 0,
+      "SH": 2,
+      "SOT": 2,
+      "FC": 1,
+      "FS": 3,
+      "OFF": 2,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Federico Valverde",
+     "num": "8",
+     "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "235818",
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 3,
+      "SOT": 2,
+      "FC": 1,
       "FS": 0,
-      "OFF": 1,
+      "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -18760,10 +18760,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -18844,11 +18844,11 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 3,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -18865,10 +18865,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -18970,10 +18970,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -19025,35 +19025,127 @@
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 41,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Abdulelah Al-Amri"
+   },
+   {
+    "min": 44,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Abdulelah Al-Amri"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Juan Manuel Sanabria",
+    "player": "Mat\u00edas Vi\u00f1a"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Agust\u00edn Canobbio",
+    "player": "Darwin N\u00fa\u00f1ez"
+   },
+   {
+    "min": 63,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nasser Al-Dawsari",
+    "player": "Musab Al-Juwayr"
+   },
+   {
+    "min": 72,
+    "team": "away",
+    "type": "subst",
+    "assist": "Nicol\u00e1s de la Cruz",
+    "player": "Manuel Ugarte"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Maxi Ara\u00fajo"
+   },
+   {
+    "min": 81,
+    "team": "away",
+    "type": "subst",
+    "assist": "Brian Rodr\u00edguez",
+    "player": "Maxi Ara\u00fajo"
+   },
+   {
+    "min": 81,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nawaf Boushal",
+    "player": "Mohammed Abu Al-Shamat"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "subst",
+    "assist": "Rodrigo Aguirre",
+    "player": "Federico Vi\u00f1as"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Abdullah Al-Hamdan",
+    "player": "Moteb Al-Harbi"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ala Al-Hajji",
+    "player": "Feras Al-Brikan"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ali Lajami",
+    "player": "Saud Abdulhamid"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "41.2",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "1",
-    "totalPasses": "172",
-    "foulsCommitted": "4",
+    "possessionPct": "33.2",
+    "totalShots": "7",
+    "shotsOnTarget": "3",
+    "wonCorners": "4",
+    "totalPasses": "320",
+    "foulsCommitted": "11",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "5",
-    "interceptions": "5",
-    "saves": "1"
+    "totalTackles": "12",
+    "interceptions": "7",
+    "saves": "9"
    },
    "away": {
-    "possessionPct": "58.8",
-    "totalShots": "3",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "241",
-    "foulsCommitted": "5",
-    "offsides": "1",
+    "possessionPct": "66.8",
+    "totalShots": "27",
+    "shotsOnTarget": "10",
+    "wonCorners": "14",
+    "totalPasses": "611",
+    "foulsCommitted": "6",
+    "offsides": "6",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "1",
-    "interceptions": "6",
-    "saves": "0"
+    "totalTackles": "3",
+    "interceptions": "10",
+    "saves": "2"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -19090,6 +19182,6 @@
    "a": 0.6405110879670791,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
