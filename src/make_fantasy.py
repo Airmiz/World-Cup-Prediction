@@ -169,6 +169,7 @@ footer{max-width:1080px;margin:10px auto 30px;padding:0 18px;color:var(--mut);fo
   <button class="btn" id="reset">Reset</button>
   <button class="btn" id="share">🔗 Share</button>
   <label class="budtog" title="Salary cap on or off"><input type="checkbox" id="budtoggle" checked><span>£100 cap</span></label>
+  <span id="livebadge" style="font-size:12px;font-weight:800"></span>
   <span id="valid" style="font-size:12.5px;color:var(--mut)"></span>
  </div>
  <div class="tabs">
@@ -750,15 +751,110 @@ function bind(){
   if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
 
+/* ============ LIVE SCORING — same ESPN feed as the live screen ============
+   Recompute every played match's fantasy points in the browser and overlay them on the static
+   per-matchday points, so your squad and the league update within seconds during a match instead of
+   waiting for the 2-hourly rebuild. Finished matches are cached so it stays light; live ones poll. */
+const ESPN_SB="https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard";
+const ESPN_SUM="https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary";
+const ESPN_ALIAS={"bosnia herzegovina":"Bosnia and Herzegovina","congo dr":"DR Congo","czechia":"Czech Republic","turkiye":"Turkey","usa":"United States","korea republic":"South Korea","ir iran":"Iran","cote divoire":"Ivory Coast","cabo verde":"Cape Verde"};
+function eNorm(s){ s=(s||"").normalize("NFKD").replace(/[̀-ͯ]/g,"").toLowerCase(); for(const ch of ".-&/'") s=s.split(ch).join(" "); return s.replace(/\s+/g," ").trim(); }
+let CANON={}, FIXGW={}, NAMEIDX={};
+function buildLiveIndex(){ CANON={};FIXGW={};NAMEIDX={};
+  (F.fixtures||[]).forEach(f=>{ CANON[eNorm(f.h)]=f.h; CANON[eNorm(f.a)]=f.a; FIXGW[f.h+"|"+f.a]=f.gw; });
+  F.players.forEach(p=>{ (NAMEIDX[p.team]=NAMEIDX[p.team]||{})[eNorm(p.name)]=p.id; }); }
+function eCanon(name){ const n=eNorm(name); if(CANON[n])return CANON[n]; const a=ESPN_ALIAS[n]; if(a&&CANON[eNorm(a)])return a;
+  for(const k in CANON){ if(n.length>=4&&(k.includes(n)||n.includes(k)))return CANON[k]; } return null; }
+function ePos(name){ const n=String(name||"").toLowerCase();
+  if(n.includes("keeper")||n.includes("goal"))return"G"; if(n.includes("defend")||n.includes("back")||n.includes("sweeper"))return"D";
+  if(n.includes("midfield"))return"M"; if(["forward","striker","wing","attack"].some(w=>n.includes(w)))return"F"; return"M"; }
+function eEvMin(ev){ const c=(ev.clock&&ev.clock.displayValue)||ev.time||""; const m=String(c).match(/(\d+)/); return m?parseInt(m[1],10):0; }
+function eBuildLineup(s, home, away){
+  const rosters=s.rosters||[]; if(!rosters.length)return null;
+  const sideOf=tn=>{const c=eCanon(tn); return c===home?"home":c===away?"away":null;};
+  const blocks={home:{xi:[],subs:[]},away:{xi:[],subs:[]}}; let any=false;
+  rosters.forEach(r=>{ const side=sideOf((r.team&&r.team.displayName)||""); if(!side)return; any=true;
+    (r.roster||[]).forEach(p=>{ const ath=p.athlete&&p.athlete.displayName; if(!ath)return;
+      const pos=p.position||{}; const raw={}; (p.stats||[]).forEach(x=>{if(x&&x.name!=null)raw[x.name]=x.displayValue;});
+      (p.starter?blocks[side].xi:blocks[side].subs).push({name:ath,pos:ePos(pos.displayName||pos.name||pos.abbreviation),st:{SV:+raw.saves||0}}); }); });
+  if(!any)return null;
+  const events=[];
+  (s.keyEvents||[]).forEach(ev=>{ const tt=String((ev.type&&(ev.type.type||ev.type.text))||"").toLowerCase();
+    const side=sideOf((ev.team&&ev.team.displayName)||""); if(!side)return;
+    const who=(ev.participants||[]).map(p=>p.athlete&&p.athlete.displayName).filter(Boolean); const mn=eEvMin(ev);
+    const isGoal=ev.scoringPlay===true||(tt.includes("goal")&&!tt.includes("no goal"));
+    if(/own.?goal/.test(tt)) events.push({min:mn,team:side,type:"goal",detail:"own goal",player:who[0]||null});
+    else if(isGoal) events.push(Object.assign({min:mn,team:side,type:"goal",detail:"goal",player:who[0]||null},who.length>1?{assist:who[1]}:{}));
+    else if(tt.includes("yellow")) events.push({min:mn,team:side,type:"card",card:"yellow",player:who[0]||null});
+    else if(tt.includes("red")) events.push({min:mn,team:side,type:"card",card:"red",player:who[0]||null});
+    else if(tt.includes("substitut")) events.push({min:mn,team:side,type:"subst",assist:who[0]||null,player:who.length>1?who[1]:null}); });
+  return {home:blocks.home,away:blocks.away,events};
+}
+// fantasy points for one match — mirror of make_fantasy_data.match_points
+const EVPOS={G:"GK",D:"DEF",M:"MID",F:"FWD"}, eGOAL={GK:6,DEF:6,MID:5,FWD:4}, eCS={GK:4,DEF:4,MID:1,FWD:0};
+function matchPoints(L, home, away){
+  const ev=L.events||[]; const sideTeam={home,away};
+  const hg=ev.filter(e=>e.type==="goal"&&e.team==="home").length, ag=ev.filter(e=>e.type==="goal"&&e.team==="away").length;
+  const conceded={home:ag,away:hg}, onMin={},offMin={};
+  ev.forEach(e=>{ if(e.type==="subst"){ if(e.assist)onMin[eNorm(e.assist)]=e.min||60; if(e.player)offMin[eNorm(e.player)]=e.min||60; } });
+  const rows=[];
+  ["home","away"].forEach(side=>{ const b=L[side]||{}; const starters=new Set((b.xi||[]).map(p=>eNorm(p.name)));
+    (b.xi||[]).concat(b.subs||[]).forEach(p=>{ const nm=eNorm(p.name); const started=starters.has(nm), cameOn=onMin[nm]!=null; if(!started&&!cameOn)return;
+      const pos=EVPOS[(p.pos||"M").slice(0,1).toUpperCase()]||"MID";
+      const mins=started?(offMin[nm]!=null?offMin[nm]:90):(90-(onMin[nm]!=null?onMin[nm]:90));
+      let pts=mins>=60?2:1, g=0,a=0,og=0;
+      ev.forEach(e=>{ if(e.type!=="goal")return; const d=(e.detail||"").toLowerCase();
+        if(eNorm(e.assist||"")===nm)a++; if(eNorm(e.player||"")===nm){ if(d.includes("own"))og++; else if(!d.includes("miss"))g++; } });
+      pts+=g*eGOAL[pos]+a*3-og*2;
+      ev.forEach(e=>{ if(e.type==="card"&&eNorm(e.player||"")===nm)pts+=e.card==="red"?-3:-1; });
+      if((pos==="GK"||pos==="DEF")&&started&&mins>=60&&conceded[side]===0)pts+=eCS[pos];
+      if(pos==="GK"){ pts+=Math.floor((+(p.st&&p.st.SV)||0)/3)-Math.floor(conceded[side]/2); }
+      else if(pos==="DEF"){ pts+=-Math.floor(conceded[side]/2); }
+      rows.push([sideTeam[side],p.name,pos,pts]); }); });
+  const order=rows.map((r,i)=>i).sort((x,y)=>rows[y][3]-rows[x][3]);
+  [3,2,1].forEach((b,k)=>{ if(order[k]!=null)rows[order[k]][3]+=b; });
+  return rows;
+}
+let LIVE_CACHE={}; try{LIVE_CACHE=JSON.parse(localStorage.getItem("wcflv")||"{}");}catch(e){}
+function liveApplyRows(gw, rows){ const G=String(gw); if(+gw<F.start_gw)return; (rows||[]).forEach(([team,name,pos,pts])=>{ const ix=NAMEIDX[team]; const id=ix&&ix[eNorm(name)]; if(id&&F.byId[id])F.byId[id].gw[G]=pts; }); }
+function recomputeGws(){ const s=new Set(); F.players.forEach(p=>{for(const g in (p.gw||{}))if(+g>=F.start_gw)s.add(+g);}); F.gws=[...s].sort((a,b)=>a-b); F.started=F.gws.length>0; }
+function eDateRange(){ const ds=(F.fixtures||[]).filter(f=>f.utc).map(f=>new Date(f.utc).getTime()).filter(t=>!isNaN(t)); if(!ds.length)return "";
+  const fmt=ms=>new Date(ms).toISOString().slice(0,10).replace(/-/g,""); return fmt(Math.min(...ds))+"-"+fmt(Math.min(Date.now()+6*3600e3,Math.max(...ds))); }
+async function eFetchSummary(eid){ const r=await pfetch(ESPN_SUM+"?event="+eid); if(!r||!r.ok)return null; try{return await r.json();}catch(e){return null;} }
+let LIVE_TIMER=null;
+async function liveScore(){
+  if(!F.fixtures||!F.fixtures.length)return;
+  const range=eDateRange();
+  let sb; try{ const r=await pfetch(ESPN_SB+(range?"?dates="+range:"")); if(!r||!r.ok)return; sb=await r.json(); }catch(e){return;}
+  const live=[],post=[];
+  (sb.events||[]).forEach(e=>{ const comp=e.competitions&&e.competitions[0]; if(!comp)return; const cs=comp.competitors||[];
+    const hc=cs.find(c=>c.homeAway==="home"),ac=cs.find(c=>c.homeAway==="away"); if(!hc||!ac)return;
+    const home=eCanon(hc.team&&hc.team.displayName),away=eCanon(ac.team&&ac.team.displayName); if(!home||!away)return;
+    const gw=FIXGW[home+"|"+away]!=null?FIXGW[home+"|"+away]:4;
+    const state=(e.status&&e.status.type&&e.status.type.state)||"pre";
+    if(state==="in")live.push({eid:e.id,home,away,gw}); else if(state==="post")post.push({eid:e.id,home,away,gw}); });
+  let changed=false;
+  for(const m of post){ const c=LIVE_CACHE[m.eid];
+    if(c){ liveApplyRows(c.gw,c.rows); changed=true; continue; }
+    const s=await eFetchSummary(m.eid); if(!s)continue; const L=eBuildLineup(s,m.home,m.away); if(!L)continue;
+    const rows=matchPoints(L,m.home,m.away); LIVE_CACHE[m.eid]={gw:m.gw,rows,final:1}; liveApplyRows(m.gw,rows); changed=true; }
+  try{localStorage.setItem("wcflv",JSON.stringify(LIVE_CACHE));}catch(e){}
+  for(const m of live){ const s=await eFetchSummary(m.eid); if(!s)continue; const L=eBuildLineup(s,m.home,m.away); if(!L)continue; liveApplyRows(m.gw,matchPoints(L,m.home,m.away)); changed=true; }
+  if(changed){ recomputeGws(); _MGRS=null; if(!(S.draft&&S.draft.live)){ renderBar(); if($("#sec-team").classList.contains("on"))renderPitch(); if($("#sec-points").classList.contains("on"))renderPoints(); } }
+  const lb=$("#livebadge"); if(lb)lb.innerHTML=live.length?`<span style="color:var(--live)">⚡ Scoring live · ${live.length} match${live.length>1?"es":""}</span>`:(post.length?`<span style="color:var(--mut)">✓ live-scored</span>`:"");
+  clearTimeout(LIVE_TIMER); if(live.length) LIVE_TIMER=setTimeout(liveScore,45000);   // poll while a match is in progress
+}
+
 fetch("fantasy.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
-  F.budget=d.budget; F.squad=d.squad; F.max=d.max_per_team; F.players=d.players; F.start_gw=d.start_gw||1;
+  F.budget=d.budget; F.squad=d.squad; F.max=d.max_per_team; F.players=d.players; F.start_gw=d.start_gw||1; F.fixtures=d.fixtures||[];
   F.players.forEach(p=>F.byId[p.id]=p);
-  const gws=new Set(); F.players.forEach(p=>{for(const g in (p.gw||{}))if(+g>=F.start_gw)gws.add(+g);}); F.gws=[...gws].sort((a,b)=>a-b);
-  F.started=F.gws.length>0;
-  // team filter options
+  buildLiveIndex();
+  for(const eid in LIVE_CACHE){ const c=LIVE_CACHE[eid]; if(c&&c.rows)liveApplyRows(c.gw,c.rows); }   // show cached live points instantly
+  recomputeGws();
   const teams=[...new Set(F.players.map(p=>p.team))].sort();
   $("#fteam").innerHTML=`<option value="">All teams</option>`+teams.map(t=>`<option>${t}</option>`).join("");
   load(); bind(); const bt=$("#budtoggle"); if(bt)bt.checked=draftBudgetOn(); renderPitch(); renderPoints();
+  liveScore();   // fetch fresh ESPN scores now, then poll live matches
 }).catch(e=>{ $("#bar").innerHTML=`<div class="bcard"><div class="bv">—</div><div class="bl">Fantasy data loading…</div><div class="bs">refresh in a moment</div></div>`; });
 </script>
 </body>

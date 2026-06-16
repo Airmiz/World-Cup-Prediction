@@ -113,6 +113,7 @@ def main():
 
     # gameweek of each group fixture: within a group, fixtures sorted by date -> MD 1/2/3
     gw_of = {}
+    fixtures = []     # embedded so the page can match live ESPN games to a matchday + canonical names
     if os.path.exists("output/match_predictions.csv"):
         rows = list(csv.DictReader(open("output/match_predictions.csv")))
         bygrp = {}
@@ -122,6 +123,10 @@ def main():
             fx.sort(key=lambda r: r["date"])
             for i, r in enumerate(fx):
                 gw_of[r["home_team"] + "|" + r["away_team"]] = i // 2 + 1   # 2 matches per matchday
+        for r in rows:
+            fixtures.append({"h": r["home_team"], "a": r["away_team"],
+                             "gw": gw_of.get(r["home_team"] + "|" + r["away_team"], 4),
+                             "utc": r.get("utc_kickoff", "")})
 
     # build player index + score played matches
     players, idx = [], {}    # idx[(team, normname)] = player dict
@@ -208,7 +213,7 @@ def main():
            "budget": 100.0, "squad": {"GK": 2, "DEF": 5, "MID": 5, "FWD": 3},
            "max_per_team": 3, "scoring": scoring, "start_gw": start_gw,
            "gameweeks": [{"gw": i, "name": f"Matchday {i}"} for i in (1, 2, 3)],
-           "players": players}
+           "fixtures": fixtures, "players": players}
     json.dump(out, open("data/fantasy.json", "w"))
     pr = sorted(players, key=lambda x: -x["price"])
     print(f"[fantasy] {len(players)} players; matched {matched}, unmatched {unmatched}; season starts Matchday {start_gw} (md_played={md_played})")
