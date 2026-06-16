@@ -1113,10 +1113,13 @@ function _brier(p,o){ let s=0; for(let k=0;k<3;k++){const t=k===o?1:0; s+=(p[k]-
 function renderModelScore(){
  const box=document.getElementById("scorecardbox"); if(!box)return;
  const rows=[];
- D.fixtures.forEach(f=>{ const res=STATE.results[f.id]; if(!res)return; const pm=f.pmf||[]; if(!pm.length)return;
+ D.fixtures.forEach(f=>{ const res=STATE.results[f.id]; if(!res)return;
+   const model=(f.hda_model&&f.hda_model.length)?f.hda_model:(f.pmf&&f.pmf.length?hdaFromPmf(f.pmf):null); if(!model)return;
    const o=res[0]>res[1]?0:(res[0]===res[1]?1:2);
-   const lu=D.lineups[f.home+"|"+f.away]; const mk=lu&&lu.market;
-   rows.push({f,res,o,model:hdaFromPmf(pm),market:mk?[mk.h,mk.d,mk.a]:null}); });
+   const lu=D.lineups[f.home+"|"+f.away]; const lmk=lu&&lu.market;
+   const market=(f.hda_market&&f.hda_market.length)?f.hda_market:(lmk?[lmk.h,lmk.d,lmk.a]:null);
+   const blend=(f.blended&&f.hda&&f.hda.length)?f.hda:null;   // model⊗market blend, where it was applied pre-match
+   rows.push({f,res,o,model,market,blend}); });
  if(!rows.length){ box.innerHTML=`<div class="locked">The scorecard fills in as group matches are played.</div>`; return; }
  const agg=(sel,subset)=>{ let n=0,ll=0,rp=0,br=0,hit=0; (subset||rows).forEach(r=>{const p=sel(r); if(!p)return; n++; ll+=_ll(p,r.o); rp+=_rps(p,r.o); br+=_brier(p,r.o); const mx=Math.max(p[0],p[1],p[2]); if(p[r.o]===mx)hit++;}); return n?{n,ll:ll/n,rp:rp/n,br:br/n,hit:hit/n}:null; };
  const M=agg(r=>r.model);
@@ -1125,6 +1128,8 @@ function renderModelScore(){
  const withMkt=rows.filter(r=>r.market);
  const Mh=withMkt.length?agg(r=>r.model,withMkt):null;        // model on the market-covered subset
  const K=withMkt.length?agg(r=>r.market,withMkt):null;        // the market itself
+ const withBl=rows.filter(r=>r.blend);
+ const B=withBl.length?agg(r=>r.blend,withBl):null;           // model⊗market blend track record (builds forward)
  const tile=(lbl,v,sub)=>`<div class="sctile"><div class="scv">${v}</div><div class="scl">${lbl}</div>${sub?`<div class="scs">${sub}</div>`:""}</div>`;
  let head=`<div class="scgrid">`+
    tile("matches scored",M.n)+
@@ -1132,6 +1137,7 @@ function renderModelScore(){
    tile("RPS",M.rp.toFixed(3),"lower is better")+
    tile("log loss",M.ll.toFixed(3),`coin-flip ${U.ll.toFixed(3)}`)+
    tile("skill vs coin-flip",(skill>=0?"+":"")+pc(skill,0),"RPS improvement")+
+   ((B&&B.n)?tile("blend RPS",B.rp.toFixed(3),`model + market · ${B.n} so far`):"")+
    `</div>`;
  // head-to-head vs market
  let h2h="";

@@ -1,0 +1,338 @@
+{
+"France|Senegal": {
+"h": 0.6545,
+"d": 0.2085,
+"a": 0.137,
+"prov": "DraftKings"
+},
+"Iraq|Norway": {
+"h": 0.0687,
+"d": 0.1373,
+"a": 0.794,
+"prov": "DraftKings"
+},
+"Argentina|Algeria": {
+"h": 0.6607,
+"d": 0.2121,
+"a": 0.1272,
+"prov": "DraftKings"
+},
+"Austria|Jordan": {
+"h": 0.7031,
+"d": 0.1835,
+"a": 0.1134,
+"prov": "DraftKings"
+},
+"Portugal|DR Congo": {
+"h": 0.7472,
+"d": 0.166,
+"a": 0.0868,
+"prov": "DraftKings"
+},
+"England|Croatia": {
+"h": 0.5553,
+"d": 0.2505,
+"a": 0.1943,
+"prov": "DraftKings"
+},
+"Ghana|Panama": {
+"h": 0.4267,
+"d": 0.2909,
+"a": 0.2824,
+"prov": "DraftKings"
+},
+"Uzbekistan|Colombia": {
+"h": 0.1013,
+"d": 0.2004,
+"a": 0.6984,
+"prov": "DraftKings"
+},
+"Czech Republic|South Africa": {
+"h": 0.5456,
+"d": 0.2574,
+"a": 0.197,
+"prov": "DraftKings"
+},
+"Switzerland|Bosnia and Herzegovina": {
+"h": 0.6011,
+"d": 0.2329,
+"a": 0.166,
+"prov": "DraftKings"
+},
+"Canada|Qatar": {
+"h": 0.7472,
+"d": 0.166,
+"a": 0.0868,
+"prov": "DraftKings"
+},
+"Mexico|South Korea": {
+"h": 0.4797,
+"d": 0.2864,
+"a": 0.234,
+"prov": "DraftKings"
+},
+"United States|Australia": {
+"h": 0.5972,
+"d": 0.2284,
+"a": 0.1744,
+"prov": "DraftKings"
+},
+"Scotland|Morocco": {
+"h": 0.1908,
+"d": 0.2613,
+"a": 0.5479,
+"prov": "DraftKings"
+},
+"Brazil|Haiti": {
+"h": 0.8712,
+"d": 0.0871,
+"a": 0.0417,
+"prov": "DraftKings"
+},
+"Turkey|Paraguay": {
+"h": 0.4904,
+"d": 0.2816,
+"a": 0.228,
+"prov": "DraftKings"
+},
+"Netherlands|Sweden": {
+"h": 0.5628,
+"d": 0.2442,
+"a": 0.193,
+"prov": "DraftKings"
+},
+"Germany|Ivory Coast": {
+"h": 0.6239,
+"d": 0.2089,
+"a": 0.1672,
+"prov": "DraftKings"
+},
+"Ecuador|Cura\u00e7ao": {
+"h": 0.8763,
+"d": 0.0869,
+"a": 0.0368,
+"prov": "DraftKings"
+},
+"Tunisia|Japan": {
+"h": 0.1371,
+"d": 0.2341,
+"a": 0.6288,
+"prov": "DraftKings"
+},
+"Spain|Saudi Arabia": {
+"h": 0.8665,
+"d": 0.0917,
+"a": 0.0419,
+"prov": "DraftKings"
+},
+"Belgium|Iran": {
+"h": 0.675,
+"d": 0.2047,
+"a": 0.1203,
+"prov": "DraftKings"
+},
+"Uruguay|Cape Verde": {
+"h": 0.6441,
+"d": 0.2282,
+"a": 0.1278,
+"prov": "DraftKings"
+},
+"New Zealand|Egypt": {
+"h": 0.1673,
+"d": 0.2405,
+"a": 0.5921,
+"prov": "DraftKings"
+},
+"Argentina|Austria": {
+"h": 0.5885,
+"d": 0.2452,
+"a": 0.1663,
+"prov": "DraftKings"
+},
+"France|Iraq": {
+"h": 0.8623,
+"d": 0.1009,
+"a": 0.0369,
+"prov": "DraftKings"
+},
+"Norway|Senegal": {
+"h": 0.4485,
+"d": 0.2679,
+"a": 0.2836,
+"prov": "DraftKings"
+},
+"Jordan|Algeria": {
+"h": 0.1378,
+"d": 0.2192,
+"a": 0.643,
+"prov": "DraftKings"
+},
+"Portugal|Uzbekistan": {
+"h": 0.7734,
+"d": 0.147,
+"a": 0.0796,
+"prov": "DraftKings"
+},
+"England|Ghana": {
+"h": 0.7248,
+"d": 0.1743,
+"a": 0.1009,
+"prov": "DraftKings"
+},
+"Panama|Croatia": {
+"h": 0.1371,
+"d": 0.2399,
+"a": 0.623,
+"prov": "DraftKings"
+},
+"Colombia|DR Congo": {
+"h": 0.6612,
+"d": 0.2186,
+"a": 0.1202,
+"prov": "DraftKings"
+},
+"Bosnia and Herzegovina|Qatar": {
+"h": 0.6078,
+"d": 0.233,
+"a": 0.1592,
+"prov": "DraftKings"
+},
+"Canada|Switzerland": {
+"h": 0.2745,
+"d": 0.2785,
+"a": 0.4469,
+"prov": "DraftKings"
+},
+"Morocco|Haiti": {
+"h": 0.7417,
+"d": 0.1669,
+"a": 0.0914,
+"prov": "DraftKings"
+},
+"Scotland|Brazil": {
+"h": 0.1471,
+"d": 0.1912,
+"a": 0.6618,
+"prov": "DraftKings"
+},
+"Mexico|Czech Republic": {
+"h": 0.533,
+"d": 0.2629,
+"a": 0.2041,
+"prov": "DraftKings"
+},
+"South Africa|South Korea": {
+"h": 0.1672,
+"d": 0.2344,
+"a": 0.5984,
+"prov": "DraftKings"
+},
+"Cura\u00e7ao|Ivory Coast": {
+"h": 0.0507,
+"d": 0.107,
+"a": 0.8424,
+"prov": "DraftKings"
+},
+"Ecuador|Germany": {
+"h": 0.1955,
+"d": 0.2456,
+"a": 0.5588,
+"prov": "DraftKings"
+},
+"Japan|Sweden": {
+"h": 0.4545,
+"d": 0.2766,
+"a": 0.2689,
+"prov": "DraftKings"
+},
+"Tunisia|Netherlands": {
+"h": 0.1009,
+"d": 0.1743,
+"a": 0.7248,
+"prov": "DraftKings"
+},
+"Paraguay|Australia": {
+"h": 0.445,
+"d": 0.2856,
+"a": 0.2695,
+"prov": "DraftKings"
+},
+"United States|Turkey": {
+"h": 0.3917,
+"d": 0.2594,
+"a": 0.349,
+"prov": "DraftKings"
+},
+"Norway|France": {
+"h": 0.229,
+"d": 0.2565,
+"a": 0.5145,
+"prov": "DraftKings"
+},
+"Senegal|Iraq": {
+"h": 0.6907,
+"d": 0.1962,
+"a": 0.1131,
+"prov": "DraftKings"
+},
+"Cape Verde|Saudi Arabia": {
+"h": 0.3502,
+"d": 0.2568,
+"a": 0.393,
+"prov": "DraftKings"
+},
+"Uruguay|Spain": {
+"h": 0.159,
+"d": 0.2218,
+"a": 0.6192,
+"prov": "DraftKings"
+},
+"Egypt|Iran": {
+"h": 0.4563,
+"d": 0.3042,
+"a": 0.2395,
+"prov": "DraftKings"
+},
+"New Zealand|Belgium": {
+"h": 0.0733,
+"d": 0.1467,
+"a": 0.78,
+"prov": "DraftKings"
+},
+"Croatia|Ghana": {
+"h": 0.5903,
+"d": 0.2429,
+"a": 0.1668,
+"prov": "DraftKings"
+},
+"Panama|England": {
+"h": 0.1067,
+"d": 0.1372,
+"a": 0.7561,
+"prov": "DraftKings"
+},
+"Colombia|Portugal": {
+"h": 0.2689,
+"d": 0.2766,
+"a": 0.4545,
+"prov": "DraftKings"
+},
+"DR Congo|Uzbekistan": {
+"h": 0.4086,
+"d": 0.2866,
+"a": 0.3048,
+"prov": "DraftKings"
+},
+"Algeria|Austria": {
+"h": 0.253,
+"d": 0.3101,
+"a": 0.4369,
+"prov": "DraftKings"
+},
+"Jordan|Argentina": {
+"h": 0.0637,
+"d": 0.1275,
+"a": 0.8088,
+"prov": "DraftKings"
+}
+}

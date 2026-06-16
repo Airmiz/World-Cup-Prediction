@@ -25,6 +25,8 @@ python3 src/fetch_goals.py || echo "[refresh] goal fetch skipped"
 # 2b. fetch lineups/formations/cards/subs.
 #     ESPN JSON API (free, richest: formations + stats) is preferred; then optional paid keys; Wikipedia as last resort.
 python3 src/fetch_espn.py || echo "[refresh] espn fetch skipped"
+# 2b'. pre-match betting-market odds for upcoming fixtures (powers the model<->market blend)
+python3 src/fetch_odds.py || echo "[refresh] odds fetch skipped"
 python3 src/fetch_fdorg.py || echo "[refresh] fd.org fetch skipped"
 python3 src/fetch_squad.py || echo "[refresh] squad fetch skipped"
 # 2c. free fallback: pull lineups/cards/subs from Wikipedia (no key; best-effort, lags live)

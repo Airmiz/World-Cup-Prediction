@@ -22,6 +22,26 @@ from make_site import et_to_utc, CITY_TZ   # reuse kickoff conversion
 
 G = 8  # truncate goals to 0..7
 
+# ---- betting-market integration (Egidi, Pauli & Torelli 2018) ----
+# The closing line is the hardest benchmark to beat; convex-blending the model's
+# goal-rates toward odds-implied goal-rates yields bookmaker-grade forecasts.
+import os as _osm
+from scipy.optimize import minimize as _minimize
+MARKET = json.load(open("data/odds_market.json")) if _osm.path.exists("data/odds_market.json") else {}
+BLEND_W = 0.50   # weight on the market in the model<->market blend (0 = model only, 1 = market only)
+
+def implied_lambdas(pH, pD, pA, rho, guess=(1.3, 1.3)):
+    """Recover home/away Poisson goal-rates whose Dixon-Coles outcome probs match the market line."""
+    tgt = np.array([pH, pD, pA])
+    def loss(x):
+        lh, la = np.exp(x)
+        p = np.array(outcome_probs(score_matrix(lh, la, rho)))
+        return float(np.sum((p - tgt) ** 2))
+    r = _minimize(loss, np.log(np.maximum(guess, 0.2)), method="Nelder-Mead",
+                  options={"xatol": 1e-4, "fatol": 1e-9, "maxiter": 500})
+    lh, la = np.exp(r.x)
+    return float(lh), float(la)
+
 df, ratings, dc, eg, w = build_model()
 tj = json.load(open("data/tournament.json"))
 groups = tj["groups"]
@@ -39,19 +59,32 @@ city_by_pair = {(r.home_team, r.away_team): r.city for r in mp.itertuples()}
 eg_by_pair = {(r.home_team, r.away_team): (float(r.exp_goals_home), float(r.exp_goals_away)) for r in mp.itertuples()}
 
 fixtures = []
+n_blended = 0
 for k, r in fix.iterrows():
     home_adv = str(r["neutral"]).upper() != "TRUE"
     lh, la = pair_lambdas(dc, eg, ratings, w, r["home_team"], r["away_team"], home_adv)
+    model_hda = [round(float(x), 4) for x in outcome_probs(score_matrix(lh, la, dc.rho))]
+    mkt = MARKET.get(r["home_team"] + "|" + r["away_team"])
+    rec_extra = {"hda_model": model_hda}
+    if mkt:  # blend the model's goal-rates toward the odds-implied rates
+        mlh, mla = implied_lambdas(mkt["h"], mkt["d"], mkt["a"], dc.rho, guess=(lh, la))
+        lh = float(np.exp((1 - BLEND_W) * np.log(lh) + BLEND_W * np.log(max(mlh, 1e-3))))
+        la = float(np.exp((1 - BLEND_W) * np.log(la) + BLEND_W * np.log(max(mla, 1e-3))))
+        rec_extra["hda_market"] = [mkt["h"], mkt["d"], mkt["a"]]
+        rec_extra["mkt_prov"] = mkt.get("prov", "Market")
+        rec_extra["blended"] = True
+        n_blended += 1
     P = score_matrix(lh, la, dc.rho)[:G, :G]
     P = P / P.sum()
-    eh, ea = eg_by_pair.get((r["home_team"], r["away_team"]), (lh, la))
+    rec_extra["hda"] = [round(float(x), 4) for x in outcome_probs(score_matrix(lh, la, dc.rho))]
     fixtures.append({
         "id": k, "group": group_of[r["home_team"]],
         "home": r["home_team"], "away": r["away_team"],
         "city": city_by_pair.get((r["home_team"], r["away_team"]), r["city"]),
         "utc": utc_by_pair.get((r["home_team"], r["away_team"]), ""),
-        "eh": round(eh, 3), "ea": round(ea, 3),
+        "eh": round(float(lh), 3), "ea": round(float(la), 3),   # blended expected goals
         "pmf": [round(float(x), 6) for x in P.ravel()],
+        **rec_extra,
     })
 
 # ---- KO win matrices ----
