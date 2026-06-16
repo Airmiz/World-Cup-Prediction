@@ -241,5 +241,27 @@
       "team": "away",
       "name": "Maxi Ara\u00fajo"
     }
+  ],
+  "Iran|New Zealand": [
+    {
+      "min": 7,
+      "team": "away",
+      "name": "Elijah Just"
+    },
+    {
+      "min": 32,
+      "team": "home",
+      "name": "Ramin Rezaeian"
+    },
+    {
+      "min": 54,
+      "team": "away",
+      "name": "Elijah Just"
+    },
+    {
+      "min": 64,
+      "team": "home",
+      "name": "Mohammad Mohebbi"
+    }
   ]
 }
