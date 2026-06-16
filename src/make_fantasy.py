@@ -176,6 +176,10 @@ footer{max-width:1080px;margin:10px auto 30px;padding:0 18px;color:var(--mut);fo
  <div class="filt"><input id="fsearch" placeholder="Search…"><select id="fteam"><option value="">All teams</option></select><select id="fsort"><option value="pts">Sort: points</option><option value="price">Sort: price</option><option value="value">Sort: value</option></select></div>
  <div class="plist" id="plist"></div>
 </div></div>
+<div class="ov" id="mgrov"><div class="sheet">
+ <div class="sheeth"><b id="mgrname">Manager</b><button class="x" id="mgrx">✕</button></div>
+ <div class="plist" id="mgrbody"></div>
+</div></div>
 <div class="toast" id="toast"></div>
 
 <footer>
@@ -309,41 +313,86 @@ function dreamGW(gw){
   let need=11-xi.length; for(const p of pool){if(need<=0)break; if(cnt[p.pos]<FORM_MAX[p.pos]){xi.push(p);cnt[p.pos]++;need--;}}
   let s=xi.reduce((a,p)=>a+p.v,0); const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.v-a.v)[0]; if(cap)s+=cap.v; return s;
 }
-function percentile(myTotal){ // vs random valid budget teams
-  let n=400, worse=0;
-  for(let i=0;i<n;i++){ const t=randomTeam(); if(t==null){n--;continue;} if(t<=myTotal)worse++; }
-  return n>0?Math.round(100*worse/n):50;
-}
-function randomTeam(){
-  const need={GK:2,DEF:5,MID:5,FWD:3}; const pickIds=[]; const tc={}; let bud=F.budget;
-  for(const pos of POS){ const cand=F.players.filter(p=>p.pos===pos).slice(); for(let k=0;k<need[pos];k++){
-    let tries=0,chosen=null; while(tries++<40){ const p=cand[Math.floor(Math.random()*cand.length)];
-      if(!p||pickIds.includes(p.id))continue; if((tc[p.team]||0)>=F.max)continue; if(p.price>bud-(14-pickIds.length)*4)continue; chosen=p; break; }
-    if(!chosen)return null; pickIds.push(chosen.id); tc[chosen.team]=(tc[chosen.team]||0)+1; bud-=chosen.price; } }
-  // score: best XI by pts + cap
-  const xi=[]; const byPos={GK:[],DEF:[],MID:[],FWD:[]}; pickIds.map(id=>F.byId[id]).forEach(p=>byPos[p.pos].push(p));
-  for(const k in byPos)byPos[k].sort((a,b)=>b.pts-a.pts); xi.push(byPos.GK[0]); const cnt={GK:1,DEF:0,MID:0,FWD:0};
+// ---------- AI rival managers (a deterministic league to compete against) ----------
+function srng(s){ return function(){ s|=0; s=s+0x6D2B79F5|0; let t=Math.imul(s^s>>>15,1|s); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function bestXIof(ids){
+  const ps=ids.map(id=>F.byId[id]).filter(Boolean); const byPos={GK:[],DEF:[],MID:[],FWD:[]}; ps.forEach(p=>byPos[p.pos].push(p));
+  for(const k in byPos)byPos[k].sort((a,b)=>b.pts-a.pts||b.price-a.price); if(!byPos.GK.length)return {xi:[],bench:[]};
+  const xi=[byPos.GK[0]],cnt={GK:1,DEF:0,MID:0,FWD:0};
   ["DEF","MID","FWD"].forEach(k=>{for(let i=0;i<FORM_MIN[k];i++)if(byPos[k][i]){xi.push(byPos[k][i]);cnt[k]++;}});
   const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>b.pts-a.pts);
-  let need2=11-xi.length; for(const p of pool){if(need2<=0)break; if(cnt[p.pos]<FORM_MAX[p.pos]){xi.push(p);cnt[p.pos]++;need2--;}}
-  let s=xi.reduce((a,p)=>a+(p.pts||0),0); const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.pts-a.pts)[0]; if(cap)s+=cap.pts; return s;
+  let need=11-xi.length; for(const p of pool){if(need<=0)break;if(cnt[p.pos]<FORM_MAX[p.pos]){xi.push(p);cnt[p.pos]++;need--;}}
+  const xs=new Set(xi.map(p=>p.id)); return {xi, bench:ps.filter(p=>!xs.has(p.id))};
+}
+function scoreTeam(ids){
+  const {xi,bench}=bestXIof(ids); if(xi.length<11)return {total:0,gw:{},cap:null,xi:[],value:0};
+  const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.pts-a.pts)[0]||xi[0]; const bids=bench.map(p=>p.id);
+  const gw={}; let total=0;
+  F.gws.forEach(g=>{ const G=String(g); const playing=id=>{const q=F.byId[id];return q&&q.gw&&q.gw[G]!=null;};
+    const bp=bids.filter(playing); let line=xi.map(p=>p.id).map(id=>{ if(playing(id))return id; const p=F.byId[id];
+      for(const b of bp){ if(line0has(line,b))continue; const q=F.byId[b]; if((p.pos==="GK")!==(q.pos==="GK"))continue; return b; } return id; });
+    let s=0; line.forEach(id=>{const p=F.byId[id]; if(!p||!p.gw||p.gw[G]==null)return; let v=p.gw[G]; if(id===cap.id)v*=2; s+=v;}); gw[G]=s; total+=s; });
+  return {total, gw, cap:cap.id, xi:xi.map(p=>p.id), value:ids.reduce((a,id)=>a+(F.byId[id]?F.byId[id].price:0),0)};
+}
+function line0has(arr,x){ return arr.indexOf(x)>=0; }
+function buildAI(keyFn){
+  const need={GK:2,DEF:5,MID:5,FWD:3}; let picks=[],bud=F.budget,tc={};
+  for(const pos of POS){ const cand=F.players.filter(p=>p.pos===pos).slice().sort((a,b)=>keyFn(b)-keyFn(a)); let got=0;
+    for(const p of cand){ if(got>=need[pos])break; if((tc[p.team]||0)>=F.max)continue; const sl=15-picks.length; if(p.price>bud-(sl-1)*4)continue; picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;bud-=p.price;got++; }
+    while(got<need[pos]){ const p=cand.find(x=>!picks.includes(x.id)&&(tc[x.team]||0)<F.max); if(!p)break; picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;got++; } }
+  const tco=()=>picks.map(id=>F.byId[id]).reduce((m,p)=>{m[p.team]=(m[p.team]||0)+1;return m;},{});
+  let g=0; while(picks.reduce((s,id)=>s+F.byId[id].price,0)>F.budget&&g++<80){ let done=false; const c=tco();
+    for(const p of picks.map(id=>F.byId[id]).sort((a,b)=>b.price-a.price)){ const r=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!picks.includes(x.id)&&(x.team===p.team||(c[x.team]||0)<F.max)).sort((a,b)=>(b.pts/b.price)-(a.pts/a.price))[0]; if(r){picks=picks.map(id=>id===p.id?r.id:id);done=true;break;} } if(!done)break; }
+  return picks;
+}
+let _MGRS=null;
+function genManagers(){
+  if(_MGRS)return _MGRS;
+  const adj=["Galloping","Clinical","Rampant","Stubborn","Lethal","Rapid","Cunning","Mighty","Restless","Golden","Iron","Phantom","Rowdy","Daring","Sneaky","Electric","Rugged","Crafty","Bold","Savage","Royal","Frosty","Turbo","Velvet","Wily","Brave"];
+  const noun=["Galácticos","Mavericks","Wizards","Underdogs","Tacticians","Renegades","Dynamos","Strikers","Hotshots","Rovers","Wanderers","Invincibles","Maestros","Outlaws","Titans","Comets","Pumas","Sharks","Falcons","Brigade","Legion","Mob","United","Athletic"];
+  const strat=[p=>(p.pts+1)/p.price, p=>p.pts, p=>p.price, p=>p.pts*0.6+p.price*0.4, p=>p.starts*2+p.pts*0.5];
+  const r=srng(20260616); const out=[]; const used=new Set();
+  for(let i=0;i<40;i++){ const base=strat[i%strat.length]; const scale=i<5?0:0.55+((i-5)%8)*0.6;  // 5 optimal rivals (one per strategy), then a varied tail
+    const jit={}; F.players.forEach(p=>jit[p.id]=(r()-0.5)*scale);
+    const sc=scoreTeam(buildAI(p=>base(p)+(jit[p.id]||0)));
+    let nm,t=0; do{ nm=adj[Math.floor(r()*adj.length)]+" "+noun[Math.floor(r()*noun.length)]; }while(used.has(nm)&&t++<30); used.add(nm);
+    out.push(Object.assign({name:nm}, sc));
+  }
+  _MGRS=out; return out;
+}
+function showManager(m){
+  const xi=(m.xi||[]).map(id=>F.byId[id]).filter(Boolean);
+  const byPos={GK:[],DEF:[],MID:[],FWD:[]}; xi.forEach(p=>byPos[p.pos].push(p));
+  const line=k=>byPos[k].map(p=>`${flag(p.team)} ${p.name}${p.id===m.cap?' (C)':''}`).join(" · ")||"—";
+  $("#mgrname").textContent=m.name; $("#mgrbody").innerHTML=
+    `<div class="hint" style="padding:8px 16px"><b>${m.total}</b> pts · squad £${m.value.toFixed(1)}m</div>`+
+    POS.map(k=>`<div class="gwrow"><div><div class="gwn" style="font-size:12px;color:var(--mut)">${k}</div>${line(k)}</div></div>`).join("");
+  $("#mgrov").classList.add("show");
 }
 function renderPoints(){
   const box=$("#ptsbox");
-  if(S.picks.length<15){ box.innerHTML=`<div class="empty">Pick a full 15-player squad to see your points, gameweek breakdown and rank.</div>`; return; }
+  if(S.picks.length<15){ box.innerHTML=`<div class="empty">Pick a full 15-player squad to enter the league and see your points.</div>`; return; }
   const mine=totalPoints();
-  let gwHTML=F.gws.map(gw=>{ const me=gwScoreFor(xiIds(),S.cap,S.vice,String(gw)), dr=dreamGW(String(gw));
-    return `<div class="gwrow"><div><div class="gwn">Matchday ${gw}</div><div class="gwsub">dream team scored ${dr}</div></div><div class="gwp">${me}</div></div>`; }).join("");
+  const mgrs=genManagers();
+  const myGw=Object.fromEntries(F.gws.map(g=>[String(g),gwScoreFor(xiIds(),S.cap,S.vice,String(g))]));
+  const me={name:"⭐ Your team",total:mine,value:spent(),cap:S.cap,xi:xiIds(),gw:myGw,me:true};
+  const table=[me].concat(mgrs).sort((a,b)=>b.total-a.total||b.value-a.value);
+  const myRank=table.findIndex(t=>t.me)+1;
+  const lastGW=F.gws.length?String(F.gws[F.gws.length-1]):null;
+  const rows=table.map((t,i)=>{ const gwp=lastGW&&t.gw?(t.gw[lastGW]||0):0; const mi=t.me?-1:mgrs.indexOf(t);
+    return `<tr class="${t.me?'meRow':''}" data-mgr="${mi}"><td class="n">${i+1}</td><td>${t.name}</td><td class="n">£${t.value.toFixed(1)}</td><td class="n">${gwp}</td><td class="n"><b>${t.total}</b></td></tr>`; }).join("");
   const dreamTot=F.gws.reduce((a,gw)=>a+dreamGW(String(gw)),0);
-  const pctile=percentile(mine);
+  const gwHTML=F.gws.map(gw=>{ const m=gwScoreFor(xiIds(),S.cap,S.vice,String(gw)), dr=dreamGW(String(gw));
+    return `<div class="gwrow"><div><div class="gwn">Matchday ${gw}</div><div class="gwsub">dream team ${dr} · your best possible</div></div><div class="gwp">${m}</div></div>`; }).join("");
+  const tier=myRank===1?"🏆 Top of the league!":myRank<=Math.ceil(table.length*0.25)?"Top-quarter form 🔥":myRank<=Math.ceil(table.length*0.5)?"Upper half — keep climbing":"Room to climb — tweak your XI &amp; captain";
   box.innerHTML=
-   `<div class="card"><h3>Your points</h3>`+
-   `<div class="cmp"><span><b>Your team</b></span><span class="cv" style="font-size:22px">${mine}</span></div>`+
-   `<div class="cmp"><span>Dream team (ceiling)</span><span class="cv">${dreamTot}</span></div>`+
-   `<div class="cmp"><span>You vs ceiling</span><span class="cbar"><i style="width:${Math.min(100,100*mine/Math.max(1,dreamTot))}%;background:var(--live)"></i></span></div>`+
-   `<div class="hint">You'd beat about <b>${pctile}%</b> of randomly-built valid squads — ${pctile>=75?"elite tier 🏆":pctile>=50?"a solid manager":"room to climb"}.</div></div>`+
-   `<div class="card"><h3>Gameweek by gameweek</h3>${gwHTML||'<div class="hint">Matchday points appear as games are played.</div>'}</div>`+
-   `<div class="card"><h3>Your captain pick</h3><div class="hint">Captain <b>${F.byId[S.cap]?F.byId[S.cap].name:"—"}</b> (double points). Tap a starter on the pitch to change it. Vice-captain steps in if your captain doesn't play.</div></div>`;
+   `<div class="card"><h3>Your season</h3>`+
+   `<div class="cmp"><span><b>Total points</b></span><span class="cv" style="font-size:22px">${mine}</span></div>`+
+   `<div class="cmp"><span>League position</span><span class="cv">${myRank}<span style="color:var(--mut);font-weight:600">/${table.length}</span></span></div>`+
+   `<div class="cmp"><span>Dream-team ceiling</span><span class="cv">${dreamTot}</span></div>`+
+   `<div class="hint">${tier}</div></div>`+
+   `<div class="card"><h3>League table <span style="font-weight:600;color:var(--mut);font-size:11px">you vs ${mgrs.length} rival managers</span></h3><div class="tscroll"><table class="tbl" id="ltbl"><thead><tr><th class="n">#</th><th>Manager</th><th class="n">Squad £</th><th class="n">MD ${lastGW||"—"}</th><th class="n">Total</th></tr></thead><tbody>${rows}</tbody></table></div><div class="hint">Tap a rival to see their XI. Managers are AI-built with different strategies and scored on the same real results — they update as matches play.</div></div>`+
+   `<div class="card"><h3>Gameweek by gameweek</h3>${gwHTML||'<div class="hint">Matchday points appear as games are played.</div>'}</div>`;
 }
 
 // ---------- player picker ----------
@@ -438,6 +487,8 @@ function bind(){
     const url=location.origin+location.pathname+"?t="+ids.join("."); navigator.clipboard&&navigator.clipboard.writeText(url); toast("Share link copied!"); };
   $("#ptbl").addEventListener("click",e=>{const th=e.target.closest("th[data-k]");if(!th)return;const k=th.dataset.k; if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=(k==="name"||k==="team")?1:-1;}renderTable();});
   ["#psearch","#pposf"].forEach(s=>$(s).addEventListener("input",renderTable));
+  $("#ptsbox").addEventListener("click",e=>{ const tr=e.target.closest("tr[data-mgr]"); if(!tr)return; const mi=+tr.dataset.mgr; if(mi>=0){ const m=genManagers()[mi]; if(m)showManager(m); } });
+  $("#mgrx").onclick=()=>$("#mgrov").classList.remove("show"); $("#mgrov").addEventListener("click",e=>{if(e.target===$("#mgrov"))$("#mgrov").classList.remove("show");});
   if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
 
