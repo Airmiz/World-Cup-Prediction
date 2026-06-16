@@ -20462,8 +20462,8 @@
       "FS": 1,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 1,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20484,7 +20484,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20500,12 +20500,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20519,14 +20519,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20542,12 +20542,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20561,10 +20561,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -20581,7 +20581,7 @@
      "aid": "176203",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
       "FC": 1,
@@ -20589,7 +20589,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20610,7 +20610,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20622,16 +20622,16 @@
      "fp": "9",
      "aid": "231388",
      "st": {
-      "G": 0,
+      "G": 2,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 4,
+      "SOT": 4,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20645,10 +20645,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -20665,15 +20665,15 @@
      "aid": "286831",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "A": 1,
+      "SH": 2,
+      "SOT": 2,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -20881,11 +20881,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -20918,16 +20918,16 @@
      "fp": "0",
      "aid": "328238",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -21015,8 +21015,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 5,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -21033,11 +21033,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -21058,7 +21058,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -21074,12 +21074,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -21100,7 +21100,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -21116,12 +21116,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -21137,12 +21137,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -21158,12 +21158,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -21177,14 +21177,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
-      "OFF": 1,
+      "OFF": 3,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -21198,14 +21198,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -21219,14 +21219,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 3,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -21286,12 +21286,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -21333,7 +21333,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -21417,7 +21417,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -21450,16 +21450,16 @@
      "fp": "0",
      "aid": "388522",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -21535,7 +21535,7 @@
      "aid": "268641",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
       "FC": 0,
@@ -21543,41 +21543,122 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 66,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Kylian Mbapp\u00e9",
+    "assist": "Michael Olise"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ibrahim Mbaye",
+    "player": "Isma\u00efla Sarr"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "subst",
+    "assist": "Habib Diarra",
+    "player": "Lamine Camara"
+   },
+   {
+    "min": 80,
+    "team": "home",
+    "type": "subst",
+    "assist": "Bradley Barcola",
+    "player": "Ousmane Demb\u00e9l\u00e9"
+   },
+   {
+    "min": 82,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Bradley Barcola",
+    "assist": "Adrien Rabiot"
+   },
+   {
+    "min": 83,
+    "team": "away",
+    "type": "subst",
+    "assist": "Iliman Ndiaye",
+    "player": "Pape Gueye"
+   },
+   {
+    "min": 83,
+    "team": "away",
+    "type": "subst",
+    "assist": "Bamba Dieng",
+    "player": "Nicolas Jackson"
+   },
+   {
+    "min": 87,
+    "team": "home",
+    "type": "subst",
+    "assist": "Rayan Cherki",
+    "player": "D\u00e9sir\u00e9 Dou\u00e9"
+   },
+   {
+    "min": 88,
+    "team": "away",
+    "type": "subst",
+    "assist": "Path\u00e9 Ciss",
+    "player": "Idrissa Gueye"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Ibrahim Mbaye",
+    "assist": "Iliman Ndiaye"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Kylian Mbapp\u00e9"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "55.4",
-    "totalShots": "0",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "61",
-    "foulsCommitted": "1",
-    "offsides": "0",
-    "yellowCards": "0",
-    "redCards": "0",
-    "totalTackles": "2",
-    "interceptions": "0",
-    "saves": "0"
-   },
-   "away": {
-    "possessionPct": "44.6",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "1",
-    "totalPasses": "49",
-    "foulsCommitted": "1",
+    "possessionPct": "53.5",
+    "totalShots": "11",
+    "shotsOnTarget": "8",
+    "wonCorners": "6",
+    "totalPasses": "569",
+    "foulsCommitted": "5",
     "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "3",
-    "interceptions": "1",
-    "saves": "0"
+    "totalTackles": "18",
+    "interceptions": "7",
+    "saves": "1"
+   },
+   "away": {
+    "possessionPct": "46.5",
+    "totalShots": "6",
+    "shotsOnTarget": "2",
+    "wonCorners": "4",
+    "totalPasses": "496",
+    "foulsCommitted": "9",
+    "offsides": "3",
+    "yellowCards": "0",
+    "redCards": "0",
+    "totalTackles": "14",
+    "interceptions": "7",
+    "saves": "5"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -21609,9 +21690,9 @@
    }
   },
   "market": {
-   "h": 0.6448779491369625,
-   "d": 0.2180573996527423,
-   "a": 0.13706465121029515,
+   "h": 0.6362625139043381,
+   "d": 0.21690767519466073,
+   "a": 0.1468298109010011,
    "prov": "DraftKings"
   },
   "final": false
