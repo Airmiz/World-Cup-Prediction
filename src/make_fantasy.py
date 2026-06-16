@@ -351,27 +351,29 @@ function buildAI(keyFn){
     for(const p of picks.map(id=>F.byId[id]).sort((a,b)=>b.price-a.price)){ const r=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!picks.includes(x.id)&&(x.team===p.team||(c[x.team]||0)<F.max)).sort((a,b)=>((b.xpts+0.5)/b.price)-((a.xpts+0.5)/a.price))[0]; if(r){picks=picks.map(id=>id===p.id?r.id:id);done=true;break;} } if(!done)break; }
   return picks;
 }
-let _MGRS=null;
+let _MGRS=null,_MGRSseed=null;
+function leagueSeed(){ return (S&&S.seed)||20260616; }
 function genManagers(){
-  if(_MGRS)return _MGRS;
+  const seed=leagueSeed(); if(_MGRS&&_MGRSseed===seed)return _MGRS;
   const adj=["Galloping","Clinical","Rampant","Stubborn","Lethal","Rapid","Cunning","Mighty","Restless","Golden","Iron","Phantom","Rowdy","Daring","Sneaky","Electric","Rugged","Crafty","Bold","Savage","Royal","Frosty","Turbo","Velvet","Wily","Brave"];
   const noun=["Galácticos","Mavericks","Wizards","Underdogs","Tacticians","Renegades","Dynamos","Strikers","Hotshots","Rovers","Wanderers","Invincibles","Maestros","Outlaws","Titans","Comets","Pumas","Sharks","Falcons","Brigade","Legion","Mob","United","Athletic"];
   const strat=[p=>(p.xpts+0.5)/p.price, p=>p.xpts, p=>p.price, p=>p.xpts*0.6+p.price*0.4, p=>p.xpts*0.85+(p.form||0)*0.06];
-  const r=srng(20260616); const out=[]; const used=new Set();
+  const r=srng(seed); const out=[]; const used=new Set();
   for(let i=0;i<40;i++){ const base=strat[i%strat.length]; const scale=i<5?0:0.55+((i-5)%8)*0.6;  // 5 optimal rivals (one per strategy), then a varied tail
     const jit={}; F.players.forEach(p=>jit[p.id]=(r()-0.5)*scale);
     const sc=scoreTeam(buildAI(p=>base(p)+(jit[p.id]||0)));
     let nm,t=0; do{ nm=adj[Math.floor(r()*adj.length)]+" "+noun[Math.floor(r()*noun.length)]; }while(used.has(nm)&&t++<30); used.add(nm);
     out.push(Object.assign({name:nm}, sc));
   }
-  _MGRS=out; return out;
+  _MGRS=out; _MGRSseed=seed; return out;
 }
 function showManager(m){
   const xi=(m.xi||[]).map(id=>F.byId[id]).filter(Boolean);
   const byPos={GK:[],DEF:[],MID:[],FWD:[]}; xi.forEach(p=>byPos[p.pos].push(p));
   const line=k=>byPos[k].map(p=>`${flag(p.team)} ${p.name}${p.id===m.cap?' (C)':''}`).join(" · ")||"—";
+  const head=F.started?`<b>${m.total}</b> pts`:`<b>${m.proj}</b> projected pts/MD`;
   $("#mgrname").textContent=m.name; $("#mgrbody").innerHTML=
-    `<div class="hint" style="padding:8px 16px"><b>${m.total}</b> pts · squad £${m.value.toFixed(1)}m</div>`+
+    `<div class="hint" style="padding:8px 16px">${head} · squad £${m.value.toFixed(1)}m</div>`+
     POS.map(k=>`<div class="gwrow"><div><div class="gwn" style="font-size:12px;color:var(--mut)">${k}</div>${line(k)}</div></div>`).join("");
   $("#mgrov").classList.add("show");
 }
@@ -438,7 +440,9 @@ function removePlayer(id){ S.picks=S.picks.filter(x=>x!==id); if(S.cap===id)S.ca
 
 // ---------- auto-pick ----------
 function autopick(){
-  S={picks:[],cap:null,vice:null,bench:[]}; const need={GK:2,DEF:5,MID:5,FWD:3}; let bud=F.budget; const tc={};
+  // fresh seed each auto-pick => a brand-new set of rival managers re-draft alongside you
+  S={picks:[],cap:null,vice:null,bench:[],seed:(Date.now()^Math.floor(Math.random()*1e9))>>>0}; _MGRS=null;
+  const need={GK:2,DEF:5,MID:5,FWD:3}; let bud=F.budget; const tc={};
   // greedy value within budget, leave room: target avg ~6.6
   for(const pos of POS){
     const cand=F.players.filter(p=>p.pos===pos).slice().sort((a,b)=>(b.xpts+0.5)/b.price-(a.xpts+0.5)/a.price);
@@ -459,7 +463,7 @@ function autopick(){
     }
     if(!done)break;
   }
-  S.bench=[]; normaliseXI(); save(); renderPitch(); renderPoints(); toast("Auto-picked a value squad");
+  S.bench=[]; normaliseXI(); save(); renderPitch(); renderPoints(); toast("Auto-picked your squad — 40 fresh rivals drafted");
 }
 
 // ---------- players table ----------
