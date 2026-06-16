@@ -69,7 +69,14 @@ nav a.on,nav a:hover{color:var(--txt)}
 .benchwrap{margin-top:10px;background:var(--surface);border-radius:14px;box-shadow:var(--shadow);padding:10px 8px}
 .benchh{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);text-align:center;margin-bottom:6px}
 .bench{display:flex;justify-content:center;gap:clamp(4px,3vw,24px);flex-wrap:wrap}
+.jersey.phead{background-size:cover;background-position:50% 16%;background-repeat:no-repeat;background-color:rgba(255,255,255,.92)}
+.jersey .pnum{line-height:1}
+.jersey.has-img .pnum{display:none}
+.jersey.has-img{color:transparent;border-color:#fff}
+.mchip{display:inline-flex;align-items:center;gap:5px;margin:3px 10px 3px 0;font-size:12.5px;font-weight:600;white-space:nowrap}
+.mhead{width:26px;height:26px;border-radius:50%;background:var(--track) no-repeat center 16%;background-size:cover;border:1px solid var(--border);display:inline-block;flex:none}
 .bench .jersey{background:var(--track);color:var(--mut)}
+.bench .jersey.has-img{background-color:var(--track)}
 .bench .jersey.empty{background:var(--track);border:2px dashed var(--border)}
 .bench .snm{color:var(--txt)}
 .bench .spt{background:var(--blue-soft);color:var(--blue)}
@@ -237,12 +244,61 @@ function renderBar(){
 function card(v,l,s,extra){ return `<div class="bcard"><div class="bv">${v}</div><div class="bl">${l}</div>${s?`<div class="bs">${s}</div>`:""}${extra||""}</div>`; }
 function overTeam(){ const c={}; let bad=false; picked().forEach(p=>{c[p.team]=(c[p.team]||0)+1; if(c[p.team]>F.max)bad=true;}); return bad; }
 
+// ---------- player headshots (Wikipedia REST -> Wikidata -> number disc); cached in memory + localStorage,
+//            footballer-verified, throttled with retry. Same cache key as the live page so photos are shared. ----------
+function escAttr(s){ return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;"); }
+const PHOTOS={}, PHOTO_REQ={};
+function photoGet(n){ if(n in PHOTOS) return PHOTOS[n]; try{const v=localStorage.getItem("wcph2:"+n); if(v) return (PHOTOS[n]=v);}catch(e){} return undefined; }
+function photoSetPos(n,url){ PHOTOS[n]=url; try{localStorage.setItem("wcph2:"+n,url);}catch(e){} }
+function photoSetNeg(n){ if(!(n in PHOTOS)) PHOTOS[n]=""; }
+const FB_RE=/foot(ball)?|soccer|winger|midfield|defender|goalkeep|striker|forward/;
+const psleep=ms=>new Promise(r=>setTimeout(r,ms));
+let PHOTO_ACTIVE=0; const PHOTO_Q=[];
+function photoSchedule(fn){ return new Promise(res=>{ PHOTO_Q.push({fn,res}); photoPump(); }); }
+function photoPump(){ while(PHOTO_ACTIVE<3 && PHOTO_Q.length){ const job=PHOTO_Q.shift(); PHOTO_ACTIVE++;
+  Promise.resolve().then(job.fn).then(v=>{PHOTO_ACTIVE--;job.res(v);photoPump();},()=>{PHOTO_ACTIVE--;job.res(null);photoPump();}); } }
+async function pfetch(url){ for(let i=0;i<3;i++){ try{ const r=await fetch(url); if(r.status===429||r.status>=500){ await psleep(700*(i+1)+Math.random()*500); continue; } return r; }catch(e){ await psleep(500*(i+1)); } } return null; }
+async function wikiSummaryPhoto(name){
+  const r=await pfetch("https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(name.replace(/ /g,"_"))+"?redirect=true");
+  if(!r) return null; if(r.status===404) return ""; if(!r.ok) return null;
+  try{ const d=await r.json(); if(!FB_RE.test(((d.description||"")+" "+(d.extract||"")).toLowerCase())) return ""; return (d.thumbnail||{}).source||""; }catch(e){ return null; }
+}
+async function wikidataPhoto(name){
+  const r=await pfetch("https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=5&origin=*&search="+encodeURIComponent(name));
+  if(!r||!r.ok) return null; let qid=null;
+  try{ const d=await r.json(); for(const h of (d.search||[])){ if(FB_RE.test((h.description||"").toLowerCase())){ qid=h.id; break; } } }catch(e){ return null; }
+  if(!qid) return "";
+  const r2=await pfetch("https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&property=P18&origin=*&entity="+encodeURIComponent(qid));
+  if(!r2||!r2.ok) return null;
+  try{ const d2=await r2.json(); const cl=(d2.claims&&d2.claims.P18)||[]; const fn=cl[0]&&cl[0].mainsnak&&cl[0].mainsnak.datavalue&&cl[0].mainsnak.datavalue.value;
+    return fn ? "https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(fn)+"?width=200" : ""; }catch(e){ return null; }
+}
+function fetchPlayerPhoto(name){
+ const cached=photoGet(name); if(cached!==undefined) return Promise.resolve(cached);
+ if(PHOTO_REQ[name]) return PHOTO_REQ[name];
+ const p=(async()=>{
+   const w=await photoSchedule(()=>wikiSummaryPhoto(name)); if(w){ photoSetPos(name,w); return w; }
+   const d=await photoSchedule(()=>wikidataPhoto(name)); if(d){ photoSetPos(name,d); return d; }
+   if(w!==null && d!==null) photoSetNeg(name);
+   return "";
+ })();
+ PHOTO_REQ[name]=p;
+ p.then(()=>{ if(photoGet(name)===undefined) delete PHOTO_REQ[name]; });
+ return p;
+}
+function applyPhoto(el,url){ if(!url||!el)return; const img=new Image();
+ img.onload=()=>{ el.style.backgroundImage="url('"+url.replace(/'/g,"%27")+"')"; el.classList.add("has-img"); }; img.src=url; }
+function hydratePhotos(root){ (root||document).querySelectorAll(".phead[data-pl]").forEach(el=>{
+ const nm=el.getAttribute("data-pl"); if(!nm)return;
+ fetchPlayerPhoto(nm).then(url=>{ if(url) applyPhoto(el,url); }); }); }
+
 // ---------- render pitch ----------
 function jersey(p,fx,isBench){
   if(!p) return `<div class="slot" data-empty="1"><div class="jersey empty">+</div><div class="snm">&nbsp;</div></div>`;
   const capBadge=(!isBench&&S.cap===p.id)?`<span class="cap">C</span>`:(!isBench&&S.vice===p.id)?`<span class="cap v">V</span>`:"";
-  const val = fx? `<span class="spt fx">${flag(p.team)} £${p.price.toFixed(1)}</span>` : `<span class="spt">${p.pts}</span>`;
-  return `<div class="slot" data-id="${p.id}"><div class="jersey">${p.num||p.pos[0]}${capBadge}</div><div class="snm">${flag(p.team)} ${p.name.split(" ").slice(-1)[0]}</div>${val}</div>`;
+  const sub = fx? `${flag(p.team)} £${p.price.toFixed(1)}` : (F.started? `${p.pts}` : `x${(p.xpts||0).toFixed(1)}`);
+  const last=p.name.split(" ").slice(-1)[0];
+  return `<div class="slot" data-id="${p.id}"><div class="jersey phead" data-pl="${escAttr(p.name)}"><span class="pnum">${p.num||p.pos[0]}</span>${capBadge}</div><div class="snm">${flag(p.team)} ${last}</div><span class="spt${fx?' fx':''}">${sub}</span></div>`;
 }
 function renderPitch(){
   normaliseXI();
@@ -263,6 +319,7 @@ function renderPitch(){
   const bench=benchIds().map(id=>F.byId[id]).filter(Boolean);
   const benchCells = (bench.length?bench:[]).map(p=>jersey(p,showVal,true)).join("") || `<div class="slot" data-empty="1"><div class="jersey empty">+</div><div class="snm">bench</div></div>`;
   $("#bench").innerHTML=benchCells;
+  hydratePhotos(pitch); hydratePhotos($("#bench"));   // fill in real headshots after the formation renders
   renderBar();
 }
 
@@ -330,14 +387,38 @@ function scoreTeam(ids){
   return {total, gw, cap:cap.id, xi:xi.map(p=>p.id), value:ids.reduce((a,id)=>a+(F.byId[id]?F.byId[id].price:0),0), proj:projOf(ids, cap.id)};
 }
 function line0has(arr,x){ return arr.indexOf(x)>=0; }
-function buildAI(keyFn){
-  const need={GK:2,DEF:5,MID:5,FWD:3}; let picks=[],bud=F.budget,tc={};
-  for(const pos of POS){ const cand=F.players.filter(p=>p.pos===pos).slice().sort((a,b)=>keyFn(b)-keyFn(a)); let got=0;
-    for(const p of cand){ if(got>=need[pos])break; if((tc[p.team]||0)>=F.max)continue; const sl=15-picks.length; if(p.price>bud-(sl-1)*4)continue; picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;bud-=p.price;got++; }
-    while(got<need[pos]){ const p=cand.find(x=>!picks.includes(x.id)&&(tc[x.team]||0)<F.max); if(!p)break; picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;got++; } }
-  const tco=()=>picks.map(id=>F.byId[id]).reduce((m,p)=>{m[p.team]=(m[p.team]||0)+1;return m;},{});
-  let g=0; while(picks.reduce((s,id)=>s+F.byId[id].price,0)>F.budget&&g++<80){ let done=false; const c=tco();
-    for(const p of picks.map(id=>F.byId[id]).sort((a,b)=>b.price-a.price)){ const r=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!picks.includes(x.id)&&(x.team===p.team||(c[x.team]||0)<F.max)).sort((a,b)=>((b.xpts+0.5)/b.price)-((a.xpts+0.5)/a.price))[0]; if(r){picks=picks.map(id=>id===p.id?r.id:id);done=true;break;} } if(!done)break; }
+// best-XI score for an arbitrary per-player metric m (captain doubled) — drives the optimizer
+function bestXIByM(ids,m){
+  const ps=ids.map(id=>F.byId[id]).filter(Boolean); const byPos={GK:[],DEF:[],MID:[],FWD:[]}; ps.forEach(p=>byPos[p.pos].push(p));
+  for(const k in byPos)byPos[k].sort((a,b)=>m(b)-m(a)); if(!byPos.GK.length)return -1e9;
+  const xi=[byPos.GK[0]],cnt={GK:1,DEF:0,MID:0,FWD:0};
+  ["DEF","MID","FWD"].forEach(k=>{for(let i=0;i<FORM_MIN[k];i++)if(byPos[k][i]){xi.push(byPos[k][i]);cnt[k]++;}});
+  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>m(b)-m(a));
+  let need=11-xi.length; for(const p of pool){if(need<=0)break;if(cnt[p.pos]<FORM_MAX[p.pos]){xi.push(p);cnt[p.pos]++;need--;}}
+  let s=xi.reduce((a,p)=>a+m(p),0); const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>m(b)-m(a))[0]; if(cap)s+=m(cap);
+  return s;
+}
+// strongest legal squad under the budget for metric m: cheapest valid start, then hill-climb
+// same-position swaps that raise the best-XI score while staying within £budget (so it SPENDS
+// the budget on the highest-projected players = the stars, instead of value-minning).
+function optimizeSquad(m,budget){
+  const need={GK:2,DEF:5,MID:5,FWD:3}, pool={}; POS.forEach(k=>pool[k]=F.players.filter(p=>p.pos===k).sort((a,b)=>m(b)-m(a)).slice(0,24));
+  let picks=[]; const tc={};
+  POS.forEach(k=>{ const cheap=F.players.filter(p=>p.pos===k).slice().sort((a,b)=>a.price-b.price); let got=0;
+    for(const p of cheap){ if(got>=need[k])break; if((tc[p.team]||0)>=F.max)continue; picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;got++; } });
+  const sp=()=>picks.reduce((s,id)=>s+(F.byId[id]?F.byId[id].price:0),0);
+  // objective: best XI (captain doubled) + depth — the depth term spends spare budget on real
+  // quality across all 15 instead of leaving a bench of £4.0 unknowns, so squads look world-class.
+  const obj=ids=>{ let s=bestXIByM(ids,m); for(const id of ids){const p=F.byId[id]; if(p)s+=0.4*m(p);} return s; };
+  for(let it=0;it<80;it++){
+    const cur=obj(picks), spent=sp(); const c={}; picks.forEach(id=>{const t=F.byId[id].team;c[t]=(c[t]||0)+1;});
+    let best=null,gain=1e-6;
+    for(const oid of picks){ const o=F.byId[oid];
+      for(const q of pool[o.pos]){ if(picks.includes(q.id))continue; if(spent-o.price+q.price>budget)continue;
+        if(q.team!==o.team && (c[q.team]||0)>=F.max)continue;
+        const np=picks.map(id=>id===oid?q.id:id); const g=obj(np)-cur; if(g>gain){gain=g;best=np;} } }
+    if(!best)break; picks=best;
+  }
   return picks;
 }
 let _MGRS=null,_MGRSseed=null;
@@ -346,11 +427,24 @@ function genManagers(){
   const seed=leagueSeed(); if(_MGRS&&_MGRSseed===seed)return _MGRS;
   const adj=["Galloping","Clinical","Rampant","Stubborn","Lethal","Rapid","Cunning","Mighty","Restless","Golden","Iron","Phantom","Rowdy","Daring","Sneaky","Electric","Rugged","Crafty","Bold","Savage","Royal","Frosty","Turbo","Velvet","Wily","Brave"];
   const noun=["Galácticos","Mavericks","Wizards","Underdogs","Tacticians","Renegades","Dynamos","Strikers","Hotshots","Rovers","Wanderers","Invincibles","Maestros","Outlaws","Titans","Comets","Pumas","Sharks","Falcons","Brigade","Legion","Mob","United","Athletic"];
-  const strat=[p=>(p.xpts+0.5)/p.price, p=>p.xpts, p=>p.price, p=>p.xpts*0.6+p.price*0.4, p=>p.xpts*0.85+(p.form||0)*0.06];
   const r=srng(seed); const out=[]; const used=new Set();
-  for(let i=0;i<5;i++){ const base=strat[i%strat.length]; const scale=i===0?0:0.45+(i-1)*0.35;  // 1 optimal anchor + 4 varied rivals (re-draft on each auto-pick)
-    const jit={}; F.players.forEach(p=>jit[p.id]=(r()-0.5)*scale);
-    const sc=scoreTeam(buildAI(p=>base(p)+(jit[p.id]||0)));
+  // distinct nations for the two "national-core" rivals (drawn from the strongest sides present)
+  const strongNats=[...new Set(F.players.filter(p=>p.xpts>=4.6).map(p=>p.team))];
+  const pickNat=()=>strongNats.length?strongNats[Math.floor(r()*strongNats.length)]:null;
+  const nat1=pickNat(); let nat2=pickNat(),g=0; while(nat2===nat1&&g++<8)nat2=pickNat();
+  // five genuinely different strategies — galácticos / differential / two national cores / big-budget —
+  // so no two rivals (nor you) field the same XI. Small jitter keeps each auto-pick re-roll fresh.
+  const styles=[
+    p=>p.xpts+0.32*p.price,                                  // Galácticos — load the priciest stars
+    p=>p.xpts-((p.xpts||0)>=4.6?2.1:0),                      // Differential — fade the obvious picks
+    p=>p.xpts+(p.team===nat1?2.3:0),                         // National core #1
+    p=>p.xpts+(p.team===nat2?2.3:0),                         // National core #2
+    p=>p.xpts-0.11*Math.abs(p.price-7)                       // Mid-price moneyball (no premiums)
+  ];
+  for(let i=0;i<5;i++){ const sc0=styles[i]; const js=0.3+i*0.18;
+    const jit={}; F.players.forEach(p=>jit[p.id]=(r()-0.5)*js);
+    const m=p=>sc0(p)+(jit[p.id]||0);
+    const sc=scoreTeam(optimizeSquad(m,F.budget));
     let nm,t=0; do{ nm=adj[Math.floor(r()*adj.length)]+" "+noun[Math.floor(r()*noun.length)]; }while(used.has(nm)&&t++<30); used.add(nm);
     out.push(Object.assign({name:nm}, sc));
   }
@@ -359,12 +453,13 @@ function genManagers(){
 function showManager(m){
   const xi=(m.xi||[]).map(id=>F.byId[id]).filter(Boolean);
   const byPos={GK:[],DEF:[],MID:[],FWD:[]}; xi.forEach(p=>byPos[p.pos].push(p));
-  const line=k=>byPos[k].map(p=>`${flag(p.team)} ${p.name}${p.id===m.cap?' (C)':''}`).join(" · ")||"—";
+  const chip=p=>`<span class="mchip"><span class="phead mhead" data-pl="${escAttr(p.name)}"></span>${flag(p.team)} ${p.name.split(" ").slice(-1)[0]}${p.id===m.cap?' <b>(C)</b>':''}</span>`;
+  const line=k=>byPos[k].map(chip).join("")||"—";
   const head=F.started?`<b>${m.total}</b> pts`:`<b>${m.proj}</b> projected pts/MD`;
   $("#mgrname").textContent=m.name; $("#mgrbody").innerHTML=
     `<div class="hint" style="padding:8px 16px">${head} · squad £${m.value.toFixed(1)}m</div>`+
-    POS.map(k=>`<div class="gwrow"><div><div class="gwn" style="font-size:12px;color:var(--mut)">${k}</div>${line(k)}</div></div>`).join("");
-  $("#mgrov").classList.add("show");
+    POS.map(k=>`<div class="gwrow"><div style="width:100%"><div class="gwn" style="font-size:12px;color:var(--mut)">${k}</div><div style="display:flex;flex-wrap:wrap">${line(k)}</div></div></div>`).join("");
+  hydratePhotos($("#mgrov")); $("#mgrov").classList.add("show");
 }
 function renderPoints(){
   const box=$("#ptsbox"); const started=F.started;
@@ -430,29 +525,12 @@ function removePlayer(id){ S.picks=S.picks.filter(x=>x!==id); if(S.cap===id)S.ca
 // ---------- auto-pick ----------
 function autopick(){
   // fresh seed each auto-pick => a brand-new set of rival managers re-draft alongside you
-  S={picks:[],cap:null,vice:null,bench:[],seed:(Date.now()^Math.floor(Math.random()*1e9))>>>0}; _MGRS=null;
-  const need={GK:2,DEF:5,MID:5,FWD:3}; let bud=F.budget; const tc={};
-  // greedy value within budget, leave room: target avg ~6.6
-  for(const pos of POS){
-    const cand=F.players.filter(p=>p.pos===pos).slice().sort((a,b)=>(b.xpts+0.5)/b.price-(a.xpts+0.5)/a.price);
-    let got=0;
-    for(const p of cand){ if(got>=need[pos])break; if((tc[p.team]||0)>=F.max)continue;
-      const slotsLeft=15-S.picks.length; if(p.price>bud-(slotsLeft-1)*4.0)continue;
-      S.picks.push(p.id); tc[p.team]=(tc[p.team]||0)+1; bud-=p.price; got++; }
-    // fill remainder with cheapest if greedy fell short
-    if(got<need[pos]) for(const p of cand.slice().sort((a,b)=>a.price-b.price)){ if(got>=need[pos])break; if(S.picks.includes(p.id))continue; if((tc[p.team]||0)>=F.max)continue; S.picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;bud-=p.price;got++; }
-  }
-  // guarantee within budget: downgrade the priciest player to the best cheaper same-position sub
-  let guard=0;
-  while(spent()>F.budget && guard++<80){
-    let done=false;
-    for(const p of picked().sort((a,b)=>b.price-a.price)){
-      const repl=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!S.picks.includes(x.id)&&(x.team===p.team||teamCount(x.team)<F.max)).sort((a,b)=>((b.xpts+0.5)/b.price)-((a.xpts+0.5)/a.price))[0];
-      if(repl){ S.picks=S.picks.map(id=>id===p.id?repl.id:id); done=true; break; }
-    }
-    if(!done)break;
-  }
-  S.bench=[]; normaliseXI(); save(); renderPitch(); renderPoints(); toast("Auto-picked your squad — 5 fresh rivals drafted");
+  const seed=(Date.now()^Math.floor(Math.random()*1e9))>>>0; _MGRS=null;
+  // strongest squad that spends the budget on the highest-projected players (the stars)
+  const picks=optimizeSquad(p=>p.xpts||0, F.budget);
+  S={picks,cap:null,vice:null,bench:[],seed};
+  normaliseXI();   // splits XI/bench by projection and sets the captain to the top projected starter
+  save(); renderPitch(); renderPoints(); toast("Auto-picked your strongest XI — 5 fresh rivals drafted");
 }
 
 // ---------- players table ----------

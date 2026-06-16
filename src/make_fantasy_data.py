@@ -135,11 +135,13 @@ def main():
 
     matched = unmatched = 0
     md_played = {}
+    team_played = set()    # teams that have a logged match -> non-starters are genuine backups
     if os.path.exists("data/lineups.json"):
         for key, L in json.load(open("data/lineups.json")).items():
             if not isinstance(L, dict) or "|" not in key:
                 continue
             home, away = key.split("|", 1)
+            team_played.add(ALIAS.get(home, home)); team_played.add(ALIAS.get(away, away))
             gw = gw_of.get(key, 0)
             if gw:
                 md_played[gw] = md_played.get(gw, 0) + 1
@@ -169,14 +171,27 @@ def main():
     # the player has featured yet — so quality players on teams still to play are valued and
     # picked, not just whoever happened to score on matchday 1.
     POSRET = {"GK": (1.0, 2.2), "DEF": (1.0, 2.0), "MID": (1.2, 2.2), "FWD": (1.6, 2.6)}
+
+    def start_lik(pl):
+        """Likelihood the player starts the next match. Crucially, when the team has
+        NOT yet played a logged game we judge by squad number (a #10 is a first-choice
+        starter), so marquee players on teams still to feature aren't buried beneath
+        whoever happened to start matchday 1."""
+        num = pl.get("num") or 99
+        numL = 0.93 if num <= 11 else (0.76 if num <= 16 else (0.56 if num <= 20 else 0.42))
+        if pl["starts"] >= 1:
+            return 0.96                                   # confirmed starter
+        if pl["team"] in team_played:                     # team played; not a confirmed starter
+            return 0.62 if pl["apps"] >= 1 else min(numL, 0.5)
+        return numL                                       # team yet to play -> squad-number prior
+
     for pl in players:
         st = strength.get(pl["team"])
         offP = (0.5 * att_p(st["att"]) + 0.5 * elo_p(st["elo"])) if st else 0.45
         defP = (0.5 * def_p(st["def"]) + 0.5 * elo_p(st["elo"])) if st else 0.45
         spct = offP if pl["pos"] in ("MID", "FWD") else defP
-        startlik = 0.95 if pl["starts"] >= 1 else (0.55 if pl["apps"] >= 1 else (0.6 if (pl.get("num") or 99) <= 13 else 0.3))
         base, slope = POSRET[pl["pos"]]
-        pl["xpts"] = round(startlik * (2.0 + base + slope * spct), 2)
+        pl["xpts"] = round(start_lik(pl) * (2.0 + base + slope * spct), 2)
 
     xmin = min(p["xpts"] for p in players); xr = (max(p["xpts"] for p in players) - xmin) or 1
     for pl in players:
