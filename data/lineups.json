@@ -20439,5 +20439,1181 @@
    "prov": "DraftKings"
   },
   "final": true
+ },
+ "France|Senegal": {
+  "status": "LIVE",
+  "source": "espn",
+  "home": {
+   "formation": "4-2-3-1",
+   "xi": [
+    {
+     "name": "Mike Maignan",
+     "num": "16",
+     "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "189026",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "William Saliba",
+     "num": "17",
+     "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "277385",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Dayot Upamecano",
+     "num": "4",
+     "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "222793",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Theo Hern\u00e1ndez",
+     "num": "19",
+     "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "233621",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jules Kound\u00e9",
+     "num": "5",
+     "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "231692",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ousmane Demb\u00e9l\u00e9",
+     "num": "7",
+     "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "229744",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Adrien Rabiot",
+     "num": "14",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "176203",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Aur\u00e9lien Tchouam\u00e9ni",
+     "num": "8",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "265919",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Kylian Mbapp\u00e9",
+     "num": "10",
+     "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "231388",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "D\u00e9sir\u00e9 Dou\u00e9",
+     "num": "20",
+     "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "336388",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Michael Olise",
+     "num": "11",
+     "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "286831",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "N'Golo Kant\u00e9",
+     "num": "13",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "173556",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Brice Samba",
+     "num": "1",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "164126",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Lucas Digne",
+     "num": "3",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "160115",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Warren Za\u00efre-Emery",
+     "num": "18",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "345581",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jean-Philippe Mateta",
+     "num": "22",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "241187",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Robin Risser",
+     "num": "23",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "344517",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Manu Kon\u00e9",
+     "num": "6",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "285226",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Lucas Hern\u00e1ndez",
+     "num": "21",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "196200",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Maghnes Akliouche",
+     "num": "25",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "329690",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Rayan Cherki",
+     "num": "24",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "298008",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Maxence Lacroix",
+     "num": "26",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "265918",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Bradley Barcola",
+     "num": "12",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "328238",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ibrahima Konat\u00e9",
+     "num": "15",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "251634",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Marcus Thuram",
+     "num": "9",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "217331",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Malo Gusto",
+     "num": "2",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "308947",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ]
+  },
+  "away": {
+   "formation": "4-2-3-1",
+   "xi": [
+    {
+     "name": "\u00c9douard Mendy",
+     "num": "16",
+     "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "238362",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Moussa Niakhat\u00e9",
+     "num": "19",
+     "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "213181",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Kalidou Koulibaly",
+     "num": "3",
+     "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "150312",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "El Hadji Malick Diouf",
+     "num": "25",
+     "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "359796",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Kr\u00e9pin Diatta",
+     "num": "15",
+     "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "253992",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Lamine Camara",
+     "num": "8",
+     "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "38721",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Pape Gueye",
+     "num": "26",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "255889",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Idrissa Gueye",
+     "num": "5",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "144517",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Nicolas Jackson",
+     "num": "11",
+     "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "308524",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Sadio Man\u00e9",
+     "num": "10",
+     "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "169797",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Isma\u00efla Sarr",
+     "num": "18",
+     "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "241012",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "Cherif Ndiaye",
+     "num": "12",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "251924",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Mamadou Sarr",
+     "num": "2",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "355433",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Habib Diarra",
+     "num": "21",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "324991",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ismail Jakobs",
+     "num": "14",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "268796",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Path\u00e9 Ciss",
+     "num": "6",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "294228",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Antoine Mendy",
+     "num": "24",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "319161",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Yehvann Diouf",
+     "num": "1",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "241029",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Bara Sapoko Ndiaye",
+     "num": "22",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "409016",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Bamba Dieng",
+     "num": "9",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "313889",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Abdoulaye Seck",
+     "num": "4",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "251614",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ibrahim Mbaye",
+     "num": "20",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "388522",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Pape Matar Sarr",
+     "num": "17",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "297337",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Mory Diaw",
+     "num": "23",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "197631",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Assane Diao",
+     "num": "7",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "364742",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Iliman Ndiaye",
+     "num": "13",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "268641",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ]
+  },
+  "events": [],
+  "teamstats": {
+   "home": {
+    "possessionPct": "55.4",
+    "totalShots": "0",
+    "shotsOnTarget": "0",
+    "wonCorners": "0",
+    "totalPasses": "61",
+    "foulsCommitted": "1",
+    "offsides": "0",
+    "yellowCards": "0",
+    "redCards": "0",
+    "totalTackles": "2",
+    "interceptions": "0",
+    "saves": "0"
+   },
+   "away": {
+    "possessionPct": "44.6",
+    "totalShots": "1",
+    "shotsOnTarget": "0",
+    "wonCorners": "1",
+    "totalPasses": "49",
+    "foulsCommitted": "1",
+    "offsides": "1",
+    "yellowCards": "0",
+    "redCards": "0",
+    "totalTackles": "3",
+    "interceptions": "1",
+    "saves": "0"
+   },
+   "labels": {
+    "possessionPct": "Possession",
+    "totalShots": "Shots",
+    "shotsOnTarget": "Shots on Target",
+    "wonCorners": "Corners",
+    "totalPasses": "Passes",
+    "foulsCommitted": "Fouls",
+    "offsides": "Offsides",
+    "yellowCards": "Yellow Cards",
+    "redCards": "Red Cards",
+    "totalTackles": "Tackles",
+    "interceptions": "Interceptions",
+    "saves": "Saves"
+   },
+   "pct": {
+    "possessionPct": true,
+    "totalShots": false,
+    "shotsOnTarget": false,
+    "wonCorners": false,
+    "totalPasses": false,
+    "foulsCommitted": false,
+    "offsides": false,
+    "yellowCards": false,
+    "redCards": false,
+    "totalTackles": false,
+    "interceptions": false,
+    "saves": false
+   }
+  },
+  "market": {
+   "h": 0.6448779491369625,
+   "d": 0.2180573996527423,
+   "a": 0.13706465121029515,
+   "prov": "DraftKings"
+  },
+  "final": false
  }
 }
