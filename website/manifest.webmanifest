@@ -1,0 +1,17 @@
+{
+  "name": "World Cup 2026 — Live Forecast",
+  "short_name": "WC26",
+  "description": "Live, model-driven 2026 World Cup forecast: championship odds, in-play win probabilities, lineups, ratings and live stats — re-simulated after every result.",
+  "start_url": "./live.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

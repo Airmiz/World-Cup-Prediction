@@ -14,6 +14,22 @@ HTML = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>World Cup 26 — Live</title>
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Live 2026 World Cup forecast: in-play win probabilities, lineups, ratings, live stats and championship odds — re-simulated after every result and tracked against the market.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="World Cup 2026 — Live Forecast">
+<meta property="og:title" content="World Cup 2026 — Live Forecast">
+<meta property="og:description" content="In-play win probabilities, live stats and championship odds — every result re-simulates the tournament, tracked against the market.">
+<meta property="og:image" content="https://airmiz.github.io/World-Cup-Prediction/og.png">
+<meta property="og:url" content="https://airmiz.github.io/World-Cup-Prediction/live.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="World Cup 2026 — Live Forecast">
+<meta name="twitter:description" content="In-play win probabilities and live stats, tracked against the market.">
+<meta name="twitter:image" content="https://airmiz.github.io/World-Cup-Prediction/og.png">
+<script>if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})});</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='t' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300854d'/%3E%3Cstop offset='.52' stop-color='%231e6fd9'/%3E%3Cstop offset='1' stop-color='%23d92d2d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23t)'/%3E%3Ctext x='32' y='44' font-family='-apple-system,Helvetica,Arial' font-size='32' font-weight='800' font-style='italic' fill='white' text-anchor='middle'%3E26%3C/text%3E%3C/svg%3E">
 <style>
 :root{--bg:#f5f5f7;--surface:#fff;--txt:#1d1d1f;--mut:#6e6e73;--hair:#d2d2d7;
@@ -407,6 +423,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 .callt.ok{background:rgba(52,199,89,.16);color:#1f9d4d}
 .callt.mkt{background:rgba(255,159,10,.16);color:#c0820f}
 .resrow{background:rgba(255,255,255,.04);border-radius:8px}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}#goalflash{transition:none!important}}
 </style>
 </head>
 <body>
@@ -1362,7 +1379,7 @@ function openTeam(team){
    <div class="b"><div class="v">${pc(o.r32[team])}</div><div class="k">Advance</div></div>
    <div class="b"><div class="v">${ti.elo}</div><div class="k">Elo</div></div></div>` : "";
  tmmodal.innerHTML=`
-  <button class="close" id="tmclose">✕</button>
+  <button class="close" id="tmclose" aria-label="Close">✕</button>
   <div class="mh"><span class="tn">${F(team)} ${team}</span></div>
   <div class="meta">Group ${g} · model attack ${ti.attack} · defence ${ti.defence}</div>
   ${odds}
@@ -1811,7 +1828,7 @@ function drawModal(){
  if(WP.status==="upcoming"){
   const pre=WCInPlay.probs(f.eh,f.ea,0,0,0);
   modalEl.innerHTML=`
-   <button class="close" id="wpclose">✕</button>
+   <button class="close" id="wpclose" aria-label="Close match centre">✕</button>
    <div class="mh"><span class="tn">${F(f.home)} ${f.home}</span><span class="sc" style="font-size:22px;color:var(--mut)">vs</span><span class="tn">${f.away} ${F(f.away)}</span></div>
    <div class="meta">Group ${f.group} · ${f.city}${kt?" · "+fmtDay.format(kt)+", "+fmtTime.format(kt):""} · model xG ${f.eh.toFixed(2)}–${f.ea.toFixed(2)}</div>
    ${readouts(f,pre)}
@@ -1834,7 +1851,7 @@ function drawModal(){
  const redNote = (WP.reds&&WP.reds.length)
    ? `<div class="hint" style="margin-top:6px">🟥 Model adjusts for the red card${WP.reds.length>1?"s":""}: ${WP.reds.map(r=>(F(r.team==="home"?f.home:f.away)+" "+(r.team==="home"?f.home:f.away)+" "+r.min+"′")).join(", ")} — a side down to ten scores less and concedes more${WP.status==="live"&&sotOf(f)?", and the live readout reflects shot dominance":""}.</div>` : "";
  modalEl.innerHTML=`
-  <button class="close" id="wpclose">✕</button>
+  <button class="close" id="wpclose" aria-label="Close match centre">✕</button>
   <div class="mh"><span class="tn">${F(f.home)} ${f.home}</span><span class="sc">${gh} – ${ga}</span><span class="tn">${f.away} ${F(f.away)}</span></div>
   <div class="meta">Group ${f.group} · ${f.city}${kt?" · "+fmtDay.format(kt):""} · model xG ${f.eh.toFixed(2)}–${f.ea.toFixed(2)} · <b style="color:${WP.status==="live"?"var(--live)":"var(--blue)"}">${statusTxt}</b></div>
   ${readouts(f,cur)}
@@ -1842,7 +1859,7 @@ function drawModal(){
   <div class="minrow"><span class="mm">${mlbl(WP.minute)}'</span>
    <input type="range" id="wpmin" min="0" max="${WP.full||90}" value="${WP.minute}"></div>
   <div class="ctrls">
-   <div class="seg"><button class="solid" id="wpplay">▶ Replay</button><button id="wprewind">↺</button></div>
+   <div class="seg"><button class="solid" id="wpplay">▶ Replay</button><button id="wprewind" aria-label="Restart from kickoff">↺</button></div>
   </div>
   ${liveNote}${redNote}
   <div class="hint">Remaining-time goals modelled as Poisson(xG × time left) — exact in-play win probability from the real scoreline. Drag to scrub the minute, or press Replay.</div>
