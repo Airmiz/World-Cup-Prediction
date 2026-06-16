@@ -271,6 +271,15 @@ table.big tbody tr:hover{background:var(--tint)}
 .pedbar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--blue),var(--live));transition:width .4s ease}
 .pedv{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--txt)}
 .pedv .pedn{font-size:10px;font-weight:600;color:var(--mut)}
+.orow{display:grid;grid-template-columns:1fr 64px 64px 50px;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.orow.ohdr{font-size:9.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut)}
+.orow.ohdr .ocell{font-weight:700}
+.onm{font-size:13px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ocell{text-align:center;font-variant-numeric:tabular-nums}
+.ocell b{font-size:14px;color:var(--txt)}
+.ocell .odec{display:block;font-size:10px;color:var(--mut)}
+.oedge{text-align:right;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--mut)}
+.oedge.up{color:var(--live)}.oedge.dn{color:var(--amber)}
 .mcsec h4{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 .mcsec h4 .tag{font-size:9.5px;font-weight:600;color:var(--blue);background:var(--blue-soft);border-radius:6px;padding:2px 7px;text-transform:none;letter-spacing:0}
 .golog{display:flex;flex-direction:column;gap:7px}
@@ -1232,9 +1241,9 @@ function renderFeed(){
      const other=sc?sc[1-i]:null; const cls=sc?(s>other?"win":s<other?"lose":""):"";
      return `<div class="mrow ${cls}"><span>${F(t)}</span><span class="nm">${t}</span><span class="sc">${s==null?"":s}</span></div>`;
    }).join("");
-   const interactive = status!=="upcoming";
-   const chip = interactive ? `<div style="text-align:right;margin-top:5px"><span class="wpchip">📈 WIN PROBABILITY</span></div>` : "";
-   return `<div class="mcard ${interactive?"clk":""} ${status}" ${interactive?`data-fid="${f.id}"`:""}><div class="top"><span>Group ${f.group} · ${f.city}</span><span class="st ${status}">${stTxt}</span></div>${rowsHTML}${chip}</div>`;
+   const chipTxt = status==="upcoming" ? (f.hda_market?"📊 MATCH ODDS":"📊 PRE-MATCH") : "📈 WIN PROBABILITY";
+   const chip = `<div style="text-align:right;margin-top:5px"><span class="wpchip">${chipTxt}</span></div>`;
+   return `<div class="mcard clk ${status}" data-fid="${f.id}"><div class="top"><span>Group ${f.group} · ${f.city}</span><span class="st ${status}">${stTxt}</span></div>${rowsHTML}${chip}</div>`;
   }).join("");
   box.insertAdjacentHTML("beforeend",`<div class="daygroup"><div class="dayh">${label}</div><div class="mgrid">${cards}</div></div>`);
  });
@@ -1833,12 +1842,28 @@ function drawModal(){
  // --- not yet kicked off: pre-match odds only, no fabricated timeline ---
  if(WP.status==="upcoming"){
   const pre=WCInPlay.probs(f.eh,f.ea,0,0,0);
+  const mk=f.hda_market;   // vig-removed market H/D/A captured pre-match
+  let oddsSec="";
+  if(mk){
+    const nm=i=>i===0?(F(f.home)+" "+f.home):i===2?(F(f.away)+" "+f.away):"Draw";
+    const dec=p=>(1/Math.max(p,0.001)).toFixed(2);
+    const orow=i=>{ const dm=pre[i]-mk[i];
+      const edge=Math.abs(dm)<0.03?`<span class="oedge">≈</span>`:`<span class="oedge ${dm>0?'up':'dn'}">${dm>0?'▲':'▼'} ${pc(Math.abs(dm),0)}</span>`;
+      return `<div class="orow"><span class="onm">${nm(i)}</span>`+
+        `<span class="ocell"><b>${pc(pre[i],0)}</b><span class="odec">${dec(pre[i])}</span></span>`+
+        `<span class="ocell"><b>${pc(mk[i],0)}</b><span class="odec">${dec(mk[i])}</span></span>${edge}</div>`; };
+    oddsSec=`<div class="mcsec" style="margin-top:14px"><h4>Match odds <span class="tag">our model v market · ${escAttr(f.mkt_prov||"Market")}</span></h4>`+
+      `<div class="orow ohdr"><span class="onm"></span><span class="ocell">Our model</span><span class="ocell">Market</span><span class="oedge">value</span></div>`+
+      [0,1,2].map(orow).join("")+
+      `<div class="heatcap">Win/draw/win probabilities (bookmaker margin removed) with fair decimal odds. ▲/▼ = where our model rates a result more / less likely than the market.</div></div>`;
+  }
   modalEl.innerHTML=`
    <button class="close" id="wpclose" aria-label="Close match centre">✕</button>
    <div class="mh"><span class="tn">${F(f.home)} ${f.home}</span><span class="sc" style="font-size:22px;color:var(--mut)">vs</span><span class="tn">${f.away} ${F(f.away)}</span></div>
    <div class="meta">Group ${f.group} · ${f.city}${kt?" · "+fmtDay.format(kt)+", "+fmtTime.format(kt):""} · model xG ${f.eh.toFixed(2)}–${f.ea.toFixed(2)}</div>
    ${readouts(f,pre)}
-   <div class="hint" style="margin-top:18px">Pre-match model odds shown above. The live win-probability timeline appears once the match kicks off${kt?` at ${fmtTime.format(kt)} your time`:""}.</div>`;
+   ${oddsSec}
+   <div class="hint" style="margin-top:14px">${mk?"Pre-match odds above — our model versus the betting market. ":"Pre-match model odds shown above. "}The live win-probability timeline appears once the match kicks off${kt?` at ${fmtTime.format(kt)} your time`:""}.</div>`;
   document.getElementById("wpclose").onclick=closeModal;
   return;
  }
