@@ -28,7 +28,13 @@ G = 8  # truncate goals to 0..7
 import os as _osm
 from scipy.optimize import minimize as _minimize
 MARKET = json.load(open("data/odds_market.json")) if _osm.path.exists("data/odds_market.json") else {}
-BLEND_W = 0.50   # weight on the market in the model<->market blend (0 = model only, 1 = market only)
+# Weight on the market in the model<->market blend (0 = model only, 1 = market only).
+# DISABLED (0.0): a retrospective backtest on the played WC matches showed the blend did
+# NOT improve accuracy — the model is currently out-scoring the bookmakers (model RPS 0.180
+# vs market 0.206; blend@0.5 0.191), so per the only-ship-if-it-improves rule it stays off.
+# The odds are still captured and shown (model vs market scorecard); raise this once/if the
+# market starts beating the model over a larger sample.
+BLEND_W = 0.0
 
 def implied_lambdas(pH, pD, pA, rho, guess=(1.3, 1.3)):
     """Recover home/away Poisson goal-rates whose Dixon-Coles outcome probs match the market line."""
@@ -66,14 +72,15 @@ for k, r in fix.iterrows():
     model_hda = [round(float(x), 4) for x in outcome_probs(score_matrix(lh, la, dc.rho))]
     mkt = MARKET.get(r["home_team"] + "|" + r["away_team"])
     rec_extra = {"hda_model": model_hda}
-    if mkt:  # blend the model's goal-rates toward the odds-implied rates
-        mlh, mla = implied_lambdas(mkt["h"], mkt["d"], mkt["a"], dc.rho, guess=(lh, la))
-        lh = float(np.exp((1 - BLEND_W) * np.log(lh) + BLEND_W * np.log(max(mlh, 1e-3))))
-        la = float(np.exp((1 - BLEND_W) * np.log(la) + BLEND_W * np.log(max(mla, 1e-3))))
+    if mkt:
         rec_extra["hda_market"] = [mkt["h"], mkt["d"], mkt["a"]]
         rec_extra["mkt_prov"] = mkt.get("prov", "Market")
-        rec_extra["blended"] = True
-        n_blended += 1
+        if BLEND_W > 0:   # blend the model's goal-rates toward the odds-implied rates (off by default)
+            mlh, mla = implied_lambdas(mkt["h"], mkt["d"], mkt["a"], dc.rho, guess=(lh, la))
+            lh = float(np.exp((1 - BLEND_W) * np.log(lh) + BLEND_W * np.log(max(mlh, 1e-3))))
+            la = float(np.exp((1 - BLEND_W) * np.log(la) + BLEND_W * np.log(max(mla, 1e-3))))
+            rec_extra["blended"] = True
+            n_blended += 1
     P = score_matrix(lh, la, dc.rho)[:G, :G]
     P = P / P.sum()
     rec_extra["hda"] = [round(float(x), 4) for x in outcome_probs(score_matrix(lh, la, dc.rho))]
