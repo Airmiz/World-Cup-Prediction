@@ -184,7 +184,7 @@ def parse_summary(summ, our_home, our_away):
                if (p.get("athlete") or {}).get("displayName")]
         mn = minute(ev)
         is_goal = ev.get("scoringPlay") is True or ("goal" in ttype and "no goal" not in ttype)
-        if "own goal" in ttype:
+        if "own goal" in ttype.replace("-", " "):   # ESPN type is "own-goal" (hyphen)
             events.append({"min": mn, "team": side, "type": "goal", "detail": "Own Goal",
                            "player": who[0] if who else None})
         elif is_goal:  # "penalty---scored" has no "goal" in its type string, so trust ESPN's scoringPlay flag

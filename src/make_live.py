@@ -745,7 +745,7 @@ function buildLineupFromSummary(s, home, away){
   const side=sideOf((ev.team&&ev.team.displayName)||""); if(!side) return;
   const who=(ev.participants||[]).map(p=>p.athlete&&p.athlete.displayName).filter(Boolean); const mn=espnEvMin(ev);
   const isGoal = ev.scoringPlay===true || (tt.includes("goal")&&!tt.includes("no goal"));   // "penalty---scored" has no "goal" in its type, so trust scoringPlay
-  if(tt.includes("own goal")) events.push({min:mn,team:side,type:"goal",detail:"Own Goal",player:who[0]||null});
+  if(/own.?goal/.test(tt)) events.push({min:mn,team:side,type:"goal",detail:"Own Goal",player:who[0]||null});   // ESPN type is "own-goal" (hyphen) — match space/hyphen/joined
   else if(isGoal) events.push(Object.assign({min:mn,team:side,type:"goal",detail:tt.includes("penalt")?"Penalty":"Normal Goal",player:who[0]||null}, who.length>1?{assist:who[1]}:{}));
   else if(tt.includes("yellow")) events.push({min:mn,team:side,type:"card",card:"yellow",player:who[0]||null});
   else if(tt.includes("red")) events.push({min:mn,team:side,type:"card",card:"red",player:who[0]||null});
@@ -777,7 +777,7 @@ function parseMarket(s){   // betting-market implied H/D/A probabilities (over-r
  return {h:h/tot,d:dd/tot,a:a/tot,prov:(pc.provider&&pc.provider.name)||"Market"};
 }
 function commentaryType(t){ t=(t||"").toLowerCase();
- if(/own goal/.test(t)) return "og";
+ if(/own.?goal/.test(t)) return "og";
  if(/\bgoal\b|scores|back of the net/.test(t)) return "goal";
  if(/penalty/.test(t)) return "pen";
  if(/red card|sent off|second yellow/.test(t)) return "red";
