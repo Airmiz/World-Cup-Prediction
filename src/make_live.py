@@ -438,7 +438,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 <body>
 <div id="goalflash"></div>
 <nav><div class="in"><b><span class="lg">26</span> World Cup 26</b>
-<a href="index.html">Forecast</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#scorecard">Accuracy</a><a href="#bracket">Bracket</a><a href="#whatif">What if?</a></div></nav>
+<a href="index.html">Forecast</a><a href="fantasy.html">Fantasy</a><a href="#feed" class="on">Live</a><a href="#stats">Stats</a><a href="#bestxi">Best XI</a><a href="#groups">Groups</a><a href="#odds">Title odds</a><a href="#power">Power</a><a href="#scorecard">Accuracy</a><a href="#bracket">Bracket</a><a href="#whatif">What if?</a></div></nav>
 <div class="wrap">
 <div id="tickerbar"></div>
 

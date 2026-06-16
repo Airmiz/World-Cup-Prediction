@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Cup 26 — Fantasy</title>
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="description" content="World Cup 2026 Fantasy — pick a 15-player squad under a budget, captain your star, and score from real match data every matchday.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="World Cup 2026 — Fantasy">
+<meta property="og:description" content="Build your squad, captain your star, and climb the table — scored from real World Cup match data.">
+<meta property="og:image" content="https://airmiz.github.io/World-Cup-Prediction/og.png">
+<meta property="og:url" content="https://airmiz.github.io/World-Cup-Prediction/fantasy.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://airmiz.github.io/World-Cup-Prediction/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2334c759'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='30' font-weight='800' fill='white' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f5f5f7;--surface:#fff;--card:#fff;--txt:#1d1d1f;--mut:#6e6e73;--border:#e3e3e8;--track:#ececf0;
+ --blue:#1e6fd9;--blue-soft:rgba(30,111,217,.1);--live:#34c759;--amber:#ff9f0a;--red:#ff3b30;--shadow:0 1px 3px rgba(0,0,0,.07);
+ --pitch1:#2ea14d;--pitch2:#249a45;--gold:#ffcf33}
+@media (prefers-color-scheme: dark){:root{--bg:#000;--surface:#121214;--card:#1c1c1f;--txt:#f5f5f7;--mut:#98989f;--border:#2a2a30;--track:#26262b;--blue:#4d9bff;--blue-soft:rgba(77,155,255,.14);--shadow:0 1px 3px rgba(0,0,0,.5)}}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--border)}
+nav .in{max-width:1080px;margin:0 auto;padding:11px 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+nav b{font-weight:800;letter-spacing:-.02em;margin-right:6px}
+nav .lg{display:inline-flex;width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#1f9d4d,#34c759);color:#fff;align-items:center;justify-content:center;font-size:12px;font-weight:800;font-style:italic;margin-right:7px}
+nav a{color:var(--mut);text-decoration:none;font-size:14px;font-weight:600}
+nav a.on,nav a:hover{color:var(--txt)}
+.wrap{max-width:1080px;margin:0 auto;padding:18px}
+.hero{padding:14px 4px 6px}
+.hero h1{font-size:clamp(26px,5vw,40px);letter-spacing:-.03em;margin:.1em 0}
+.hero .grad{background:linear-gradient(120deg,#1f9d4d,#34c759 60%,#1e6fd9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);max-width:60ch;margin:.2em 0 0}
+/* top bar: budget / points / gw */
+.bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.bcard{background:var(--surface);border-radius:14px;box-shadow:var(--shadow);padding:13px 16px}
+.bcard .bv{font-size:25px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.bcard .bl{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-top:5px}
+.bcard .bs{font-size:11px;color:var(--mut);margin-top:2px}
+.budbar{height:6px;background:var(--track);border-radius:3px;margin-top:8px;overflow:hidden}
+.budbar i{display:block;height:100%;background:var(--live);border-radius:3px;transition:width .3s,background .3s}
+.budbar i.over{background:var(--red)}
+.tabs{display:flex;gap:6px;margin:6px 0 14px;flex-wrap:wrap}
+.tab{padding:8px 15px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--mut);font-weight:700;font-size:13px;cursor:pointer}
+.tab.on{background:var(--txt);color:var(--bg);border-color:var(--txt)}
+.btn{padding:8px 14px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--txt);font-weight:700;font-size:13px;cursor:pointer}
+.btn:hover{border-color:var(--blue)}
+.btn.solid{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn.live{background:var(--live);color:#fff;border-color:var(--live)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sec{display:none}.sec.on{display:block}
+/* pitch */
+.field{background:linear-gradient(180deg,var(--pitch1),var(--pitch2));border-radius:18px;padding:16px 8px 10px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.field::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.05) 0 38px,transparent 38px 76px);pointer-events:none}
+.line{display:flex;justify-content:center;gap:clamp(4px,2.5vw,26px);margin:8px 0;position:relative;z-index:1;flex-wrap:wrap}
+.slot{width:74px;text-align:center;cursor:pointer;user-select:none}
+.jersey{width:46px;height:46px;margin:0 auto;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-weight:800;color:#1b6;box-shadow:0 2px 6px rgba(0,0,0,.25);position:relative;font-size:13px;border:2px solid rgba(255,255,255,.6)}
+.jersey.empty{background:rgba(255,255,255,.16);border:2px dashed rgba(255,255,255,.5);color:#fff}
+.jersey .cap{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--txt);color:var(--bg);font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:900;border:2px solid #fff}
+.jersey .cap.v{background:#fff;color:var(--txt)}
+.snm{font-size:11px;font-weight:700;color:#fff;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.spt{display:inline-block;font-size:10.5px;font-weight:800;color:#06301a;background:#fff;border-radius:5px;padding:1px 6px;margin-top:2px;min-width:30px}
+.spt.fx{background:rgba(255,255,255,.25);color:#fff}
+.benchwrap{margin-top:10px;background:var(--surface);border-radius:14px;box-shadow:var(--shadow);padding:10px 8px}
+.benchh{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);text-align:center;margin-bottom:6px}
+.bench{display:flex;justify-content:center;gap:clamp(4px,3vw,24px);flex-wrap:wrap}
+.bench .jersey{background:var(--track);color:var(--mut)}
+.bench .jersey.empty{background:var(--track);border:2px dashed var(--border)}
+.bench .snm{color:var(--txt)}
+.bench .spt{background:var(--blue-soft);color:var(--blue)}
+/* picker modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:60;align-items:flex-end;justify-content:center}
+.ov.show{display:flex}
+@media(min-width:640px){.ov{align-items:center}}
+.sheet{background:var(--bg);width:100%;max-width:620px;max-height:90vh;border-radius:18px 18px 0 0;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:640px){.sheet{border-radius:18px}}
+.sheeth{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sheeth b{font-size:16px}
+.sheeth .x{margin-left:auto;background:none;border:none;color:var(--mut);font-size:22px;cursor:pointer}
+.filt{padding:10px 16px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.filt input,.filt select{padding:7px 10px;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--txt);font-size:13px}
+.filt input{flex:1;min-width:120px}
+.plist{overflow:auto;flex:1}
+.pl{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);cursor:pointer}
+.pl:hover{background:var(--surface)}
+.pl.dis{opacity:.4;cursor:not-allowed}
+.pl .pnm{font-weight:700}
+.pl .psub{font-size:11.5px;color:var(--mut)}
+.pl .ppr{font-weight:800;font-variant-numeric:tabular-nums;text-align:right}
+.pl .ppt{font-size:11px;color:var(--mut);text-align:right}
+.pos-tag{display:inline-block;font-size:9.5px;font-weight:800;border-radius:5px;padding:1px 5px;color:#fff;margin-right:5px}
+.pos-GK{background:#e0a800}.pos-DEF{background:#1f9d4d}.pos-MID{background:#1e6fd9}.pos-FWD{background:#d9385f}
+/* table */
+.tbl{width:100%;border-collapse:collapse;background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);font-size:13.5px}
+.tbl th,.tbl td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+.tbl th{font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--mut);cursor:pointer;user-select:none}
+.tbl td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tbl tr:hover td{background:var(--bg)}
+.tscroll{overflow-x:auto}
+/* gameweek + compete */
+.gwrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--border)}
+.gwrow .gwn{font-weight:700}.gwrow .gwsub{font-size:11.5px;color:var(--mut)}
+.gwrow .gwp{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums}
+.card{background:var(--surface);border-radius:14px;box-shadow:var(--shadow);padding:4px 0;margin-bottom:14px}
+.card h3{font-size:13px;font-weight:800;padding:13px 16px 4px;margin:0}
+.cmp{display:grid;grid-template-columns:1fr 70px;gap:8px;align-items:center;padding:9px 16px}
+.cmp .cbar{height:9px;background:var(--track);border-radius:5px;overflow:hidden}
+.cmp .cbar i{display:block;height:100%;border-radius:5px}
+.cmp .cv{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+.hint{font-size:12.5px;color:var(--mut);padding:4px 16px 14px}
+.empty{padding:40px 16px;text-align:center;color:var(--mut)}
+footer{max-width:1080px;margin:10px auto 30px;padding:0 18px;color:var(--mut);font-size:12px;line-height:1.7}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--txt);color:var(--bg);padding:11px 18px;border-radius:12px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="in"><b><span class="lg">26</span>WC Fantasy</b>
+<a href="index.html">Forecast</a><a href="live.html">Live</a><a href="fantasy.html" class="on">Fantasy</a></div></nav>
+<div class="wrap">
+ <header class="hero">
+  <h1>Build your <span class="grad">World Cup XI.</span></h1>
+  <p>Pick 15 players under a £100.0m budget, captain your star for double points, and score from real match data every matchday. Your squad saves to this device.</p>
+ </header>
+ <div class="bar" id="bar"></div>
+ <div class="row" style="margin-bottom:8px">
+  <button class="btn solid" id="autopick">✨ Auto-pick a team</button>
+  <button class="btn" id="reset">Reset</button>
+  <button class="btn" id="share">🔗 Share team</button>
+  <span id="valid" style="font-size:12.5px;color:var(--mut)"></span>
+ </div>
+ <div class="tabs">
+  <div class="tab on" data-sec="team">My Team</div>
+  <div class="tab" data-sec="players">Players</div>
+  <div class="tab" data-sec="points">Points &amp; Rank</div>
+ </div>
+
+ <section class="sec on" id="sec-team">
+  <div class="field" id="pitch"></div>
+  <div class="benchwrap"><div class="benchh">Substitutes' bench — auto-subbed in if a starter doesn't play</div><div class="bench" id="bench"></div></div>
+  <div class="hint">Tap a slot to pick or change a player. Tap a starter to make them <b>captain</b> (C = double points, second tap = vice). Drag isn't needed — bench order decides auto-subs.</div>
+ </section>
+
+ <section class="sec" id="sec-players">
+  <div class="row" style="margin-bottom:10px">
+   <input id="psearch" placeholder="Search players…" style="flex:1;min-width:140px;padding:8px 11px;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--txt)">
+   <select id="pposf" style="padding:8px;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--txt)"><option value="">All positions</option><option>GK</option><option>DEF</option><option>MID</option><option>FWD</option></select>
+  </div>
+  <div class="tscroll"><table class="tbl" id="ptbl"></table></div>
+ </section>
+
+ <section class="sec" id="sec-points">
+  <div id="ptsbox"></div>
+ </section>
+</div>
+
+<div class="ov" id="pickov"><div class="sheet">
+ <div class="sheeth"><b id="pickttl">Pick a player</b><button class="x" id="pickx">✕</button></div>
+ <div class="filt"><input id="fsearch" placeholder="Search…"><select id="fteam"><option value="">All teams</option></select><select id="fsort"><option value="pts">Sort: points</option><option value="price">Sort: price</option><option value="value">Sort: value</option></select></div>
+ <div class="plist" id="plist"></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<footer>
+ Fantasy scoring (FPL-style): appearance 1pt (2 if 60’+), goal GK/DEF 6 · MID 5 · FWD 4, assist 3, clean sheet GK/DEF 4 · MID 1, 3 saves 1pt, −1 per 2 conceded (GK/DEF), yellow −1, red −3, own goal −2, plus up to 3 match bonus. Captain scores double. Points settle from real match data, refreshed through the tournament.<br>
+ Squads via openfootball · player events &amp; stats via ESPN · prices model-derived. Unofficial fan project, not affiliated with FIFA.
+</footer>
+
+<script>
+const FLAGS={"Mexico": "🇲🇽", "South Africa": "🇿🇦", "South Korea": "🇰🇷", "Czech Republic": "🇨🇿", "Canada": "🇨🇦", "Bosnia and Herzegovina": "🇧🇦", "Qatar": "🇶🇦", "Switzerland": "🇨🇭", "Brazil": "🇧🇷", "Morocco": "🇲🇦", "Haiti": "🇭🇹", "Scotland": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "United States": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turkey": "🇹🇷", "Germany": "🇩🇪", "Curaçao": "🇨🇼", "Ivory Coast": "🇨🇮", "Ecuador": "🇪🇨", "Netherlands": "🇳🇱", "Japan": "🇯🇵", "Sweden": "🇸🇪", "Tunisia": "🇹🇳", "Belgium": "🇧🇪", "Egypt": "🇪🇬", "Iran": "🇮🇷", "New Zealand": "🇳🇿", "Spain": "🇪🇸", "Cape Verde": "🇨🇻", "Saudi Arabia": "🇸🇦", "Uruguay": "🇺🇾", "France": "🇫🇷", "Senegal": "🇸🇳", "Iraq": "🇮🇶", "Norway": "🇳🇴", "Argentina": "🇦🇷", "Algeria": "🇩🇿", "Austria": "🇦🇹", "Jordan": "🇯🇴", "Portugal": "🇵🇹", "DR Congo": "🇨🇩", "Uzbekistan": "🇺🇿", "Colombia": "🇨🇴", "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Croatia": "🇭🇷", "Ghana": "🇬🇭", "Panama": "🇵🇦"};
+const F={budget:100,squad:{GK:2,DEF:5,MID:5,FWD:3},max:3,players:[],byId:{},gws:[]};
+const POS=["GK","DEF","MID","FWD"]; const FORM_MIN={GK:1,DEF:3,MID:2,FWD:1}, FORM_MAX={GK:1,DEF:5,MID:5,FWD:3};
+const flag=t=>FLAGS[t]||"🏳️";
+const $=s=>document.querySelector(s);
+let S={picks:[],cap:null,vice:null,bench:[]};   // picks = all 15 ids; bench = 4 ids (rest are XI)
+let pickFor=null;   // {pos, slotIndex} when picker open
+
+function load(){ try{const v=JSON.parse(localStorage.getItem("wcfantasy")); if(v&&v.picks)S=v;}catch(e){}
+  const u=new URLSearchParams(location.search).get("t"); if(u){ try{ const ids=u.split(".").filter(Boolean); if(ids.length>=11){ S={picks:ids.slice(0,15),cap:ids[15]||null,vice:ids[16]||null,bench:ids.slice(11,15)}; } }catch(e){} } }
+function save(){ localStorage.setItem("wcfantasy",JSON.stringify(S)); }
+function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),1800); }
+
+// ---------- squad helpers ----------
+function picked(){ return S.picks.map(id=>F.byId[id]).filter(Boolean); }
+function spent(){ return picked().reduce((s,p)=>s+p.price,0); }
+function teamCount(team){ return picked().filter(p=>p.team===team).length; }
+function posCount(ids){ const c={GK:0,DEF:0,MID:0,FWD:0}; ids.map(id=>F.byId[id]).filter(Boolean).forEach(p=>c[p.pos]++); return c; }
+function xiIds(){ return S.picks.filter(id=>!S.bench.includes(id)); }
+function benchIds(){ return S.bench.slice(); }
+
+// ensure picks split into a legal XI + 4 bench (auto: best by pts, valid formation)
+function normaliseXI(){
+  const ps=picked(); if(ps.length<15){ S.bench=S.picks.filter(id=>!xiIds().includes(id)); return; }
+  // choose XI maximising pts within formation limits; keep 1 GK
+  const byPos={GK:[],DEF:[],MID:[],FWD:[]}; ps.forEach(p=>byPos[p.pos].push(p));
+  for(const k in byPos) byPos[k].sort((a,b)=>b.pts-a.pts||b.price-a.price);
+  const xi=[byPos.GK[0]];
+  let need=10; const take={DEF:FORM_MIN.DEF,MID:FORM_MIN.MID,FWD:FORM_MIN.FWD};
+  ["DEF","MID","FWD"].forEach(k=>{ for(let i=0;i<take[k];i++){ if(byPos[k][i]){xi.push(byPos[k][i]);need--;} } });
+  // fill remaining best outfielders respecting max
+  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>b.pts-a.pts||b.price-a.price);
+  const cnt={GK:1,DEF:FORM_MIN.DEF,MID:FORM_MIN.MID,FWD:FORM_MIN.FWD};
+  for(const p of pool){ if(need<=0)break; if(cnt[p.pos]<FORM_MAX[p.pos]){ xi.push(p); cnt[p.pos]++; need--; } }
+  const xiset=new Set(xi.map(p=>p.id));
+  S.bench=ps.filter(p=>!xiset.has(p.id)).sort((a,b)=>(a.pos==="GK"?-1:0)-(b.pos==="GK"?-1:0)).map(p=>p.id);
+  if(S.cap&&!S.picks.includes(S.cap))S.cap=null; if(S.vice&&!S.picks.includes(S.vice))S.vice=null;
+  if(!S.cap){ const best=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.price-a.price)[0]; if(best)S.cap=best.id; }
+}
+
+// ---------- render top bar ----------
+function renderBar(){
+  const sp=spent(), rem=F.budget-sp, n=S.picks.length;
+  const tot=totalPoints();
+  $("#bar").innerHTML=
+   card(`£${rem.toFixed(1)}m`,"Budget left",`of £${F.budget.toFixed(1)}m`,`<div class="budbar"><i class="${rem<0?'over':''}" style="width:${Math.max(0,Math.min(100,100*sp/F.budget))}%"></i></div>`)
+  +card(`${n}/15`,"Squad",n<15?`pick ${15-n} more`:"complete")
+  +card(`${tot}`,"Total points","captain doubled")
+  +card(`${F.gws.length?("MD"+F.gws[F.gws.length-1]):"—"}`,"Latest matchday","scored so far");
+  const c=posCount(S.picks); const ok=n===15&&rem>=0&&c.GK===2&&c.DEF===5&&c.MID===5&&c.FWD===3&&!overTeam();
+  $("#valid").innerHTML= n<15?`Pick ${15-n} more · need 2 GK, 5 DEF, 5 MID, 3 FWD`
+    : rem<0?`<span style="color:var(--red)">£${(-rem).toFixed(1)}m over budget</span>`
+    : overTeam()?`<span style="color:var(--red)">Max 3 players per country</span>`
+    : !ok?`Need exactly 2 GK · 5 DEF · 5 MID · 3 FWD`:`<span style="color:var(--live)">✓ Valid squad — captain: ${F.byId[S.cap]?F.byId[S.cap].name:"—"}</span>`;
+}
+function card(v,l,s,extra){ return `<div class="bcard"><div class="bv">${v}</div><div class="bl">${l}</div>${s?`<div class="bs">${s}</div>`:""}${extra||""}</div>`; }
+function overTeam(){ const c={}; let bad=false; picked().forEach(p=>{c[p.team]=(c[p.team]||0)+1; if(c[p.team]>F.max)bad=true;}); return bad; }
+
+// ---------- render pitch ----------
+function jersey(p,fx,isBench){
+  if(!p) return `<div class="slot" data-empty="1"><div class="jersey empty">+</div><div class="snm">&nbsp;</div></div>`;
+  const capBadge=(!isBench&&S.cap===p.id)?`<span class="cap">C</span>`:(!isBench&&S.vice===p.id)?`<span class="cap v">V</span>`:"";
+  const val = fx? `<span class="spt fx">${flag(p.team)} £${p.price.toFixed(1)}</span>` : `<span class="spt">${p.pts}</span>`;
+  return `<div class="slot" data-id="${p.id}"><div class="jersey">${p.num||p.pos[0]}${capBadge}</div><div class="snm">${flag(p.team)} ${p.name.split(" ").slice(-1)[0]}</div>${val}</div>`;
+}
+function renderPitch(){
+  normaliseXI();
+  const xi=xiIds().map(id=>F.byId[id]).filter(Boolean);
+  const byPos={GK:[],DEF:[],MID:[],FWD:[]}; xi.forEach(p=>byPos[p.pos].push(p));
+  // empty slots if incomplete
+  const need={GK:2,DEF:5,MID:5,FWD:3};
+  const pc=posCount(S.picks);
+  const pitch=$("#pitch");
+  const showVal = S.picks.length<15;   // show price while building, points once complete
+  const rowFor=(arr,posKey,want)=>{
+    let cells=arr.map(p=>jersey(p,showVal,false)).join("");
+    // pad with empty pick slots for this position if still building XI shape
+    return `<div class="line" data-pos="${posKey}">${cells||`<div class="slot" data-empty="1" data-pos="${posKey}"><div class="jersey empty">+</div><div class="snm">${posKey}</div></div>`}</div>`;
+  };
+  pitch.innerHTML = rowFor(byPos.GK,"GK")+rowFor(byPos.DEF,"DEF")+rowFor(byPos.MID,"MID")+rowFor(byPos.FWD,"FWD");
+  // bench
+  const bench=benchIds().map(id=>F.byId[id]).filter(Boolean);
+  const benchCells = (bench.length?bench:[]).map(p=>jersey(p,showVal,true)).join("") || `<div class="slot" data-empty="1"><div class="jersey empty">+</div><div class="snm">bench</div></div>`;
+  $("#bench").innerHTML=benchCells;
+  renderBar();
+}
+
+// ---------- scoring ----------
+function gwScoreFor(ids,capId,viceId,gw){
+  // ids = 11 starters; auto-sub non-players from bench (already excluded). returns points.
+  const playing=id=>{const p=F.byId[id]; return p&&p.gw&&p.gw[gw]!=null;};
+  let lineup=ids.slice();
+  // auto-subs: replace non-playing starters with bench players that played, keeping formation legal
+  const bench=benchIds().filter(id=>!ids.includes(id));
+  const benchPlay=bench.filter(playing);
+  const cnt=posCount(lineup);
+  lineup=lineup.map(id=>{
+    if(playing(id))return id;
+    const p=F.byId[id];
+    // find a bench replacement that keeps min counts and is available
+    for(const bid of benchPlay){ const bp=F.byId[bid]; if(lineup.includes(bid))continue;
+      if(p.pos==="GK"&&bp.pos!=="GK")continue;
+      if(p.pos!=="GK"&&bp.pos==="GK")continue;
+      return bid; }
+    return id;
+  });
+  let pts=0;
+  lineup.forEach(id=>{ const p=F.byId[id]; if(!p||!p.gw||p.gw[gw]==null)return;
+    let v=p.gw[gw]; if(id===capId)v*=2; else if(id===viceId&&!playing(capId))v*=2; pts+=v; });
+  return pts;
+}
+function totalPoints(){ if(S.picks.length<15)return 0; let t=0; F.gws.forEach(gw=>t+=gwScoreFor(xiIds(),S.cap,S.vice,String(gw))); return t; }
+
+// dream team (best valid XI that gameweek, ignoring budget) — the ceiling
+function dreamGW(gw){
+  const played=F.players.filter(p=>p.gw&&p.gw[gw]!=null).map(p=>({...p,v:p.gw[gw]}));
+  const byPos={GK:[],DEF:[],MID:[],FWD:[]}; played.forEach(p=>byPos[p.pos].push(p));
+  for(const k in byPos)byPos[k].sort((a,b)=>b.v-a.v);
+  if(!byPos.GK.length)return 0;
+  const xi=[byPos.GK[0]]; const cnt={GK:1,DEF:0,MID:0,FWD:0};
+  ["DEF","MID","FWD"].forEach(k=>{for(let i=0;i<FORM_MIN[k];i++)if(byPos[k][i]){xi.push(byPos[k][i]);cnt[k]++;}});
+  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>b.v-a.v);
+  let need=11-xi.length; for(const p of pool){if(need<=0)break; if(cnt[p.pos]<FORM_MAX[p.pos]){xi.push(p);cnt[p.pos]++;need--;}}
+  let s=xi.reduce((a,p)=>a+p.v,0); const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.v-a.v)[0]; if(cap)s+=cap.v; return s;
+}
+function percentile(myTotal){ // vs random valid budget teams
+  let n=400, worse=0;
+  for(let i=0;i<n;i++){ const t=randomTeam(); if(t==null){n--;continue;} if(t<=myTotal)worse++; }
+  return n>0?Math.round(100*worse/n):50;
+}
+function randomTeam(){
+  const need={GK:2,DEF:5,MID:5,FWD:3}; const pickIds=[]; const tc={}; let bud=F.budget;
+  for(const pos of POS){ const cand=F.players.filter(p=>p.pos===pos).slice(); for(let k=0;k<need[pos];k++){
+    let tries=0,chosen=null; while(tries++<40){ const p=cand[Math.floor(Math.random()*cand.length)];
+      if(!p||pickIds.includes(p.id))continue; if((tc[p.team]||0)>=F.max)continue; if(p.price>bud-(14-pickIds.length)*4)continue; chosen=p; break; }
+    if(!chosen)return null; pickIds.push(chosen.id); tc[chosen.team]=(tc[chosen.team]||0)+1; bud-=chosen.price; } }
+  // score: best XI by pts + cap
+  const xi=[]; const byPos={GK:[],DEF:[],MID:[],FWD:[]}; pickIds.map(id=>F.byId[id]).forEach(p=>byPos[p.pos].push(p));
+  for(const k in byPos)byPos[k].sort((a,b)=>b.pts-a.pts); xi.push(byPos.GK[0]); const cnt={GK:1,DEF:0,MID:0,FWD:0};
+  ["DEF","MID","FWD"].forEach(k=>{for(let i=0;i<FORM_MIN[k];i++)if(byPos[k][i]){xi.push(byPos[k][i]);cnt[k]++;}});
+  const pool=[].concat(byPos.DEF.slice(FORM_MIN.DEF),byPos.MID.slice(FORM_MIN.MID),byPos.FWD.slice(FORM_MIN.FWD)).sort((a,b)=>b.pts-a.pts);
+  let need2=11-xi.length; for(const p of pool){if(need2<=0)break; if(cnt[p.pos]<FORM_MAX[p.pos]){xi.push(p);cnt[p.pos]++;need2--;}}
+  let s=xi.reduce((a,p)=>a+(p.pts||0),0); const cap=xi.filter(p=>p.pos!=="GK").sort((a,b)=>b.pts-a.pts)[0]; if(cap)s+=cap.pts; return s;
+}
+function renderPoints(){
+  const box=$("#ptsbox");
+  if(S.picks.length<15){ box.innerHTML=`<div class="empty">Pick a full 15-player squad to see your points, gameweek breakdown and rank.</div>`; return; }
+  const mine=totalPoints();
+  let gwHTML=F.gws.map(gw=>{ const me=gwScoreFor(xiIds(),S.cap,S.vice,String(gw)), dr=dreamGW(String(gw));
+    return `<div class="gwrow"><div><div class="gwn">Matchday ${gw}</div><div class="gwsub">dream team scored ${dr}</div></div><div class="gwp">${me}</div></div>`; }).join("");
+  const dreamTot=F.gws.reduce((a,gw)=>a+dreamGW(String(gw)),0);
+  const pctile=percentile(mine);
+  box.innerHTML=
+   `<div class="card"><h3>Your points</h3>`+
+   `<div class="cmp"><span><b>Your team</b></span><span class="cv" style="font-size:22px">${mine}</span></div>`+
+   `<div class="cmp"><span>Dream team (ceiling)</span><span class="cv">${dreamTot}</span></div>`+
+   `<div class="cmp"><span>You vs ceiling</span><span class="cbar"><i style="width:${Math.min(100,100*mine/Math.max(1,dreamTot))}%;background:var(--live)"></i></span></div>`+
+   `<div class="hint">You'd beat about <b>${pctile}%</b> of randomly-built valid squads — ${pctile>=75?"elite tier 🏆":pctile>=50?"a solid manager":"room to climb"}.</div></div>`+
+   `<div class="card"><h3>Gameweek by gameweek</h3>${gwHTML||'<div class="hint">Matchday points appear as games are played.</div>'}</div>`+
+   `<div class="card"><h3>Your captain pick</h3><div class="hint">Captain <b>${F.byId[S.cap]?F.byId[S.cap].name:"—"}</b> (double points). Tap a starter on the pitch to change it. Vice-captain steps in if your captain doesn't play.</div></div>`;
+}
+
+// ---------- player picker ----------
+function openPicker(pos){ pickFor={pos}; $("#pickttl").textContent="Pick a "+pos; $("#fsearch").value=""; renderPickList(); $("#pickov").classList.add("show"); }
+function closePicker(){ $("#pickov").classList.remove("show"); pickFor=null; }
+function renderPickList(){
+  const pos=pickFor.pos; const q=$("#fsearch").value.toLowerCase(); const team=$("#fteam").value; const sort=$("#fsort").value;
+  const rem=F.budget-spent();
+  let list=F.players.filter(p=>p.pos===pos);
+  if(team)list=list.filter(p=>p.team===team);
+  if(q)list=list.filter(p=>p.name.toLowerCase().includes(q)||p.team.toLowerCase().includes(q));
+  list.sort(sort==="price"?(a,b)=>b.price-a.price : sort==="value"?(a,b)=>(b.pts/b.price)-(a.pts/a.price) : (a,b)=>b.pts-a.pts||b.price-a.price);
+  $("#plist").innerHTML=list.slice(0,220).map(p=>{
+    const have=S.picks.includes(p.id); const full=teamCount(p.team)>=F.max&&!have; const afford=p.price<=rem||have;
+    const dis=have||full||!afford;
+    return `<div class="pl ${dis?'dis':''}" data-pick="${p.id}"><div><span class="pos-tag pos-${p.pos}">${p.pos}</span><span class="pnm">${flag(p.team)} ${p.name}</span><div class="psub">${p.team}${full?' · 3 already':''}${have?' · in squad':''}${!afford?' · too expensive':''}</div></div><div class="ppr">£${p.price.toFixed(1)}</div><div class="ppt">${p.pts} pts</div></div>`;
+  }).join("")||`<div class="empty">No players match.</div>`;
+}
+function pick(id){ const p=F.byId[id]; if(!p)return;
+  if(S.picks.includes(id)){toast("Already in your squad");return;}
+  if(teamCount(p.team)>=F.max){toast("Max 3 from "+p.team);return;}
+  // replace an existing player of same pos if that position is full, else add
+  const cap=F.squad[p.pos]; const cur=picked().filter(x=>x.pos===p.pos);
+  if(cur.length>=cap){ // remove cheapest same-pos to make room? better: tell user to remove
+    // auto-replace the lowest-points same-position player
+    const drop=cur.sort((a,b)=>a.pts-b.pts||a.price-b.price)[0];
+    S.picks=S.picks.filter(x=>x!==drop.id); if(S.cap===drop.id)S.cap=null; if(S.vice===drop.id)S.vice=null;
+  }
+  if(spent()+p.price>F.budget){ toast("Not enough budget"); // still allow but flag
+  }
+  S.picks.push(id); S.bench=[]; normaliseXI(); save(); closePicker(); renderPitch(); renderPoints(); toast(p.name+" added");
+}
+function removePlayer(id){ S.picks=S.picks.filter(x=>x!==id); if(S.cap===id)S.cap=null; if(S.vice===id)S.vice=null; S.bench=S.bench.filter(x=>x!==id); normaliseXI(); save(); renderPitch(); renderPoints(); }
+
+// ---------- auto-pick ----------
+function autopick(){
+  S={picks:[],cap:null,vice:null,bench:[]}; const need={GK:2,DEF:5,MID:5,FWD:3}; let bud=F.budget; const tc={};
+  // greedy value within budget, leave room: target avg ~6.6
+  for(const pos of POS){
+    const cand=F.players.filter(p=>p.pos===pos).slice().sort((a,b)=>(b.pts+1)/b.price-(a.pts+1)/a.price);
+    let got=0;
+    for(const p of cand){ if(got>=need[pos])break; if((tc[p.team]||0)>=F.max)continue;
+      const slotsLeft=15-S.picks.length; if(p.price>bud-(slotsLeft-1)*4.0)continue;
+      S.picks.push(p.id); tc[p.team]=(tc[p.team]||0)+1; bud-=p.price; got++; }
+    // fill remainder with cheapest if greedy fell short
+    if(got<need[pos]) for(const p of cand.slice().sort((a,b)=>a.price-b.price)){ if(got>=need[pos])break; if(S.picks.includes(p.id))continue; if((tc[p.team]||0)>=F.max)continue; S.picks.push(p.id);tc[p.team]=(tc[p.team]||0)+1;bud-=p.price;got++; }
+  }
+  // guarantee within budget: downgrade the priciest player to the best cheaper same-position sub
+  let guard=0;
+  while(spent()>F.budget && guard++<80){
+    let done=false;
+    for(const p of picked().sort((a,b)=>b.price-a.price)){
+      const repl=F.players.filter(x=>x.pos===p.pos&&x.price<p.price&&!S.picks.includes(x.id)&&(x.team===p.team||teamCount(x.team)<F.max)).sort((a,b)=>(b.pts/b.price)-(a.pts/a.price))[0];
+      if(repl){ S.picks=S.picks.map(id=>id===p.id?repl.id:id); done=true; break; }
+    }
+    if(!done)break;
+  }
+  S.bench=[]; normaliseXI(); save(); renderPitch(); renderPoints(); toast("Auto-picked a value squad");
+}
+
+// ---------- players table ----------
+let sortKey="pts",sortDir=-1;
+function renderTable(){
+  const q=$("#psearch").value.toLowerCase(); const pf=$("#pposf").value;
+  let list=F.players.slice(); if(pf)list=list.filter(p=>p.pos===pf);
+  if(q)list=list.filter(p=>p.name.toLowerCase().includes(q)||p.team.toLowerCase().includes(q));
+  list.sort((a,b)=>{const k=sortKey; let av=k==="value"?(a.pts/a.price):a[k], bv=k==="value"?(b.pts/b.price):b[k]; if(k==="name"||k==="team"){av=a[k];bv=b[k];return sortDir*(""+av).localeCompare(""+bv);} return sortDir*((bv-av));});
+  const th=(k,l)=>`<th data-k="${k}">${l}${sortKey===k?(sortDir<0?" ▾":" ▴"):""}</th>`;
+  $("#ptbl").innerHTML=`<thead><tr>${th("name","Player")}${th("team","Team")}${th("pos","Pos")}<th class="n" data-k="price">Price</th><th class="n" data-k="pts">Pts</th><th class="n" data-k="g">G</th><th class="n" data-k="a">A</th><th class="n" data-k="value">Value</th></tr></thead><tbody>`+
+   list.slice(0,300).map(p=>`<tr><td>${flag(p.team)} ${p.name} ${S.picks.includes(p.id)?'<span style="color:var(--live)">●</span>':''}</td><td>${p.team}</td><td><span class="pos-tag pos-${p.pos}">${p.pos}</span></td><td class="n">£${p.price.toFixed(1)}</td><td class="n"><b>${p.pts}</b></td><td class="n">${p.g}</td><td class="n">${p.a}</td><td class="n">${(p.pts/p.price).toFixed(1)}</td></tr>`).join("")+`</tbody>`;
+}
+
+// ---------- events ----------
+function bind(){
+  document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");
+    document.querySelectorAll(".sec").forEach(s=>s.classList.remove("on")); $("#sec-"+t.dataset.sec).classList.add("on");
+    if(t.dataset.sec==="players")renderTable(); if(t.dataset.sec==="points")renderPoints();});
+  $("#pitch").addEventListener("click",e=>{ const slot=e.target.closest(".slot"); if(!slot)return;
+    if(slot.dataset.empty){ const pos=slot.closest(".line").dataset.pos; openPicker(pos); return; }
+    const id=slot.dataset.id; if(!id)return; // tap starter -> captain cycle
+    if(S.cap===id){S.cap=S.vice;S.vice=id;} else if(S.vice===id){S.vice=null;} else if(!S.cap){S.cap=id;} else {S.vice=id;}
+    save(); renderPitch();
+  });
+  $("#pitch").addEventListener("contextmenu",e=>{const slot=e.target.closest(".slot[data-id]");if(slot){e.preventDefault();if(confirm("Remove this player?"))removePlayer(slot.dataset.id);}});
+  $("#bench").addEventListener("click",e=>{const slot=e.target.closest(".slot");if(!slot)return; if(slot.dataset.empty){openPicker("GK");return;} });
+  $("#pickx").onclick=closePicker; $("#pickov").addEventListener("click",e=>{if(e.target===$("#pickov"))closePicker();});
+  $("#plist").addEventListener("click",e=>{const r=e.target.closest(".pl[data-pick]"); if(r&&!r.classList.contains("dis"))pick(r.dataset.pick);});
+  ["#fsearch","#fteam","#fsort"].forEach(s=>$(s).addEventListener("input",renderPickList));
+  $("#autopick").onclick=autopick;
+  $("#reset").onclick=()=>{if(confirm("Clear your squad?")){S={picks:[],cap:null,vice:null,bench:[]};save();renderPitch();renderPoints();}};
+  $("#share").onclick=()=>{ if(S.picks.length<15){toast("Build a full squad first");return;} const ids=xiIds().concat(benchIds()).concat([S.cap||"",S.vice||""]);
+    const url=location.origin+location.pathname+"?t="+ids.join("."); navigator.clipboard&&navigator.clipboard.writeText(url); toast("Share link copied!"); };
+  $("#ptbl").addEventListener("click",e=>{const th=e.target.closest("th[data-k]");if(!th)return;const k=th.dataset.k; if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=(k==="name"||k==="team")?1:-1;}renderTable();});
+  ["#psearch","#pposf"].forEach(s=>$(s).addEventListener("input",renderTable));
+  if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+
+fetch("fantasy.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
+  F.budget=d.budget; F.squad=d.squad; F.max=d.max_per_team; F.players=d.players;
+  F.players.forEach(p=>F.byId[p.id]=p);
+  const gws=new Set(); F.players.forEach(p=>{for(const g in (p.gw||{}))if(+g>0)gws.add(+g);}); F.gws=[...gws].sort((a,b)=>a-b);
+  // team filter options
+  const teams=[...new Set(F.players.map(p=>p.team))].sort();
+  $("#fteam").innerHTML=`<option value="">All teams</option>`+teams.map(t=>`<option>${t}</option>`).join("");
+  load(); bind(); renderPitch(); renderPoints();
+}).catch(e=>{ $("#bar").innerHTML=`<div class="bcard"><div class="bv">—</div><div class="bl">Fantasy data loading…</div><div class="bs">refresh in a moment</div></div>`; });
+</script>
+</body>
+</html>

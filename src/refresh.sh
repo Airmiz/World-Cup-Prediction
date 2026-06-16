@@ -40,4 +40,7 @@ node src/snapshot.js || echo "[refresh] snapshot skipped"
 python3 src/make_live_data.py
 python3 src/make_live.py
 python3 src/make_site.py
+# 3c. Fantasy: rebuild the player database (squads + form-based prices + per-gameweek points) and page
+python3 src/make_fantasy_data.py || echo "[refresh] fantasy data skipped"
+python3 src/make_fantasy.py || echo "[refresh] fantasy page skipped"
 echo "[refresh] done — pages regenerated"

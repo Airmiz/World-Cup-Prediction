@@ -273,7 +273,7 @@ footer{margin-top:110px;padding:28px 22px 0;border-top:1px solid var(--hair);
 </head>
 <body>
 <nav><div class="in"><b><span class="lg">26</span> World Cup 26 <span class="tx">· Forecast</span></b>
-<a href="live.html" class="livelink">● Live</a>
+<a href="live.html" class="livelink">● Live</a><a href="fantasy.html">Fantasy</a>
 <a href="#bracket">Bracket</a><a href="#groups">Groups</a><a href="#matches">Matches</a>
 <a href="#teams">Odds</a><a href="#model">Model</a></div></nav>
 <div class="wrap">
