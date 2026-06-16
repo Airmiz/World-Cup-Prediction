@@ -142,9 +142,10 @@ def main():
                 continue
             home, away = key.split("|", 1)
             team_played.add(ALIAS.get(home, home)); team_played.add(ALIAS.get(away, away))
-            gw = gw_of.get(key, 0)
-            if gw:
-                md_played[gw] = md_played.get(gw, 0) + 1
+            gw = gw_of.get(key)
+            if gw is None:
+                gw = 4              # knockout stage (group fixtures are matchdays 1–3) — still counts
+            md_played[gw] = md_played.get(gw, 0) + 1
             for team, name, pos, pts, g, a in match_points(L, home, away):
                 pl = idx.get((team, norm(name)))
                 if not pl:
@@ -159,13 +160,16 @@ def main():
                     if pl:
                         pl["starts"] += 1
 
-    # the fantasy "season" starts at the next matchday that has NOT begun, so a squad
-    # picked now isn't unfairly judged on a matchday already underway. Earlier matchdays
-    # become "form" (shown, and nudge price) but don't count toward fantasy points.
-    start_gw = next((md for md in (1, 2, 3) if md_played.get(md, 0) == 0), 4)
+    # The fantasy season starts at a FIXED matchday and must NOT drift. The tournament was already
+    # under way (MD1 partly played) when the game launched, so MD1 is "form" only and everything from
+    # MD2 onward — MD2, MD3 and the knockouts — counts. This is intentionally locked: if we recomputed
+    # it as "the next unplayed matchday" each refresh, the start would chase the tournament forward and
+    # a squad would never actually score once MD2 kicked off.
+    SEASON_START_GW = 2
+    start_gw = SEASON_START_GW
     for pl in players:
-        pl["form"] = sum(v for g, v in pl["gw"].items() if g.isdigit() and 0 < int(g) < start_gw)
-        pl["pts"] = sum(v for g, v in pl["gw"].items() if g.isdigit() and int(g) >= start_gw)   # counted points
+        pl["form"] = sum(v for g, v in pl["gw"].items() if g.isdigit() and 0 < int(g) < SEASON_START_GW)
+        pl["pts"] = sum(v for g, v in pl["gw"].items() if g.isdigit() and int(g) >= SEASON_START_GW)   # counted points (MD2+, incl. knockouts at gw 4)
 
     # forward-looking projection: expected fantasy points per match, independent of whether
     # the player has featured yet — so quality players on teams still to play are valued and
