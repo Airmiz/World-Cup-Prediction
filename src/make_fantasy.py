@@ -359,7 +359,7 @@ function genManagers(){
   const noun=["Galácticos","Mavericks","Wizards","Underdogs","Tacticians","Renegades","Dynamos","Strikers","Hotshots","Rovers","Wanderers","Invincibles","Maestros","Outlaws","Titans","Comets","Pumas","Sharks","Falcons","Brigade","Legion","Mob","United","Athletic"];
   const strat=[p=>(p.xpts+0.5)/p.price, p=>p.xpts, p=>p.price, p=>p.xpts*0.6+p.price*0.4, p=>p.xpts*0.85+(p.form||0)*0.06];
   const r=srng(seed); const out=[]; const used=new Set();
-  for(let i=0;i<40;i++){ const base=strat[i%strat.length]; const scale=i<5?0:0.55+((i-5)%8)*0.6;  // 5 optimal rivals (one per strategy), then a varied tail
+  for(let i=0;i<5;i++){ const base=strat[i%strat.length]; const scale=i===0?0:0.45+(i-1)*0.35;  // 1 optimal anchor + 4 varied rivals (re-draft on each auto-pick)
     const jit={}; F.players.forEach(p=>jit[p.id]=(r()-0.5)*scale);
     const sc=scoreTeam(buildAI(p=>base(p)+(jit[p.id]||0)));
     let nm,t=0; do{ nm=adj[Math.floor(r()*adj.length)]+" "+noun[Math.floor(r()*noun.length)]; }while(used.has(nm)&&t++<30); used.add(nm);
@@ -463,7 +463,7 @@ function autopick(){
     }
     if(!done)break;
   }
-  S.bench=[]; normaliseXI(); save(); renderPitch(); renderPoints(); toast("Auto-picked your squad — 40 fresh rivals drafted");
+  S.bench=[]; normaliseXI(); save(); renderPitch(); renderPoints(); toast("Auto-picked your squad — 5 fresh rivals drafted");
 }
 
 // ---------- players table ----------
