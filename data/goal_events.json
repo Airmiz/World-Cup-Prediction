@@ -330,5 +330,29 @@
       "team": "home",
       "name": "Lionel Messi"
     }
+  ],
+  "Austria|Jordan": [
+    {
+      "min": 21,
+      "team": "home",
+      "name": "Romano Schmid"
+    },
+    {
+      "min": 50,
+      "team": "away",
+      "name": "Ali Olwan"
+    },
+    {
+      "min": 76,
+      "team": "home",
+      "name": "Yazan Al-Arab",
+      "og": true
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Marko Arnautovic",
+      "pen": true
+    }
   ]
 }
