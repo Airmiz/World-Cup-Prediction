@@ -354,5 +354,17 @@
       "name": "Marko Arnautovic",
       "pen": true
     }
+  ],
+  "Portugal|DR Congo": [
+    {
+      "min": 6,
+      "team": "home",
+      "name": "Jo\u00e3o Neves"
+    },
+    {
+      "min": 45,
+      "team": "away",
+      "name": "Yoane Wissa"
+    }
   ]
 }
