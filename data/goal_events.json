@@ -285,5 +285,33 @@
       "team": "away",
       "name": "Ibrahim Mbaye"
     }
+  ],
+  "Iraq|Norway": [
+    {
+      "min": 29,
+      "team": "away",
+      "name": "Erling Haaland"
+    },
+    {
+      "min": 39,
+      "team": "home",
+      "name": "Aymen Hussein"
+    },
+    {
+      "min": 43,
+      "team": "away",
+      "name": "Erling Haaland"
+    },
+    {
+      "min": 76,
+      "team": "away",
+      "name": "Leo \u00d8stigard"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Aymen Hussein",
+      "og": true
+    }
   ]
 }
