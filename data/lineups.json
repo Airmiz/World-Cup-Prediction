@@ -26828,7 +26828,7 @@
   "final": true
  },
  "England|Croatia": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-2-3-1",
@@ -26846,11 +26846,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 1,
+      "SV": 3,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -26866,12 +26866,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -26885,14 +26885,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 1,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -26906,14 +26906,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -26927,14 +26927,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -26946,16 +26946,16 @@
      "fp": "10",
      "aid": "291281",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 3,
+      "SOT": 2,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -26969,14 +26969,14 @@
      "st": {
       "G": 0,
       "A": 1,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -26989,15 +26989,15 @@
      "aid": "238472",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 1,
       "SOT": 0,
-      "FC": 2,
-      "FS": 1,
+      "FC": 3,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -27011,14 +27011,14 @@
      "st": {
       "G": 2,
       "A": 0,
-      "SH": 4,
-      "SOT": 2,
-      "FC": 0,
+      "SH": 7,
+      "SOT": 3,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -27032,14 +27032,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -27060,7 +27060,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -27079,7 +27079,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -27223,8 +27223,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -27326,10 +27326,10 @@
      "fp": "0",
      "aid": "230945",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -27348,11 +27348,11 @@
      "aid": "280555",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -27381,8 +27381,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
-      "GC": 2,
+      "SV": 7,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -27403,7 +27403,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -27417,14 +27417,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -27445,7 +27445,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -27459,14 +27459,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -27483,11 +27483,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -27500,15 +27500,15 @@
      "aid": "103485",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -27526,10 +27526,10 @@
       "SOT": 0,
       "FC": 0,
       "FS": 1,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -27541,16 +27541,16 @@
      "fp": "9",
      "aid": "277128",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -27567,11 +27567,11 @@
       "SH": 1,
       "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -27585,14 +27585,14 @@
      "st": {
       "G": 0,
       "A": 1,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 4,
       "SF": 0
      }
     }
@@ -27610,12 +27610,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -27692,14 +27692,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -27734,14 +27734,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -27755,14 +27755,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -27881,14 +27881,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -27938,36 +27938,130 @@
     "detail": "Normal Goal",
     "player": "Harry Kane",
     "assist": "Declan Rice"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Petar Musa",
+    "assist": "Ivan Perisic"
+   },
+   {
+    "min": 47,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Jude Bellingham",
+    "assist": "Elliot Anderson"
+   },
+   {
+    "min": 58,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mateo Kovacic",
+    "player": "Luka Modric"
+   },
+   {
+    "min": 66,
+    "team": "away",
+    "type": "subst",
+    "assist": "Igor Matanovic",
+    "player": "Petar Musa"
+   },
+   {
+    "min": 66,
+    "team": "away",
+    "type": "subst",
+    "assist": "Marco Pasalic",
+    "player": "Luka Vuskovic"
+   },
+   {
+    "min": 72,
+    "team": "home",
+    "type": "subst",
+    "assist": "Morgan Rogers",
+    "player": "Declan Rice"
+   },
+   {
+    "min": 72,
+    "team": "home",
+    "type": "subst",
+    "assist": "Bukayo Saka",
+    "player": "Noni Madueke"
+   },
+   {
+    "min": 72,
+    "team": "home",
+    "type": "subst",
+    "assist": "Marcus Rashford",
+    "player": "Anthony Gordon"
+   },
+   {
+    "min": 78,
+    "team": "away",
+    "type": "subst",
+    "assist": "Nikola Vlasic",
+    "player": "Martin Baturina"
+   },
+   {
+    "min": 79,
+    "team": "away",
+    "type": "subst",
+    "assist": "Andrej Kramaric",
+    "player": "Mario Pasalic"
+   },
+   {
+    "min": 80,
+    "team": "home",
+    "type": "subst",
+    "assist": "Djed Spence",
+    "player": "Jude Bellingham"
+   },
+   {
+    "min": 85,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Marcus Rashford",
+    "assist": "Bukayo Saka"
+   },
+   {
+    "min": 87,
+    "team": "home",
+    "type": "subst",
+    "assist": "Marc Gu\u00e9hi",
+    "player": "John Stones"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "52.4",
-    "totalShots": "8",
-    "shotsOnTarget": "2",
-    "wonCorners": "3",
-    "totalPasses": "201",
-    "foulsCommitted": "5",
+    "possessionPct": "51.7",
+    "totalShots": "22",
+    "shotsOnTarget": "11",
+    "wonCorners": "8",
+    "totalPasses": "473",
+    "foulsCommitted": "10",
     "offsides": "0",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "2",
-    "interceptions": "4",
-    "saves": "0"
+    "totalTackles": "9",
+    "interceptions": "7",
+    "saves": "3"
    },
    "away": {
-    "possessionPct": "47.6",
-    "totalShots": "2",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "181",
-    "foulsCommitted": "4",
-    "offsides": "0",
+    "possessionPct": "48.3",
+    "totalShots": "10",
+    "shotsOnTarget": "5",
+    "wonCorners": "2",
+    "totalPasses": "442",
+    "foulsCommitted": "12",
+    "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "4",
-    "interceptions": "3",
-    "saves": "1"
+    "totalTackles": "11",
+    "interceptions": "7",
+    "saves": "7"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -28004,6 +28098,6 @@
    "a": 0.173258917738413,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }

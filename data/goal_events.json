@@ -366,5 +366,38 @@
       "team": "away",
       "name": "Yoane Wissa"
     }
+  ],
+  "England|Croatia": [
+    {
+      "min": 12,
+      "team": "home",
+      "name": "Harry Kane",
+      "pen": true
+    },
+    {
+      "min": 36,
+      "team": "away",
+      "name": "Martin Baturina"
+    },
+    {
+      "min": 42,
+      "team": "home",
+      "name": "Harry Kane"
+    },
+    {
+      "min": 45,
+      "team": "away",
+      "name": "Petar Musa"
+    },
+    {
+      "min": 47,
+      "team": "home",
+      "name": "Jude Bellingham"
+    },
+    {
+      "min": 85,
+      "team": "home",
+      "name": "Marcus Rashford"
+    }
   ]
 }
