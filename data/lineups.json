@@ -25565,8 +25565,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 1,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25582,12 +25582,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25608,7 +25608,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25625,11 +25625,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 3,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25645,12 +25645,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FC": 2,
+      "FS": 1,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25664,14 +25664,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25687,12 +25687,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25704,16 +25704,16 @@
      "fp": "8",
      "aid": "355061",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25727,14 +25727,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25747,15 +25747,15 @@
      "aid": "256115",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -25771,12 +25771,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -25960,11 +25960,11 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -26119,7 +26119,7 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26140,7 +26140,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26154,14 +26154,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26177,12 +26177,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26195,15 +26195,15 @@
      "aid": "165892",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26219,12 +26219,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26238,14 +26238,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26259,14 +26259,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26287,28 +26287,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
-      "SF": 0
-     }
-    },
-    {
-     "name": "Yoane Wissa",
-     "num": "20",
-     "pos": "F",
-     "posAbbr": "CF-L",
-     "fp": "9",
-     "aid": "224077",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -26316,20 +26295,41 @@
      "name": "C\u00e9dric Bakambu",
      "num": "17",
      "pos": "F",
-     "posAbbr": "CF-R",
-     "fp": "10",
+     "posAbbr": "CF-L",
+     "fp": "9",
      "aid": "147193",
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 2,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Yoane Wissa",
+     "num": "20",
+     "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "224077",
+     "st": {
+      "G": 1,
+      "A": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 3,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -26348,7 +26348,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -26652,34 +26652,128 @@
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 6,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Jo\u00e3o Neves",
+    "assist": "Pedro Neto"
+   },
+   {
+    "min": 13,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Bernardo Silva"
+   },
+   {
+    "min": 32,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Chancel Mbemba"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Yoane Wissa",
+    "assist": "Arthur Masuaku"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Francisco Concei\u00e7\u00e3o",
+    "player": "Bernardo Silva"
+   },
+   {
+    "min": 57,
+    "team": "away",
+    "type": "subst",
+    "assist": "Noah Sadiki",
+    "player": "Ngal'ayel Mukau"
+   },
+   {
+    "min": 71,
+    "team": "home",
+    "type": "subst",
+    "assist": "Rafael Le\u00e3o",
+    "player": "Pedro Neto"
+   },
+   {
+    "min": 72,
+    "team": "home",
+    "type": "subst",
+    "assist": "N\u00e9lson Semedo",
+    "player": "Nuno Mendes"
+   },
+   {
+    "min": 74,
+    "team": "away",
+    "type": "subst",
+    "assist": "Charles Pickel",
+    "player": "Edo Kayembe"
+   },
+   {
+    "min": 74,
+    "team": "away",
+    "type": "subst",
+    "assist": "Joris Kayembe",
+    "player": "Arthur Masuaku"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "subst",
+    "assist": "Gon\u00e7alo Ramos",
+    "player": "Vitinha "
+   },
+   {
+    "min": 85,
+    "team": "away",
+    "type": "subst",
+    "assist": "G\u00e9d\u00e9on Kalulu",
+    "player": "Aaron Wan-Bissaka"
+   },
+   {
+    "min": 85,
+    "team": "away",
+    "type": "subst",
+    "assist": "Simon Banza",
+    "player": "C\u00e9dric Bakambu"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "100",
-    "totalShots": "0",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "2",
-    "foulsCommitted": "0",
-    "offsides": "0",
-    "yellowCards": "0",
+    "possessionPct": "76.6",
+    "totalShots": "5",
+    "shotsOnTarget": "1",
+    "wonCorners": "4",
+    "totalPasses": "724",
+    "foulsCommitted": "7",
+    "offsides": "3",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "0",
-    "interceptions": "0",
-    "saves": "0"
+    "totalTackles": "9",
+    "interceptions": "2",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "0",
-    "totalShots": "0",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "0",
-    "foulsCommitted": "0",
-    "offsides": "0",
-    "yellowCards": "0",
+    "possessionPct": "23.4",
+    "totalShots": "8",
+    "shotsOnTarget": "2",
+    "wonCorners": "4",
+    "totalPasses": "216",
+    "foulsCommitted": "10",
+    "offsides": "2",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "0",
-    "interceptions": "0",
+    "totalTackles": "15",
+    "interceptions": "5",
     "saves": "0"
    },
    "labels": {
