@@ -441,5 +441,33 @@
       "name": "Teboho Mokoena",
       "pen": true
     }
+  ],
+  "Switzerland|Bosnia and Herzegovina": [
+    {
+      "min": 74,
+      "team": "home",
+      "name": "Johan Manzambi"
+    },
+    {
+      "min": 84,
+      "team": "home",
+      "name": "Rub\u00e9n Vargas"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Johan Manzambi"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Granit Xhaka",
+      "pen": true
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Ermin Mahmic"
+    }
   ]
 }
