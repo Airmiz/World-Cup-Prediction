@@ -406,5 +406,27 @@
       "team": "home",
       "name": "Caleb Yirenkyi"
     }
+  ],
+  "Uzbekistan|Colombia": [
+    {
+      "min": 40,
+      "team": "away",
+      "name": "Daniel Mu\u00f1oz"
+    },
+    {
+      "min": 60,
+      "team": "home",
+      "name": "Abbosbek Fayzullaev"
+    },
+    {
+      "min": 65,
+      "team": "away",
+      "name": "Luis D\u00edaz"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "J\u00e1minton Campaz"
+    }
   ]
 }
