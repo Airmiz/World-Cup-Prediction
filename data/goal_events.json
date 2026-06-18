@@ -399,5 +399,12 @@
       "team": "home",
       "name": "Marcus Rashford"
     }
+  ],
+  "Ghana|Panama": [
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Caleb Yirenkyi"
+    }
   ]
 }
