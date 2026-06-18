@@ -428,5 +428,18 @@
       "team": "away",
       "name": "J\u00e1minton Campaz"
     }
+  ],
+  "Czech Republic|South Africa": [
+    {
+      "min": 6,
+      "team": "home",
+      "name": "Michal Sad\u00edlek"
+    },
+    {
+      "min": 83,
+      "team": "away",
+      "name": "Teboho Mokoena",
+      "pen": true
+    }
   ]
 }
