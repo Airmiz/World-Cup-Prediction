@@ -509,5 +509,18 @@
       "team": "home",
       "name": "Luis Romo"
     }
+  ],
+  "United States|Australia": [
+    {
+      "min": 11,
+      "team": "home",
+      "name": "Cameron Burgess",
+      "og": true
+    },
+    {
+      "min": 43,
+      "team": "home",
+      "name": "Alex Freeman"
+    }
   ]
 }
