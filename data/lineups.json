@@ -33138,7 +33138,7 @@
   "final": true
  },
  "Canada|Qatar": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-4-2",
@@ -33176,7 +33176,7 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 1,
@@ -33216,10 +33216,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -33237,8 +33237,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 1,
       "OFF": 0,
@@ -33261,7 +33261,7 @@
       "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -33279,10 +33279,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -33303,7 +33303,7 @@
       "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -33321,11 +33321,11 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 4,
+      "SOT": 1,
+      "FC": 1,
       "FS": 3,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -33342,9 +33342,9 @@
      "st": {
       "G": 1,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
-      "FC": 1,
+      "SH": 6,
+      "SOT": 2,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -33361,10 +33361,10 @@
      "fp": "10",
      "aid": "273499",
      "st": {
-      "G": 1,
+      "G": 3,
       "A": 0,
-      "SH": 3,
-      "SOT": 3,
+      "SH": 8,
+      "SOT": 5,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -33407,9 +33407,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -33533,7 +33533,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -33556,7 +33556,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -33638,7 +33638,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 3,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -33657,10 +33657,10 @@
      "fp": "0",
      "aid": "311163",
      "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "G": 1,
+      "A": 1,
+      "SH": 3,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -33691,8 +33691,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 2,
-      "GC": 2,
+      "SV": 4,
+      "GC": 6,
       "SF": 0
      }
     },
@@ -33709,11 +33709,11 @@
       "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 6,
       "SF": 0
      }
     },
@@ -33730,11 +33730,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 6,
       "SF": 0
      }
     },
@@ -33776,7 +33776,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 6,
       "SF": 0
      }
     },
@@ -33792,12 +33792,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
-      "RC": 0,
-      "GC": 2,
+      "RC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -33814,11 +33814,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 6,
       "SF": 0
      }
     },
@@ -33839,7 +33839,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -33881,7 +33881,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -33898,11 +33898,11 @@
       "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     }
@@ -33962,12 +33962,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -34027,10 +34027,10 @@
       "SOT": 0,
       "FC": 0,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -34072,7 +34072,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -34088,12 +34088,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -34109,12 +34109,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -34253,36 +34253,149 @@
     "type": "card",
     "card": "red",
     "player": "Homam Ahmed"
+   },
+   {
+    "min": 40,
+    "team": "away",
+    "type": "subst",
+    "assist": "Sultan Al-Brake",
+    "player": "Yusuf Abdurisag"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Jonathan David"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ahmed Fathy",
+    "player": "Edm\u00edlson Junior"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mohamed Manai",
+    "player": "Jassem Gaber"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Mo\u00efse Bombito",
+    "player": "Derek Cornelius"
+   },
+   {
+    "min": 53,
+    "team": "away",
+    "type": "card",
+    "card": "red",
+    "player": "Assim Madibo"
+   },
+   {
+    "min": 57,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nathan Saliba",
+    "player": "Isma\u00ebl Kon\u00e9"
+   },
+   {
+    "min": 59,
+    "team": "away",
+    "type": "subst",
+    "assist": "Al-Hashmi Al-Hussain",
+    "player": "Akram Afif"
+   },
+   {
+    "min": 62,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Ahmed Fathy"
+   },
+   {
+    "min": 64,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Nathan Saliba"
+   },
+   {
+    "min": 71,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jacob Shaffelburg",
+    "player": "Luc de Fougerolles"
+   },
+   {
+    "min": 71,
+    "team": "home",
+    "type": "subst",
+    "assist": "Tani Oluwaseyi",
+    "player": "Ali Ahmed"
+   },
+   {
+    "min": 75,
+    "team": "home",
+    "type": "goal",
+    "detail": "Own Goal",
+    "player": "Mohamed Manai"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "subst",
+    "assist": "Niko Sigur",
+    "player": "Tajon Buchanan"
+   },
+   {
+    "min": 87,
+    "team": "away",
+    "type": "subst",
+    "assist": "Lucas Mendes",
+    "player": "Ahmed Fathy"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Jonathan David",
+    "assist": "Nathan Saliba"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "66.7",
-    "totalShots": "8",
-    "shotsOnTarget": "4",
-    "wonCorners": "3",
-    "totalPasses": "162",
-    "foulsCommitted": "2",
-    "offsides": "0",
+    "possessionPct": "78.8",
+    "totalShots": "32",
+    "shotsOnTarget": "10",
+    "wonCorners": "19",
+    "totalPasses": "566",
+    "foulsCommitted": "9",
+    "offsides": "1",
     "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "3",
-    "interceptions": "5",
+    "totalTackles": "9",
+    "interceptions": "6",
     "saves": "0"
    },
    "away": {
-    "possessionPct": "33.3",
+    "possessionPct": "21.2",
     "totalShots": "2",
     "shotsOnTarget": "0",
     "wonCorners": "1",
-    "totalPasses": "87",
-    "foulsCommitted": "5",
-    "offsides": "0",
+    "totalPasses": "164",
+    "foulsCommitted": "10",
+    "offsides": "1",
     "yellowCards": "1",
-    "redCards": "1",
-    "totalTackles": "4",
-    "interceptions": "6",
-    "saves": "2"
+    "redCards": "2",
+    "totalTackles": "16",
+    "interceptions": "11",
+    "saves": "4"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -34319,6 +34432,6 @@
    "a": 0.07967479674796747,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }

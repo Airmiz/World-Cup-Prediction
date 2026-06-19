@@ -469,5 +469,38 @@
       "team": "away",
       "name": "Ermin Mahmic"
     }
+  ],
+  "Canada|Qatar": [
+    {
+      "min": 16,
+      "team": "home",
+      "name": "Cyle Larin"
+    },
+    {
+      "min": 29,
+      "team": "home",
+      "name": "Jonathan David"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Jonathan David"
+    },
+    {
+      "min": 64,
+      "team": "home",
+      "name": "Nathan Saliba"
+    },
+    {
+      "min": 75,
+      "team": "home",
+      "name": "Mohamed Manai",
+      "og": true
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Jonathan David"
+    }
   ]
 }
