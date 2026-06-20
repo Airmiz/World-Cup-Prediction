@@ -103,13 +103,15 @@ button.btn.ghost{background:var(--surface);color:var(--blue);box-shadow:var(--sh
 .gt th{color:var(--mut);font-size:10px;text-transform:uppercase;letter-spacing:.04em;text-align:right;padding:4px 5px;font-weight:600}
 .gt th:first-child{text-align:left}
 .gt td{padding:6px 5px;border-top:1px solid var(--hair);text-align:right;font-variant-numeric:tabular-nums}
-.gt td:first-child{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px}
+.gt td:first-child{text-align:left;max-width:150px;overflow:hidden}
+.gt .tcell{display:flex;align-items:center;gap:5px;min-width:0}
+.gt .tnm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .gt tr.q1 td:first-child{box-shadow:inset 3px 0 var(--green)}
 .gt tr.q2 td:first-child{box-shadow:inset 3px 0 var(--blue)}
 .gt .adv{font-weight:700}
-.gt .chip{font-size:9.5px;font-weight:700;border-radius:6px;padding:1px 6px;margin-left:5px}
-.chip.thru{color:#fff;background:var(--green)}.chip.out{color:var(--mut);background:var(--track)}
-.gt .pn{color:var(--mut);width:14px}
+.gt .chip{font-size:9.5px;font-weight:700;border-radius:6px;padding:1px 6px;flex:none}
+.chip.thru{color:#fff;background:var(--green)}.chip.out{color:#fff;background:var(--red)}
+.gt .pn{color:var(--mut);width:14px;flex:none}
 .barmini{height:5px;border-radius:3px;background:var(--track);overflow:hidden;min-width:46px;display:inline-block;vertical-align:middle}
 .barmini i{display:block;height:100%;background:linear-gradient(90deg,var(--g1),var(--g2))}
 /* odds */
@@ -408,7 +410,7 @@ footer{margin-top:80px;padding:26px 22px 0;border-top:1px solid var(--hair);colo
 .scenrow .snm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
 .stag{font-size:9.5px;font-weight:800;border-radius:5px;padding:2px 6px;white-space:nowrap}
 .stag.thru{background:rgba(52,199,89,.16);color:#1f9d4d}
-.stag.out{background:rgba(142,142,147,.18);color:var(--mut)}
+.stag.out{background:rgba(255,59,48,.16);color:var(--red)}
 .stag.hunt{background:var(--blue-soft);color:var(--blue)}
 .sc3{font-size:10px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
 .sc3 b{color:var(--txt)}
@@ -1258,7 +1260,7 @@ function renderGroups(out){
    const adv=out.r32[o.team];
    const chip = adv>0.995?'<span class="chip thru">THRU</span>':adv<0.005?'<span class="chip out">OUT</span>':"";
    const qcls=i===0?"q1":i===1?"q2":"";
-   return `<tr class="${qcls}"><td><span class="pn">${i+1}</span> ${F(o.team)} ${o.team}${chip}</td>
+   return `<tr class="${qcls}"><td><div class="tcell"><span class="pn">${i+1}</span><span class="tnm">${F(o.team)} ${o.team}</span>${chip}</div></td>
     <td>${o.pld}</td><td>${o.pts}</td><td>${o.gd>=0?'+':''}${o.gd}</td>
     <td class="adv"><span class="barmini"><i style="width:${100*adv}%"></i></span> ${pc(adv)}</td></tr>`;
   }).join("");
