@@ -546,5 +546,12 @@
       "team": "home",
       "name": "Vin\u00edcius J\u00fanior"
     }
+  ],
+  "Turkey|Paraguay": [
+    {
+      "min": 2,
+      "team": "away",
+      "name": "Mat\u00edas Galarza"
+    }
   ]
 }
