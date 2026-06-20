@@ -554,5 +554,37 @@
       "team": "away",
       "name": "Mat\u00edas Galarza"
     }
+  ],
+  "Netherlands|Sweden": [
+    {
+      "min": 5,
+      "team": "home",
+      "name": "Brian Brobbey"
+    },
+    {
+      "min": 17,
+      "team": "home",
+      "name": "Brian Brobbey"
+    },
+    {
+      "min": 47,
+      "team": "home",
+      "name": "Cody Gakpo"
+    },
+    {
+      "min": 54,
+      "team": "home",
+      "name": "Cody Gakpo"
+    },
+    {
+      "min": 59,
+      "team": "away",
+      "name": "Anthony Elanga"
+    },
+    {
+      "min": 89,
+      "team": "home",
+      "name": "Crysencio Summerville"
+    }
   ]
 }
