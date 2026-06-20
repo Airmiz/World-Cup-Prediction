@@ -42081,7 +42081,7 @@
   "final": true
  },
  "Germany|Ivory Coast": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-2-3-1",
@@ -42102,8 +42102,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 1,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42124,7 +42124,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42141,11 +42141,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42159,14 +42159,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42187,7 +42187,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42201,14 +42201,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42225,11 +42225,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42242,15 +42242,15 @@
      "aid": "281122",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 1,
+      "A": 1,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42264,14 +42264,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 2,
+      "SH": 3,
       "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42285,14 +42285,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42313,7 +42313,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -42348,11 +42348,11 @@
      "fp": "0",
      "aid": "273300",
      "st": {
-      "G": 0,
+      "G": 2,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 3,
+      "SOT": 3,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -42391,9 +42391,9 @@
      "aid": "210818",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "A": 1,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -42434,7 +42434,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -42518,7 +42518,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -42652,11 +42652,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
-      "GC": 0,
+      "SV": 5,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -42677,7 +42677,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -42694,11 +42694,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -42719,7 +42719,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42733,14 +42733,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -42761,7 +42761,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42775,14 +42775,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -42794,16 +42794,16 @@
      "fp": "8",
      "aid": "194711",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
       "FS": 0,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -42817,14 +42817,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42838,14 +42838,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42859,14 +42859,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -42910,7 +42910,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -42926,12 +42926,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -43036,7 +43036,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -43071,14 +43071,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -43178,46 +43178,140 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 30,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Franck Kessi\u00e9"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Antonio R\u00fcdiger",
+    "player": "Nico Schlotterbeck"
+   },
+   {
+    "min": 60,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jamie Leweling",
+    "player": "Leroy San\u00e9"
+   },
+   {
+    "min": 60,
+    "team": "home",
+    "type": "subst",
+    "assist": "Deniz Undav",
+    "player": "Jamal Musiala"
+   },
+   {
+    "min": 60,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nadiem Amiri",
+    "player": "Aleksandar Pavlovic"
+   },
+   {
+    "min": 68,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Deniz Undav",
+    "assist": "Nadiem Amiri"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "subst",
+    "assist": "Evann Guessand",
+    "player": "Ange-Yoan Bonny"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "subst",
+    "assist": "Seko Fofana",
+    "player": "Ibrahim Sangar\u00e9"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "subst",
+    "assist": "Simon Adingra",
+    "player": "Amad Diallo"
+   },
+   {
+    "min": 82,
+    "team": "away",
+    "type": "subst",
+    "assist": "Guela Dou\u00e9",
+    "player": "Wilfried Singo"
+   },
+   {
+    "min": 85,
+    "team": "away",
+    "type": "subst",
+    "assist": "Nicolas P\u00e9p\u00e9",
+    "player": "Yan Diomande"
+   },
+   {
+    "min": 85,
+    "team": "home",
+    "type": "subst",
+    "assist": "Leon Goretzka",
+    "player": "Kai Havertz"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Deniz Undav",
+    "assist": "Felix Nmecha"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "63.9",
-    "totalShots": "4",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "176",
-    "foulsCommitted": "1",
+    "possessionPct": "59.4",
+    "totalShots": "16",
+    "shotsOnTarget": "7",
+    "wonCorners": "8",
+    "totalPasses": "622",
+    "foulsCommitted": "5",
     "offsides": "0",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "5",
-    "interceptions": "1",
-    "saves": "0"
+    "totalTackles": "26",
+    "interceptions": "7",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "36.1",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "1",
-    "totalPasses": "99",
-    "foulsCommitted": "1",
+    "possessionPct": "40.6",
+    "totalShots": "9",
+    "shotsOnTarget": "2",
+    "wonCorners": "3",
+    "totalPasses": "431",
+    "foulsCommitted": "7",
     "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "7",
-    "interceptions": "1",
-    "saves": "1"
+    "totalTackles": "20",
+    "interceptions": "13",
+    "saves": "5"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -43254,6 +43348,6 @@
    "a": 0.146638603441872,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }

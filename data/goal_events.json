@@ -586,5 +586,22 @@
       "team": "home",
       "name": "Crysencio Summerville"
     }
+  ],
+  "Germany|Ivory Coast": [
+    {
+      "min": 30,
+      "team": "away",
+      "name": "Franck Kessi\u00e9"
+    },
+    {
+      "min": 68,
+      "team": "home",
+      "name": "Deniz Undav"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Deniz Undav"
+    }
   ]
 }
