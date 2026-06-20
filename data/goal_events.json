@@ -78,7 +78,8 @@
     {
       "min": 90,
       "team": "home",
-      "name": "Boualem Khoukhi"
+      "name": "Miro Muheim",
+      "og": true
     }
   ],
   "Brazil|Morocco": [
@@ -262,6 +263,296 @@
       "min": 64,
       "team": "home",
       "name": "Mohammad Mohebbi"
+    }
+  ],
+  "France|Senegal": [
+    {
+      "min": 66,
+      "team": "home",
+      "name": "Kylian Mbapp\u00e9"
+    },
+    {
+      "min": 82,
+      "team": "home",
+      "name": "Bradley Barcola"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Kylian Mbapp\u00e9"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Ibrahim Mbaye"
+    }
+  ],
+  "Iraq|Norway": [
+    {
+      "min": 29,
+      "team": "away",
+      "name": "Erling Haaland"
+    },
+    {
+      "min": 39,
+      "team": "home",
+      "name": "Aymen Hussein"
+    },
+    {
+      "min": 43,
+      "team": "away",
+      "name": "Erling Haaland"
+    },
+    {
+      "min": 76,
+      "team": "away",
+      "name": "Leo \u00d8stigard"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Aymen Hussein",
+      "og": true
+    }
+  ],
+  "Argentina|Algeria": [
+    {
+      "min": 17,
+      "team": "home",
+      "name": "Lionel Messi"
+    },
+    {
+      "min": 60,
+      "team": "home",
+      "name": "Lionel Messi"
+    },
+    {
+      "min": 76,
+      "team": "home",
+      "name": "Lionel Messi"
+    }
+  ],
+  "Austria|Jordan": [
+    {
+      "min": 21,
+      "team": "home",
+      "name": "Romano Schmid"
+    },
+    {
+      "min": 50,
+      "team": "away",
+      "name": "Ali Olwan"
+    },
+    {
+      "min": 76,
+      "team": "home",
+      "name": "Yazan Al-Arab",
+      "og": true
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Marko Arnautovic",
+      "pen": true
+    }
+  ],
+  "Portugal|DR Congo": [
+    {
+      "min": 6,
+      "team": "home",
+      "name": "Jo\u00e3o Neves"
+    },
+    {
+      "min": 45,
+      "team": "away",
+      "name": "Yoane Wissa"
+    }
+  ],
+  "England|Croatia": [
+    {
+      "min": 12,
+      "team": "home",
+      "name": "Harry Kane",
+      "pen": true
+    },
+    {
+      "min": 36,
+      "team": "away",
+      "name": "Martin Baturina"
+    },
+    {
+      "min": 42,
+      "team": "home",
+      "name": "Harry Kane"
+    },
+    {
+      "min": 45,
+      "team": "away",
+      "name": "Petar Musa"
+    },
+    {
+      "min": 47,
+      "team": "home",
+      "name": "Jude Bellingham"
+    },
+    {
+      "min": 85,
+      "team": "home",
+      "name": "Marcus Rashford"
+    }
+  ],
+  "Ghana|Panama": [
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Caleb Yirenkyi"
+    }
+  ],
+  "Uzbekistan|Colombia": [
+    {
+      "min": 40,
+      "team": "away",
+      "name": "Daniel Mu\u00f1oz"
+    },
+    {
+      "min": 60,
+      "team": "home",
+      "name": "Abbosbek Fayzullaev"
+    },
+    {
+      "min": 65,
+      "team": "away",
+      "name": "Luis D\u00edaz"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "J\u00e1minton Campaz"
+    }
+  ],
+  "Czech Republic|South Africa": [
+    {
+      "min": 6,
+      "team": "home",
+      "name": "Michal Sad\u00edlek"
+    },
+    {
+      "min": 83,
+      "team": "away",
+      "name": "Teboho Mokoena",
+      "pen": true
+    }
+  ],
+  "Switzerland|Bosnia and Herzegovina": [
+    {
+      "min": 74,
+      "team": "home",
+      "name": "Johan Manzambi"
+    },
+    {
+      "min": 84,
+      "team": "home",
+      "name": "Rub\u00e9n Vargas"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Johan Manzambi"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Granit Xhaka",
+      "pen": true
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Ermin Mahmic"
+    }
+  ],
+  "Canada|Qatar": [
+    {
+      "min": 16,
+      "team": "home",
+      "name": "Cyle Larin"
+    },
+    {
+      "min": 29,
+      "team": "home",
+      "name": "Jonathan David"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Jonathan David"
+    },
+    {
+      "min": 64,
+      "team": "home",
+      "name": "Nathan Saliba"
+    },
+    {
+      "min": 75,
+      "team": "home",
+      "name": "Mohamed Manai",
+      "og": true
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Jonathan David"
+    }
+  ],
+  "Mexico|South Korea": [
+    {
+      "min": 50,
+      "team": "home",
+      "name": "Luis Romo"
+    }
+  ],
+  "United States|Australia": [
+    {
+      "min": 11,
+      "team": "home",
+      "name": "Cameron Burgess",
+      "og": true
+    },
+    {
+      "min": 43,
+      "team": "home",
+      "name": "Alex Freeman"
+    }
+  ],
+  "Scotland|Morocco": [
+    {
+      "min": 2,
+      "team": "away",
+      "name": "Ismael Saibari"
+    }
+  ],
+  "Brazil|Haiti": [
+    {
+      "min": 23,
+      "team": "home",
+      "name": "Matheus Cunha"
+    },
+    {
+      "min": 36,
+      "team": "home",
+      "name": "Matheus Cunha"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Vin\u00edcius J\u00fanior"
+    }
+  ],
+  "Turkey|Paraguay": [
+    {
+      "min": 2,
+      "team": "away",
+      "name": "Mat\u00edas Galarza"
     }
   ]
 }
