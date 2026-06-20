@@ -529,5 +529,22 @@
       "team": "away",
       "name": "Ismael Saibari"
     }
+  ],
+  "Brazil|Haiti": [
+    {
+      "min": 23,
+      "team": "home",
+      "name": "Matheus Cunha"
+    },
+    {
+      "min": 36,
+      "team": "home",
+      "name": "Matheus Cunha"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Vin\u00edcius J\u00fanior"
+    }
   ]
 }
