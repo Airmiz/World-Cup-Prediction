@@ -35,20 +35,42 @@ function koWin(D, i1, i2, venueCountry, r, played){
   return r()<p ? i1 : i2;
 }
 
+/* 2026 FIFA group tiebreakers (NEW for this tournament): when teams are level on points,
+ * HEAD-TO-HEAD comes first (h2h points, then h2h goal diff, then h2h goals among the tied
+ * teams), and only after that overall goal difference, overall goals, then conduct/ranking
+ * (here a random proxy). pgf[a+","+b] = goals a scored against b. */
+function breakTie(block, pts, gd, gf, pgf, r){
+  if(block.length<2) return block;
+  const mp={},mg={},mf={}; block.forEach(t=>{mp[t]=0;mg[t]=0;mf[t]=0;});
+  for(let i=0;i<block.length;i++) for(let j=i+1;j<block.length;j++){ const a=block[i],b=block[j];
+    const ga=pgf[a+","+b], gb=pgf[b+","+a]; if(ga==null||gb==null) continue;   // not played yet (partial table)
+    mf[a]+=ga; mf[b]+=gb; mg[a]+=ga-gb; mg[b]+=gb-ga;
+    if(ga>gb)mp[a]+=3; else if(gb>ga)mp[b]+=3; else {mp[a]++;mp[b]++;} }
+  const sorted=block.slice().sort((a,b)=>(mp[b]-mp[a])||(mg[b]-mg[a])||(mf[b]-mf[a])||(gd[b]-gd[a])||(gf[b]-gf[a])||(r()-0.5));
+  const res=[]; let i=0;                                  // re-apply h2h to any still-tied SUBSET smaller than the block
+  while(i<sorted.length){ let j=i;
+    while(j+1<sorted.length && mp[sorted[j+1]]===mp[sorted[i]] && mg[sorted[j+1]]===mg[sorted[i]] && mf[sorted[j+1]]===mf[sorted[i]]) j++;
+    const sub=sorted.slice(i,j+1);
+    if(sub.length>1 && sub.length<block.length) breakTie(sub,pts,gd,gf,pgf,r).forEach(t=>res.push(t));
+    else sub.forEach(t=>res.push(t));
+    i=j+1; }
+  return res;
+}
+function rank2026(teams, pts, gd, gf, pgf, r){
+  const arr=teams.slice().sort((a,b)=>pts[b]-pts[a]); const out=[]; let i=0;
+  while(i<arr.length){ let j=i; while(j+1<arr.length && pts[arr[j+1]]===pts[arr[i]]) j++;
+    breakTie(arr.slice(i,j+1), pts, gd, gf, pgf, r).forEach(t=>out.push(t)); i=j+1; }
+  return out;
+}
 /* Group standings for ONE group given scorelines [hs,as] per local fixture.
  * Returns local-index order best->worst, plus pts/gd/gf arrays. */
 function standGroup(fixtures, scores, r){
-  const pts=[0,0,0,0], gd=[0,0,0,0], gf=[0,0,0,0];
-  const h2h={};
+  const pts=[0,0,0,0], gd=[0,0,0,0], gf=[0,0,0,0], pgf={};
   fixtures.forEach((f,k)=>{ const [hs,as]=scores[k]; const x=f.hi,y=f.ai;
     if(hs>as){pts[x]+=3;} else if(hs<as){pts[y]+=3;} else {pts[x]++;pts[y]++;}
     gd[x]+=hs-as; gd[y]+=as-hs; gf[x]+=hs; gf[y]+=as;
-    const s=Math.sign(hs-as); h2h[x+","+y]=s; h2h[y+","+x]=-s; });
-  const key=i=>pts[i]*1e6+(gd[i]+50)*1e3+gf[i]*10+r();
-  const order=[0,1,2,3].sort((a,b)=>key(b)-key(a));
-  for(let pass=0;pass<2;pass++) for(let p=0;p<3;p++){ const a=order[p],b=order[p+1];
-    if(pts[a]===pts[b]&&gd[a]===gd[b]&&gf[a]===gf[b]){ const s=h2h[a+","+b];
-      if(s<0){order[p]=b;order[p+1]=a;} } }
+    pgf[x+","+y]=(pgf[x+","+y]||0)+hs; pgf[y+","+x]=(pgf[y+","+x]||0)+as; });
+  const order=rank2026([0,1,2,3], pts, gd, gf, pgf, r);
   return {order,pts,gd,gf};
 }
 
@@ -150,17 +172,16 @@ function liveTable(D, group, results){
   const fx=D.fixtures.filter(f=>f.group===group);
   const row=gt.map(t=>({team:t,pld:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}));
   const ri=Object.fromEntries(gt.map((t,i)=>[t,i]));
-  const h2h={};
+  const pgf={};
   fx.forEach(f=>{ const res=results[f.id]; if(!res)return; const [hs,as]=res;
     const x=ri[f.home],y=ri[f.away];
     row[x].pld++;row[y].pld++; row[x].gf+=hs;row[x].ga+=as; row[y].gf+=as;row[y].ga+=hs;
     if(hs>as){row[x].w++;row[y].l++;row[x].pts+=3;} else if(hs<as){row[y].w++;row[x].l++;row[y].pts+=3;}
     else {row[x].d++;row[y].d++;row[x].pts++;row[y].pts++;}
-    const s=Math.sign(hs-as); h2h[x+","+y]=s;h2h[y+","+x]=-s; });
+    pgf[x+","+y]=(pgf[x+","+y]||0)+hs; pgf[y+","+x]=(pgf[y+","+x]||0)+as; });
   row.forEach(o=>o.gd=o.gf-o.ga);
-  const order=row.map((o,i)=>i).sort((a,b)=> (row[b].pts-row[a].pts)||(row[b].gd-row[a].gd)||(row[b].gf-row[a].gf));
-  for(let p=0;p<3;p++){const a=order[p],b=order[p+1];
-    if(row[a].pts===row[b].pts&&row[a].gd===row[b].gd&&row[a].gf===row[b].gf){const s=h2h[a+","+b];if(s<0){order[p]=b;order[p+1]=a;}}}
+  const P=row.map(o=>o.pts), GD=row.map(o=>o.gd), GF=row.map(o=>o.gf);
+  const order=rank2026(row.map((o,i)=>i), P, GD, GF, pgf, ()=>0.5);   // stable (no random) for a steady display order
   return order.map(i=>row[i]);
 }
 

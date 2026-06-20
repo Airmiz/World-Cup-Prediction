@@ -1305,9 +1305,10 @@ function projStrength(t){return D.baseline[t].p_champion;}
 function projectStandings(out){
  const winners={},runners={},thirds={},thirdScore={};
  for(const g of D.group_order){
-  const tbl=WCLive.liveTable(D,g,STATE.results);   // current actual order
-  // refine undecided ordering using model strength while respecting points
-  const ord=tbl.slice().sort((a,b)=>(b.pts-a.pts)||(b.gd-a.gd)||(b.gf-a.gf)||(projStrength(b.team)-projStrength(a.team)));
+  const tbl=WCLive.liveTable(D,g,STATE.results);   // current actual order (2026 head-to-head tiebreakers applied)
+  // keep the official standings order; only nudge teams that are still exactly level (same pts, GD, GF
+  // and no head-to-head separation) by model strength — never override the head-to-head order.
+  const ord=tbl.slice().sort((a,b)=>(b.pts-a.pts)||((a.pts===b.pts&&a.gd===b.gd&&a.gf===b.gf)?(projStrength(b.team)-projStrength(a.team)):0));
   winners[g]=ord[0].team; runners[g]=ord[1].team; thirds[g]=ord[2].team;
   thirdScore[g]=ord[2].pts*1000+ord[2].gd*10+projStrength(ord[2].team);
  }
