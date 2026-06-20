@@ -40784,5 +40784,1250 @@
    "prov": "DraftKings"
   },
   "final": true
+ },
+ "Netherlands|Sweden": {
+  "status": "LIVE",
+  "source": "espn",
+  "home": {
+   "formation": "4-3-3",
+   "xi": [
+    {
+     "name": "Bart Verbruggen",
+     "num": "1",
+     "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "291609",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 4,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Virgil van Dijk",
+     "num": "4",
+     "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "157892",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jan Paul van Hecke",
+     "num": "6",
+     "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "282583",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Micky van de Ven",
+     "num": "15",
+     "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "296512",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Denzel Dumfries",
+     "num": "22",
+     "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "213248",
+     "st": {
+      "G": 0,
+      "A": 2,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Frenkie de Jong",
+     "num": "21",
+     "pos": "M",
+     "posAbbr": "CM",
+     "fp": "4",
+     "aid": "219022",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Tijjani Reijnders",
+     "num": "14",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "8",
+     "aid": "261328",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 2,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ryan Gravenberch",
+     "num": "8",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "7",
+     "aid": "274632",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Brian Brobbey",
+     "num": "19",
+     "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "282229",
+     "st": {
+      "G": 2,
+      "A": 0,
+      "SH": 2,
+      "SOT": 2,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Cody Gakpo",
+     "num": "11",
+     "pos": "F",
+     "posAbbr": "LF",
+     "fp": "11",
+     "aid": "249524",
+     "st": {
+      "G": 2,
+      "A": 1,
+      "SH": 5,
+      "SOT": 4,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Donyell Malen",
+     "num": "18",
+     "pos": "F",
+     "posAbbr": "RF",
+     "fp": "10",
+     "aid": "259481",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "Wout Weghorst",
+     "num": "9",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "177042",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Nathan Ak\u00e9",
+     "num": "5",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "159248",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Crysencio Summerville",
+     "num": "24",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "284792",
+     "st": {
+      "G": 0,
+      "A": 1,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Lutsharel Geertruida",
+     "num": "2",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "264828",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Marten de Roon",
+     "num": "3",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "146335",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Robin Roefs",
+     "num": "13",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "301449",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Mats Wieffer",
+     "num": "12",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "282186",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Guus Til",
+     "num": "16",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "240965",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Teun Koopmeiners",
+     "num": "20",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "258968",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Noa Lang",
+     "num": "17",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "255344",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Mark Flekken",
+     "num": "23",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "177821",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Memphis Depay",
+     "num": "10",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "159255",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jorrel Hato",
+     "num": "25",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "353951",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Justin Kluivert",
+     "num": "7",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "245916",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ]
+  },
+  "away": {
+   "formation": "3-1-4-2",
+   "xi": [
+    {
+     "name": "Kristoffer Nordfeldt",
+     "num": "23",
+     "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "133993",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 2,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Isak Hien",
+     "num": "4",
+     "pos": "D",
+     "posAbbr": "CD",
+     "fp": "4",
+     "aid": "312862",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Victor Lindel\u00f6f",
+     "num": "3",
+     "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "204679",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Gustaf Lagerbielke",
+     "num": "2",
+     "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "324930",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jesper Karlstr\u00f6m",
+     "num": "16",
+     "pos": "D",
+     "posAbbr": "SW",
+     "fp": "8",
+     "aid": "237055",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Yasin Ayari",
+     "num": "18",
+     "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "11",
+     "aid": "304242",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 5,
+      "SOT": 1,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Benjamin Nygren",
+     "num": "10",
+     "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "7",
+     "aid": "274522",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Gabriel Gudmundsson",
+     "num": "5",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "3",
+     "aid": "250166",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 1,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Alexander Bernhardsson",
+     "num": "21",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "2",
+     "aid": "301370",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Alexander Isak",
+     "num": "9",
+     "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "10",
+     "aid": "235662",
+     "st": {
+      "G": 0,
+      "A": 1,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Viktor Gy\u00f6keres",
+     "num": "17",
+     "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "9",
+     "aid": "258906",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 4,
+      "SOT": 3,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "Hjalmar Ekdal",
+     "num": "14",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "290413",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Herman Johansson",
+     "num": "6",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "312876",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ken Sema",
+     "num": "13",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "186004",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Taha Ali",
+     "num": "26",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "314164",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Anthony Elanga",
+     "num": "11",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "296622",
+     "st": {
+      "G": 1,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Gustaf Nilsson",
+     "num": "25",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "238183",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Elliot Stroud",
+     "num": "24",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "357145",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Eric Smith",
+     "num": "20",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "204115",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Carl Starfelt",
+     "num": "15",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "195790",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jacob Widell Zetterstr\u00f6m",
+     "num": "1",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "286810",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Viktor Johansson",
+     "num": "12",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "258902",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Mattias Svanberg",
+     "num": "19",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "220120",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Lucas Bergvall",
+     "num": "7",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "356379",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Besfort Zeneli",
+     "num": "22",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "334024",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Daniel Svensson",
+     "num": "8",
+     "pos": "M",
+     "posAbbr": "",
+     "fp": "0",
+     "aid": "310709",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ]
+  },
+  "events": [
+   {
+    "min": 5,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Brian Brobbey",
+    "assist": "Cody Gakpo"
+   },
+   {
+    "min": 17,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Brian Brobbey",
+    "assist": "Denzel Dumfries"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Crysencio Summerville",
+    "player": "Donyell Malen"
+   },
+   {
+    "min": 47,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Cody Gakpo",
+    "assist": "Denzel Dumfries"
+   },
+   {
+    "min": 53,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Gabriel Gudmundsson"
+   },
+   {
+    "min": 54,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Cody Gakpo",
+    "assist": "Crysencio Summerville"
+   },
+   {
+    "min": 55,
+    "team": "away",
+    "type": "subst",
+    "assist": "Anthony Elanga",
+    "player": "Alexander Bernhardsson"
+   },
+   {
+    "min": 56,
+    "team": "away",
+    "type": "subst",
+    "assist": "Besfort Zeneli",
+    "player": "Jesper Karlstr\u00f6m"
+   },
+   {
+    "min": 56,
+    "team": "away",
+    "type": "subst",
+    "assist": "Lucas Bergvall",
+    "player": "Benjamin Nygren"
+   },
+   {
+    "min": 59,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Anthony Elanga",
+    "assist": "Alexander Isak"
+   },
+   {
+    "min": 59,
+    "team": "home",
+    "type": "subst",
+    "assist": "Teun Koopmeiners",
+    "player": "Frenkie de Jong"
+   },
+   {
+    "min": 59,
+    "team": "home",
+    "type": "subst",
+    "assist": "Guus Til",
+    "player": "Tijjani Reijnders"
+   }
+  ],
+  "teamstats": {
+   "home": {
+    "possessionPct": "55.2",
+    "totalShots": "9",
+    "shotsOnTarget": "6",
+    "wonCorners": "2",
+    "totalPasses": "362",
+    "foulsCommitted": "6",
+    "offsides": "2",
+    "yellowCards": "0",
+    "redCards": "0",
+    "totalTackles": "13",
+    "interceptions": "7",
+    "saves": "4"
+   },
+   "away": {
+    "possessionPct": "44.8",
+    "totalShots": "12",
+    "shotsOnTarget": "5",
+    "wonCorners": "3",
+    "totalPasses": "291",
+    "foulsCommitted": "6",
+    "offsides": "3",
+    "yellowCards": "1",
+    "redCards": "0",
+    "totalTackles": "14",
+    "interceptions": "5",
+    "saves": "2"
+   },
+   "labels": {
+    "possessionPct": "Possession",
+    "totalShots": "Shots",
+    "shotsOnTarget": "Shots on Target",
+    "wonCorners": "Corners",
+    "totalPasses": "Passes",
+    "foulsCommitted": "Fouls",
+    "offsides": "Offsides",
+    "yellowCards": "Yellow Cards",
+    "redCards": "Red Cards",
+    "totalTackles": "Tackles",
+    "interceptions": "Interceptions",
+    "saves": "Saves"
+   },
+   "pct": {
+    "possessionPct": true,
+    "totalShots": false,
+    "shotsOnTarget": false,
+    "wonCorners": false,
+    "totalPasses": false,
+    "foulsCommitted": false,
+    "offsides": false,
+    "yellowCards": false,
+    "redCards": false,
+    "totalTackles": false,
+    "interceptions": false,
+    "saves": false
+   }
+  },
+  "market": {
+   "h": 0.5599999999999999,
+   "d": 0.24,
+   "a": 0.19999999999999998,
+   "prov": "DraftKings"
+  },
+  "final": false
  }
 }
