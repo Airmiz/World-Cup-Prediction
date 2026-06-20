@@ -522,5 +522,12 @@
       "team": "home",
       "name": "Alex Freeman"
     }
+  ],
+  "Scotland|Morocco": [
+    {
+      "min": 2,
+      "team": "away",
+      "name": "Ismael Saibari"
+    }
   ]
 }
