@@ -187,5 +187,26 @@
    "Switzerland": 0.0152,
    "Ecuador": 0.0149
   }
+ },
+ {
+  "date": "2026-06-21",
+  "champ": {
+   "Argentina": 0.2051,
+   "Spain": 0.1312,
+   "France": 0.0939,
+   "England": 0.0705,
+   "Brazil": 0.0637,
+   "Colombia": 0.0624,
+   "United States": 0.044,
+   "Morocco": 0.043,
+   "Germany": 0.0326,
+   "Portugal": 0.0322,
+   "Mexico": 0.0299,
+   "Japan": 0.025,
+   "Netherlands": 0.0226,
+   "Norway": 0.0203,
+   "Switzerland": 0.0148,
+   "Ecuador": 0.0148
+  }
  }
 ]
