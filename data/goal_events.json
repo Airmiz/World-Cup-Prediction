@@ -604,5 +604,27 @@
       "name": "Deniz Undav"
     }
   ],
-  "Ecuador|Cura\u00e7ao": []
+  "Ecuador|Cura\u00e7ao": [],
+  "Tunisia|Japan": [
+    {
+      "min": 4,
+      "team": "away",
+      "name": "Daichi Kamada"
+    },
+    {
+      "min": 31,
+      "team": "away",
+      "name": "Ayase Ueda"
+    },
+    {
+      "min": 69,
+      "team": "away",
+      "name": "Junya Ito"
+    },
+    {
+      "min": 83,
+      "team": "away",
+      "name": "Ayase Ueda"
+    }
+  ]
 }

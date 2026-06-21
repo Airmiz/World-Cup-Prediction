@@ -44633,7 +44633,7 @@
   "final": true
  },
  "Tunisia|Japan": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "3-4-2-1",
@@ -44655,7 +44655,7 @@
       "YC": 0,
       "RC": 0,
       "SV": 1,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44676,7 +44676,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44697,7 +44697,7 @@
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44739,7 +44739,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44760,7 +44760,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44781,7 +44781,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44797,12 +44797,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44840,11 +44840,11 @@
       "SH": 1,
       "SOT": 0,
       "FC": 3,
-      "FS": 4,
+      "FS": 7,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -44902,14 +44902,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -44926,11 +44926,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -45119,7 +45119,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -45245,7 +45245,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 2,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -45287,7 +45287,7 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -45305,10 +45305,10 @@
      "aid": "357030",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
@@ -45331,7 +45331,7 @@
       "SOT": 0,
       "FC": 1,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -45367,10 +45367,10 @@
      "fp": "9",
      "aid": "274277",
      "st": {
-      "G": 1,
+      "G": 2,
       "A": 1,
-      "SH": 4,
-      "SOT": 2,
+      "SH": 5,
+      "SOT": 3,
       "FC": 1,
       "FS": 1,
       "OFF": 0,
@@ -45411,7 +45411,7 @@
      "st": {
       "G": 1,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 1,
       "FC": 2,
       "FS": 1,
@@ -45436,7 +45436,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -45605,7 +45605,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -45758,35 +45758,78 @@
     "type": "subst",
     "assist": "Yukinari Sugawara",
     "player": "Ritsu Doan"
+   },
+   {
+    "min": 79,
+    "team": "away",
+    "type": "subst",
+    "assist": "Yuito Suzuki",
+    "player": "Keito Nakamura"
+   },
+   {
+    "min": 79,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ayumu Seko",
+    "player": "Takehiro Tomiyasu"
+   },
+   {
+    "min": 83,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Ayase Ueda",
+    "assist": "Kaishu Sano"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Keisuke Goto",
+    "player": "Ayase Ueda"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Rani Khedira",
+    "player": "Ellyes Skhiri"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Elias Achouri",
+    "player": "Ali Abdi"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "37.1",
-    "totalShots": "1",
+    "possessionPct": "37.9",
+    "totalShots": "2",
     "shotsOnTarget": "0",
     "wonCorners": "3",
-    "totalPasses": "280",
-    "foulsCommitted": "7",
+    "totalPasses": "353",
+    "foulsCommitted": "8",
     "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "15",
-    "interceptions": "10",
+    "totalTackles": "18",
+    "interceptions": "14",
     "saves": "1"
    },
    "away": {
-    "possessionPct": "62.9",
-    "totalShots": "9",
-    "shotsOnTarget": "4",
-    "wonCorners": "4",
-    "totalPasses": "479",
-    "foulsCommitted": "11",
-    "offsides": "0",
+    "possessionPct": "62.1",
+    "totalShots": "11",
+    "shotsOnTarget": "5",
+    "wonCorners": "5",
+    "totalPasses": "582",
+    "foulsCommitted": "15",
+    "offsides": "1",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "13",
-    "interceptions": "4",
+    "totalTackles": "18",
+    "interceptions": "6",
     "saves": "0"
    },
    "labels": {
@@ -45824,6 +45867,6 @@
    "a": 0.6682655410590944,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
