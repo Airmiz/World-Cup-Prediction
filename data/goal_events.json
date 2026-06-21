@@ -626,5 +626,28 @@
       "team": "away",
       "name": "Ayase Ueda"
     }
+  ],
+  "Spain|Saudi Arabia": [
+    {
+      "min": 10,
+      "team": "home",
+      "name": "Lamine Yamal"
+    },
+    {
+      "min": 21,
+      "team": "home",
+      "name": "Mikel Oyarzabal"
+    },
+    {
+      "min": 24,
+      "team": "home",
+      "name": "Mikel Oyarzabal"
+    },
+    {
+      "min": 49,
+      "team": "home",
+      "name": "Hassan Al-Tambakti",
+      "og": true
+    }
   ]
 }

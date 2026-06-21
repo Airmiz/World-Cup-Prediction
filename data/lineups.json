@@ -45870,7 +45870,7 @@
   "final": true
  },
  "Spain|Saudi Arabia": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-3-3",
@@ -45891,7 +45891,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
+      "SV": 1,
       "GC": 0,
       "SF": 0
      }
@@ -45908,7 +45908,7 @@
       "A": 1,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -45948,9 +45948,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -45969,9 +45969,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -45990,11 +45990,11 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 1,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -46034,7 +46034,7 @@
       "A": 1,
       "SH": 2,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -46053,9 +46053,9 @@
      "st": {
       "G": 2,
       "A": 1,
-      "SH": 3,
+      "SH": 5,
       "SOT": 3,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -46095,8 +46095,8 @@
      "st": {
       "G": 1,
       "A": 0,
-      "SH": 3,
-      "SOT": 1,
+      "SH": 5,
+      "SOT": 2,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -46118,11 +46118,11 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -46139,7 +46139,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -46372,7 +46372,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -46444,8 +46444,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
-      "GC": 3,
+      "SV": 5,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46462,11 +46462,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46483,11 +46483,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46501,14 +46501,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46525,11 +46525,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46550,7 +46550,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46567,11 +46567,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46606,14 +46606,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 3,
+      "OFF": 1,
       "YC": 1,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -46631,7 +46631,7 @@
       "SOT": 0,
       "FC": 0,
       "FS": 1,
-      "OFF": 0,
+      "OFF": 2,
       "YC": 0,
       "RC": 0,
       "GC": 3,
@@ -46651,11 +46651,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     }
@@ -46671,14 +46671,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -46800,7 +46800,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -46967,12 +46967,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -47009,36 +47009,120 @@
     "type": "card",
     "card": "yellow",
     "player": "Salem Al-Dawsari"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Y\u00e9remy Pino",
+    "player": "Lamine Yamal"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ferran Torres",
+    "player": "Mikel Oyarzabal"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mohamed Kanno",
+    "player": "Abdullah Al-Khaibari"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Abdullah Al-Hamdan",
+    "player": "Musab Al-Juwayr"
+   },
+   {
+    "min": 49,
+    "team": "home",
+    "type": "goal",
+    "detail": "Own Goal",
+    "player": "Hassan Al-Tambakti"
+   },
+   {
+    "min": 60,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Mohamed Kanno"
+   },
+   {
+    "min": 60,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mohammed Abu Al-Shamat",
+    "player": "Feras Al-Brikan"
+   },
+   {
+    "min": 60,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ala Al-Hajji",
+    "player": "Abdulelah Al-Amri"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Mikel Merino",
+    "player": "Dani Olmo"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nico Williams",
+    "player": "\u00c1lex Baena"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Fabi\u00e1n Ruiz",
+    "player": "Pedri "
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "subst",
+    "assist": "Khalid Al-Ghannam",
+    "player": "Nasser Al-Dawsari"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "73.6",
-    "totalShots": "12",
-    "shotsOnTarget": "4",
-    "wonCorners": "3",
-    "totalPasses": "185",
-    "foulsCommitted": "1",
-    "offsides": "0",
+    "possessionPct": "67.1",
+    "totalShots": "22",
+    "shotsOnTarget": "8",
+    "wonCorners": "6",
+    "totalPasses": "725",
+    "foulsCommitted": "10",
+    "offsides": "2",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "5",
-    "interceptions": "6",
-    "saves": "0"
+    "totalTackles": "9",
+    "interceptions": "16",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "26.4",
-    "totalShots": "0",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "70",
-    "foulsCommitted": "1",
-    "offsides": "0",
-    "yellowCards": "1",
+    "possessionPct": "32.9",
+    "totalShots": "3",
+    "shotsOnTarget": "1",
+    "wonCorners": "1",
+    "totalPasses": "364",
+    "foulsCommitted": "2",
+    "offsides": "3",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "2",
-    "interceptions": "1",
-    "saves": "1"
+    "totalTackles": "15",
+    "interceptions": "12",
+    "saves": "5"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -47075,6 +47159,6 @@
    "a": 0.045852438516048345,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
