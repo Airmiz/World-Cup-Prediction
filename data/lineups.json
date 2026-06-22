@@ -48388,7 +48388,7 @@
   "final": true
  },
  "Uruguay|Cape Verde": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-1-4-1",
@@ -48409,8 +48409,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 1,
+      "SV": 2,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48426,12 +48426,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48445,14 +48445,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48466,14 +48466,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48494,7 +48494,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48515,7 +48515,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48529,14 +48529,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 2,
+      "SH": 7,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48550,14 +48550,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 0,
-      "FC": 2,
+      "FC": 3,
       "FS": 1,
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48569,37 +48569,37 @@
      "fp": "11",
      "aid": "287025",
      "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "G": 1,
+      "A": 1,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
       "FS": 1,
-      "OFF": 1,
+      "OFF": 2,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
     {
-     "name": "Agust\u00edn Cano",
+     "name": "Agust\u00edn Canobbio",
      "num": "14",
      "pos": "M",
      "posAbbr": "RM",
      "fp": "7",
      "aid": "241466",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 2,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 4,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48616,11 +48616,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -48657,10 +48657,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -48720,7 +48720,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -48921,7 +48921,7 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48935,14 +48935,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48956,14 +48956,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48984,7 +48984,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -48998,14 +48998,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 1,
-      "FS": 3,
+      "FS": 5,
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -49026,7 +49026,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -49040,14 +49040,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -49068,7 +49068,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -49089,7 +49089,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -49103,14 +49103,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -49127,11 +49127,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -49212,7 +49212,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -49233,8 +49233,8 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -49297,7 +49297,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -49315,10 +49315,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 2,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -49439,10 +49439,10 @@
      "fp": "0",
      "aid": "366092",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -49475,35 +49475,127 @@
     "type": "goal",
     "detail": "Normal Goal",
     "player": "Kevin Pina"
+   },
+   {
+    "min": 44,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Maxi Ara\u00fajo"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Agust\u00edn Canobbio",
+    "assist": "Maxi Ara\u00fajo"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Deroy Duarte",
+    "player": "Telmo Arcanjo"
+   },
+   {
+    "min": 58,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Math\u00edas Olivera"
+   },
+   {
+    "min": 58,
+    "team": "away",
+    "type": "subst",
+    "assist": "Nuno da Costa",
+    "player": "Gilson Benchimol"
+   },
+   {
+    "min": 58,
+    "team": "away",
+    "type": "subst",
+    "assist": "H\u00e9lio Varela",
+    "player": "Garry Rodrigues"
+   },
+   {
+    "min": 61,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "H\u00e9lio Varela"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Darwin N\u00fa\u00f1ez",
+    "player": "Federico Vi\u00f1as"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nicol\u00e1s de la Cruz",
+    "player": "Manuel Ugarte"
+   },
+   {
+    "min": 71,
+    "team": "away",
+    "type": "subst",
+    "assist": "Laros Duarte",
+    "player": "Kevin Pina"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "subst",
+    "assist": "Yannick Semedo",
+    "player": "Jamiro Monteiro"
+   },
+   {
+    "min": 81,
+    "team": "home",
+    "type": "subst",
+    "assist": "Brian Rodr\u00edguez",
+    "player": "Maxi Ara\u00fajo"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Diney Borges"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "66.3",
-    "totalShots": "3",
-    "shotsOnTarget": "0",
-    "wonCorners": "4",
-    "totalPasses": "121",
-    "foulsCommitted": "4",
-    "offsides": "2",
-    "yellowCards": "1",
+    "possessionPct": "65.3",
+    "totalShots": "17",
+    "shotsOnTarget": "2",
+    "wonCorners": "11",
+    "totalPasses": "511",
+    "foulsCommitted": "11",
+    "offsides": "3",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "1",
-    "interceptions": "3",
-    "saves": "0"
+    "totalTackles": "16",
+    "interceptions": "8",
+    "saves": "2"
    },
    "away": {
-    "possessionPct": "33.7",
-    "totalShots": "1",
-    "shotsOnTarget": "1",
-    "wonCorners": "0",
-    "totalPasses": "63",
-    "foulsCommitted": "2",
+    "possessionPct": "34.7",
+    "totalShots": "12",
+    "shotsOnTarget": "4",
+    "wonCorners": "4",
+    "totalPasses": "277",
+    "foulsCommitted": "4",
     "offsides": "0",
-    "yellowCards": "1",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "4",
-    "interceptions": "1",
+    "totalTackles": "16",
+    "interceptions": "13",
     "saves": "0"
    },
    "labels": {
@@ -49541,6 +49633,6 @@
    "a": 0.10655195234943744,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }

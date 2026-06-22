@@ -650,5 +650,27 @@
       "og": true
     }
   ],
-  "Belgium|Iran": []
+  "Belgium|Iran": [],
+  "Uruguay|Cape Verde": [
+    {
+      "min": 21,
+      "team": "away",
+      "name": "Kevin Pina"
+    },
+    {
+      "min": 44,
+      "team": "home",
+      "name": "Maxi Ara\u00fajo"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Agust\u00edn Cano"
+    },
+    {
+      "min": 61,
+      "team": "away",
+      "name": "H\u00e9lio Varela"
+    }
+  ]
 }
