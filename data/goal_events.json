@@ -672,5 +672,27 @@
       "team": "away",
       "name": "H\u00e9lio Varela"
     }
+  ],
+  "New Zealand|Egypt": [
+    {
+      "min": 15,
+      "team": "home",
+      "name": "Finn Surman"
+    },
+    {
+      "min": 58,
+      "team": "away",
+      "name": "Mostafa Zico"
+    },
+    {
+      "min": 67,
+      "team": "away",
+      "name": "Mohamed Salah"
+    },
+    {
+      "min": 82,
+      "team": "away",
+      "name": "Tr\u00e9z\u00e9guet"
+    }
   ]
 }
