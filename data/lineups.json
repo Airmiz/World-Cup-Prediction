@@ -50943,7 +50943,7 @@
   "final": true
  },
  "Argentina|Austria": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-4-2",
@@ -50964,7 +50964,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
+      "SV": 1,
       "GC": 0,
       "SF": 0
      }
@@ -51002,7 +51002,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -51020,13 +51020,13 @@
      "aid": "249663",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -51044,7 +51044,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -51063,10 +51063,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -51086,7 +51086,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
@@ -51149,8 +51149,8 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
-      "FS": 1,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -51166,13 +51166,13 @@
      "fp": "10",
      "aid": "45843",
      "st": {
-      "G": 0,
+      "G": 2,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 7,
+      "SOT": 4,
       "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 4,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -51254,8 +51254,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -51319,10 +51319,10 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -51359,10 +51359,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -51382,7 +51382,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -51404,7 +51404,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -51517,8 +51517,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
-      "GC": 0,
+      "SV": 2,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -51539,7 +51539,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -51555,12 +51555,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -51576,12 +51576,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "FC": 1,
+      "FS": 3,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -51600,9 +51600,9 @@
       "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -51618,12 +51618,12 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -51639,12 +51639,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -51665,7 +51665,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -51679,14 +51679,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -51700,14 +51700,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 3,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -51724,11 +51724,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 2,
-      "FS": 0,
+      "FS": 4,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -51747,11 +51747,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -51793,7 +51793,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -51982,7 +51982,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -51996,14 +51996,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 3,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -52045,41 +52045,155 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 38,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Lionel Messi",
+    "assist": "Facundo Medina"
+   },
+   {
+    "min": 40,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Stefan Posch"
+   },
+   {
+    "min": 57,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nicol\u00e1s Otamendi",
+    "player": "Cristian Romero"
+   },
+   {
+    "min": 64,
+    "team": "home",
+    "type": "subst",
+    "assist": "Juli\u00e1n \u00c1lvarez",
+    "player": "Thiago Almada"
+   },
+   {
+    "min": 65,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nico Gonz\u00e1lez",
+    "player": "Lautaro Mart\u00ednez"
+   },
+   {
+    "min": 67,
+    "team": "away",
+    "type": "subst",
+    "assist": "Marco Friedl",
+    "player": "David Alaba"
+   },
+   {
+    "min": 68,
+    "team": "away",
+    "type": "subst",
+    "assist": "Alexander Prass",
+    "player": "Stefan Posch"
+   },
+   {
+    "min": 68,
+    "team": "away",
+    "type": "subst",
+    "assist": "Marko Arnautovic",
+    "player": "Paul Wanner"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Facundo Medina"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Konrad Laimer"
+   },
+   {
+    "min": 78,
+    "team": "away",
+    "type": "subst",
+    "assist": "Patrick Wimmer",
+    "player": "Romano Schmid"
+   },
+   {
+    "min": 82,
+    "team": "home",
+    "type": "subst",
+    "assist": "Leandro Paredes",
+    "player": "Rodrigo De Paul"
+   },
+   {
+    "min": 82,
+    "team": "home",
+    "type": "subst",
+    "assist": "Nicol\u00e1s Tagliafico",
+    "player": "Facundo Medina"
+   },
+   {
+    "min": 85,
+    "team": "away",
+    "type": "subst",
+    "assist": "Carney Chukwuemeka",
+    "player": "Michael Gregoritsch"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Leandro Paredes"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Lionel Messi"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "47.3",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "114",
-    "foulsCommitted": "3",
-    "offsides": "1",
-    "yellowCards": "0",
+    "possessionPct": "53.6",
+    "totalShots": "12",
+    "shotsOnTarget": "5",
+    "wonCorners": "1",
+    "totalPasses": "553",
+    "foulsCommitted": "13",
+    "offsides": "2",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "10",
-    "interceptions": "2",
-    "saves": "0"
+    "totalTackles": "21",
+    "interceptions": "8",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "52.7",
-    "totalShots": "2",
-    "shotsOnTarget": "0",
-    "wonCorners": "2",
-    "totalPasses": "122",
-    "foulsCommitted": "4",
+    "possessionPct": "46.4",
+    "totalShots": "6",
+    "shotsOnTarget": "1",
+    "wonCorners": "3",
+    "totalPasses": "468",
+    "foulsCommitted": "13",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "4",
-    "interceptions": "2",
-    "saves": "1"
+    "totalTackles": "14",
+    "interceptions": "9",
+    "saves": "2"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -52116,6 +52230,6 @@
    "a": 0.12024665981500515,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
