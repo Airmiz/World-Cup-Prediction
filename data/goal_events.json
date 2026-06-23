@@ -706,5 +706,49 @@
       "team": "home",
       "name": "Lionel Messi"
     }
+  ],
+  "France|Iraq": [
+    {
+      "min": 14,
+      "team": "home",
+      "name": "Kylian Mbapp\u00e9"
+    },
+    {
+      "min": 54,
+      "team": "home",
+      "name": "Kylian Mbapp\u00e9"
+    },
+    {
+      "min": 66,
+      "team": "home",
+      "name": "Ousmane Demb\u00e9l\u00e9"
+    }
+  ],
+  "Norway|Senegal": [
+    {
+      "min": 43,
+      "team": "home",
+      "name": "Marcus Holmgren Pedersen"
+    },
+    {
+      "min": 48,
+      "team": "home",
+      "name": "Erling Haaland"
+    },
+    {
+      "min": 53,
+      "team": "away",
+      "name": "Isma\u00efla Sarr"
+    },
+    {
+      "min": 58,
+      "team": "home",
+      "name": "Erling Haaland"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Isma\u00efla Sarr"
+    }
   ]
 }
