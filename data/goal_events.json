@@ -767,5 +767,33 @@
       "team": "away",
       "name": "Amine Gouiri"
     }
+  ],
+  "Portugal|Uzbekistan": [
+    {
+      "min": 6,
+      "team": "home",
+      "name": "Cristiano Ronaldo"
+    },
+    {
+      "min": 17,
+      "team": "home",
+      "name": "Nuno Mendes"
+    },
+    {
+      "min": 39,
+      "team": "home",
+      "name": "Cristiano Ronaldo"
+    },
+    {
+      "min": 60,
+      "team": "home",
+      "name": "Abduvohid Nematov",
+      "og": true
+    },
+    {
+      "min": 87,
+      "team": "home",
+      "name": "Rafael Le\u00e3o"
+    }
   ]
 }
