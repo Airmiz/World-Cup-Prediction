@@ -750,5 +750,22 @@
       "team": "away",
       "name": "Isma\u00efla Sarr"
     }
+  ],
+  "Jordan|Algeria": [
+    {
+      "min": 36,
+      "team": "home",
+      "name": "Nizar Al-Rashdan"
+    },
+    {
+      "min": 69,
+      "team": "away",
+      "name": "Nadhir Benbouali"
+    },
+    {
+      "min": 82,
+      "team": "away",
+      "name": "Amine Gouiri"
+    }
   ]
 }

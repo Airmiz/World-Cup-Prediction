@@ -54797,7 +54797,7 @@
   "final": true
  },
  "Jordan|Algeria": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "3-4-2-1",
@@ -54818,8 +54818,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 6,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54835,12 +54835,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54856,12 +54856,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54882,7 +54882,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54896,14 +54896,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54915,16 +54915,16 @@
      "fp": "7",
      "aid": "321515",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54945,7 +54945,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54961,12 +54961,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -54979,15 +54979,15 @@
      "aid": "257489",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "A": 1,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -55001,14 +55001,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55022,14 +55022,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -55236,7 +55236,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -55257,12 +55257,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55353,7 +55353,7 @@
    ]
   },
   "away": {
-   "formation": "4-3-3",
+   "formation": "4-2-3-1",
    "xi": [
     {
      "name": "Luca Zidane",
@@ -55371,8 +55371,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 0,
+      "SV": 3,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55386,14 +55386,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55414,7 +55414,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55428,14 +55428,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55449,35 +55449,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
-      "SF": 0
-     }
-    },
-    {
-     "name": "Ramiz Zerrouki",
-     "num": "6",
-     "pos": "M",
-     "posAbbr": "CM",
-     "fp": "4",
-     "aid": "290517",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55485,20 +55464,41 @@
      "name": "Ibrahim Maza",
      "num": "22",
      "pos": "M",
-     "posAbbr": "LM",
-     "fp": "8",
+     "posAbbr": "AM",
+     "fp": "10",
      "aid": "361212",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 4,
+      "SOT": 2,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ramiz Zerrouki",
+     "num": "6",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "290517",
      "st": {
       "G": 0,
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55507,7 +55507,7 @@
      "num": "14",
      "pos": "M",
      "posAbbr": "RM",
-     "fp": "7",
+     "fp": "8",
      "aid": "287078",
      "st": {
       "G": 0,
@@ -55519,7 +55519,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -55531,58 +55531,58 @@
      "fp": "9",
      "aid": "259743",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 3,
+      "SOT": 2,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
     {
      "name": "Far\u00e8s Cha\u00efbi",
      "num": "10",
-     "pos": "F",
-     "posAbbr": "LF",
+     "pos": "M",
+     "posAbbr": "AM-L",
      "fp": "11",
      "aid": "337306",
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
     {
      "name": "Riyad Mahrez",
      "num": "7",
-     "pos": "F",
-     "posAbbr": "RF",
-     "fp": "10",
+     "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
      "aid": "163940",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "A": 1,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -55661,7 +55661,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -55808,10 +55808,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -55827,10 +55827,10 @@
      "fp": "0",
      "aid": "346186",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 2,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -55884,35 +55884,143 @@
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 36,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Nizar Al-Rashdan",
+    "assist": "Mousa Al-Tamari"
+   },
+   {
+    "min": 44,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Ramiz Zerrouki"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Nabil Bentaleb",
+    "player": "Ramiz Zerrouki"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Nadhir Benbouali",
+    "player": "Hicham Boudaoui"
+   },
+   {
+    "min": 64,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Husam Abu Dahab"
+   },
+   {
+    "min": 69,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Nadhir Benbouali",
+    "assist": "Riyad Mahrez"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "subst",
+    "assist": "Anis Hadj Moussa",
+    "player": "Riyad Mahrez"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "subst",
+    "assist": "Odeh Fakhoury",
+    "player": "Mahmoud Al-Mardi"
+   },
+   {
+    "min": 82,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Amine Gouiri"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ali Azaizeh",
+    "player": "Mousa Al-Tamari"
+   },
+   {
+    "min": 85,
+    "team": "home",
+    "type": "subst",
+    "assist": "Mohammad Abu Hasheesh",
+    "player": "Mohannad Abu Taha"
+   },
+   {
+    "min": 85,
+    "team": "away",
+    "type": "subst",
+    "assist": "Jaouen Hadjam",
+    "player": "Rayan A\u00eft-Nouri"
+   },
+   {
+    "min": 86,
+    "team": "away",
+    "type": "subst",
+    "assist": "Zineddine Bela\u00efd",
+    "player": "Amine Gouiri"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Saleem Obaid",
+    "player": "Husam Abu Dahab"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Mohammed Abu Zraiq",
+    "player": "Ali Olwan"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "23.3",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "13",
-    "foulsCommitted": "0",
-    "offsides": "0",
-    "yellowCards": "0",
+    "possessionPct": "27.9",
+    "totalShots": "8",
+    "shotsOnTarget": "4",
+    "wonCorners": "1",
+    "totalPasses": "250",
+    "foulsCommitted": "11",
+    "offsides": "1",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "1",
-    "interceptions": "0",
-    "saves": "0"
+    "totalTackles": "31",
+    "interceptions": "2",
+    "saves": "6"
    },
    "away": {
-    "possessionPct": "76.7",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "1",
-    "totalPasses": "45",
-    "foulsCommitted": "1",
+    "possessionPct": "72.1",
+    "totalShots": "17",
+    "shotsOnTarget": "8",
+    "wonCorners": "10",
+    "totalPasses": "640",
+    "foulsCommitted": "6",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "0",
-    "interceptions": "0",
-    "saves": "0"
+    "totalTackles": "25",
+    "interceptions": "10",
+    "saves": "3"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -55949,6 +56057,6 @@
    "a": 0.649803536345776,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
