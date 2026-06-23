@@ -56058,5 +56058,1275 @@
    "prov": "DraftKings"
   },
   "final": true
+ },
+ "Portugal|Uzbekistan": {
+  "status": "LIVE",
+  "source": "espn",
+  "home": {
+   "formation": "4-2-3-1",
+   "xi": [
+    {
+     "name": "Diogo Costa",
+     "num": "1",
+     "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "238903",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 2,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Renato Veiga",
+     "num": "13",
+     "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "6",
+     "aid": "337011",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 1,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "R\u00faben Dias",
+     "num": "3",
+     "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "5",
+     "aid": "234878",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Nuno Mendes",
+     "num": "25",
+     "pos": "D",
+     "posAbbr": "LB",
+     "fp": "3",
+     "aid": "290591",
+     "st": {
+      "G": 1,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 3,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jo\u00e3o Cancelo",
+     "num": "20",
+     "pos": "D",
+     "posAbbr": "RB",
+     "fp": "2",
+     "aid": "176399",
+     "st": {
+      "G": 0,
+      "A": 1,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Bruno Fernandes",
+     "num": "8",
+     "pos": "M",
+     "posAbbr": "AM",
+     "fp": "10",
+     "aid": "124091",
+     "st": {
+      "G": 0,
+      "A": 1,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Vitinha ",
+     "num": "23",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "4",
+     "aid": "288897",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jo\u00e3o Neves",
+     "num": "15",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "355061",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Cristiano Ronaldo",
+     "num": "7",
+     "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "22774",
+     "st": {
+      "G": 2,
+      "A": 0,
+      "SH": 7,
+      "SOT": 5,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jo\u00e3o F\u00e9lix",
+     "num": "11",
+     "pos": "M",
+     "posAbbr": "AM-L",
+     "fp": "11",
+     "aid": "276350",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 3,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 2,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Pedro Neto",
+     "num": "18",
+     "pos": "M",
+     "posAbbr": "AM-R",
+     "fp": "7",
+     "aid": "256115",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "Jos\u00e9 S\u00e1",
+     "num": "12",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "181278",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "N\u00e9lson Semedo",
+     "num": "2",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "222670",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Bernardo Silva",
+     "num": "10",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "199833",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Francisco Trinc\u00e3o",
+     "num": "16",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "274159",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "R\u00faben Neves",
+     "num": "21",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "208128",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Gon\u00e7alo In\u00e1cio",
+     "num": "14",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "304106",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Rafael Le\u00e3o",
+     "num": "17",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "258917",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Rui Silva",
+     "num": "22",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "177898",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Sam\u00fa Costa",
+     "num": "24",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "183466",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Diogo Dalot",
+     "num": "5",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "238902",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Matheus Nunes",
+     "num": "6",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "303785",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Gon\u00e7alo Ramos",
+     "num": "9",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "288896",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Gon\u00e7alo Guedes",
+     "num": "19",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "213141",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Francisco Concei\u00e7\u00e3o",
+     "num": "26",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "312659",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Tom\u00e1s Ara\u00fajo",
+     "num": "4",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "329691",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ]
+  },
+  "away": {
+   "formation": "3-4-2-1",
+   "xi": [
+    {
+     "name": "Abduvohid Nematov",
+     "num": "12",
+     "pos": "G",
+     "posAbbr": "G",
+     "fp": "1",
+     "aid": "308612",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 3,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Abdulla Abdullaev",
+     "num": "18",
+     "pos": "D",
+     "posAbbr": "CD",
+     "fp": "5",
+     "aid": "326928",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Rustam Ashurmatov",
+     "num": "5",
+     "pos": "D",
+     "posAbbr": "CD-L",
+     "fp": "4",
+     "aid": "195282",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Abdukodir Khusanov",
+     "num": "2",
+     "pos": "D",
+     "posAbbr": "CD-R",
+     "fp": "6",
+     "aid": "362211",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Otabek Shukurov",
+     "num": "7",
+     "pos": "M",
+     "posAbbr": "CM-L",
+     "fp": "8",
+     "aid": "195281",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 2,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 2,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Odiljon Xamrobekov",
+     "num": "9",
+     "pos": "M",
+     "posAbbr": "CM-R",
+     "fp": "7",
+     "aid": "195266",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 1,
+      "RC": 0,
+      "GC": 3,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Sherzod Nasrullaev",
+     "num": "13",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "3",
+     "aid": "321728",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 3,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Behruzjon Karimov",
+     "num": "24",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "2",
+     "aid": "376370",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 4,
+      "FS": 2,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Eldor Shomurodov",
+     "num": "14",
+     "pos": "F",
+     "posAbbr": "F",
+     "fp": "9",
+     "aid": "216937",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 2,
+      "OFF": 1,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Abbosbek Fayzullaev",
+     "num": "22",
+     "pos": "F",
+     "posAbbr": "CF-L",
+     "fp": "11",
+     "aid": "317793",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Azizjon Ganiev",
+     "num": "19",
+     "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "268558",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 4,
+      "SF": 0
+     }
+    }
+   ],
+   "subs": [
+    {
+     "name": "Oston Urunov",
+     "num": "11",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "288949",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Khojiakbar Alijonov",
+     "num": "3",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "274005",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Azizbek Amonov",
+     "num": "20",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "253231",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Igor Sergeev",
+     "num": "21",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "156663",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Botirali Ergashev",
+     "num": "16",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "219561",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Ruslanbek Jiyanov",
+     "num": "10",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "354940",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Dostonbek Khamdamov",
+     "num": "17",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "195274",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Avazbek Ulmasaliyev",
+     "num": "25",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "286596",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Akmal Mozgovoy",
+     "num": "6",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "270461",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Umar Eshmurodov",
+     "num": "15",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "270463",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jamshid Iskanderov",
+     "num": "8",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "185631",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jakhongir Urozov",
+     "num": "26",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "362329",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Utkir Yusupov",
+     "num": "1",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "282145",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "YC": 0,
+      "RC": 0,
+      "SV": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Farrukh Sayfiev",
+     "num": "4",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "211537",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Sherzod Esanov",
+     "num": "23",
+     "pos": "M",
+     "posAbbr": "SUB",
+     "fp": "0",
+     "aid": "362333",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 0,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 0,
+      "SF": 0
+     }
+    }
+   ]
+  },
+  "events": [
+   {
+    "min": 6,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Cristiano Ronaldo",
+    "assist": "Jo\u00e3o Cancelo"
+   },
+   {
+    "min": 14,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Odiljon Xamrobekov"
+   },
+   {
+    "min": 17,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Nuno Mendes"
+   },
+   {
+    "min": 39,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Cristiano Ronaldo",
+    "assist": "Bruno Fernandes"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Akmal Mozgovoy",
+    "player": "Odiljon Xamrobekov"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "N\u00e9lson Semedo",
+    "player": "Jo\u00e3o Cancelo"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Khojiakbar Alijonov",
+    "player": "Sherzod Nasrullaev"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Francisco Concei\u00e7\u00e3o",
+    "player": "Pedro Neto"
+   },
+   {
+    "min": 60,
+    "team": "home",
+    "type": "goal",
+    "detail": "Own Goal",
+    "player": "Abduvohid Nematov"
+   },
+   {
+    "min": 64,
+    "team": "home",
+    "type": "subst",
+    "assist": "Francisco Trinc\u00e3o",
+    "player": "Jo\u00e3o F\u00e9lix"
+   },
+   {
+    "min": 68,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Renato Veiga"
+   },
+   {
+    "min": 73,
+    "team": "away",
+    "type": "subst",
+    "assist": "Igor Sergeev",
+    "player": "Abbosbek Fayzullaev"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "subst",
+    "assist": "Bernardo Silva",
+    "player": "Jo\u00e3o Neves"
+   }
+  ],
+  "teamstats": {
+   "home": {
+    "possessionPct": "66.5",
+    "totalShots": "14",
+    "shotsOnTarget": "7",
+    "wonCorners": "2",
+    "totalPasses": "479",
+    "foulsCommitted": "11",
+    "offsides": "0",
+    "yellowCards": "1",
+    "redCards": "0",
+    "totalTackles": "11",
+    "interceptions": "2",
+    "saves": "2"
+   },
+   "away": {
+    "possessionPct": "33.5",
+    "totalShots": "6",
+    "shotsOnTarget": "2",
+    "wonCorners": "2",
+    "totalPasses": "246",
+    "foulsCommitted": "12",
+    "offsides": "1",
+    "yellowCards": "1",
+    "redCards": "0",
+    "totalTackles": "17",
+    "interceptions": "9",
+    "saves": "3"
+   },
+   "labels": {
+    "possessionPct": "Possession",
+    "totalShots": "Shots",
+    "shotsOnTarget": "Shots on Target",
+    "wonCorners": "Corners",
+    "totalPasses": "Passes",
+    "foulsCommitted": "Fouls",
+    "offsides": "Offsides",
+    "yellowCards": "Yellow Cards",
+    "redCards": "Red Cards",
+    "totalTackles": "Tackles",
+    "interceptions": "Interceptions",
+    "saves": "Saves"
+   },
+   "pct": {
+    "possessionPct": true,
+    "totalShots": false,
+    "shotsOnTarget": false,
+    "wonCorners": false,
+    "totalPasses": false,
+    "foulsCommitted": false,
+    "offsides": false,
+    "yellowCards": false,
+    "redCards": false,
+    "totalTackles": false,
+    "interceptions": false,
+    "saves": false
+   }
+  },
+  "market": {
+   "h": 0.8392101551480958,
+   "d": 0.11283497884344146,
+   "a": 0.047954866008462625,
+   "prov": "DraftKings"
+  },
+  "final": false
  }
 }
