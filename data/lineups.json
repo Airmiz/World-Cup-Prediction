@@ -59874,7 +59874,7 @@
   "final": true
  },
  "Colombia|DR Congo": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-3-3",
@@ -59895,7 +59895,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
+      "SV": 1,
       "GC": 0,
       "SF": 0
      }
@@ -59912,10 +59912,10 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -59934,7 +59934,7 @@
       "SH": 1,
       "SOT": 1,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -59955,7 +59955,7 @@
       "SH": 1,
       "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -59971,10 +59971,10 @@
      "fp": "2",
      "aid": "146679",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 2,
       "FS": 0,
       "OFF": 1,
@@ -59996,10 +59996,10 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -60015,10 +60015,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -60036,10 +60036,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 3,
-      "SOT": 1,
+      "SH": 5,
+      "SOT": 2,
       "FC": 1,
-      "FS": 2,
+      "FS": 4,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -60059,8 +60059,8 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -60078,11 +60078,11 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 4,
-      "SOT": 1,
-      "FC": 0,
+      "SH": 5,
+      "SOT": 2,
+      "FC": 3,
       "FS": 0,
-      "OFF": 2,
+      "OFF": 5,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -60145,9 +60145,9 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -60268,8 +60268,8 @@
      "aid": "177780",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
+      "A": 1,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -60334,8 +60334,8 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -60448,8 +60448,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 6,
-      "GC": 0,
+      "SV": 8,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60465,12 +60465,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60486,12 +60486,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60508,11 +60508,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60554,7 +60554,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60568,14 +60568,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60591,7 +60591,7 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 3,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
@@ -60631,14 +60631,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60675,14 +60675,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60717,10 +60717,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -60892,7 +60892,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60906,14 +60906,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -60971,12 +60971,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -60989,36 +60989,114 @@
     "type": "subst",
     "assist": "Noah Sadiki",
     "player": "Ngal'ayel Mukau"
+   },
+   {
+    "min": 56,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Jhon Lucum\u00ed"
+   },
+   {
+    "min": 57,
+    "team": "away",
+    "type": "subst",
+    "assist": "Simon Banza",
+    "player": "C\u00e9dric Bakambu"
+   },
+   {
+    "min": 58,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jhon C\u00f3rdoba",
+    "player": "Luis Su\u00e1rez"
+   },
+   {
+    "min": 58,
+    "team": "home",
+    "type": "subst",
+    "assist": "Juan Fernando Quintero",
+    "player": "James Rodr\u00edguez"
+   },
+   {
+    "min": 72,
+    "team": "away",
+    "type": "subst",
+    "assist": "Joris Kayembe",
+    "player": "Arthur Masuaku"
+   },
+   {
+    "min": 72,
+    "team": "away",
+    "type": "subst",
+    "assist": "Charles Pickel",
+    "player": "Edo Kayembe"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Daniel Mu\u00f1oz",
+    "assist": "Juan Fernando Quintero"
+   },
+   {
+    "min": 78,
+    "team": "home",
+    "type": "subst",
+    "assist": "Richard R\u00edos",
+    "player": "Jhon Arias"
+   },
+   {
+    "min": 82,
+    "team": "away",
+    "type": "subst",
+    "assist": "Nathana\u00ebl Mbuku",
+    "player": "Samuel Moutoussamy"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Charles Pickel"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Jefferson Lerma"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "66.1",
-    "totalShots": "14",
-    "shotsOnTarget": "6",
-    "wonCorners": "2",
-    "totalPasses": "301",
-    "foulsCommitted": "4",
-    "offsides": "3",
-    "yellowCards": "0",
+    "possessionPct": "63.5",
+    "totalShots": "20",
+    "shotsOnTarget": "9",
+    "wonCorners": "5",
+    "totalPasses": "540",
+    "foulsCommitted": "12",
+    "offsides": "7",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "3",
-    "interceptions": "7",
-    "saves": "0"
+    "totalTackles": "10",
+    "interceptions": "10",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "33.9",
-    "totalShots": "2",
-    "shotsOnTarget": "0",
-    "wonCorners": "2",
-    "totalPasses": "149",
-    "foulsCommitted": "6",
+    "possessionPct": "36.5",
+    "totalShots": "7",
+    "shotsOnTarget": "1",
+    "wonCorners": "4",
+    "totalPasses": "299",
+    "foulsCommitted": "16",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "8",
-    "interceptions": "3",
-    "saves": "6"
+    "totalTackles": "15",
+    "interceptions": "7",
+    "saves": "8"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -61055,6 +61133,6 @@
    "a": 0.12767108466324045,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
