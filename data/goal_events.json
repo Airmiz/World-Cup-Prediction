@@ -810,5 +810,42 @@
       "team": "home",
       "name": "Daniel Mu\u00f1oz"
     }
+  ],
+  "Canada|Switzerland": [
+    {
+      "min": 46,
+      "team": "away"
+    },
+    {
+      "min": 57,
+      "team": "away"
+    },
+    {
+      "min": 76,
+      "team": "home"
+    }
+  ],
+  "Bosnia and Herzegovina|Qatar": [
+    {
+      "min": 29,
+      "team": "home",
+      "name": "Kerim Alajbegovic"
+    },
+    {
+      "min": 34,
+      "team": "home",
+      "name": "Mahmoud Abunada",
+      "og": true
+    },
+    {
+      "min": 42,
+      "team": "away",
+      "name": "Hassan Al-Haydos"
+    },
+    {
+      "min": 80,
+      "team": "home",
+      "name": "Ermin Mahmic"
+    }
   ]
 }
