@@ -897,5 +897,26 @@
       "team": "home",
       "name": "Gessime Yassine"
     }
+  ],
+  "Mexico|Czech Republic": [
+    {
+      "min": 55,
+      "team": "home"
+    },
+    {
+      "min": 61,
+      "team": "home"
+    },
+    {
+      "min": 90,
+      "team": "home"
+    }
+  ],
+  "South Africa|South Korea": [
+    {
+      "min": 63,
+      "team": "home",
+      "name": "Thapelo Maseko"
+    }
   ]
 }
