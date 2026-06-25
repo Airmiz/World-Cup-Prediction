@@ -918,5 +918,34 @@
       "team": "home",
       "name": "Thapelo Maseko"
     }
+  ],
+  "Cura\u00e7ao|Ivory Coast": [
+    {
+      "min": 7,
+      "team": "away",
+      "name": "Nicolas P\u00e9p\u00e9"
+    },
+    {
+      "min": 64,
+      "team": "away",
+      "name": "Nicolas P\u00e9p\u00e9"
+    }
+  ],
+  "Ecuador|Germany": [
+    {
+      "min": 2,
+      "team": "away",
+      "name": "Leroy San\u00e9"
+    },
+    {
+      "min": 9,
+      "team": "home",
+      "name": "Nilson Angulo"
+    },
+    {
+      "min": 77,
+      "team": "home",
+      "name": "Gonzalo Plata"
+    }
   ]
 }

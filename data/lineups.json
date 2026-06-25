@@ -68649,7 +68649,7 @@
   "final": true
  },
  "Cura\u00e7ao|Ivory Coast": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "5-4-1",
@@ -68670,8 +68670,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 1,
+      "SV": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68692,7 +68692,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68713,7 +68713,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68727,14 +68727,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68748,14 +68748,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 1,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68773,10 +68773,10 @@
       "SOT": 0,
       "FC": 0,
       "FS": 1,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68790,14 +68790,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68832,14 +68832,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 2,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68853,14 +68853,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
-      "FC": 0,
-      "FS": 1,
+      "SH": 3,
+      "SOT": 2,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -68876,12 +68876,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -68918,14 +68918,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -69002,12 +69002,12 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -69026,7 +69026,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -69223,7 +69223,7 @@
       "FS": 1,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
+      "SV": 2,
       "GC": 0,
       "SF": 0
      }
@@ -69282,7 +69282,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -69320,13 +69320,13 @@
      "fp": "10",
      "aid": "210397",
      "st": {
-      "G": 1,
+      "G": 2,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
+      "SH": 2,
+      "SOT": 2,
       "FC": 1,
       "FS": 0,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 1,
       "RC": 0,
       "GC": 0,
@@ -69343,9 +69343,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -69363,11 +69363,11 @@
      "aid": "213718",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -69536,8 +69536,8 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -69723,8 +69723,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -69772,36 +69772,128 @@
     "type": "card",
     "card": "yellow",
     "player": "Nicolas P\u00e9p\u00e9"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Christ Inao Oula\u00ef",
+    "player": "Amad Diallo"
+   },
+   {
+    "min": 61,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jeremy Antonisse",
+    "player": "Livano Comenencia"
+   },
+   {
+    "min": 64,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Nicolas P\u00e9p\u00e9",
+    "assist": "Ibrahim Sangar\u00e9"
+   },
+   {
+    "min": 67,
+    "team": "away",
+    "type": "subst",
+    "assist": "Oumar Diakit\u00e9",
+    "player": "Ange-Yoan Bonny"
+   },
+   {
+    "min": 67,
+    "team": "away",
+    "type": "subst",
+    "assist": "Elye Wahi",
+    "player": "Nicolas P\u00e9p\u00e9"
+   },
+   {
+    "min": 67,
+    "team": "away",
+    "type": "subst",
+    "assist": "Bazoumana Tour\u00e9",
+    "player": "Yan Diomande"
+   },
+   {
+    "min": 75,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Juninho Bacuna"
+   },
+   {
+    "min": 77,
+    "team": "home",
+    "type": "subst",
+    "assist": "Gervane Kastaneer",
+    "player": "Juri\u00ebn Gaari"
+   },
+   {
+    "min": 77,
+    "team": "home",
+    "type": "subst",
+    "assist": "Tyrese Noslin",
+    "player": "Deveron Fonville"
+   },
+   {
+    "min": 77,
+    "team": "away",
+    "type": "subst",
+    "assist": "Jean Micha\u00ebl Seri",
+    "player": "Franck Kessi\u00e9"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Gervane Kastaneer"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Shurandy Sambo",
+    "player": "Joshua Brenet"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Brandley Kuwas",
+    "player": "J\u00fcrgen Locadia"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "25.7",
-    "totalShots": "2",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "103",
-    "foulsCommitted": "7",
-    "offsides": "0",
-    "yellowCards": "0",
+    "possessionPct": "36.6",
+    "totalShots": "11",
+    "shotsOnTarget": "2",
+    "wonCorners": "4",
+    "totalPasses": "354",
+    "foulsCommitted": "11",
+    "offsides": "2",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "10",
-    "interceptions": "4",
-    "saves": "0"
+    "totalTackles": "20",
+    "interceptions": "15",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "74.3",
-    "totalShots": "4",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "302",
-    "foulsCommitted": "2",
-    "offsides": "0",
+    "possessionPct": "63.4",
+    "totalShots": "7",
+    "shotsOnTarget": "3",
+    "wonCorners": "6",
+    "totalPasses": "623",
+    "foulsCommitted": "6",
+    "offsides": "1",
     "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "8",
-    "interceptions": "2",
-    "saves": "1"
+    "totalTackles": "17",
+    "interceptions": "12",
+    "saves": "2"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -69838,10 +69930,10 @@
    "a": 0.8153180975911057,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  },
  "Ecuador|Germany": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-4-2",
@@ -69862,7 +69954,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
+      "SV": 2,
       "GC": 1,
       "SF": 0
      }
@@ -69880,7 +69972,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -69901,7 +69993,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -69921,10 +70013,10 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 1,
       "SF": 0
@@ -69945,7 +70037,7 @@
       "FC": 2,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 1,
       "SF": 0
@@ -69964,7 +70056,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -69982,9 +70074,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -70006,7 +70098,7 @@
       "SH": 1,
       "SOT": 1,
       "FC": 2,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -70045,10 +70137,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -70064,14 +70156,14 @@
      "fp": "10",
      "aid": "277352",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 2,
-      "FS": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 4,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 1,
       "SF": 0
@@ -70196,7 +70288,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -70382,10 +70474,10 @@
      "aid": "281316",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
+      "A": 1,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -70397,7 +70489,7 @@
    ]
   },
   "away": {
-   "formation": "4-2-3-1",
+   "formation": "3-4-2-1",
    "xi": [
     {
      "name": "Manuel Neuer",
@@ -70415,8 +70507,29 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 1,
+      "SV": 1,
+      "GC": 2,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Jonathan Tah",
+     "num": "4",
+     "pos": "D",
+     "posAbbr": "CD",
+     "fp": "5",
+     "aid": "188052",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -70425,7 +70538,7 @@
      "num": "2",
      "pos": "D",
      "posAbbr": "CD-L",
-     "fp": "6",
+     "fp": "4",
      "aid": "169438",
      "st": {
       "G": 0,
@@ -70437,49 +70550,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
-      "SF": 0
-     }
-    },
-    {
-     "name": "Jonathan Tah",
-     "num": "4",
-     "pos": "D",
-     "posAbbr": "CD-R",
-     "fp": "5",
-     "aid": "188052",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 1,
-      "SF": 0
-     }
-    },
-    {
-     "name": "David Raum",
-     "num": "22",
-     "pos": "D",
-     "posAbbr": "LB",
-     "fp": "3",
-     "aid": "249548",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 1,
-      "FS": 0,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -70487,8 +70558,8 @@
      "name": "Joshua Kimmich",
      "num": "6",
      "pos": "D",
-     "posAbbr": "RB",
-     "fp": "2",
+     "posAbbr": "CD-R",
+     "fp": "6",
      "aid": "190161",
      "st": {
       "G": 0,
@@ -70505,42 +70576,21 @@
      }
     },
     {
-     "name": "Jamal Musiala",
-     "num": "10",
-     "pos": "M",
-     "posAbbr": "AM",
-     "fp": "10",
-     "aid": "303821",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 1,
-      "SOT": 0,
-      "FC": 1,
-      "FS": 2,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 1,
-      "SF": 0
-     }
-    },
-    {
      "name": "Aleksandar Pavlovic",
      "num": "5",
      "pos": "M",
-     "posAbbr": "LM",
-     "fp": "4",
+     "posAbbr": "CM-L",
+     "fp": "8",
      "aid": "359370",
      "st": {
       "G": 0,
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 2,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 1,
       "SF": 0
@@ -70550,13 +70600,13 @@
      "name": "Felix Nmecha",
      "num": "23",
      "pos": "M",
-     "posAbbr": "RM",
-     "fp": "8",
+     "posAbbr": "CM-R",
+     "fp": "7",
      "aid": "281122",
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 0,
       "FC": 0,
       "FS": 1,
@@ -70564,6 +70614,48 @@
       "YC": 0,
       "RC": 0,
       "GC": 1,
+      "SF": 0
+     }
+    },
+    {
+     "name": "David Raum",
+     "num": "22",
+     "pos": "M",
+     "posAbbr": "LM",
+     "fp": "3",
+     "aid": "249548",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 0,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 0,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 2,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Leroy San\u00e9",
+     "num": "19",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "2",
+     "aid": "202641",
+     "st": {
+      "G": 1,
+      "A": 0,
+      "SH": 2,
+      "SOT": 2,
+      "FC": 2,
+      "FS": 1,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -70591,14 +70683,14 @@
     {
      "name": "Florian Wirtz",
      "num": "17",
-     "pos": "M",
-     "posAbbr": "AM-L",
+     "pos": "F",
+     "posAbbr": "CF-L",
      "fp": "11",
      "aid": "303748",
      "st": {
       "G": 0,
       "A": 1,
-      "SH": 1,
+      "SH": 3,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -70610,23 +70702,23 @@
      }
     },
     {
-     "name": "Leroy San\u00e9",
-     "num": "19",
-     "pos": "M",
-     "posAbbr": "AM-R",
-     "fp": "7",
-     "aid": "202641",
+     "name": "Jamal Musiala",
+     "num": "10",
+     "pos": "F",
+     "posAbbr": "CF-R",
+     "fp": "10",
+     "aid": "303821",
      "st": {
-      "G": 1,
+      "G": 0,
       "A": 0,
       "SH": 1,
-      "SOT": 1,
-      "FC": 0,
-      "FS": 0,
+      "SOT": 0,
+      "FC": 1,
+      "FS": 5,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -70705,14 +70797,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -70728,12 +70820,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -70831,14 +70923,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -70875,12 +70967,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -70901,7 +70993,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -70923,36 +71015,142 @@
     "detail": "Normal Goal",
     "player": "Nilson Angulo",
     "assist": "Pedro Vite"
+   },
+   {
+    "min": 43,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Piero Hincapi\u00e9"
+   },
+   {
+    "min": 44,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Aleksandar Pavlovic"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "subst",
+    "assist": "Angelo Stiller",
+    "player": "Aleksandar Pavlovic"
+   },
+   {
+    "min": 50,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Alan Franco"
+   },
+   {
+    "min": 60,
+    "team": "away",
+    "type": "subst",
+    "assist": "Deniz Undav",
+    "player": "Kai Havertz"
+   },
+   {
+    "min": 60,
+    "team": "away",
+    "type": "subst",
+    "assist": "Malick Thiaw",
+    "player": "Joshua Kimmich"
+   },
+   {
+    "min": 64,
+    "team": "home",
+    "type": "subst",
+    "assist": "Kevin Rodr\u00edguez",
+    "player": "Enner Valencia"
+   },
+   {
+    "min": 64,
+    "team": "home",
+    "type": "subst",
+    "assist": "\u00c1ngelo Preciado",
+    "player": "Alan Franco"
+   },
+   {
+    "min": 64,
+    "team": "away",
+    "type": "subst",
+    "assist": "Maximilian Beier",
+    "player": "Felix Nmecha"
+   },
+   {
+    "min": 71,
+    "team": "home",
+    "type": "subst",
+    "assist": "Pervis Estupi\u00f1\u00e1n",
+    "player": "Piero Hincapi\u00e9"
+   },
+   {
+    "min": 73,
+    "team": "away",
+    "type": "subst",
+    "assist": "Pascal Gross",
+    "player": "Florian Wirtz"
+   },
+   {
+    "min": 77,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Gonzalo Plata",
+    "assist": "Kevin Rodr\u00edguez"
+   },
+   {
+    "min": 85,
+    "team": "home",
+    "type": "subst",
+    "assist": "F\u00e9lix Torres",
+    "player": "John Yeboah"
+   },
+   {
+    "min": 85,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jordy Caicedo",
+    "player": "Nilson Angulo"
+   },
+   {
+    "min": 89,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Gonzalo Plata"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "41.4",
-    "totalShots": "2",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "169",
-    "foulsCommitted": "8",
-    "offsides": "0",
-    "yellowCards": "0",
+    "possessionPct": "38.9",
+    "totalShots": "7",
+    "shotsOnTarget": "3",
+    "wonCorners": "3",
+    "totalPasses": "379",
+    "foulsCommitted": "15",
+    "offsides": "1",
+    "yellowCards": "3",
     "redCards": "0",
-    "totalTackles": "12",
-    "interceptions": "4",
-    "saves": "1"
+    "totalTackles": "26",
+    "interceptions": "12",
+    "saves": "2"
    },
    "away": {
-    "possessionPct": "58.6",
-    "totalShots": "6",
-    "shotsOnTarget": "2",
-    "wonCorners": "1",
-    "totalPasses": "237",
-    "foulsCommitted": "2",
+    "possessionPct": "61.1",
+    "totalShots": "11",
+    "shotsOnTarget": "3",
+    "wonCorners": "2",
+    "totalPasses": "592",
+    "foulsCommitted": "10",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "9",
-    "interceptions": "3",
-    "saves": "0"
+    "totalTackles": "20",
+    "interceptions": "4",
+    "saves": "1"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -70989,6 +71187,6 @@
    "a": 0.5456446964767129,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
