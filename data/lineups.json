@@ -63594,7 +63594,7 @@
   "final": true
  },
  "Morocco|Haiti": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-2-3-1",
@@ -63615,8 +63615,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 1,
+      "SV": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63629,15 +63629,15 @@
      "aid": "307870",
      "st": {
       "G": 0,
-      "A": 0,
-      "SH": 0,
+      "A": 1,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63653,12 +63653,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FC": 1,
+      "FS": 3,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63674,12 +63674,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63691,16 +63691,16 @@
      "fp": "2",
      "aid": "240233",
      "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "G": 1,
+      "A": 1,
+      "SH": 5,
+      "SOT": 3,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63712,37 +63712,16 @@
      "fp": "10",
      "aid": "304572",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 3,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 5,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 1,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
-      "SF": 0
-     }
-    },
-    {
-     "name": "Neil El Aynaoui",
-     "num": "24",
-     "pos": "M",
-     "posAbbr": "LM",
-     "fp": "4",
-     "aid": "323807",
-     "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 1,
-      "OFF": 0,
-      "YC": 0,
-      "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63750,8 +63729,8 @@
      "name": "Sofyan Amrabat",
      "num": "4",
      "pos": "M",
-     "posAbbr": "RM",
-     "fp": "8",
+     "posAbbr": "LM",
+     "fp": "4",
      "aid": "195226",
      "st": {
       "G": 0,
@@ -63759,11 +63738,32 @@
       "SH": 0,
       "SOT": 0,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
+      "SF": 0
+     }
+    },
+    {
+     "name": "Neil El Aynaoui",
+     "num": "24",
+     "pos": "M",
+     "posAbbr": "RM",
+     "fp": "8",
+     "aid": "323807",
+     "st": {
+      "G": 0,
+      "A": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 0,
+      "FS": 3,
+      "OFF": 0,
+      "YC": 0,
+      "RC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63777,14 +63777,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
-      "FC": 0,
-      "FS": 0,
-      "OFF": 1,
+      "SH": 3,
+      "SOT": 2,
+      "FC": 1,
+      "FS": 1,
+      "OFF": 3,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63798,14 +63798,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 2,
       "FC": 1,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -63819,14 +63819,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -63861,12 +63861,12 @@
      "fp": "0",
      "aid": "379012",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -64029,12 +64029,12 @@
      "fp": "0",
      "aid": "276139",
      "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "G": 1,
+      "A": 1,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -64115,7 +64115,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -64150,7 +64150,7 @@
    ]
   },
   "away": {
-   "formation": "4-4-2",
+   "formation": "4-4-1-1",
    "xi": [
     {
      "name": "Johny Placide",
@@ -64166,10 +64166,10 @@
       "SOT": 0,
       "FC": 0,
       "FS": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "SV": 1,
-      "GC": 0,
+      "SV": 8,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -64185,12 +64185,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -64204,14 +64204,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -64227,12 +64227,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
-      "FS": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -64248,12 +64248,12 @@
       "A": 1,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64267,14 +64267,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 3,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 3,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -64290,12 +64290,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64311,12 +64311,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -64332,12 +64332,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -64345,20 +64345,20 @@
      "name": "Lenny Joseph",
      "num": "16",
      "pos": "F",
-     "posAbbr": "CF-L",
+     "posAbbr": "F",
      "fp": "9",
      "aid": "301093",
      "st": {
-      "G": 1,
+      "G": 0,
       "A": 0,
       "SH": 2,
-      "SOT": 1,
-      "FC": 1,
+      "SOT": 0,
+      "FC": 4,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64366,20 +64366,20 @@
      "name": "Wilson Isidor",
      "num": "18",
      "pos": "F",
-     "posAbbr": "CF-R",
+     "posAbbr": "RCF",
      "fp": "10",
      "aid": "265915",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -64482,11 +64482,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -64500,14 +64500,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -64549,7 +64549,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -64605,14 +64605,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -64696,7 +64696,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     }
@@ -64707,39 +64707,168 @@
     "min": 10,
     "team": "away",
     "type": "goal",
+    "detail": "Own Goal",
+    "player": "Yassine Bounou"
+   },
+   {
+    "min": 39,
+    "team": "home",
+    "type": "goal",
     "detail": "Normal Goal",
-    "player": "Lenny Joseph",
+    "player": "Achraf Hakimi"
+   },
+   {
+    "min": 43,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Wilson Isidor",
     "assist": "Jean-K\u00e9vin Duverne"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Ismael Saibari",
+    "assist": "Achraf Hakimi"
+   },
+   {
+    "min": 67,
+    "team": "away",
+    "type": "subst",
+    "assist": "Duckens Nazon",
+    "player": "Ruben Providence"
+   },
+   {
+    "min": 67,
+    "team": "away",
+    "type": "subst",
+    "assist": "Louicius Deedson",
+    "player": "Wilson Isidor"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Soufiane Rahimi",
+    "player": "Ismael Saibari"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Azzedine Ounahi",
+    "player": "Brahim D\u00edaz"
+   },
+   {
+    "min": 70,
+    "team": "home",
+    "type": "subst",
+    "assist": "Gessime Yassine",
+    "player": "Ayoub El Kaabi"
+   },
+   {
+    "min": 78,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Soufiane Rahimi",
+    "assist": "Chadi Riad"
+   },
+   {
+    "min": 79,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Johny Placide"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Duckens Nazon"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "subst",
+    "assist": "Carlens Arcus",
+    "player": "Jean-K\u00e9vin Duverne"
+   },
+   {
+    "min": 80,
+    "team": "away",
+    "type": "subst",
+    "assist": "Dominique Simon",
+    "player": "Danley Jean Jacques"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "subst",
+    "assist": "Noussair Mazraoui",
+    "player": "Anass Salah-Eddine"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "subst",
+    "assist": "Samir El Mourabet",
+    "player": "Neil El Aynaoui"
+   },
+   {
+    "min": 83,
+    "team": "away",
+    "type": "subst",
+    "assist": "Frantzdy Pierrot",
+    "player": "Lenny Joseph"
+   },
+   {
+    "min": 89,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Gessime Yassine",
+    "assist": "Soufiane Rahimi"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Josu\u00e9 Casimir"
    }
   ],
   "teamstats": {
    "home": {
     "possessionPct": "69",
-    "totalShots": "4",
-    "shotsOnTarget": "1",
-    "wonCorners": "2",
-    "totalPasses": "172",
-    "foulsCommitted": "2",
-    "offsides": "2",
+    "totalShots": "22",
+    "shotsOnTarget": "11",
+    "wonCorners": "9",
+    "totalPasses": "542",
+    "foulsCommitted": "10",
+    "offsides": "5",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "8",
-    "interceptions": "0",
-    "saves": "0"
+    "totalTackles": "18",
+    "interceptions": "7",
+    "saves": "1"
    },
    "away": {
     "possessionPct": "31",
-    "totalShots": "3",
-    "shotsOnTarget": "1",
-    "wonCorners": "0",
-    "totalPasses": "79",
-    "foulsCommitted": "2",
+    "totalShots": "9",
+    "shotsOnTarget": "2",
+    "wonCorners": "1",
+    "totalPasses": "248",
+    "foulsCommitted": "18",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "3",
     "redCards": "0",
-    "totalTackles": "9",
-    "interceptions": "2",
-    "saves": "1"
+    "totalTackles": "25",
+    "interceptions": "14",
+    "saves": "8"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -64776,10 +64905,10 @@
    "a": 0.09602874065443247,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  },
  "Scotland|Brazil": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-2-3-1",
@@ -64800,8 +64929,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
-      "GC": 1,
+      "SV": 5,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64822,7 +64951,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64838,12 +64967,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64864,7 +64993,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -64880,12 +65009,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64899,14 +65028,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 4,
+      "SOT": 3,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64920,14 +65049,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64941,14 +65070,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64962,14 +65091,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -64986,11 +65115,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 4,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -65004,14 +65133,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     }
@@ -65174,9 +65303,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -65195,12 +65324,12 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -65237,14 +65366,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -65353,7 +65482,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
+      "SV": 5,
       "GC": 0,
       "SF": 0
      }
@@ -65368,7 +65497,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -65410,7 +65539,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -65433,10 +65562,10 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -65454,8 +65583,8 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -65473,10 +65602,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -65493,11 +65622,11 @@
      "aid": "218522",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 2,
       "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -65513,10 +65642,10 @@
      "fp": "9",
      "aid": "259902",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 5,
+      "SOT": 2,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -65534,13 +65663,13 @@
      "fp": "11",
      "aid": "252107",
      "st": {
-      "G": 1,
+      "G": 2,
       "A": 0,
-      "SH": 2,
-      "SOT": 1,
+      "SH": 8,
+      "SOT": 5,
       "FC": 1,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 3,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 0,
@@ -65557,10 +65686,10 @@
      "st": {
       "G": 0,
       "A": 1,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "SH": 2,
+      "SOT": 1,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -65582,10 +65711,10 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -65748,10 +65877,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -65792,7 +65921,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -65813,7 +65942,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -65874,36 +66003,143 @@
     "detail": "Normal Goal",
     "player": "Vin\u00edcius J\u00fanior",
     "assist": "Rayan"
+   },
+   {
+    "min": 45,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Vin\u00edcius J\u00fanior",
+    "assist": "Bruno Guimar\u00e3es"
+   },
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Kieran Tierney",
+    "player": "Andy Robertson"
+   },
+   {
+    "min": 60,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Matheus Cunha",
+    "assist": "Bruno Guimar\u00e3es"
+   },
+   {
+    "min": 62,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Danilo"
+   },
+   {
+    "min": 65,
+    "team": "away",
+    "type": "subst",
+    "assist": "Fabinho",
+    "player": "Casemiro"
+   },
+   {
+    "min": 66,
+    "team": "away",
+    "type": "subst",
+    "assist": "Gabriel Martinelli",
+    "player": "Lucas Paquet\u00e1"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "subst",
+    "assist": "Neymar",
+    "player": "Matheus Cunha"
+   },
+   {
+    "min": 82,
+    "team": "home",
+    "type": "subst",
+    "assist": "Anthony Ralston",
+    "player": "Nathan Patterson"
+   },
+   {
+    "min": 82,
+    "team": "away",
+    "type": "subst",
+    "assist": "Endrick",
+    "player": "Rayan"
+   },
+   {
+    "min": 82,
+    "team": "away",
+    "type": "subst",
+    "assist": "Alex Sandro",
+    "player": "Douglas Santos"
+   },
+   {
+    "min": 82,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ryan Christie",
+    "player": "Ben Gannon-Doak"
+   },
+   {
+    "min": 82,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Fabinho"
+   },
+   {
+    "min": 89,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Ryan Christie"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Findlay Curtis",
+    "player": "John McGinn"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Ch\u00e9 Adams",
+    "player": "Lawrence Shankland"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "47.9",
-    "totalShots": "0",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "143",
-    "foulsCommitted": "0",
+    "possessionPct": "45.9",
+    "totalShots": "14",
+    "shotsOnTarget": "5",
+    "wonCorners": "7",
+    "totalPasses": "500",
+    "foulsCommitted": "10",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "3",
-    "interceptions": "0",
-    "saves": "0"
+    "totalTackles": "11",
+    "interceptions": "2",
+    "saves": "5"
    },
    "away": {
-    "possessionPct": "52.1",
-    "totalShots": "5",
-    "shotsOnTarget": "1",
-    "wonCorners": "1",
-    "totalPasses": "152",
-    "foulsCommitted": "1",
-    "offsides": "0",
-    "yellowCards": "0",
+    "possessionPct": "54.1",
+    "totalShots": "21",
+    "shotsOnTarget": "9",
+    "wonCorners": "7",
+    "totalPasses": "607",
+    "foulsCommitted": "11",
+    "offsides": "1",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "3",
-    "interceptions": "3",
-    "saves": "0"
+    "totalTackles": "14",
+    "interceptions": "13",
+    "saves": "5"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -65940,6 +66176,6 @@
    "a": 0.7208237986270024,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }

@@ -847,5 +847,55 @@
       "team": "home",
       "name": "Ermin Mahmic"
     }
+  ],
+  "Scotland|Brazil": [
+    {
+      "min": 7,
+      "team": "away",
+      "name": "Vin\u00edcius J\u00fanior"
+    },
+    {
+      "min": 45,
+      "team": "away",
+      "name": "Vin\u00edcius J\u00fanior"
+    },
+    {
+      "min": 60,
+      "team": "away",
+      "name": "Matheus Cunha"
+    }
+  ],
+  "Morocco|Haiti": [
+    {
+      "min": 10,
+      "team": "away",
+      "name": "Yassine Bounou",
+      "og": true
+    },
+    {
+      "min": 39,
+      "team": "home",
+      "name": "Achraf Hakimi"
+    },
+    {
+      "min": 43,
+      "team": "away",
+      "name": "Wilson Isidor"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Ismael Saibari"
+    },
+    {
+      "min": 78,
+      "team": "home",
+      "name": "Soufiane Rahimi"
+    },
+    {
+      "min": 89,
+      "team": "home",
+      "name": "Gessime Yassine"
+    }
   ]
 }
