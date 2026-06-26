@@ -1005,5 +1005,59 @@
       "team": "away"
     }
   ],
-  "Paraguay|Australia": []
+  "Paraguay|Australia": [],
+  "Norway|France": [
+    {
+      "min": 7,
+      "team": "away",
+      "name": "Ousmane Demb\u00e9l\u00e9"
+    },
+    {
+      "min": 20,
+      "team": "away",
+      "name": "Ousmane Demb\u00e9l\u00e9"
+    },
+    {
+      "min": 21,
+      "team": "home",
+      "name": "Thelo Aasgaard"
+    },
+    {
+      "min": 32,
+      "team": "away",
+      "name": "Ousmane Demb\u00e9l\u00e9"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "D\u00e9sir\u00e9 Dou\u00e9"
+    }
+  ],
+  "Senegal|Iraq": [
+    {
+      "min": 4,
+      "team": "home",
+      "name": "Habib Diarra"
+    },
+    {
+      "min": 56,
+      "team": "home",
+      "name": "Isma\u00efla Sarr"
+    },
+    {
+      "min": 59,
+      "team": "home",
+      "name": "Pape Gueye"
+    },
+    {
+      "min": 71,
+      "team": "home",
+      "name": "Pape Gueye"
+    },
+    {
+      "min": 82,
+      "team": "home",
+      "name": "Iliman Ndiaye"
+    }
+  ]
 }

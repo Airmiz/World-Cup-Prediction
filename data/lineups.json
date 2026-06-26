@@ -76144,7 +76144,7 @@
   "final": true
  },
  "Norway|France": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-3-3",
@@ -76166,7 +76166,7 @@
       "YC": 0,
       "RC": 0,
       "SV": 5,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -76187,7 +76187,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -76243,14 +76243,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -76264,14 +76264,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -76288,11 +76288,11 @@
       "SH": 2,
       "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -76331,10 +76331,10 @@
       "SOT": 1,
       "FC": 0,
       "FS": 2,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -76369,10 +76369,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 0,
+      "SH": 2,
+      "SOT": 1,
       "FC": 1,
-      "FS": 2,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -76420,7 +76420,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -76588,7 +76588,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -76630,7 +76630,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -76651,7 +76651,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -76672,7 +76672,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -76718,7 +76718,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 2,
+      "SV": 3,
       "GC": 1,
       "SF": 0
      }
@@ -76775,7 +76775,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 0,
       "FC": 2,
       "FS": 3,
@@ -76861,10 +76861,10 @@
       "A": 1,
       "SH": 1,
       "SOT": 0,
-      "FC": 2,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 1,
       "SF": 0
@@ -76899,10 +76899,10 @@
      "fp": "11",
      "aid": "336388",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 3,
-      "SOT": 2,
+      "SH": 4,
+      "SOT": 3,
       "FC": 0,
       "FS": 1,
       "OFF": 0,
@@ -76965,10 +76965,10 @@
      "aid": "328238",
      "st": {
       "G": 0,
-      "A": 0,
+      "A": 1,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -77136,7 +77136,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -77326,36 +77326,86 @@
     "type": "subst",
     "assist": "Sondre Langas",
     "player": "Henrik Falchener"
+   },
+   {
+    "min": 74,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Aur\u00e9lien Tchouam\u00e9ni"
+   },
+   {
+    "min": 76,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ibrahima Konat\u00e9",
+    "player": "Dayot Upamecano"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "subst",
+    "assist": "Antonio Nusa",
+    "player": "Oscar Bobb"
+   },
+   {
+    "min": 83,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jens Petter Hauge",
+    "player": "Andreas Schjelderup"
+   },
+   {
+    "min": 87,
+    "team": "away",
+    "type": "subst",
+    "assist": "Malo Gusto",
+    "player": "Jules Kound\u00e9"
+   },
+   {
+    "min": 87,
+    "team": "away",
+    "type": "subst",
+    "assist": "Jean-Philippe Mateta",
+    "player": "Kylian Mbapp\u00e9"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "D\u00e9sir\u00e9 Dou\u00e9",
+    "assist": "Bradley Barcola"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "40.9",
-    "totalShots": "7",
-    "shotsOnTarget": "3",
-    "wonCorners": "2",
-    "totalPasses": "277",
-    "foulsCommitted": "8",
-    "offsides": "0",
+    "possessionPct": "43.2",
+    "totalShots": "10",
+    "shotsOnTarget": "4",
+    "wonCorners": "4",
+    "totalPasses": "420",
+    "foulsCommitted": "9",
+    "offsides": "1",
     "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "15",
-    "interceptions": "11",
+    "totalTackles": "17",
+    "interceptions": "13",
     "saves": "5"
    },
    "away": {
-    "possessionPct": "59.1",
-    "totalShots": "16",
-    "shotsOnTarget": "8",
-    "wonCorners": "4",
-    "totalPasses": "406",
-    "foulsCommitted": "8",
+    "possessionPct": "56.8",
+    "totalShots": "18",
+    "shotsOnTarget": "9",
+    "wonCorners": "5",
+    "totalPasses": "557",
+    "foulsCommitted": "11",
     "offsides": "2",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "13",
-    "interceptions": "3",
-    "saves": "2"
+    "totalTackles": "18",
+    "interceptions": "11",
+    "saves": "3"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -77392,10 +77442,10 @@
    "a": 0.7132736265205187,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  },
  "Senegal|Iraq": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-3-3",
@@ -77434,7 +77484,7 @@
       "SH": 1,
       "SOT": 0,
       "FC": 3,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -77494,10 +77544,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -77581,7 +77631,7 @@
       "SH": 3,
       "SOT": 2,
       "FC": 0,
-      "FS": 0,
+      "FS": 2,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
@@ -77599,10 +77649,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 3,
+      "SH": 4,
       "SOT": 1,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -77664,8 +77714,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 3,
+      "SOT": 2,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -77746,14 +77796,14 @@
      "fp": "0",
      "aid": "255889",
      "st": {
-      "G": 1,
-      "A": 0,
-      "SH": 2,
-      "SOT": 1,
-      "FC": 0,
-      "FS": 0,
+      "G": 2,
+      "A": 1,
+      "SH": 6,
+      "SOT": 3,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -77830,11 +77880,11 @@
      "fp": "0",
      "aid": "268641",
      "st": {
-      "G": 0,
-      "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "G": 1,
+      "A": 1,
+      "SH": 2,
+      "SOT": 2,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -77874,8 +77924,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -77966,11 +78016,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -78007,12 +78057,12 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 1,
-      "FS": 0,
+      "FC": 2,
+      "FS": 2,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 3,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -78028,12 +78078,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -78070,12 +78120,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
-      "GC": 3,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -78138,7 +78188,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 3,
+      "GC": 5,
       "SF": 0
      }
     },
@@ -78238,14 +78288,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -78349,8 +78399,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 1,
-      "GC": 2,
+      "SV": 6,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -78392,7 +78442,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 4,
       "SF": 0
      }
     },
@@ -78434,7 +78484,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -78471,12 +78521,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 3,
       "SF": 0
      }
     }
@@ -78576,36 +78626,87 @@
     "detail": "Normal Goal",
     "player": "Pape Gueye",
     "assist": "Isma\u00efla Sarr"
+   },
+   {
+    "min": 67,
+    "team": "away",
+    "type": "subst",
+    "assist": "Kevin Yakob",
+    "player": "Zidane Iqbal"
+   },
+   {
+    "min": 71,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Pape Gueye",
+    "assist": "Iliman Ndiaye"
+   },
+   {
+    "min": 75,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Amir Al-Ammari"
+   },
+   {
+    "min": 81,
+    "team": "home",
+    "type": "subst",
+    "assist": "Assane Diao",
+    "player": "Isma\u00efla Sarr"
+   },
+   {
+    "min": 81,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Pape Gueye"
+   },
+   {
+    "min": 82,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Iliman Ndiaye",
+    "assist": "Pape Gueye"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Merchas Doski"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "63.3",
-    "totalShots": "16",
-    "shotsOnTarget": "5",
-    "wonCorners": "9",
-    "totalPasses": "331",
-    "foulsCommitted": "7",
+    "possessionPct": "69.3",
+    "totalShots": "28",
+    "shotsOnTarget": "12",
+    "wonCorners": "12",
+    "totalPasses": "590",
+    "foulsCommitted": "10",
     "offsides": "1",
-    "yellowCards": "1",
+    "yellowCards": "2",
     "redCards": "0",
-    "totalTackles": "8",
-    "interceptions": "1",
+    "totalTackles": "12",
+    "interceptions": "2",
     "saves": "1"
    },
    "away": {
-    "possessionPct": "36.7",
-    "totalShots": "5",
+    "possessionPct": "30.7",
+    "totalShots": "6",
     "shotsOnTarget": "1",
     "wonCorners": "3",
-    "totalPasses": "200",
-    "foulsCommitted": "5",
+    "totalPasses": "265",
+    "foulsCommitted": "11",
     "offsides": "0",
-    "yellowCards": "1",
+    "yellowCards": "2",
     "redCards": "1",
-    "totalTackles": "12",
-    "interceptions": "5",
-    "saves": "2"
+    "totalTackles": "20",
+    "interceptions": "7",
+    "saves": "7"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -78642,6 +78743,6 @@
    "a": 0.07919331037875062,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }
