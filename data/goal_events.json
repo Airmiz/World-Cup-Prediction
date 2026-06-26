@@ -947,5 +947,40 @@
       "team": "home",
       "name": "Gonzalo Plata"
     }
+  ],
+  "Japan|Sweden": [
+    {
+      "min": 56,
+      "team": "home",
+      "name": "Daizen Maeda"
+    },
+    {
+      "min": 62,
+      "team": "away",
+      "name": "Anthony Elanga"
+    }
+  ],
+  "Tunisia|Netherlands": [
+    {
+      "min": 3,
+      "team": "away",
+      "name": "Ellyes Skhiri",
+      "og": true
+    },
+    {
+      "min": 7,
+      "team": "away",
+      "name": "Brian Brobbey"
+    },
+    {
+      "min": 54,
+      "team": "home",
+      "name": "Hazem Mastouri"
+    },
+    {
+      "min": 62,
+      "team": "away",
+      "name": "Jan Paul van Hecke"
+    }
   ]
 }
