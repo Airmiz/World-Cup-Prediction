@@ -73689,7 +73689,7 @@
   "final": true
  },
  "Paraguay|Australia": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "5-3-2",
@@ -73710,7 +73710,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 3,
+      "SV": 5,
       "GC": 0,
       "SF": 0
      }
@@ -73749,7 +73749,7 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -73809,7 +73809,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 2,
       "FS": 0,
@@ -73830,7 +73830,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 1,
       "FS": 1,
@@ -73853,7 +73853,7 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -73874,10 +73874,10 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -73893,10 +73893,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
       "FC": 1,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -74210,9 +74210,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 0,
+      "SH": 2,
+      "SOT": 2,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
@@ -74242,7 +74242,7 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 0,
+      "SV": 2,
       "GC": 0,
       "SF": 0
      }
@@ -74322,10 +74322,10 @@
       "A": 0,
       "SH": 2,
       "SOT": 1,
-      "FC": 0,
-      "FS": 0,
+      "FC": 1,
+      "FS": 1,
       "OFF": 0,
-      "YC": 0,
+      "YC": 1,
       "RC": 0,
       "GC": 0,
       "SF": 0
@@ -74383,10 +74383,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
-      "SOT": 1,
+      "SH": 3,
+      "SOT": 2,
       "FC": 1,
-      "FS": 0,
+      "FS": 3,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -74404,9 +74404,9 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
@@ -74616,8 +74616,8 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -74658,7 +74658,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -74734,35 +74734,106 @@
     }
    ]
   },
-  "events": [],
+  "events": [
+   {
+    "min": 45,
+    "team": "home",
+    "type": "subst",
+    "assist": "Maur\u00edcio",
+    "player": "Alexandro Maidana"
+   },
+   {
+    "min": 46,
+    "team": "away",
+    "type": "card",
+    "card": "yellow",
+    "player": "Jackson Irvine"
+   },
+   {
+    "min": 58,
+    "team": "away",
+    "type": "subst",
+    "assist": "Ajdin Hrustic",
+    "player": "Cristian Volpato"
+   },
+   {
+    "min": 67,
+    "team": "home",
+    "type": "subst",
+    "assist": "Alex Arce",
+    "player": "Gabriel \u00c1valos"
+   },
+   {
+    "min": 77,
+    "team": "home",
+    "type": "card",
+    "card": "yellow",
+    "player": "Diego G\u00f3mez"
+   },
+   {
+    "min": 84,
+    "team": "home",
+    "type": "subst",
+    "assist": "Jos\u00e9 Canale",
+    "player": "Omar Alderete"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Paul Okon-Engstler",
+    "player": "Jackson Irvine"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Tete Yengi",
+    "player": "Nestory Irankunda"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "Dami\u00e1n Bobadilla",
+    "player": "Diego G\u00f3mez"
+   },
+   {
+    "min": 90,
+    "team": "home",
+    "type": "subst",
+    "assist": "J\u00fanior Alonso",
+    "player": "Mat\u00edas Galarza"
+   }
+  ],
   "teamstats": {
    "home": {
-    "possessionPct": "37.2",
-    "totalShots": "1",
-    "shotsOnTarget": "0",
-    "wonCorners": "0",
-    "totalPasses": "186",
-    "foulsCommitted": "5",
+    "possessionPct": "44.1",
+    "totalShots": "7",
+    "shotsOnTarget": "2",
+    "wonCorners": "1",
+    "totalPasses": "427",
+    "foulsCommitted": "9",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "15",
-    "interceptions": "3",
-    "saves": "3"
+    "totalTackles": "24",
+    "interceptions": "8",
+    "saves": "5"
    },
    "away": {
-    "possessionPct": "62.8",
-    "totalShots": "6",
-    "shotsOnTarget": "3",
+    "possessionPct": "55.9",
+    "totalShots": "12",
+    "shotsOnTarget": "5",
     "wonCorners": "3",
-    "totalPasses": "305",
-    "foulsCommitted": "4",
+    "totalPasses": "536",
+    "foulsCommitted": "6",
     "offsides": "0",
-    "yellowCards": "0",
+    "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "15",
-    "interceptions": "4",
-    "saves": "0"
+    "totalTackles": "19",
+    "interceptions": "7",
+    "saves": "2"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -74799,10 +74870,10 @@
    "a": 0.2233169129720854,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  },
  "United States|Turkey": {
-  "status": "LIVE",
+  "status": "FINISHED",
   "source": "espn",
   "home": {
    "formation": "4-3-3",
@@ -74824,7 +74895,7 @@
       "YC": 0,
       "RC": 0,
       "SV": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -74840,12 +74911,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -74861,12 +74932,12 @@
       "A": 0,
       "SH": 1,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -74887,7 +74958,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -74905,7 +74976,7 @@
       "SOT": 0,
       "FC": 0,
       "FS": 1,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
       "GC": 2,
@@ -74920,16 +74991,16 @@
      "fp": "4",
      "aid": "295771",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 1,
-      "SH": 0,
-      "SOT": 0,
-      "FC": 2,
-      "FS": 3,
+      "SH": 1,
+      "SOT": 1,
+      "FC": 3,
+      "FS": 4,
       "OFF": 0,
       "YC": 1,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -74964,7 +75035,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 3,
       "SOT": 1,
       "FC": 1,
       "FS": 0,
@@ -74985,14 +75056,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 2,
       "SOT": 0,
-      "FC": 0,
-      "FS": 1,
+      "FC": 1,
+      "FS": 2,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 2,
+      "GC": 3,
       "SF": 0
      }
     },
@@ -75010,7 +75081,7 @@
       "SOT": 0,
       "FC": 0,
       "FS": 0,
-      "OFF": 1,
+      "OFF": 2,
       "YC": 0,
       "RC": 0,
       "GC": 2,
@@ -75027,10 +75098,10 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 2,
+      "SH": 3,
       "SOT": 1,
       "FC": 2,
-      "FS": 0,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
@@ -75078,7 +75149,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -75176,14 +75247,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 3,
+      "SOT": 2,
       "FC": 0,
-      "FS": 0,
-      "OFF": 0,
+      "FS": 3,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -75197,14 +75268,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
-      "FC": 0,
+      "FC": 1,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -75225,7 +75296,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -75309,7 +75380,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 0,
+      "GC": 1,
       "SF": 0
      }
     },
@@ -75355,8 +75426,8 @@
       "FS": 0,
       "YC": 0,
       "RC": 0,
-      "SV": 3,
-      "GC": 1,
+      "SV": 5,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75372,12 +75443,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 3,
       "FS": 0,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75398,7 +75469,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75419,7 +75490,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75431,16 +75502,16 @@
      "fp": "8",
      "aid": "272700",
      "st": {
-      "G": 1,
-      "A": 0,
-      "SH": 1,
-      "SOT": 1,
-      "FC": 1,
-      "FS": 0,
+      "G": 0,
+      "A": 1,
+      "SH": 2,
+      "SOT": 0,
+      "FC": 2,
+      "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75456,12 +75527,12 @@
       "A": 0,
       "SH": 0,
       "SOT": 0,
-      "FC": 1,
+      "FC": 2,
       "FS": 1,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75474,7 +75545,7 @@
      "aid": "287678",
      "st": {
       "G": 0,
-      "A": 1,
+      "A": 0,
       "SH": 0,
       "SOT": 0,
       "FC": 0,
@@ -75482,7 +75553,7 @@
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75499,11 +75570,11 @@
       "SH": 0,
       "SOT": 0,
       "FC": 0,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75515,16 +75586,16 @@
      "fp": "9",
      "aid": "322538",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 1,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 2,
-      "FS": 0,
+      "FS": 1,
       "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75538,14 +75609,14 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 1,
+      "SH": 2,
       "SOT": 0,
       "FC": 1,
-      "FS": 1,
+      "FS": 2,
       "OFF": 0,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     },
@@ -75561,12 +75632,12 @@
       "A": 0,
       "SH": 1,
       "SOT": 1,
-      "FC": 1,
+      "FC": 3,
       "FS": 2,
-      "OFF": 0,
+      "OFF": 1,
       "YC": 0,
       "RC": 0,
-      "GC": 1,
+      "GC": 2,
       "SF": 0
      }
     }
@@ -75580,10 +75651,10 @@
      "fp": "0",
      "aid": "159146",
      "st": {
-      "G": 0,
+      "G": 1,
       "A": 0,
-      "SH": 0,
-      "SOT": 0,
+      "SH": 1,
+      "SOT": 1,
       "FC": 0,
       "FS": 0,
       "OFF": 0,
@@ -75792,7 +75863,7 @@
      "st": {
       "G": 0,
       "A": 0,
-      "SH": 0,
+      "SH": 1,
       "SOT": 0,
       "FC": 0,
       "FS": 0,
@@ -75918,38 +75989,122 @@
     "team": "away",
     "type": "goal",
     "detail": "Normal Goal",
-    "player": "Orkun K\u00f6k\u00e7\u00fc",
-    "assist": "Eren Elmali"
+    "player": "Baris Alper Yilmaz",
+    "assist": "Orkun K\u00f6k\u00e7\u00fc"
+   },
+   {
+    "min": 49,
+    "team": "home",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Sebastian Berhalter"
+   },
+   {
+    "min": 58,
+    "team": "home",
+    "type": "subst",
+    "assist": "Christian Pulisic",
+    "player": "Timothy Weah"
+   },
+   {
+    "min": 76,
+    "team": "home",
+    "type": "subst",
+    "assist": "Sergi\u00f1o Dest",
+    "player": "Giovanni Reyna"
+   },
+   {
+    "min": 77,
+    "team": "home",
+    "type": "subst",
+    "assist": "Alejandro Zendejas",
+    "player": "Brenden Aaronson"
+   },
+   {
+    "min": 77,
+    "team": "home",
+    "type": "subst",
+    "assist": "Alex Freeman",
+    "player": "Joe Scally"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "\u00c7aglar S\u00f6y\u00fcnc\u00fc",
+    "player": "Zeki \u00c7elik"
+   },
+   {
+    "min": 84,
+    "team": "away",
+    "type": "subst",
+    "assist": "Can Uzun",
+    "player": "Kenan Yildiz"
+   },
+   {
+    "min": 86,
+    "team": "home",
+    "type": "subst",
+    "assist": "Malik Tillman",
+    "player": "Weston McKennie"
+   },
+   {
+    "min": 88,
+    "team": "away",
+    "type": "subst",
+    "assist": "Kaan Ayhan",
+    "player": "Orkun K\u00f6k\u00e7\u00fc"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "subst",
+    "assist": "Mert M\u00fcld\u00fcr",
+    "player": "Oguz Aydin"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "subst",
+    "assist": "Irfan Can Kahveci",
+    "player": "Baris Alper Yilmaz"
+   },
+   {
+    "min": 90,
+    "team": "away",
+    "type": "goal",
+    "detail": "Normal Goal",
+    "player": "Kaan Ayhan"
    }
   ],
   "teamstats": {
    "home": {
-    "possessionPct": "58.3",
-    "totalShots": "8",
-    "shotsOnTarget": "4",
-    "wonCorners": "5",
-    "totalPasses": "245",
-    "foulsCommitted": "8",
-    "offsides": "2",
+    "possessionPct": "52.5",
+    "totalShots": "18",
+    "shotsOnTarget": "7",
+    "wonCorners": "9",
+    "totalPasses": "469",
+    "foulsCommitted": "13",
+    "offsides": "5",
     "yellowCards": "1",
     "redCards": "0",
-    "totalTackles": "8",
-    "interceptions": "8",
-    "saves": "0"
+    "totalTackles": "14",
+    "interceptions": "11",
+    "saves": "1"
    },
    "away": {
-    "possessionPct": "41.7",
-    "totalShots": "4",
-    "shotsOnTarget": "2",
+    "possessionPct": "47.5",
+    "totalShots": "9",
+    "shotsOnTarget": "3",
     "wonCorners": "2",
-    "totalPasses": "180",
-    "foulsCommitted": "7",
-    "offsides": "1",
+    "totalPasses": "435",
+    "foulsCommitted": "13",
+    "offsides": "2",
     "yellowCards": "0",
     "redCards": "0",
-    "totalTackles": "19",
-    "interceptions": "3",
-    "saves": "3"
+    "totalTackles": "31",
+    "interceptions": "8",
+    "saves": "5"
    },
    "labels": {
     "possessionPct": "Possession",
@@ -75986,6 +76141,6 @@
    "a": 0.4702186034162315,
    "prov": "DraftKings"
   },
-  "final": false
+  "final": true
  }
 }

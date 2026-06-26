@@ -982,5 +982,28 @@
       "team": "away",
       "name": "Jan Paul van Hecke"
     }
-  ]
+  ],
+  "United States|Turkey": [
+    {
+      "min": 3,
+      "team": "home"
+    },
+    {
+      "min": 10,
+      "team": "away"
+    },
+    {
+      "min": 31,
+      "team": "away"
+    },
+    {
+      "min": 49,
+      "team": "home"
+    },
+    {
+      "min": 90,
+      "team": "away"
+    }
+  ],
+  "Paraguay|Australia": []
 }
