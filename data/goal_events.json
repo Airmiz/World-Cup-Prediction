@@ -1067,5 +1067,49 @@
       "team": "away",
       "name": "\u00c1lex Baena"
     }
+  ],
+  "Egypt|Iran": [
+    {
+      "min": 5,
+      "team": "home",
+      "name": "Mahmoud Saber"
+    },
+    {
+      "min": 14,
+      "team": "away",
+      "name": "Ramin Rezaeian"
+    }
+  ],
+  "New Zealand|Belgium": [
+    {
+      "min": 28,
+      "team": "away",
+      "name": "Leandro Trossard"
+    },
+    {
+      "min": 50,
+      "team": "away",
+      "name": "Leandro Trossard"
+    },
+    {
+      "min": 66,
+      "team": "away",
+      "name": "Kevin De Bruyne"
+    },
+    {
+      "min": 84,
+      "team": "home",
+      "name": "Elijah Just"
+    },
+    {
+      "min": 86,
+      "team": "away",
+      "name": "Romelu Lukaku"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Alexis Saelemaekers"
+    }
   ]
 }
