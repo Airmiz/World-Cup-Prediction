@@ -1059,5 +1059,13 @@
       "team": "home",
       "name": "Iliman Ndiaye"
     }
+  ],
+  "Cape Verde|Saudi Arabia": [],
+  "Uruguay|Spain": [
+    {
+      "min": 42,
+      "team": "away",
+      "name": "\u00c1lex Baena"
+    }
   ]
 }
