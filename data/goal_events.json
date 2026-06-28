@@ -1219,5 +1219,12 @@
       "team": "away",
       "name": "Lionel Messi"
     }
+  ],
+  "South Africa|Canada": [
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Stephan Eust\u00e1quio"
+    }
   ]
 }
