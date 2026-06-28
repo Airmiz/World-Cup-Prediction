@@ -1111,5 +1111,34 @@
       "team": "away",
       "name": "Alexis Saelemaekers"
     }
+  ],
+  "Panama|England": [
+    {
+      "min": 62,
+      "team": "away",
+      "name": "Jude Bellingham"
+    },
+    {
+      "min": 67,
+      "team": "away",
+      "name": "Harry Kane"
+    }
+  ],
+  "Croatia|Ghana": [
+    {
+      "min": 31,
+      "team": "home",
+      "name": "Petar Sucic"
+    },
+    {
+      "min": 73,
+      "team": "away",
+      "name": "Derrick Luckassen"
+    },
+    {
+      "min": 83,
+      "team": "home",
+      "name": "Nikola Vlasic"
+    }
   ]
 }
