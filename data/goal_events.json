@@ -1140,5 +1140,29 @@
       "team": "home",
       "name": "Nikola Vlasic"
     }
+  ],
+  "Colombia|Portugal": [],
+  "DR Congo|Uzbekistan": [
+    {
+      "min": 10,
+      "team": "away",
+      "name": "Eldor Shomurodov"
+    },
+    {
+      "min": 68,
+      "team": "home",
+      "name": "Yoane Wissa",
+      "pen": true
+    },
+    {
+      "min": 78,
+      "team": "home",
+      "name": "Fiston Mayele"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Yoane Wissa"
+    }
   ]
 }
