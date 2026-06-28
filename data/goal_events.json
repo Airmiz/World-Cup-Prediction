@@ -1164,5 +1164,60 @@
       "team": "home",
       "name": "Yoane Wissa"
     }
+  ],
+  "Algeria|Austria": [
+    {
+      "min": 28,
+      "team": "away",
+      "name": "Marko Arnautovic"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Rafik Belghali"
+    },
+    {
+      "min": 55,
+      "team": "away",
+      "name": "Marcel Sabitzer"
+    },
+    {
+      "min": 60,
+      "team": "home",
+      "name": "Riyad Mahrez"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Riyad Mahrez"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Sasa Kalajdzic"
+    }
+  ],
+  "Jordan|Argentina": [
+    {
+      "min": 19,
+      "team": "away",
+      "name": "Giovani Lo Celso"
+    },
+    {
+      "min": 31,
+      "team": "away",
+      "name": "Lautaro Mart\u00ednez",
+      "pen": true
+    },
+    {
+      "min": 55,
+      "team": "home",
+      "name": "Mousa Al-Tamari"
+    },
+    {
+      "min": 80,
+      "team": "away",
+      "name": "Lionel Messi"
+    }
   ]
 }
