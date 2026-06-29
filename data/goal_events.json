@@ -1226,5 +1226,22 @@
       "team": "away",
       "name": "Stephan Eust\u00e1quio"
     }
+  ],
+  "Brazil|Japan": [
+    {
+      "min": 29,
+      "team": "away",
+      "name": "Kaishu Sano"
+    },
+    {
+      "min": 56,
+      "team": "home",
+      "name": "Casemiro"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Gabriel Martinelli"
+    }
   ]
 }
