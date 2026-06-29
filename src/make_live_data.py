@@ -64,6 +64,89 @@ utc_by_pair = {(r.home_team, r.away_team): r.utc_kickoff for r in mp.itertuples(
 city_by_pair = {(r.home_team, r.away_team): r.city for r in mp.itertuples()}
 eg_by_pair = {(r.home_team, r.away_team): (float(r.exp_goals_home), float(r.exp_goals_away)) for r in mp.itertuples()}
 
+# ---- knockout bracket resolution (groups complete -> deterministic) so KO fixtures get a
+#      proper round + kickoff instead of a leftover group letter, and can lock into the bracket ----
+group_pairs = set(utc_by_pair.keys())            # the 72 group fixtures (home,away)
+KT = {str(int(r.match)): {"utc": et_to_utc(r.date, r.et, r.city), "city": r.city}
+      for r in pd.read_csv("data/kickoffs_ko.csv").itertuples()}
+_acx = pd.read_csv("data/annex_c.csv")
+_slots = ["1A", "1B", "1D", "1E", "1G", "1I", "1K", "1L"]
+_annex = {row["combo"]: [row[s] for s in _slots] for _, row in _acx.iterrows()}
+KO = {"r32": tj["round_of_32"], "r16": tj["round_of_16"], "qf": tj["quarterfinals"],
+      "sf": tj["semifinals"], "final": tj["final"]}
+
+def _break_tie(block, pts, gd, gf, pgf):
+    if len(block) < 2: return list(block)
+    mp_ = {t: 0 for t in block}; mg = {t: 0 for t in block}; mf = {t: 0 for t in block}
+    for x in range(len(block)):
+        for y in range(x + 1, len(block)):
+            a, b = block[x], block[y]; ga = pgf.get((a, b)); gb = pgf.get((b, a))
+            if ga is None or gb is None: continue
+            mf[a] += ga; mf[b] += gb; mg[a] += ga - gb; mg[b] += gb - ga
+            if ga > gb: mp_[a] += 3
+            elif gb > ga: mp_[b] += 3
+            else: mp_[a] += 1; mp_[b] += 1
+    s = sorted(block, key=lambda t: (-mp_[t], -mg[t], -mf[t], -gd[t], -gf[t]))
+    out = []; i = 0
+    while i < len(s):
+        j = i
+        while j + 1 < len(s) and (mp_[s[j+1]], mg[s[j+1]], mf[s[j+1]]) == (mp_[s[i]], mg[s[i]], mf[s[i]]): j += 1
+        sub = s[i:j+1]
+        out += _break_tie(sub, pts, gd, gf, pgf) if 1 < len(sub) < len(block) else sub
+        i = j + 1
+    return out
+
+def _group_standings():
+    res = {(r.home_team, r.away_team): (int(r.home_score), int(r.away_score))
+           for r in fix.itertuples() if (r.home_team, r.away_team) in group_pairs and pd.notna(r.home_score)}
+    st = {}
+    for g, ts in groups.items():
+        pts = {t: 0 for t in ts}; gd = {t: 0 for t in ts}; gf = {t: 0 for t in ts}; pgf = {}
+        for (h, a), (hs, as_) in res.items():
+            if h in ts and a in ts:
+                pts[h] += 3 if hs > as_ else (1 if hs == as_ else 0); pts[a] += 3 if as_ > hs else (1 if hs == as_ else 0)
+                gd[h] += hs - as_; gd[a] += as_ - hs; gf[h] += hs; gf[a] += as_; pgf[(h, a)] = hs; pgf[(a, h)] = as_
+        arr = sorted(ts, key=lambda t: -pts[t]); order = []; i = 0
+        while i < len(arr):
+            j = i
+            while j + 1 < len(arr) and pts[arr[j+1]] == pts[arr[i]]: j += 1
+            order += _break_tie(arr[i:j+1], pts, gd, gf, pgf); i = j + 1
+        st[g] = {"order": order, "pts": pts, "gd": gd, "gf": gf}
+    return st
+
+KO_TEAMS = {}; ROUND_OF = {}
+_LATER = [("r16", "Round of 16"), ("qf", "Quarterfinal"), ("sf", "Semifinal"), ("final", "Final")]
+for rk, label in [("r32", "Round of 32")] + _LATER:
+    for mno in KO[rk]: ROUND_OF[mno] = label
+_grp_done = sum(1 for r in fix.itertuples()
+                if (r.home_team, r.away_team) in group_pairs and pd.notna(r.home_score)) == 72
+if _grp_done:
+    st = _group_standings()
+    winners = {g: st[g]["order"][0] for g in groups}; runners = {g: st[g]["order"][1] for g in groups}
+    thirds = {g: st[g]["order"][2] for g in groups}
+    qg = sorted(groups, key=lambda g: (-st[g]["pts"][thirds[g]], -st[g]["gd"][thirds[g]], -st[g]["gf"][thirds[g]]))[:8]
+    slot_group = dict(zip(_slots, _annex.get("".join(sorted(qg)), [])))
+    def _code(code, info):
+        if code == "3rd": return thirds.get(slot_group.get(info.get("third_slot")))
+        return (winners if code[0] == "1" else runners).get(code[1])
+    for mno, info in KO["r32"].items():
+        KO_TEAMS[mno] = (_code(info["home"], info), _code(info["away"], info))
+
+def _subtree(mno):
+    if mno in KO["r32"]: return set(t for t in KO_TEAMS.get(mno, ()) if t)
+    for rk, _ in _LATER:
+        if mno in KO[rk]: f1, f2, _v = KO[rk][mno]; return _subtree(f1) | _subtree(f2)
+    return set()
+
+def _find_ko(a, b):
+    for mno, (t1, t2) in KO_TEAMS.items():
+        if {a, b} == {t1, t2}: return mno
+    for rk, _ in _LATER:
+        for mno, (f1, f2, _v) in KO.get(rk, {}).items():
+            s1, s2 = _subtree(f1), _subtree(f2)
+            if (a in s1 and b in s2) or (a in s2 and b in s1): return mno
+    return None
+
 fixtures = []
 n_blended = 0
 for k, r in fix.iterrows():
@@ -84,11 +167,21 @@ for k, r in fix.iterrows():
     P = score_matrix(lh, la, dc.rho)[:G, :G]
     P = P / P.sum()
     rec_extra["hda"] = [round(float(x), 4) for x in outcome_probs(score_matrix(lh, la, dc.rho))]
+    is_ko = (r["home_team"], r["away_team"]) not in group_pairs
+    if is_ko:                                   # knockout: round + bracket-slot kickoff, no group letter
+        mno = _find_ko(r["home_team"], r["away_team"])
+        kt = KT.get(mno) if mno else None
+        rec_extra["group"] = None
+        rec_extra["round"] = ROUND_OF.get(mno, "Knockout")
+        rec_extra["ko"] = mno          # bracket match number, for locking the result into the bracket
+        city = kt["city"] if kt else r["city"]
+        utc = kt["utc"] if kt else ""
+    else:
+        rec_extra["group"] = group_of[r["home_team"]]
+        city = city_by_pair.get((r["home_team"], r["away_team"]), r["city"])
+        utc = utc_by_pair.get((r["home_team"], r["away_team"]), "")
     fixtures.append({
-        "id": k, "group": group_of[r["home_team"]],
-        "home": r["home_team"], "away": r["away_team"],
-        "city": city_by_pair.get((r["home_team"], r["away_team"]), r["city"]),
-        "utc": utc_by_pair.get((r["home_team"], r["away_team"]), ""),
+        "id": k, "home": r["home_team"], "away": r["away_team"], "city": city, "utc": utc,
         "eh": round(float(lh), 3), "ea": round(float(la), 3),   # blended expected goals
         "pmf": [round(float(x), 6) for x in P.ravel()],
         **rec_extra,

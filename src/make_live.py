@@ -135,6 +135,7 @@ table.big tbody tr:hover{background:var(--tint)}
 .bcol h4{text-align:center;color:var(--mut);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;height:16px;margin-bottom:8px}
 .ties{flex:1;display:flex;flex-direction:column;justify-content:space-around}
 .tie{background:var(--surface);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-size:12.5px;margin:4px 0}
+.tie.clk{cursor:pointer;transition:transform .12s}.tie.clk:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.12)}
 .tie .mn{font-size:10px;color:var(--mut);padding:4px 10px 0}
 .tie .row{display:flex;align-items:center;gap:6px;padding:5px 10px}
 .tie .row:last-child{padding-bottom:7px}
@@ -532,6 +533,7 @@ const TZ=Intl.DateTimeFormat().resolvedOptions().timeZone||"local time";
 const tzAbbr=(()=>{try{return new Intl.DateTimeFormat("en-US",{timeZoneName:"short"}).formatToParts(new Date()).find(p=>p.type==="timeZoneName").value;}catch(e){return"";}})();
 
 const fixByPair={}; D.fixtures.forEach(f=>fixByPair[f.home+"|"+f.away]=f.id);
+const koFixByMno={}; D.fixtures.forEach(f=>{ if(f.ko!=null) koFixByMno[f.ko]=f.id; });   // bracket match# -> KO fixture id (clickable ties)
 const fixById={}; D.fixtures.forEach(f=>fixById[f.id]=f);
 const groupOf={}; for(const g of D.group_order) for(const t of D.groups[g]) groupOf[t]=g;
 
@@ -868,8 +870,21 @@ async function loadLive(){
 
 /* ---- run the Monte Carlo + render ---- */
 let LAST=null, STATAGG={ratingAcc:{},gkAcc:{}}, PREVSCORES=null;
+// lock finished knockout results into the bracket: winner by score, or (after a draw -> penalties)
+// the team that turns up in a later-round fixture is the one who advanced.
+function buildKO(){
+ const ko={};
+ D.fixtures.forEach(f=>{ if(f.ko==null)return; const r=STATE.results[f.id]; if(!r)return;
+  if(+r[0]>+r[1]) ko[f.ko]=f.home; else if(+r[1]>+r[0]) ko[f.ko]=f.away;
+  else { const ft=new Date(f.utc).getTime();
+   const later=t=>D.fixtures.some(g=>g.ko!=null&&g.id!==f.id&&(g.home===t||g.away===t)&&g.utc&&new Date(g.utc).getTime()>ft);
+   if(later(f.home)) ko[f.ko]=f.home; else if(later(f.away)) ko[f.ko]=f.away; } });
+ return ko;
+}
 function recompute(){
  setStatus("sim");
+ STATE.ko=buildKO();
+ STATE.played=D.fixtures.filter(f=>f.group!=null && STATE.results[f.id]).length;   // group matches played (for the X/72 label)
  setTimeout(()=>{                       // let the spinner paint
   const out=WCLive.runLive(D,{N:NSIMS,results:STATE.results,ko:STATE.ko});
   LAST=out;
@@ -1245,7 +1260,7 @@ function renderFeed(){
    }).join("");
    const chipTxt = status==="upcoming" ? (f.hda_market?"📊 MATCH ODDS":"📊 PRE-MATCH") : "📈 WIN PROBABILITY";
    const chip = `<div style="text-align:right;margin-top:5px"><span class="wpchip">${chipTxt}</span></div>`;
-   return `<div class="mcard clk ${status}" data-fid="${f.id}"><div class="top"><span>Group ${f.group} · ${f.city}</span><span class="st ${status}">${stTxt}</span></div>${rowsHTML}${chip}</div>`;
+   return `<div class="mcard clk ${status}" data-fid="${f.id}"><div class="top"><span>${f.group?("Group "+f.group):(f.round||"Knockout")} · ${f.city}</span><span class="st ${status}">${stTxt}</span></div>${rowsHTML}${chip}</div>`;
   }).join("");
   box.insertAdjacentHTML("beforeend",`<div class="daygroup"><div class="dayh">${label}</div><div class="mgrid">${cards}</div></div>`);
  });
@@ -1341,9 +1356,9 @@ function renderBracket(out){
  }
  const kt=D.ko_times;
  function tie(mno){const m=M[mno]; const rows=[[m.t1,m.p1],[m.t2,1-m.p1]];
-  const k=kt[mno]; const lp=k?new Date(k.utc):null;
+  const k=kt[mno]; const lp=k?new Date(k.utc):null; const fid=koFixByMno[mno];
   const meta=`M${mno}`+(lp?` · ${fmtDay.format(lp)}, ${fmtTime.format(lp)}`:"")+(k?` · ${k.city}`:"");
-  return `<div class="tie ${m.done?"done":""}"><div class="mn">${meta}${m.done?" · FT":""}</div>`+
+  return `<div class="tie ${m.done?"done":""} ${fid!=null?"clk":""}" ${fid!=null?`data-fid="${fid}"`:""}><div class="mn">${meta}${m.done?" · FT":""}</div>`+
    rows.map(([t,p])=>`<div class="row ${t===m.winner?"w":""}"><span>${F(t)}</span><span class="nm">${t}</span><span class="pc">${m.done?(t===m.winner?"✓":""):pc(p)}</span></div>`).join("")+`</div>`;
  }
  const cols=[["Round of 32",[74,77,73,75,83,84,81,82]],["Round of 16",[89,90,93,94]],["Quarterfinals",[97,98]],["Semifinal",[101]],
@@ -1915,6 +1930,7 @@ function animatePlay(){ stopAnim(); WP.followLive=false; const FM=WP.full||90; i
 
 document.getElementById("feedbox").addEventListener("click",e=>{const c=e.target.closest(".mcard.clk");if(c)openMatch(+c.dataset.fid);});
 document.getElementById("tickerbar").addEventListener("click",e=>{const c=e.target.closest(".tk.clk");if(c)openMatch(+c.dataset.fid);});
+document.getElementById("btree").addEventListener("click",e=>{const t=e.target.closest(".tie.clk[data-fid]");if(t)openMatch(+t.dataset.fid);});
 document.getElementById("oddstable").addEventListener("click",e=>{const tr=e.target.closest("tr[data-team]");if(tr)openTeam(tr.dataset.team);});
 addEventListener("keydown",e=>{if(e.key==="Escape")closeTeam();});
 

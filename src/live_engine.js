@@ -13,11 +13,11 @@ function buildIndex(D){
   const groupOf={}; for(const g of D.group_order) for(const t of D.groups[g]) groupOf[t]=g;
   // group fixtures grouped by group letter, with local team positions
   const gfix={}; for(const g of D.group_order) gfix[g]=[];
-  D.fixtures.forEach(f=>{ const g=f.group;
+  D.fixtures.forEach(f=>{ const g=f.group; if(g==null||!gfix[g])return;   // skip knockout fixtures (no group)
     gfix[g].push({id:f.id, hi:D.groups[g].indexOf(f.home), ai:D.groups[g].indexOf(f.away),
                   home:f.home, away:f.away}); });
-  // CDF per fixture for fast sampling
-  const cdf=D.fixtures.map(f=>{const c=f.pmf.slice();for(let i=1;i<c.length;i++)c[i]+=c[i-1];c[c.length-1]=1;return c;});
+  // CDF per fixture for fast sampling (group fixtures only; KO has no group score PMF to sample)
+  const cdf={}; D.fixtures.forEach(f=>{const c=f.pmf.slice();for(let i=1;i<c.length;i++)c[i]+=c[i-1];c[c.length-1]=1;cdf[f.id]=c;});
   return {idx,groupOf,gfix,cdf};
 }
 
