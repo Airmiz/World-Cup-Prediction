@@ -1243,5 +1243,17 @@
       "team": "home",
       "name": "Gabriel Martinelli"
     }
+  ],
+  "Germany|Paraguay": [
+    {
+      "min": 42,
+      "team": "away",
+      "name": "Julio Enciso"
+    },
+    {
+      "min": 54,
+      "team": "home",
+      "name": "Kai Havertz"
+    }
   ]
 }
