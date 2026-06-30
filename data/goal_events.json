@@ -1255,5 +1255,17 @@
       "team": "home",
       "name": "Kai Havertz"
     }
+  ],
+  "Netherlands|Morocco": [
+    {
+      "min": 72,
+      "team": "home",
+      "name": "Cody Gakpo"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Issa Diop"
+    }
   ]
 }
