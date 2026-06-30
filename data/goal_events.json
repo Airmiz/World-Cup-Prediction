@@ -1267,5 +1267,22 @@
       "team": "away",
       "name": "Issa Diop"
     }
+  ],
+  "Ivory Coast|Norway": [
+    {
+      "min": 39,
+      "team": "away",
+      "name": "Antonio Nusa"
+    },
+    {
+      "min": 74,
+      "team": "home",
+      "name": "Amad Diallo"
+    },
+    {
+      "min": 86,
+      "team": "away",
+      "name": "Erling Haaland"
+    }
   ]
 }
