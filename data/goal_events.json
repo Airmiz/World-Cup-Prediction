@@ -1313,5 +1313,22 @@
       "team": "home",
       "name": "Ra\u00fal Jim\u00e9nez"
     }
+  ],
+  "England|DR Congo": [
+    {
+      "min": 7,
+      "team": "away",
+      "name": "Brian Cipenga"
+    },
+    {
+      "min": 75,
+      "team": "home",
+      "name": "Harry Kane"
+    },
+    {
+      "min": 86,
+      "team": "home",
+      "name": "Harry Kane"
+    }
   ]
 }
