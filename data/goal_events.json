@@ -1284,5 +1284,22 @@
       "team": "away",
       "name": "Erling Haaland"
     }
+  ],
+  "France|Sweden": [
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Kylian Mbapp\u00e9"
+    },
+    {
+      "min": 53,
+      "team": "home",
+      "name": "Bradley Barcola"
+    },
+    {
+      "min": 74,
+      "team": "home",
+      "name": "Kylian Mbapp\u00e9"
+    }
   ]
 }
