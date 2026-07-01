@@ -1301,5 +1301,17 @@
       "team": "home",
       "name": "Kylian Mbapp\u00e9"
     }
+  ],
+  "Mexico|Ecuador": [
+    {
+      "min": 31,
+      "team": "home",
+      "name": "Juli\u00e1n Qui\u00f1ones"
+    },
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Ra\u00fal Jim\u00e9nez"
+    }
   ]
 }
