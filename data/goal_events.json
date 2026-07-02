@@ -1370,5 +1370,22 @@
       "team": "home",
       "name": "Malik Tillman"
     }
+  ],
+  "Spain|Austria": [
+    {
+      "min": 36,
+      "team": "home",
+      "name": "Mikel Oyarzabal"
+    },
+    {
+      "min": 66,
+      "team": "home",
+      "name": "Pedro Porro"
+    },
+    {
+      "min": 89,
+      "team": "home",
+      "name": "Mikel Oyarzabal"
+    }
   ]
 }
