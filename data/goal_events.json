@@ -1330,5 +1330,33 @@
       "team": "home",
       "name": "Harry Kane"
     }
+  ],
+  "Belgium|Senegal": [
+    {
+      "min": 25,
+      "team": "away",
+      "name": "Habib Diarra"
+    },
+    {
+      "min": 51,
+      "team": "away",
+      "name": "Isma\u00efla Sarr"
+    },
+    {
+      "min": 86,
+      "team": "home",
+      "name": "Romelu Lukaku"
+    },
+    {
+      "min": 89,
+      "team": "home",
+      "name": "Youri Tielemans"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Youri Tielemans",
+      "pen": true
+    }
   ]
 }
