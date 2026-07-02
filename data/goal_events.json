@@ -1358,5 +1358,17 @@
       "name": "Youri Tielemans",
       "pen": true
     }
+  ],
+  "United States|Bosnia and Herzegovina": [
+    {
+      "min": 45,
+      "team": "home",
+      "name": "Folarin Balogun"
+    },
+    {
+      "min": 82,
+      "team": "home",
+      "name": "Malik Tillman"
+    }
   ]
 }
