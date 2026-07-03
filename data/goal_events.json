@@ -1387,5 +1387,23 @@
       "team": "home",
       "name": "Mikel Oyarzabal"
     }
+  ],
+  "Portugal|Croatia": [
+    {
+      "min": 53,
+      "team": "away",
+      "name": "Ivan Perisic"
+    },
+    {
+      "min": 68,
+      "team": "home",
+      "name": "Cristiano Ronaldo",
+      "pen": true
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Gon\u00e7alo Ramos"
+    }
   ]
 }
