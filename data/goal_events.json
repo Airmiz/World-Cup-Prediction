@@ -1417,5 +1417,18 @@
       "team": "home",
       "name": "Dan Ndoye"
     }
+  ],
+  "Australia|Egypt": [
+    {
+      "min": 13,
+      "team": "away",
+      "name": "Emam Ashour"
+    },
+    {
+      "min": 55,
+      "team": "home",
+      "name": "Mohamed Hany",
+      "og": true
+    }
   ]
 }
