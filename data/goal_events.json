@@ -1405,5 +1405,17 @@
       "team": "home",
       "name": "Gon\u00e7alo Ramos"
     }
+  ],
+  "Switzerland|Algeria": [
+    {
+      "min": 10,
+      "team": "home",
+      "name": "Breel Embolo"
+    },
+    {
+      "min": 46,
+      "team": "home",
+      "name": "Dan Ndoye"
+    }
   ]
 }
