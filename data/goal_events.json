@@ -1458,5 +1458,12 @@
       "team": "away",
       "name": "Sidny Lopes Cabral"
     }
+  ],
+  "Colombia|Ghana": [
+    {
+      "min": 14,
+      "team": "home",
+      "name": "Jhon Arias"
+    }
   ]
 }
