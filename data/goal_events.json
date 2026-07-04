@@ -1430,5 +1430,33 @@
       "name": "Mohamed Hany",
       "og": true
     }
+  ],
+  "Argentina|Cape Verde": [
+    {
+      "min": 29,
+      "team": "home",
+      "name": "Lionel Messi"
+    },
+    {
+      "min": 59,
+      "team": "away",
+      "name": "Deroy Duarte"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Lisandro Mart\u00ednez"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Diney Borges",
+      "og": true
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Sidny Lopes Cabral"
+    }
   ]
 }
