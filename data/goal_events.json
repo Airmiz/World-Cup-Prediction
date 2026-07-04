@@ -1465,5 +1465,22 @@
       "team": "home",
       "name": "Jhon Arias"
     }
+  ],
+  "Canada|Morocco": [
+    {
+      "min": 50,
+      "team": "away",
+      "name": "Azzedine Ounahi"
+    },
+    {
+      "min": 82,
+      "team": "away",
+      "name": "Azzedine Ounahi"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Soufiane Rahimi"
+    }
   ]
 }
