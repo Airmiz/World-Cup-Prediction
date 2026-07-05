@@ -1490,5 +1490,23 @@
       "name": "Kylian Mbapp\u00e9",
       "pen": true
     }
+  ],
+  "Brazil|Norway": [
+    {
+      "min": 79,
+      "team": "away",
+      "name": "Erling Haaland"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Neymar",
+      "pen": true
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Erling Haaland"
+    }
   ]
 }
