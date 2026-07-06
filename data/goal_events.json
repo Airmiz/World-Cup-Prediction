@@ -1537,5 +1537,12 @@
       "name": "Ra\u00fal Jim\u00e9nez",
       "pen": true
     }
+  ],
+  "Portugal|Spain": [
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Mikel Merino"
+    }
   ]
 }
