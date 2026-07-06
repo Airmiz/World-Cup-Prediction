@@ -506,22 +506,22 @@
  {
   "date": "2026-07-06",
   "champ": {
-   "Argentina": 0.2247,
-   "Spain": 0.1667,
-   "France": 0.1468,
-   "England": 0.0762,
-   "Colombia": 0.0586,
-   "Portugal": 0.0446,
-   "Brazil": 0.04,
+   "Argentina": 0.2248,
+   "Spain": 0.1666,
+   "France": 0.1464,
+   "England": 0.076,
+   "Colombia": 0.0588,
+   "Brazil": 0.0467,
+   "Portugal": 0.0445,
    "Morocco": 0.0387,
-   "Netherlands": 0.0303,
-   "Norway": 0.025,
-   "Mexico": 0.0219,
-   "Belgium": 0.0206,
-   "United States": 0.0198,
-   "Germany": 0.0188,
-   "Switzerland": 0.0169,
-   "Japan": 0.0138
+   "Netherlands": 0.03,
+   "Mexico": 0.022,
+   "Belgium": 0.0205,
+   "Norway": 0.0198,
+   "United States": 0.0197,
+   "Germany": 0.0187,
+   "Switzerland": 0.0168,
+   "Japan": 0.0134
   }
  }
 ]
