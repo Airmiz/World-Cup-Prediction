@@ -1508,5 +1508,34 @@
       "team": "away",
       "name": "Erling Haaland"
     }
+  ],
+  "Mexico|England": [
+    {
+      "min": 36,
+      "team": "away",
+      "name": "Jude Bellingham"
+    },
+    {
+      "min": 38,
+      "team": "away",
+      "name": "Jude Bellingham"
+    },
+    {
+      "min": 42,
+      "team": "home",
+      "name": "Juli\u00e1n Qui\u00f1ones"
+    },
+    {
+      "min": 60,
+      "team": "away",
+      "name": "Harry Kane",
+      "pen": true
+    },
+    {
+      "min": 69,
+      "team": "home",
+      "name": "Ra\u00fal Jim\u00e9nez",
+      "pen": true
+    }
   ]
 }
