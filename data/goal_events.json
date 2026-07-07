@@ -1544,5 +1544,32 @@
       "team": "away",
       "name": "Mikel Merino"
     }
+  ],
+  "United States|Belgium": [
+    {
+      "min": 9,
+      "team": "away",
+      "name": "Charles De Ketelaere"
+    },
+    {
+      "min": 31,
+      "team": "home",
+      "name": "Malik Tillman"
+    },
+    {
+      "min": 33,
+      "team": "away",
+      "name": "Charles De Ketelaere"
+    },
+    {
+      "min": 57,
+      "team": "away",
+      "name": "Hans Vanaken"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Romelu Lukaku"
+    }
   ]
 }
