@@ -1571,5 +1571,32 @@
       "team": "away",
       "name": "Romelu Lukaku"
     }
+  ],
+  "Argentina|Egypt": [
+    {
+      "min": 15,
+      "team": "away",
+      "name": "Yasser Ibrahim"
+    },
+    {
+      "min": 67,
+      "team": "away",
+      "name": "Mostafa Zico"
+    },
+    {
+      "min": 79,
+      "team": "home",
+      "name": "Cristian Romero"
+    },
+    {
+      "min": 83,
+      "team": "home",
+      "name": "Lionel Messi"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Enzo Fern\u00e1ndez"
+    }
   ]
 }
