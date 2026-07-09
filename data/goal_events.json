@@ -1599,5 +1599,17 @@
       "name": "Enzo Fern\u00e1ndez"
     }
   ],
-  "Switzerland|Colombia": []
+  "Switzerland|Colombia": [],
+  "France|Morocco": [
+    {
+      "min": 60,
+      "team": "home",
+      "name": "Kylian Mbapp\u00e9"
+    },
+    {
+      "min": 66,
+      "team": "home",
+      "name": "Ousmane Demb\u00e9l\u00e9"
+    }
+  ]
 }
