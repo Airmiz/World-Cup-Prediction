@@ -1611,5 +1611,22 @@
       "team": "home",
       "name": "Ousmane Demb\u00e9l\u00e9"
     }
+  ],
+  "Spain|Belgium": [
+    {
+      "min": 30,
+      "team": "home",
+      "name": "Fabi\u00e1n Ruiz"
+    },
+    {
+      "min": 41,
+      "team": "away",
+      "name": "Charles De Ketelaere"
+    },
+    {
+      "min": 88,
+      "team": "home",
+      "name": "Mikel Merino"
+    }
   ]
 }
