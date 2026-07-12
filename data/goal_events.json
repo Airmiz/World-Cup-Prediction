@@ -1645,5 +1645,27 @@
       "team": "away",
       "name": "Jude Bellingham"
     }
+  ],
+  "Argentina|Switzerland": [
+    {
+      "min": 10,
+      "team": "home",
+      "name": "Alexis Mac Allister"
+    },
+    {
+      "min": 67,
+      "team": "away",
+      "name": "Dan Ndoye"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Juli\u00e1n \u00c1lvarez"
+    },
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Lautaro Mart\u00ednez"
+    }
   ]
 }
