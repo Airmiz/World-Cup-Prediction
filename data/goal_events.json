@@ -1628,5 +1628,22 @@
       "team": "home",
       "name": "Mikel Merino"
     }
+  ],
+  "Norway|England": [
+    {
+      "min": 36,
+      "team": "home",
+      "name": "Andreas Schjelderup"
+    },
+    {
+      "min": 45,
+      "team": "away",
+      "name": "Jude Bellingham"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Jude Bellingham"
+    }
   ]
 }
