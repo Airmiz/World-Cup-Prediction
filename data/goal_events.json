@@ -1667,5 +1667,35 @@
       "team": "home",
       "name": "Lautaro Mart\u00ednez"
     }
+  ],
+  "France|Spain": [
+    {
+      "min": 22,
+      "team": "away",
+      "name": "Mikel Oyarzabal",
+      "pen": true
+    },
+    {
+      "min": 58,
+      "team": "away",
+      "name": "Pedro Porro"
+    }
+  ],
+  "England|Argentina": [
+    {
+      "min": 55,
+      "team": "home",
+      "name": "Anthony Gordon"
+    },
+    {
+      "min": 86,
+      "team": "away",
+      "name": "Enzo Fern\u00e1ndez"
+    },
+    {
+      "min": 90,
+      "team": "away",
+      "name": "Lautaro Mart\u00ednez"
+    }
   ]
 }
