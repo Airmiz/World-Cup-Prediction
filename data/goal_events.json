@@ -1750,5 +1750,12 @@
       "team": "away",
       "name": "Jude Bellingham"
     }
+  ],
+  "Spain|Argentina": [
+    {
+      "min": 90,
+      "team": "home",
+      "name": "Ferran Torres"
+    }
   ]
 }
