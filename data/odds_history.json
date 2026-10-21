@@ -2707,5 +2707,26 @@
    "Mexico": 0.0088,
    "Norway": 0.0079
   }
+ },
+ {
+  "date": "2026-10-21",
+  "champ": {
+   "Spain": 0.284,
+   "Argentina": 0.2292,
+   "England": 0.1068,
+   "France": 0.0931,
+   "Colombia": 0.044,
+   "Portugal": 0.0413,
+   "Brazil": 0.0401,
+   "Morocco": 0.023,
+   "Netherlands": 0.0229,
+   "Belgium": 0.0219,
+   "Switzerland": 0.0191,
+   "Germany": 0.0126,
+   "United States": 0.0119,
+   "Japan": 0.0102,
+   "Mexico": 0.0088,
+   "Norway": 0.0079
+  }
  }
 ]
